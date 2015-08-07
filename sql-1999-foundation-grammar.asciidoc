@@ -1,5 +1,0 @@
-:toc: right
-
-= Document
-
-
