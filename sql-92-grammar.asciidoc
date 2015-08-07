@@ -1,0 +1,6660 @@
+:toc: right
+
+= Document
+
+== 5  Lexical elements
+
+
+
+=== 5.1  <SQL terminal character>
+
+.Function
+
+
+Define the terminal symbols of the SQL language and the elements of
+strings.
+
+Format
+
+[[SQL-terminal-character]]
+[subs="specialcharacters,macros"]
+----
+<SQL terminal character> ::=
+       <<SQL-language-character, <SQL language character> >>
+     | <<SQL-embedded-language-character, <SQL embedded language character> >>
+----
+
+[[SQL-embedded-language-character]]
+[subs="specialcharacters,macros"]
+----
+<SQL embedded language character> ::=
+       <<left-bracket, <left bracket> >>
+     | <<right-bracket, <right bracket> >>
+----
+
+[[SQL-language-character]]
+[subs="specialcharacters,macros"]
+----
+<SQL language character> ::=
+       <<simple-Latin-letter, <simple Latin letter> >>
+     | <<digit, <digit> >>
+     | <<SQL-special-character, <SQL special character> >>
+----
+
+[[simple-Latin-letter]]
+[subs="specialcharacters,macros"]
+----
+<simple Latin letter> ::=
+       <<simple-Latin-upper-case-letter, <simple Latin upper case letter> >>
+     | <<simple-Latin-lower-case-letter, <simple Latin lower case letter> >>
+----
+
+[[simple-Latin-upper-case-letter]]
+[subs="specialcharacters,macros"]
+----
+<simple Latin upper case letter> ::=
+           A | B | C | D | E | F | G | H | I | J | K | L | M | N | O
+     | P | Q | R | S | T | U | V | W | X | Y | Z
+----
+
+[[simple-Latin-lower-case-letter]]
+[subs="specialcharacters,macros"]
+----
+<simple Latin lower case letter> ::=
+           a | b | c | d | e | f | g | h | i | j | k | l | m | n | o
+     | p | q | r | s | t | u | v | w | x | y | z
+----
+
+[[digit]]
+[subs="specialcharacters,macros"]
+----
+<digit> ::=
+     0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+----
+
+[[SQL-special-character]]
+[subs="specialcharacters,macros"]
+----
+<SQL special character> ::=
+       <<space, <space> >>
+     | <<double-quote, <double quote> >>
+     | <<percent, <percent> >>
+     | <<ampersand, <ampersand> >>
+     | <<quote, <quote> >>
+     | <<left-paren, <left paren> >>
+     | <<right-paren, <right paren> >>
+     | <<asterisk, <asterisk> >>
+     | <<plus-sign, <plus sign> >>
+     | <<comma, <comma> >>
+     | <<minus-sign, <minus sign> >>
+     | <<period, <period> >>
+     | <<solidus, <solidus> >>
+     | <<colon, <colon> >>
+     | <<semicolon, <semicolon> >>
+     | <<less-than-operator, <less than operator> >>
+     | <<equals-operator, <equals operator> >>
+     | <<greater-than-operator, <greater than operator> >>
+     | <<question-mark, <question mark> >>
+     | <<underscore, <underscore> >>
+     | <<vertical-bar, <vertical bar> >>
+----
+
+[[space]]
+[subs="specialcharacters,macros"]
+----
+<space> ::= !! space character in character set in use
+----
+
+[[double-quote]]
+[subs="specialcharacters,macros"]
+----
+<double quote> ::= "
+----
+
+[[percent]]
+[subs="specialcharacters,macros"]
+----
+<percent> ::= %
+----
+
+[[ampersand]]
+[subs="specialcharacters,macros"]
+----
+<ampersand> ::= &
+----
+
+[[quote]]
+[subs="specialcharacters,macros"]
+----
+<quote> ::= '
+----
+
+[[left-paren]]
+[subs="specialcharacters,macros"]
+----
+<left paren> ::= (
+----
+
+[[right-paren]]
+[subs="specialcharacters,macros"]
+----
+<right paren> ::= )
+----
+
+[[asterisk]]
+[subs="specialcharacters,macros"]
+----
+<asterisk> ::= *
+----
+
+[[plus-sign]]
+[subs="specialcharacters,macros"]
+----
+<plus sign> ::= +
+----
+
+[[comma]]
+[subs="specialcharacters,macros"]
+----
+<comma> ::= ,
+----
+
+[[minus-sign]]
+[subs="specialcharacters,macros"]
+----
+<minus sign> ::= -
+----
+
+[[period]]
+[subs="specialcharacters,macros"]
+----
+<period> ::= .
+----
+
+[[solidus]]
+[subs="specialcharacters,macros"]
+----
+<solidus> ::= /
+----
+
+[[colon]]
+[subs="specialcharacters,macros"]
+----
+<colon> ::= :
+----
+
+[[semicolon]]
+[subs="specialcharacters,macros"]
+----
+<semicolon> ::= ;
+----
+
+[[less-than-operator]]
+[subs="specialcharacters,macros"]
+----
+<less than operator> ::= <
+----
+
+[[equals-operator]]
+[subs="specialcharacters,macros"]
+----
+<equals operator> ::= =
+----
+
+[[greater-than-operator]]
+[subs="specialcharacters,macros"]
+----
+<greater than operator> ::= >
+----
+
+[[question-mark]]
+[subs="specialcharacters,macros"]
+----
+<question mark> ::= ?
+----
+
+[[left-bracket]]
+[subs="specialcharacters,macros"]
+----
+<left bracket> ::= [
+----
+
+[[right-bracket]]
+[subs="specialcharacters,macros"]
+----
+<right bracket> ::= ]
+----
+
+[[underscore]]
+[subs="specialcharacters,macros"]
+----
+<underscore> ::= _
+----
+
+[[vertical-bar]]
+[subs="specialcharacters,macros"]
+----
+<vertical bar> ::= |
+----
+
+=== 5.2  <token> and <separator>
+
+.Function
+
+
+Specify lexical units (tokens and separators) that participate in
+SQL language.
+
+Format
+
+[[token]]
+[subs="specialcharacters,macros"]
+----
+<token> ::=
+       <<nondelimiter-token, <nondelimiter token> >>
+     | <<delimiter-token, <delimiter token> >>
+----
+
+[[nondelimiter-token]]
+[subs="specialcharacters,macros"]
+----
+<nondelimiter token> ::=
+       <<regular-identifier, <regular identifier> >>
+     | <<key-word, <key word> >>
+     | <<unsigned-numeric-literal, <unsigned numeric literal> >>
+     | <<national-character-string-literal, <national character string literal> >>
+     | <<bit-string-literal, <bit string literal> >>
+     | <<hex-string-literal, <hex string literal> >>
+----
+
+[[regular-identifier]]
+[subs="specialcharacters,macros"]
+----
+<regular identifier> ::= <identifier body>
+----
+
+[[identifier-body]]
+[subs="specialcharacters,macros"]
+----
+<identifier body> ::=
+     <<identifier-start, <identifier start> >> [ { <<underscore, <underscore> >> | <<identifier-part, <identifier part> >> }... ]
+----
+
+
+[[identifier-start]]
+[subs="specialcharacters,macros"]
+----
+<identifier start> ::= !! See the Syntax Rules
+----
+
+[[identifier-part]]
+[subs="specialcharacters,macros"]
+----
+<identifier part> ::=
+       <<identifier-start, <identifier start> >>
+     | <<digit, <digit> >>
+----
+
+[[delimited-identifier]]
+[subs="specialcharacters,macros"]
+----
+<delimited identifier> ::=
+     <<double-quote, <double quote> >> <<delimited-identifier-body, <delimited identifier body> >> <<double-quote, <double quote> >>
+----
+
+[[delimited-identifier-body]]
+[subs="specialcharacters,macros"]
+----
+<delimited identifier body> ::= <delimited identifier part>...
+----
+
+[[delimited-identifier-part]]
+[subs="specialcharacters,macros"]
+----
+<delimited identifier part> ::=
+       <<nondoublequote-character, <nondoublequote character> >>
+     | <<doublequote-symbol, <doublequote symbol> >>
+----
+
+[[nondoublequote-character]]
+[subs="specialcharacters,macros"]
+----
+<nondoublequote character> ::= !! See the Syntax Rules
+----
+
+[[doublequote-symbol]]
+[subs="specialcharacters,macros"]
+----
+<doublequote symbol> ::= <double quote><double quote>
+----
+
+[[delimiter-token]]
+[subs="specialcharacters,macros"]
+----
+<delimiter token> ::=
+       <<character-string-literal, <character string literal> >>
+     | <<date-string, <date string> >>
+     | <<time-string, <time string> >>
+     | <<timestamp-string, <timestamp string> >>
+     | <<interval-string, <interval string> >>
+     | <<delimited-identifier, <delimited identifier> >>
+     | <<SQL-special-character, <SQL special character> >>
+     | <<not-equals-operator, <not equals operator> >>
+     | <<greater-than-or-equals-operator, <greater than or equals operator> >>
+     | <<less-than-or-equals-operator, <less than or equals operator> >>
+     | <<concatenation-operator, <concatenation operator> >>
+     | <<double-period, <double period> >>
+     | <<left-bracket, <left bracket> >>
+     | <<right-bracket, <right bracket> >>
+----
+
+[[not-equals-operator]]
+[subs="specialcharacters,macros"]
+----
+<not equals operator> ::= <>
+----
+
+[[greater-than-or-equals-operator]]
+[subs="specialcharacters,macros"]
+----
+<greater than or equals operator> ::= >=
+----
+
+[[less-than-or-equals-operator]]
+[subs="specialcharacters,macros"]
+----
+<less than or equals operator> ::= <=
+----
+
+[[concatenation-operator]]
+[subs="specialcharacters,macros"]
+----
+<concatenation operator> ::= ||
+----
+
+[[double-period]]
+[subs="specialcharacters,macros"]
+----
+<double period> ::= ..
+----
+
+[[separator]]
+[subs="specialcharacters,macros"]
+----
+<separator> ::= { <comment> | <space> | <newline> }...
+----
+
+[[comment]]
+[subs="specialcharacters,macros"]
+----
+<comment> ::=
+     <<comment-introducer, <comment introducer> >> [ <<comment-character, <comment character> >>... ] <<newline, <newline> >>
+----
+
+[[comment-character]]
+[subs="specialcharacters,macros"]
+----
+<comment character> ::=
+       <<nonquote-character, <nonquote character> >>
+     | <<quote, <quote> >>
+----
+
+[[comment-introducer]]
+[subs="specialcharacters,macros"]
+----
+<comment introducer> ::= <minus sign><minus sign>[<minus sign>...]
+----
+
+[[newline]]
+[subs="specialcharacters,macros"]
+----
+<newline> ::= !! implementation-defined end-of-line indicator
+----
+
+[[key-word]]
+[subs="specialcharacters,macros"]
+----
+<key word> ::=
+       <<reserved-word, <reserved word> >>
+     | <<non-reserved-word, <non-reserved word> >>
+----
+
+[[non-reserved-word]]
+[subs="specialcharacters,macros"]
+----
+<non-reserved word> ::=
+       ADA
+     | C | CATALOG_NAME | CHARACTER_SET_CATALOG | CHARACTER_SET_
+     NAME
+     | CHARACTER_SET_SCHEMA | CLASS_ORIGIN | COBOL | COLLATION_
+     CATALOG
+     | COLLATION_NAME | COLLATION_SCHEMA | COLUMN_NAME | COMMAND_
+     FUNCTION | COMMITTED
+     | CONDITION_NUMBER | CONNECTION_NAME | CONSTRAINT_CATALOG | CONSTRAINT_
+     NAME
+     | CONSTRAINT_SCHEMA | CURSOR_NAME
+     | DATA | DATETIME_INTERVAL_CODE | DATETIME_INTERVAL_
+     PRECISION | DYNAMIC_FUNCTION
+     | FORTRAN
+     | LENGTH
+     | MESSAGE_LENGTH | MESSAGE_OCTET_LENGTH | MESSAGE_TEXT | MORE | MUMPS
+
+     | NAME | NULLABLE | NUMBER
+     | PASCAL | PLI
+     | REPEATABLE | RETURNED_LENGTH | RETURNED_OCTET_LENGTH | RETURNED_
+     SQLSTATE
+     | ROW_COUNT
+     | SCALE | SCHEMA_NAME | SERIALIZABLE | SERVER_NAME | SUBCLASS_
+     ORIGIN
+     | TABLE_NAME | TYPE
+     | UNCOMMITTED | UNNAMED
+----
+
+[[reserved-word]]
+[subs="specialcharacters,macros"]
+----
+<reserved word> ::=
+       ABSOLUTE | ACTION | ADD | ALL | ALLOCATE | ALTER | AND
+     | ANY | ARE | AS | ASC
+     | ASSERTION | AT | AUTHORIZATION | AVG
+     | BEGIN | BETWEEN | BIT | BIT_LENGTH | BOTH | BY
+     | CASCADE | CASCADED | CASE | CAST | CATALOG | CHAR | CHARACTER | CHAR_
+     LENGTH
+     | CHARACTER_LENGTH | CHECK | CLOSE | COALESCE | COLLATE | COLLATION
+
+     | COLUMN | COMMIT | CONNECT | CONNECTION | CONSTRAINT
+     | CONSTRAINTS | CONTINUE
+     | CONVERT | CORRESPONDING | COUNT | CREATE | CROSS | CURRENT
+     | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | CURRENT_
+     USER | CURSOR
+     | DATE | DAY | DEALLOCATE | DEC | DECIMAL | DECLARE | DEFAULT | DEFERRABLE
+
+     | DEFERRED | DELETE | DESC | DESCRIBE | DESCRIPTOR | DIAGNOSTICS
+
+     | DISCONNECT | DISTINCT | DOMAIN | DOUBLE | DROP
+     | ELSE | END | END-EXEC | ESCAPE | EXCEPT | EXCEPTION
+     | EXEC | EXECUTE | EXISTS
+     | EXTERNAL | EXTRACT
+     | FALSE | FETCH | FIRST | FLOAT | FOR | FOREIGN | FOUND | FROM | FULL
+
+     | GET | GLOBAL | GO | GOTO | GRANT | GROUP
+     | HAVING | HOUR
+     | IDENTITY | IMMEDIATE | IN | INDICATOR | INITIALLY | INNER | INPUT
+
+     | INSENSITIVE | INSERT | INT | INTEGER | INTERSECT | INTERVAL | INTO | IS
+
+     | ISOLATION
+     | JOIN
+     | KEY
+     | LANGUAGE | LAST | LEADING | LEFT | LEVEL | LIKE | LOCAL | LOWER
+
+     | MATCH | MAX | MIN | MINUTE | MODULE | MONTH
+     | NAMES | NATIONAL | NATURAL | NCHAR | NEXT | NO | NOT | NULL
+
+     | NULLIF | NUMERIC
+     | OCTET_LENGTH | OF | ON | ONLY | OPEN | OPTION | OR
+     | ORDER | OUTER
+     | OUTPUT | OVERLAPS
+
+     | PAD | PARTIAL | POSITION | PRECISION | PREPARE | PRESERVE | PRIMARY
+
+     | PRIOR | PRIVILEGES | PROCEDURE | PUBLIC
+     | READ | REAL | REFERENCES | RELATIVE | RESTRICT | REVOKE | RIGHT
+
+     | ROLLBACK | ROWS
+     | SCHEMA | SCROLL | SECOND | SECTION | SELECT | SESSION | SESSION_
+     USER | SET
+     | SIZE | SMALLINT | SOME | SPACE | SQL | SQLCODE | SQLERROR | SQLSTATE
+
+     | SUBSTRING | SUM | SYSTEM_USER
+     | TABLE | TEMPORARY | THEN | TIME | TIMESTAMP | TIMEZONE_
+     HOUR | TIMEZONE_MINUTE
+     | TO | TRAILING | TRANSACTION | TRANSLATE | TRANSLATION | TRIM | TRUE
+
+     | UNION | UNIQUE | UNKNOWN | UPDATE | UPPER | USAGE | USER | USING
+
+     | VALUE | VALUES | VARCHAR | VARYING | VIEW
+     | WHEN | WHENEVER | WHERE | WITH | WORK | WRITE
+     | YEAR
+     | ZONE
+----
+
+=== 5.3  <literal>
+
+.Function
+
+
+Specify a non-null value.
+
+Format
+
+[[literal]]
+[subs="specialcharacters,macros"]
+----
+<literal> ::=
+       <<signed-numeric-literal, <signed numeric literal> >>
+     | <<general-literal, <general literal> >>
+----
+
+[[unsigned-literal]]
+[subs="specialcharacters,macros"]
+----
+<unsigned literal> ::=
+       <<unsigned-numeric-literal, <unsigned numeric literal> >>
+     | <<general-literal, <general literal> >>
+----
+
+[[general-literal]]
+[subs="specialcharacters,macros"]
+----
+<general literal> ::=
+       <<character-string-literal, <character string literal> >>
+     | <<national-character-string-literal, <national character string literal> >>
+     | <<bit-string-literal, <bit string literal> >>
+     | <<hex-string-literal, <hex string literal> >>
+     | <<datetime-literal, <datetime literal> >>
+     | <<interval-literal, <interval literal> >>
+----
+
+[[character-string-literal]]
+[subs="specialcharacters,macros"]
+----
+<character string literal> ::=
+     [ <<introducer, <introducer> >><<character-set-specification, <character set specification> >> ]
+     <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >>
+       [ { <<separator, <separator> >>... <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >> }... ]
+----
+
+
+[[introducer]]
+[subs="specialcharacters,macros"]
+----
+<introducer> ::= <underscore>
+----
+
+[[character-representation]]
+[subs="specialcharacters,macros"]
+----
+<character representation> ::=
+       <<nonquote-character, <nonquote character> >>
+     | <<quote-symbol, <quote symbol> >>
+----
+
+[[nonquote-character]]
+[subs="specialcharacters,macros"]
+----
+<nonquote character> ::= !! See the Syntax Rules.
+----
+
+[[quote-symbol]]
+[subs="specialcharacters,macros"]
+----
+<quote symbol> ::= <quote><quote>
+----
+
+[[national-character-string-literal]]
+[subs="specialcharacters,macros"]
+----
+<national character string literal> ::=
+     N <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >>
+       [ { <<separator, <separator> >>... <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >> }... ]
+----
+
+
+[[bit-string-literal]]
+[subs="specialcharacters,macros"]
+----
+<bit string literal> ::=
+     B <<quote, <quote> >> [ <<bit, <bit> >>... ] <<quote, <quote> >>
+       [ { <<separator, <separator> >>... <<quote, <quote> >> [ <<bit, <bit> >>... ] <<quote, <quote> >> }... ]
+----
+
+[[hex-string-literal]]
+[subs="specialcharacters,macros"]
+----
+<hex string literal> ::=
+     X <<quote, <quote> >> [ <<hexit, <hexit> >>... ] <<quote, <quote> >>
+       [ { <<separator, <separator> >>... <<quote, <quote> >> [ <<hexit, <hexit> >>... ] <<quote, <quote> >> }... ]
+----
+
+[[bit]]
+[subs="specialcharacters,macros"]
+----
+<bit> ::= 0 | 1
+----
+
+[[hexit]]
+[subs="specialcharacters,macros"]
+----
+<hexit> ::= <digit> | A | B | C | D | E | F | a | b | c | d | e | f
+----
+
+
+[[signed-numeric-literal]]
+[subs="specialcharacters,macros"]
+----
+<signed numeric literal> ::=
+     [ <<sign, <sign> >> ] <<unsigned-numeric-literal, <unsigned numeric literal> >>
+----
+
+[[unsigned-numeric-literal]]
+[subs="specialcharacters,macros"]
+----
+<unsigned numeric literal> ::=
+       <<exact-numeric-literal, <exact numeric literal> >>
+     | <<approximate-numeric-literal, <approximate numeric literal> >>
+----
+
+[[exact-numeric-literal]]
+[subs="specialcharacters,macros"]
+----
+<exact numeric literal> ::=
+       <<unsigned-integer, <unsigned integer> >> [ <<period, <period> >> [ <<unsigned-integer, <unsigned integer> >> ] ]
+     | <<period, <period> >> <<unsigned-integer, <unsigned integer> >>
+----
+
+[[sign]]
+[subs="specialcharacters,macros"]
+----
+<sign> ::= <plus sign> | <minus sign>
+----
+
+[[approximate-numeric-literal]]
+[subs="specialcharacters,macros"]
+----
+<approximate numeric literal> ::= <mantissa> E <exponent>
+----
+
+[[mantissa]]
+[subs="specialcharacters,macros"]
+----
+<mantissa> ::= <exact numeric literal>
+----
+
+[[exponent]]
+[subs="specialcharacters,macros"]
+----
+<exponent> ::= <signed integer>
+----
+
+[[signed-integer]]
+[subs="specialcharacters,macros"]
+----
+<signed integer> ::= [ <sign> ] <unsigned integer>
+----
+
+[[unsigned-integer]]
+[subs="specialcharacters,macros"]
+----
+<unsigned integer> ::= <digit>...
+----
+
+[[datetime-literal]]
+[subs="specialcharacters,macros"]
+----
+<datetime literal> ::=
+       <<date-literal, <date literal> >>
+     | <<time-literal, <time literal> >>
+     | <<timestamp-literal, <timestamp literal> >>
+----
+
+[[date-literal]]
+[subs="specialcharacters,macros"]
+----
+<date literal> ::=
+     DATE <<date-string, <date string> >>
+----
+
+[[time-literal]]
+[subs="specialcharacters,macros"]
+----
+<time literal> ::=
+     TIME <<time-string, <time string> >>
+----
+
+[[timestamp-literal]]
+[subs="specialcharacters,macros"]
+----
+<timestamp literal> ::=
+     TIMESTAMP <<timestamp-string, <timestamp string> >>
+----
+
+[[date-string]]
+[subs="specialcharacters,macros"]
+----
+<date string> ::=
+     <<quote, <quote> >> <<date-value, <date value> >> <<quote, <quote> >>
+----
+
+[[time-string]]
+[subs="specialcharacters,macros"]
+----
+<time string> ::=
+     <<quote, <quote> >> <<time-value, <time value> >> [ <<time-zone-interval, <time zone interval> >> ] <<quote, <quote> >>
+----
+
+[[timestamp-string]]
+[subs="specialcharacters,macros"]
+----
+<timestamp string> ::=
+     <<quote, <quote> >> <<date-value, <date value> >> <<space, <space> >> <<time-value, <time value> >> [ <<time-zone-interval, <time zone interval> >> ] <<quote, <quote> >>
+----
+
+
+[[time-zone-interval]]
+[subs="specialcharacters,macros"]
+----
+<time zone interval> ::=
+     <<sign, <sign> >> <<hours-value, <hours value> >> <<colon, <colon> >> <<minutes-value, <minutes value> >>
+----
+
+[[date-value]]
+[subs="specialcharacters,macros"]
+----
+<date value> ::=
+     <<years-value, <years value> >> <<minus-sign, <minus sign> >> <<months-value, <months value> >> <<minus-sign, <minus sign> >> <<days-value, <days value> >>
+----
+
+
+[[time-value]]
+[subs="specialcharacters,macros"]
+----
+<time value> ::=
+     <<hours-value, <hours value> >> <<colon, <colon> >> <<minutes-value, <minutes value> >> <<colon, <colon> >> <<seconds-value, <seconds value> >>
+----
+
+
+[[interval-literal]]
+[subs="specialcharacters,macros"]
+----
+<interval literal> ::=
+     INTERVAL [ <<sign, <sign> >> ] <<interval-string, <interval string> >> <<interval-qualifier, <interval qualifier> >>
+----
+
+[[interval-string]]
+[subs="specialcharacters,macros"]
+----
+<interval string> ::=
+     <<quote, <quote> >> { <<year-month-literal, <year-month literal> >> | <<day-time-literal, <day-time literal> >> } <<quote, <quote> >>
+----
+
+
+[[year-month-literal]]
+[subs="specialcharacters,macros"]
+----
+<year-month literal> ::=
+       <<years-value, <years value> >>
+     | [ <<years-value, <years value> >> <<minus-sign, <minus sign> >> ] <<months-value, <months value> >>
+----
+
+[[day-time-literal]]
+[subs="specialcharacters,macros"]
+----
+<day-time literal> ::=
+       <<day-time-interval, <day-time interval> >>
+     | <<time-interval, <time interval> >>
+----
+
+[[day-time-interval]]
+[subs="specialcharacters,macros"]
+----
+<day-time interval> ::=
+     <<days-value, <days value> >>
+       [ <<space, <space> >> <<hours-value, <hours value> >> [ <<colon, <colon> >> <<minutes-value, <minutes value> >> [ <<colon, <colon> >> <<seconds-value, <seconds value> >> ] ] ]
+----
+
+
+[[time-interval]]
+[subs="specialcharacters,macros"]
+----
+<time interval> ::=
+       <<hours-value, <hours value> >> [ <<colon, <colon> >> <<minutes-value, <minutes value> >> [ <<colon, <colon> >> <<seconds-value, <seconds value> >> ] ]
+
+     | <<minutes-value, <minutes value> >> [ <<colon, <colon> >> <<seconds-value, <seconds value> >> ]
+     | <<seconds-value, <seconds value> >>
+----
+
+[[years-value]]
+[subs="specialcharacters,macros"]
+----
+<years value> ::= <datetime value>
+----
+
+[[months-value]]
+[subs="specialcharacters,macros"]
+----
+<months value> ::= <datetime value>
+----
+
+[[days-value]]
+[subs="specialcharacters,macros"]
+----
+<days value> ::= <datetime value>
+----
+
+[[hours-value]]
+[subs="specialcharacters,macros"]
+----
+<hours value> ::= <datetime value>
+----
+
+[[minutes-value]]
+[subs="specialcharacters,macros"]
+----
+<minutes value> ::= <datetime value>
+----
+
+[[seconds-value]]
+[subs="specialcharacters,macros"]
+----
+<seconds value> ::=
+       <<seconds-integer-value, <seconds integer value> >> [ <<period, <period> >> [ <<seconds-fraction, <seconds fraction> >> ] ]
+----
+
+
+[[seconds-integer-value]]
+[subs="specialcharacters,macros"]
+----
+<seconds integer value> ::= <unsigned integer>
+----
+
+[[seconds-fraction]]
+[subs="specialcharacters,macros"]
+----
+<seconds fraction> ::= <unsigned integer>
+----
+
+[[datetime-value]]
+[subs="specialcharacters,macros"]
+----
+<datetime value> ::= <unsigned integer>
+----
+
+=== 5.4  Names and identifiers
+
+.Function
+
+
+Specify names.
+
+Format
+
+[[identifier]]
+[subs="specialcharacters,macros"]
+----
+<identifier> ::=
+     [ <<introducer, <introducer> >><<character-set-specification, <character set specification> >> ] <<actual-identifier, <actual identifier> >>
+----
+
+
+[[actual-identifier]]
+[subs="specialcharacters,macros"]
+----
+<actual identifier> ::=
+       <<regular-identifier, <regular identifier> >>
+     | <<delimited-identifier, <delimited identifier> >>
+----
+
+[[SQL-language-identifier]]
+[subs="specialcharacters,macros"]
+----
+<SQL language identifier> ::=
+     <<SQL-language-identifier-start, <SQL language identifier start> >>
+       [ { <<underscore, <underscore> >> | <<SQL-language-identifier-part, <SQL language identifier part> >> }... ]
+----
+
+[[SQL-language-identifier-start]]
+[subs="specialcharacters,macros"]
+----
+<SQL language identifier start> ::= <simple Latin letter>
+----
+
+[[SQL-language-identifier-part]]
+[subs="specialcharacters,macros"]
+----
+<SQL language identifier part> ::=
+       <<simple-Latin-letter, <simple Latin letter> >>
+     | <<digit, <digit> >>
+----
+
+[[authorization-identifier]]
+[subs="specialcharacters,macros"]
+----
+<authorization identifier> ::= <identifier>
+----
+
+[[table-name]]
+[subs="specialcharacters,macros"]
+----
+<table name> ::=
+       <<qualified-name, <qualified name> >>
+     | <<qualified-local-table-name, <qualified local table name> >>
+----
+
+[[qualified-local-table-name]]
+[subs="specialcharacters,macros"]
+----
+<qualified local table name> ::=
+     MODULE <<period, <period> >> <<local-table-name, <local table name> >>
+----
+
+[[local-table-name]]
+[subs="specialcharacters,macros"]
+----
+<local table name> ::= <qualified identifier>
+----
+
+[[domain-name]]
+[subs="specialcharacters,macros"]
+----
+<domain name> ::= <qualified name>
+----
+
+[[schema-name]]
+[subs="specialcharacters,macros"]
+----
+<schema name> ::=
+     [ <<catalog-name, <catalog name> >> <<period, <period> >> ] <<unqualified-schema-name, <unqualified schema name> >>
+----
+
+[[unqualified-schema-name]]
+[subs="specialcharacters,macros"]
+----
+<unqualified schema name> ::= <identifier>
+----
+
+[[catalog-name]]
+[subs="specialcharacters,macros"]
+----
+<catalog name> ::= <identifier>
+----
+
+[[qualified-name]]
+[subs="specialcharacters,macros"]
+----
+<qualified name> ::=
+     [ <<schema-name, <schema name> >> <<period, <period> >> ] <<qualified-identifier, <qualified identifier> >>
+----
+
+[[qualified-identifier]]
+[subs="specialcharacters,macros"]
+----
+<qualified identifier> ::= <identifier>
+----
+
+[[column-name]]
+[subs="specialcharacters,macros"]
+----
+<column name> ::= <identifier>
+----
+
+[[correlation-name]]
+[subs="specialcharacters,macros"]
+----
+<correlation name> ::= <identifier>
+----
+
+[[module-name]]
+[subs="specialcharacters,macros"]
+----
+<module name> ::= <identifier>
+----
+
+[[cursor-name]]
+[subs="specialcharacters,macros"]
+----
+<cursor name> ::= <identifier>
+----
+
+[[procedure-name]]
+[subs="specialcharacters,macros"]
+----
+<procedure name> ::= <identifier>
+----
+
+[[SQL-statement-name]]
+[subs="specialcharacters,macros"]
+----
+<SQL statement name> ::=
+       <<statement-name, <statement name> >>
+     | <<extended-statement-name, <extended statement name> >>
+----
+
+[[statement-name]]
+[subs="specialcharacters,macros"]
+----
+<statement name> ::= <identifier>
+----
+
+[[extended-statement-name]]
+[subs="specialcharacters,macros"]
+----
+<extended statement name> ::=
+     [ <<scope-option, <scope option> >> ] <<simple-value-specification, <simple value specification> >>
+----
+
+[[dynamic-cursor-name]]
+[subs="specialcharacters,macros"]
+----
+<dynamic cursor name> ::=
+       <<cursor-name, <cursor name> >>
+     | <<extended-cursor-name, <extended cursor name> >>
+----
+
+[[extended-cursor-name]]
+[subs="specialcharacters,macros"]
+----
+<extended cursor name> ::=
+     [ <<scope-option, <scope option> >> ] <<simple-value-specification, <simple value specification> >>
+----
+
+[[descriptor-name]]
+[subs="specialcharacters,macros"]
+----
+<descriptor name> ::=
+     [ <<scope-option, <scope option> >> ] <<simple-value-specification, <simple value specification> >>
+----
+
+[[scope-option]]
+[subs="specialcharacters,macros"]
+----
+<scope option> ::=
+       GLOBAL
+     | LOCAL
+----
+
+[[parameter-name]]
+[subs="specialcharacters,macros"]
+----
+<parameter name> ::= <colon> <identifier>
+----
+
+[[constraint-name]]
+[subs="specialcharacters,macros"]
+----
+<constraint name> ::= <qualified name>
+----
+
+[[collation-name]]
+[subs="specialcharacters,macros"]
+----
+<collation name> ::= <qualified name>
+----
+
+[[character-set-name]]
+[subs="specialcharacters,macros"]
+----
+<character set name> ::= [ <schema name> <period> ] <SQL language identifier>
+----
+
+
+[[translation-name]]
+[subs="specialcharacters,macros"]
+----
+<translation name> ::= <qualified name>
+----
+
+[[form-of-use-conversion-name]]
+[subs="specialcharacters,macros"]
+----
+<form-of-use conversion name> ::= <qualified name>
+----
+
+[[connection-name]]
+[subs="specialcharacters,macros"]
+----
+<connection name> ::= <simple value specification>
+----
+
+[[SQL-server-name]]
+[subs="specialcharacters,macros"]
+----
+<SQL-server name> ::= <simple value specification>
+----
+
+[[user-name]]
+[subs="specialcharacters,macros"]
+----
+<user name> ::= <simple value specification>
+----
+
+
+== 6  Scalar expressions
+
+
+
+=== 6.1  <data type>
+
+.Function
+
+
+Specify a data type.
+
+Format
+
+[[data-type]]
+[subs="specialcharacters,macros"]
+----
+<data type> ::=
+       <<character-string-type, <character string type> >> [ CHARACTER SET <<character-set-specification, <character set specification> >> ]
+
+     | <<national-character-string-type, <national character string type> >>
+     | <<bit-string-type, <bit string type> >>
+     | <<numeric-type, <numeric type> >>
+     | <<datetime-type, <datetime type> >>
+     | <<interval-type, <interval type> >>
+----
+
+[[character-string-type]]
+[subs="specialcharacters,macros"]
+----
+<character string type> ::=
+       CHARACTER [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | CHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | CHARACTER VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+     | CHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+     | VARCHAR <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+----
+
+[[national-character-string-type]]
+[subs="specialcharacters,macros"]
+----
+<national character string type> ::=
+       NATIONAL CHARACTER [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | NATIONAL CHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | NCHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | NATIONAL CHARACTER VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+
+     | NATIONAL CHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+     | NCHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+----
+
+[[bit-string-type]]
+[subs="specialcharacters,macros"]
+----
+<bit string type> ::=
+       BIT [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+     | BIT VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+----
+
+[[numeric-type]]
+[subs="specialcharacters,macros"]
+----
+<numeric type> ::=
+       <<exact-numeric-type, <exact numeric type> >>
+     | <<approximate-numeric-type, <approximate numeric type> >>
+----
+
+[[exact-numeric-type]]
+[subs="specialcharacters,macros"]
+----
+<exact numeric type> ::=
+       NUMERIC [ <<left-paren, <left paren> >> <<precision, <precision> >> [ <<comma, <comma> >> <<scale, <scale> >> ] <<right-paren, <right paren> >> ]
+
+     | DECIMAL [ <<left-paren, <left paren> >> <<precision, <precision> >> [ <<comma, <comma> >> <<scale, <scale> >> ] <<right-paren, <right paren> >> ]
+
+     | DEC [ <<left-paren, <left paren> >> <<precision, <precision> >> [ <<comma, <comma> >> <<scale, <scale> >> ] <<right-paren, <right paren> >> ]
+
+     | INTEGER
+     | INT
+     | SMALLINT
+----
+
+[[approximate-numeric-type]]
+[subs="specialcharacters,macros"]
+----
+<approximate numeric type> ::=
+       FLOAT [ <<left-paren, <left paren> >> <<precision, <precision> >> <<right-paren, <right paren> >> ]
+     | REAL
+     | DOUBLE PRECISION
+----
+
+[[length]]
+[subs="specialcharacters,macros"]
+----
+<length> ::= <unsigned integer>
+----
+
+[[precision]]
+[subs="specialcharacters,macros"]
+----
+<precision> ::= <unsigned integer>
+----
+
+[[scale]]
+[subs="specialcharacters,macros"]
+----
+<scale> ::= <unsigned integer>
+----
+
+[[datetime-type]]
+[subs="specialcharacters,macros"]
+----
+<datetime type> ::=
+       DATE
+     | TIME [ <<left-paren, <left paren> >> <<time-precision, <time precision> >> <<right-paren, <right paren> >> ]
+     [ WITH TIME ZONE ]
+     | TIMESTAMP [ <<left-paren, <left paren> >> <<timestamp-precision, <timestamp precision> >> <<right-paren, <right paren> >> ]
+     [ WITH TIME ZONE ]
+----
+
+[[time-precision]]
+[subs="specialcharacters,macros"]
+----
+<time precision> ::= <time fractional seconds precision>
+----
+
+[[timestamp-precision]]
+[subs="specialcharacters,macros"]
+----
+<timestamp precision> ::= <time fractional seconds precision>
+----
+
+[[time-fractional-seconds-precision]]
+[subs="specialcharacters,macros"]
+----
+<time fractional seconds precision> ::= <unsigned integer>
+----
+
+[[interval-type]]
+[subs="specialcharacters,macros"]
+----
+<interval type> ::= INTERVAL <interval qualifier>
+----
+
+=== 6.2  <value specification> and <target specification>
+
+.Function
+
+
+Specify one or more values, parameters, or variables.
+
+Format
+
+[[value-specification]]
+[subs="specialcharacters,macros"]
+----
+<value specification> ::=
+       <<literal, <literal> >>
+     | <<general-value-specification, <general value specification> >>
+----
+
+[[unsigned-value-specification]]
+[subs="specialcharacters,macros"]
+----
+<unsigned value specification> ::=
+       <<unsigned-literal, <unsigned literal> >>
+     | <<general-value-specification, <general value specification> >>
+----
+
+[[general-value-specification]]
+[subs="specialcharacters,macros"]
+----
+<general value specification> ::=
+       <<parameter-specification, <parameter specification> >>
+     | <<dynamic-parameter-specification, <dynamic parameter specification> >>
+     | <<variable-specification, <variable specification> >>
+     | USER
+     | CURRENT_USER
+     | SESSION_USER
+     | SYSTEM_USER
+     | VALUE
+----
+
+[[simple-value-specification]]
+[subs="specialcharacters,macros"]
+----
+<simple value specification> ::=
+       <<parameter-name, <parameter name> >>
+     | <<embedded-variable-name, <embedded variable name> >>
+     | <<literal, <literal> >>
+----
+
+[[target-specification]]
+[subs="specialcharacters,macros"]
+----
+<target specification> ::=
+       <<parameter-specification, <parameter specification> >>
+     | <<variable-specification, <variable specification> >>
+----
+
+[[simple-target-specification]]
+[subs="specialcharacters,macros"]
+----
+<simple target specification> ::=
+       <<parameter-name, <parameter name> >>
+     | <<embedded-variable-name, <embedded variable name> >>
+----
+
+[[parameter-specification]]
+[subs="specialcharacters,macros"]
+----
+<parameter specification> ::=
+     <<parameter-name, <parameter name> >> [ <<indicator-parameter, <indicator parameter> >> ]
+----
+
+[[indicator-parameter]]
+[subs="specialcharacters,macros"]
+----
+<indicator parameter> ::=
+     [ INDICATOR ] <<parameter-name, <parameter name> >>
+----
+
+[[dynamic-parameter-specification]]
+[subs="specialcharacters,macros"]
+----
+<dynamic parameter specification> ::= <question mark>
+----
+
+[[variable-specification]]
+[subs="specialcharacters,macros"]
+----
+<variable specification> ::=
+     <<embedded-variable-name, <embedded variable name> >> [ <<indicator-variable, <indicator variable> >> ]
+----
+
+[[indicator-variable]]
+[subs="specialcharacters,macros"]
+----
+<indicator variable> ::=
+     [ INDICATOR ] <<embedded-variable-name, <embedded variable name> >>
+----
+
+=== 6.3  <table reference>
+
+.Function
+
+
+Reference a table.
+
+Format
+
+[[table-reference]]
+[subs="specialcharacters,macros"]
+----
+<table reference> ::=
+       <<table-name, <table name> >> [ [ AS ] <<correlation-name, <correlation name> >>
+           [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ] ]
+     | <<derived-table, <derived table> >> [ AS ] <<correlation-name, <correlation name> >>
+           [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
+     | <<joined-table, <joined table> >>
+----
+
+[[derived-table]]
+[subs="specialcharacters,macros"]
+----
+<derived table> ::= <table subquery>
+----
+
+[[derived-column-list]]
+[subs="specialcharacters,macros"]
+----
+<derived column list> ::= <column name list>
+----
+
+[[column-name-list]]
+[subs="specialcharacters,macros"]
+----
+<column name list> ::=
+     <<column-name, <column name> >> [ { <<comma, <comma> >> <<column-name, <column name> >> }... ]
+----
+
+=== 6.4  <column reference>
+
+.Function
+
+
+Reference a column.
+
+Format
+
+[[column-reference]]
+[subs="specialcharacters,macros"]
+----
+<column reference> ::= [ <qualifier> <period> ] <column name>
+----
+
+[[qualifier]]
+[subs="specialcharacters,macros"]
+----
+<qualifier> ::=
+       <<table-name, <table name> >>
+     | <<correlation-name, <correlation name> >>
+----
+
+=== 6.5  <set function specification>
+
+.Function
+
+
+Specify a value derived by the application of a function to an
+argument.
+
+Format
+
+[[set-function-specification]]
+[subs="specialcharacters,macros"]
+----
+<set function specification> ::=
+       COUNT <<left-paren, <left paren> >> <<asterisk, <asterisk> >> <<right-paren, <right paren> >>
+     | <<general-set-function, <general set function> >>
+----
+
+[[general-set-function]]
+[subs="specialcharacters,macros"]
+----
+<general set function> ::=
+       <<set-function-type, <set function type> >>
+           <<left-paren, <left paren> >> [ <<set-quantifier, <set quantifier> >> ] <<value-expression, <value expression> >> <<right-paren, <right paren> >>
+----
+
+
+[[set-function-type]]
+[subs="specialcharacters,macros"]
+----
+<set function type> ::=
+     AVG | MAX | MIN | SUM | COUNT
+----
+
+[[set-quantifier]]
+[subs="specialcharacters,macros"]
+----
+<set quantifier> ::= DISTINCT | ALL
+----
+
+=== 6.6  <numeric value function>
+
+.Function
+
+
+Specify a function yielding a value of type numeric.
+
+Format
+
+[[numeric-value-function]]
+[subs="specialcharacters,macros"]
+----
+<numeric value function> ::=
+       <<position-expression, <position expression> >>
+     | <<extract-expression, <extract expression> >>
+     | <<length-expression, <length expression> >>
+----
+
+[[position-expression]]
+[subs="specialcharacters,macros"]
+----
+<position expression> ::=
+     POSITION <<left-paren, <left paren> >> <<character-value-expression, <character value expression> >>
+         IN <<character-value-expression, <character value expression> >> <<right-paren, <right paren> >>
+----
+
+[[length-expression]]
+[subs="specialcharacters,macros"]
+----
+<length expression> ::=
+       <<char-length-expression, <char length expression> >>
+     | <<octet-length-expression, <octet length expression> >>
+     | <<bit-length-expression, <bit length expression> >>
+----
+
+[[char-length-expression]]
+[subs="specialcharacters,macros"]
+----
+<char length expression> ::=
+     { CHAR_LENGTH | CHARACTER_LENGTH }
+         <<left-paren, <left paren> >> <<string-value-expression, <string value expression> >> <<right-paren, <right paren> >>
+----
+
+[[octet-length-expression]]
+[subs="specialcharacters,macros"]
+----
+<octet length expression> ::=
+     OCTET_LENGTH <<left-paren, <left paren> >> <<string-value-expression, <string value expression> >> <<right-paren, <right paren> >>
+----
+
+
+[[bit-length-expression]]
+[subs="specialcharacters,macros"]
+----
+<bit length expression> ::=
+     BIT_LENGTH <<left-paren, <left paren> >> <<string-value-expression, <string value expression> >> <<right-paren, <right paren> >>
+----
+
+
+[[extract-expression]]
+[subs="specialcharacters,macros"]
+----
+<extract expression> ::=
+     EXTRACT <<left-paren, <left paren> >> <<extract-field, <extract field> >>
+         FROM <<extract-source, <extract source> >> <<right-paren, <right paren> >>
+----
+
+[[extract-field]]
+[subs="specialcharacters,macros"]
+----
+<extract field> ::=
+       <<datetime-field, <datetime field> >>
+     | <<time-zone-field, <time zone field> >>
+----
+
+[[time-zone-field]]
+[subs="specialcharacters,macros"]
+----
+<time zone field> ::=
+       TIMEZONE_HOUR
+     | TIMEZONE_MINUTE
+----
+
+[[extract-source]]
+[subs="specialcharacters,macros"]
+----
+<extract source> ::=
+       <<datetime-value-expression, <datetime value expression> >>
+     | <<interval-value-expression, <interval value expression> >>
+----
+
+=== 6.7  <string value function>
+
+.Function
+
+
+Specify a function yielding a value of type character string or bit
+string.
+
+Format
+
+[[string-value-function]]
+[subs="specialcharacters,macros"]
+----
+<string value function> ::=
+       <<character-value-function, <character value function> >>
+     | <<bit-value-function, <bit value function> >>
+----
+
+[[character-value-function]]
+[subs="specialcharacters,macros"]
+----
+<character value function> ::=
+       <<character-substring-function, <character substring function> >>
+     | <<fold, <fold> >>
+     | <<form-of-use-conversion, <form-of-use conversion> >>
+     | <<character-translation, <character translation> >>
+     | <<trim-function, <trim function> >>
+----
+
+[[character-substring-function]]
+[subs="specialcharacters,macros"]
+----
+<character substring function> ::=
+     SUBSTRING <<left-paren, <left paren> >> <<character-value-expression, <character value expression> >> FROM <<start-position, <start position> >>
+----
+
+                 [ FOR <string length> ] <right paren>
+
+[[fold]]
+[subs="specialcharacters,macros"]
+----
+<fold> ::= { UPPER | LOWER } <left paren> <character value expression> <right paren>
+----
+
+
+[[form-of-use-conversion]]
+[subs="specialcharacters,macros"]
+----
+<form-of-use conversion> ::=
+     CONVERT <<left-paren, <left paren> >> <<character-value-expression, <character value expression> >>
+         USING <<form-of-use-conversion-name, <form-of-use conversion name> >> <<right-paren, <right paren> >>
+----
+
+[[character-translation]]
+[subs="specialcharacters,macros"]
+----
+<character translation> ::=
+     TRANSLATE <<left-paren, <left paren> >> <<character-value-expression, <character value expression> >>
+         USING <<translation-name, <translation name> >> <<right-paren, <right paren> >>
+----
+
+[[trim-function]]
+[subs="specialcharacters,macros"]
+----
+<trim function> ::=
+     TRIM <<left-paren, <left paren> >> <<trim-operands, <trim operands> >> <<right-paren, <right paren> >>
+----
+
+[[trim-operands]]
+[subs="specialcharacters,macros"]
+----
+<trim operands> ::=
+     [ [ <<trim-specification, <trim specification> >> ] [ <<trim-character, <trim character> >> ] FROM ] <<trim-source, <trim source> >>
+----
+
+
+[[trim-source]]
+[subs="specialcharacters,macros"]
+----
+<trim source> ::= <character value expression>
+----
+
+[[trim-specification]]
+[subs="specialcharacters,macros"]
+----
+<trim specification> ::=
+       LEADING
+     | TRAILING
+     | BOTH
+----
+
+[[trim-character]]
+[subs="specialcharacters,macros"]
+----
+<trim character> ::= <character value expression>
+----
+
+[[bit-value-function]]
+[subs="specialcharacters,macros"]
+----
+<bit value function> ::=
+     <<bit-substring-function, <bit substring function> >>
+----
+
+[[bit-substring-function]]
+[subs="specialcharacters,macros"]
+----
+<bit substring function> ::=
+     SUBSTRING <<left-paren, <left paren> >> <<bit-value-expression, <bit value expression> >> FROM <<start-position, <start position> >>
+----
+
+         [ FOR <string length> ] <right paren>
+
+[[start-position]]
+[subs="specialcharacters,macros"]
+----
+<start position> ::= <numeric value expression>
+----
+
+[[string-length]]
+[subs="specialcharacters,macros"]
+----
+<string length> ::= <numeric value expression>
+----
+
+=== 6.8  <datetime value function>
+
+.Function
+
+
+Specify a function yielding a value of type datetime.
+
+Format
+
+[[datetime-value-function]]
+[subs="specialcharacters,macros"]
+----
+<datetime value function> ::=
+       <<current-date-value-function, <current date value function> >>
+     | <<current-time-value-function, <current time value function> >>
+     | <<current-timestamp-value-function, <current timestamp value function> >>
+----
+
+[[current-date-value-function]]
+[subs="specialcharacters,macros"]
+----
+<current date value function> ::= CURRENT_DATE
+----
+
+[[current-time-value-function]]
+[subs="specialcharacters,macros"]
+----
+<current time value function> ::=
+       CURRENT_TIME [ <<left-paren, <left paren> >> <<time-precision, <time precision> >> <<right-paren, <right paren> >> ]
+----
+
+
+[[current-timestamp-value-function]]
+[subs="specialcharacters,macros"]
+----
+<current timestamp value function> ::=
+       CURRENT_TIMESTAMP [ <<left-paren, <left paren> >> <<timestamp-precision, <timestamp precision> >> <<right-paren, <right paren> >> ]
+----
+
+=== 6.9  <case expression>
+
+.Function
+
+
+Specify a conditional value.
+
+Format
+
+[[case-expression]]
+[subs="specialcharacters,macros"]
+----
+<case expression> ::=
+       <<case-abbreviation, <case abbreviation> >>
+     | <<case-specification, <case specification> >>
+----
+
+[[case-abbreviation]]
+[subs="specialcharacters,macros"]
+----
+<case abbreviation> ::=
+       NULLIF <<left-paren, <left paren> >> <<value-expression, <value expression> >> <<comma, <comma> >>
+             <<value-expression, <value expression> >> <<right-paren, <right paren> >>
+     | COALESCE <<left-paren, <left paren> >> <<value-expression, <value expression> >>
+             { <<comma, <comma> >> <<value-expression, <value expression> >> }... <<right-paren, <right paren> >>
+----
+
+[[case-specification]]
+[subs="specialcharacters,macros"]
+----
+<case specification> ::=
+       <<simple-case, <simple case> >>
+     | <<searched-case, <searched case> >>
+----
+
+[[simple-case]]
+[subs="specialcharacters,macros"]
+----
+<simple case> ::=
+     CASE <<case-operand, <case operand> >>
+       <<simple-when-clause, <simple when clause> >>...
+       [ <<else-clause, <else clause> >> ]
+     END
+----
+
+[[searched-case]]
+[subs="specialcharacters,macros"]
+----
+<searched case> ::=
+     CASE
+       <<searched-when-clause, <searched when clause> >>...
+       [ <<else-clause, <else clause> >> ]
+     END
+----
+
+[[simple-when-clause]]
+[subs="specialcharacters,macros"]
+----
+<simple when clause> ::= WHEN <when operand> THEN <result>
+----
+
+[[searched-when-clause]]
+[subs="specialcharacters,macros"]
+----
+<searched when clause> ::= WHEN <search condition> THEN <result>
+----
+
+[[else-clause]]
+[subs="specialcharacters,macros"]
+----
+<else clause> ::= ELSE <result>
+----
+
+[[case-operand]]
+[subs="specialcharacters,macros"]
+----
+<case operand> ::= <value expression>
+----
+
+[[when-operand]]
+[subs="specialcharacters,macros"]
+----
+<when operand> ::= <value expression>
+----
+
+[[result]]
+[subs="specialcharacters,macros"]
+----
+<result> ::= <result expression> | NULL
+----
+
+[[result-expression]]
+[subs="specialcharacters,macros"]
+----
+<result expression> ::= <value expression>
+----
+
+=== 6.10  <cast specification>
+
+.Function
+
+
+Specify a data conversion.
+
+Format
+
+[[cast-specification]]
+[subs="specialcharacters,macros"]
+----
+<cast specification> ::=
+     CAST <<left-paren, <left paren> >> <<cast-operand, <cast operand> >> AS <<cast-target, <cast target> >> <<right-paren, <right paren> >>
+----
+
+
+[[cast-operand]]
+[subs="specialcharacters,macros"]
+----
+<cast operand> ::=
+       <<value-expression, <value expression> >>
+     | NULL
+----
+
+[[cast-target]]
+[subs="specialcharacters,macros"]
+----
+<cast target> ::=
+       <<domain-name, <domain name> >>
+     | <<data-type, <data type> >>
+----
+
+
+=== 6.11  <value expression>
+
+.Function
+
+
+Specify a value.
+
+Format
+
+[[value-expression]]
+[subs="specialcharacters,macros"]
+----
+<value expression> ::=
+       <<numeric-value-expression, <numeric value expression> >>
+     | <<string-value-expression, <string value expression> >>
+     | <<datetime-value-expression, <datetime value expression> >>
+     | <<interval-value-expression, <interval value expression> >>
+----
+
+[[value-expression-primary]]
+[subs="specialcharacters,macros"]
+----
+<value expression primary> ::=
+       <<unsigned-value-specification, <unsigned value specification> >>
+     | <<column-reference, <column reference> >>
+     | <<set-function-specification, <set function specification> >>
+     | <<scalar-subquery, <scalar subquery> >>
+     | <<case-expression, <case expression> >>
+     | <<left-paren, <left paren> >> <<value-expression, <value expression> >> <<right-paren, <right paren> >>
+     | <<cast-specification, <cast specification> >>
+----
+
+
+=== 6.12  <numeric value expression>
+
+.Function
+
+
+Specify a numeric value.
+
+Format
+
+[[numeric-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<numeric value expression> ::=
+       <<term, <term> >>
+     | <<numeric-value-expression, <numeric value expression> >> <<plus-sign, <plus sign> >> <<term, <term> >>
+     | <<numeric-value-expression, <numeric value expression> >> <<minus-sign, <minus sign> >> <<term, <term> >>
+----
+
+[[term]]
+[subs="specialcharacters,macros"]
+----
+<term> ::=
+       <<factor, <factor> >>
+     | <<term, <term> >> <<asterisk, <asterisk> >> <<factor, <factor> >>
+     | <<term, <term> >> <<solidus, <solidus> >> <<factor, <factor> >>
+----
+
+[[factor]]
+[subs="specialcharacters,macros"]
+----
+<factor> ::=
+     [ <<sign, <sign> >> ] <<numeric-primary, <numeric primary> >>
+----
+
+[[numeric-primary]]
+[subs="specialcharacters,macros"]
+----
+<numeric primary> ::=
+       <<value-expression-primary, <value expression primary> >>
+     | <<numeric-value-function, <numeric value function> >>
+----
+
+
+=== 6.13  <string value expression>
+
+.Function
+
+
+Specify a character string value or a bit string value.
+
+Format
+
+[[string-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<string value expression> ::=
+       <<character-value-expression, <character value expression> >>
+     | <<bit-value-expression, <bit value expression> >>
+----
+
+[[character-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<character value expression> ::=
+       <<concatenation, <concatenation> >>
+     | <<character-factor, <character factor> >>
+----
+
+[[concatenation]]
+[subs="specialcharacters,macros"]
+----
+<concatenation> ::=
+     <<character-value-expression, <character value expression> >> <<concatenation-operator, <concatenation operator> >>
+     <<character-factor, <character factor> >>
+----
+
+[[character-factor]]
+[subs="specialcharacters,macros"]
+----
+<character factor> ::=
+     <<character-primary, <character primary> >> [ <<collate-clause, <collate clause> >> ]
+----
+
+[[character-primary]]
+[subs="specialcharacters,macros"]
+----
+<character primary> ::=
+       <<value-expression-primary, <value expression primary> >>
+     | <<string-value-function, <string value function> >>
+----
+
+[[bit-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<bit value expression> ::=
+       <<bit-concatenation, <bit concatenation> >>
+     | <<bit-factor, <bit factor> >>
+----
+
+[[bit-concatenation]]
+[subs="specialcharacters,macros"]
+----
+<bit concatenation> ::=
+     <<bit-value-expression, <bit value expression> >> <<concatenation-operator, <concatenation operator> >> <<bit-factor, <bit factor> >>
+----
+
+[[bit-factor]]
+[subs="specialcharacters,macros"]
+----
+<bit factor> ::= <bit primary>
+----
+
+[[bit-primary]]
+[subs="specialcharacters,macros"]
+----
+<bit primary> ::=
+       <<value-expression-primary, <value expression primary> >>
+     | <<string-value-function, <string value function> >>
+----
+
+
+=== 6.14  <datetime value expression>
+
+.Function
+
+
+Specify a datetime value.
+
+Format
+
+[[datetime-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<datetime value expression> ::=
+       <<datetime-term, <datetime term> >>
+     | <<interval-value-expression, <interval value expression> >> <<plus-sign, <plus sign> >> <<datetime-term, <datetime term> >>
+     | <<datetime-value-expression, <datetime value expression> >> <<plus-sign, <plus sign> >> <<interval-term, <interval term> >>
+     | <<datetime-value-expression, <datetime value expression> >> <<minus-sign, <minus sign> >> <<interval-term, <interval term> >>
+----
+
+[[datetime-term]]
+[subs="specialcharacters,macros"]
+----
+<datetime term> ::=
+       <<datetime-factor, <datetime factor> >>
+----
+
+[[datetime-factor]]
+[subs="specialcharacters,macros"]
+----
+<datetime factor> ::=
+       <<datetime-primary, <datetime primary> >> [ <<time-zone, <time zone> >> ]
+----
+
+[[datetime-primary]]
+[subs="specialcharacters,macros"]
+----
+<datetime primary> ::=
+       <<value-expression-primary, <value expression primary> >>
+     | <<datetime-value-function, <datetime value function> >>
+----
+
+[[time-zone]]
+[subs="specialcharacters,macros"]
+----
+<time zone> ::=
+     AT <<time-zone-specifier, <time zone specifier> >>
+----
+
+[[time-zone-specifier]]
+[subs="specialcharacters,macros"]
+----
+<time zone specifier> ::=
+       LOCAL
+     | TIME ZONE <<interval-value-expression, <interval value expression> >>
+----
+
+
+=== 6.15  <interval value expression>
+
+.Function
+
+
+Specify an interval value.
+
+Format
+
+[[interval-value-expression]]
+[subs="specialcharacters,macros"]
+----
+<interval value expression> ::=
+       <<interval-term, <interval term> >>
+     | <<interval-value-expression-1, <interval value expression 1> >> <<plus-sign, <plus sign> >> <<interval-term-1, <interval term 1> >>
+
+     | <<interval-value-expression-1, <interval value expression 1> >> <<minus-sign, <minus sign> >> <<interval-term-1, <interval term 1> >>
+
+     | <<left-paren, <left paren> >> <<datetime-value-expression, <datetime value expression> >> <<minus-sign, <minus sign> >>
+           <<datetime-term, <datetime term> >> <<right-paren, <right paren> >> <<interval-qualifier, <interval qualifier> >>
+----
+
+[[interval-term]]
+[subs="specialcharacters,macros"]
+----
+<interval term> ::=
+       <<interval-factor, <interval factor> >>
+     | <<interval-term-2, <interval term 2> >> <<asterisk, <asterisk> >> <<factor, <factor> >>
+     | <<interval-term-2, <interval term 2> >> <<solidus, <solidus> >> <<factor, <factor> >>
+     | <<term, <term> >> <<asterisk, <asterisk> >> <<interval-factor, <interval factor> >>
+----
+
+[[interval-factor]]
+[subs="specialcharacters,macros"]
+----
+<interval factor> ::=
+     [ <<sign, <sign> >> ] <<interval-primary, <interval primary> >>
+----
+
+[[interval-primary]]
+[subs="specialcharacters,macros"]
+----
+<interval primary> ::=
+       <<value-expression-primary, <value expression primary> >> [ <<interval-qualifier, <interval qualifier> >> ]
+----
+
+[[interval-value-expression-1]]
+[subs="specialcharacters,macros"]
+----
+<interval value expression 1> ::= <interval value expression>
+----
+
+[[interval-term-1]]
+[subs="specialcharacters,macros"]
+----
+<interval term 1> ::= <interval term>
+----
+
+[[interval-term-2]]
+[subs="specialcharacters,macros"]
+----
+<interval term 2> ::= <interval term>
+----
+
+
+== 7  Query expressions
+
+
+
+=== 7.1  <row value constructor>
+
+.Function
+
+
+Specify an ordered set of values to be constructed into a row or
+partial row.
+
+Format
+
+[[row-value-constructor]]
+[subs="specialcharacters,macros"]
+----
+<row value constructor> ::=
+       <<row-value-constructor-element, <row value constructor element> >>
+     | <<left-paren, <left paren> >> <<row-value-constructor-list, <row value constructor list> >> <<right-paren, <right paren> >>
+     | <<row-subquery, <row subquery> >>
+----
+
+[[row-value-constructor-list]]
+[subs="specialcharacters,macros"]
+----
+<row value constructor list> ::=
+     <<row-value-constructor-element, <row value constructor element> >>
+         [ { <<comma, <comma> >> <<row-value-constructor-element, <row value constructor element> >> }... ]
+----
+
+[[row-value-constructor-element]]
+[subs="specialcharacters,macros"]
+----
+<row value constructor element> ::=
+       <<value-expression, <value expression> >>
+     | <<null-specification, <null specification> >>
+     | <<default-specification, <default specification> >>
+----
+
+[[null-specification]]
+[subs="specialcharacters,macros"]
+----
+<null specification> ::=
+     NULL
+----
+
+[[default-specification]]
+[subs="specialcharacters,macros"]
+----
+<default specification> ::=
+     DEFAULT
+----
+
+
+=== 7.2  <table value constructor>
+
+.Function
+
+
+Specify a set of <row value constructor>s to be constructed into a
+table.
+
+Format
+
+[[table-value-constructor]]
+[subs="specialcharacters,macros"]
+----
+<table value constructor> ::=
+     VALUES <<table-value-constructor-list, <table value constructor list> >>
+----
+
+[[table-value-constructor-list]]
+[subs="specialcharacters,macros"]
+----
+<table value constructor list> ::=
+     <<row-value-constructor, <row value constructor> >> [ { <<comma, <comma> >> <<row-value-constructor, <row value constructor> >> }... ]
+----
+
+
+=== 7.3  <table expression>
+
+.Function
+
+
+Specify a table or a grouped table.
+
+Format
+
+[[table-expression]]
+[subs="specialcharacters,macros"]
+----
+<table expression> ::=
+     <<from-clause, <from clause> >>
+     [ <<where-clause, <where clause> >> ]
+     [ <<group-by-clause, <group by clause> >> ]
+     [ <<having-clause, <having clause> >> ]
+----
+
+
+=== 7.4  <from clause>
+
+.Function
+
+
+Specify a table derived from one or more named tables.
+
+Format
+
+[[from-clause]]
+[subs="specialcharacters,macros"]
+----
+<from clause> ::= FROM <table reference> [ { <comma> <table reference> }... ]
+----
+
+
+=== 7.5  <joined table>
+
+.Function
+
+
+Specify a table derived from a Cartesian product, inner or outer
+join, or union join.
+
+Format
+
+[[joined-table]]
+[subs="specialcharacters,macros"]
+----
+<joined table> ::=
+       <<cross-join, <cross join> >>
+     | <<qualified-join, <qualified join> >>
+     | <<left-paren, <left paren> >> <<joined-table, <joined table> >> <<right-paren, <right paren> >>
+----
+
+[[cross-join]]
+[subs="specialcharacters,macros"]
+----
+<cross join> ::=
+     <<table-reference, <table reference> >> CROSS JOIN <<table-reference, <table reference> >>
+----
+
+[[qualified-join]]
+[subs="specialcharacters,macros"]
+----
+<qualified join> ::=
+     <<table-reference, <table reference> >> [ NATURAL ] [ <<join-type, <join type> >> ] JOIN
+       <<table-reference, <table reference> >> [ <<join-specification, <join specification> >> ]
+----
+
+[[join-specification]]
+[subs="specialcharacters,macros"]
+----
+<join specification> ::=
+       <<join-condition, <join condition> >>
+     | <<named-columns-join, <named columns join> >>
+----
+
+[[join-condition]]
+[subs="specialcharacters,macros"]
+----
+<join condition> ::= ON <search condition>
+----
+
+[[named-columns-join]]
+[subs="specialcharacters,macros"]
+----
+<named columns join> ::=
+     USING <<left-paren, <left paren> >> <<join-column-list, <join column list> >> <<right-paren, <right paren> >>
+----
+
+[[join-type]]
+[subs="specialcharacters,macros"]
+----
+<join type> ::=
+       INNER
+     | <<outer-join-type, <outer join type> >> [ OUTER ]
+     | UNION
+----
+
+[[outer-join-type]]
+[subs="specialcharacters,macros"]
+----
+<outer join type> ::=
+       LEFT
+     | RIGHT
+     | FULL
+----
+
+[[join-column-list]]
+[subs="specialcharacters,macros"]
+----
+<join column list> ::= <column name list>
+----
+
+
+=== 7.6  <where clause>
+
+.Function
+
+
+Specify a table derived by the application of a <search condition>
+to the result of the preceding <from clause>.
+
+Format
+
+[[where-clause]]
+[subs="specialcharacters,macros"]
+----
+<where clause> ::= WHERE <search condition>
+----
+
+
+=== 7.7  <group by clause>
+
+.Function
+
+
+Specify a grouped table derived by the application of the <group by
+clause> to the result of the previously specified clause.
+
+Format
+
+[[group-by-clause]]
+[subs="specialcharacters,macros"]
+----
+<group by clause> ::=
+     GROUP BY <<grouping-column-reference-list, <grouping column reference list> >>
+----
+
+[[grouping-column-reference-list]]
+[subs="specialcharacters,macros"]
+----
+<grouping column reference list> ::=
+     <<grouping-column-reference, <grouping column reference> >> [ { <<comma, <comma> >> <<grouping-column-reference, <grouping column reference> >> }... ]
+----
+
+
+[[grouping-column-reference]]
+[subs="specialcharacters,macros"]
+----
+<grouping column reference> ::=
+     <<column-reference, <column reference> >> [ <<collate-clause, <collate clause> >> ]
+----
+
+
+=== 7.8  <having clause>
+
+.Function
+
+
+Specify a grouped table derived by the elimination of groups from
+the result of the previously specified clause that do not meet the
+[[search-condition]]
+[subs="specialcharacters,macros"]
+----
+<search condition>.
+----
+
+Format
+
+[[having-clause]]
+[subs="specialcharacters,macros"]
+----
+<having clause> ::= HAVING <search condition>
+----
+
+
+=== 7.9  <query specification>
+
+.Function
+
+
+Specify a table derived from the result of a <table expression>.
+
+Format
+
+[[query-specification]]
+[subs="specialcharacters,macros"]
+----
+<query specification> ::=
+     SELECT [ <<set-quantifier, <set quantifier> >> ] <<select-list, <select list> >> <<table-expression, <table expression> >>
+----
+
+[[select-list]]
+[subs="specialcharacters,macros"]
+----
+<select list> ::=
+       <<asterisk, <asterisk> >>
+     | <<select-sublist, <select sublist> >> [ { <<comma, <comma> >> <<select-sublist, <select sublist> >> }... ]
+----
+
+[[select-sublist]]
+[subs="specialcharacters,macros"]
+----
+<select sublist> ::=
+       <<derived-column, <derived column> >>
+     | <<qualifier, <qualifier> >> <<period, <period> >> <<asterisk, <asterisk> >>
+----
+
+[[derived-column]]
+[subs="specialcharacters,macros"]
+----
+<derived column> ::= <value expression> [ <as clause> ]
+----
+
+[[as-clause]]
+[subs="specialcharacters,macros"]
+----
+<as clause> ::= [ AS ] <column name>
+----
+
+
+=== 7.10  <query expression>
+
+.Function
+
+
+Specify a table.
+
+Format
+
+[[query-expression]]
+[subs="specialcharacters,macros"]
+----
+<query expression> ::=
+       <<non-join-query-expression, <non-join query expression> >>
+     | <<joined-table, <joined table> >>
+----
+
+[[non-join-query-expression]]
+[subs="specialcharacters,macros"]
+----
+<non-join query expression> ::=
+       <<non-join-query-term, <non-join query term> >>
+     | <<query-expression, <query expression> >> UNION  [ ALL ] [ <<corresponding-spec, <corresponding spec> >> ] <<query-term, <query term> >>
+
+     | <<query-expression, <query expression> >> EXCEPT [ ALL ] [ <<corresponding-spec, <corresponding spec> >> ] <<query-term, <query term> >>
+----
+
+
+[[query-term]]
+[subs="specialcharacters,macros"]
+----
+<query term> ::=
+       <<non-join-query-term, <non-join query term> >>
+     | <<joined-table, <joined table> >>
+----
+
+[[non-join-query-term]]
+[subs="specialcharacters,macros"]
+----
+<non-join query term> ::=
+       <<non-join-query-primary, <non-join query primary> >>
+     | <<query-term, <query term> >> INTERSECT [ ALL ] [ <<corresponding-spec, <corresponding spec> >> ] <<query-primary, <query primary> >>
+----
+
+
+[[query-primary]]
+[subs="specialcharacters,macros"]
+----
+<query primary> ::=
+       <<non-join-query-primary, <non-join query primary> >>
+     | <<joined-table, <joined table> >>
+----
+
+[[non-join-query-primary]]
+[subs="specialcharacters,macros"]
+----
+<non-join query primary> ::=
+       <<simple-table, <simple table> >>
+     | <<left-paren, <left paren> >> <<non-join-query-expression, <non-join query expression> >> <<right-paren, <right paren> >>
+----
+
+[[simple-table]]
+[subs="specialcharacters,macros"]
+----
+<simple table> ::=
+       <<query-specification, <query specification> >>
+     | <<table-value-constructor, <table value constructor> >>
+     | <<explicit-table, <explicit table> >>
+----
+
+[[explicit-table]]
+[subs="specialcharacters,macros"]
+----
+<explicit table> ::= TABLE <table name>
+----
+
+[[corresponding-spec]]
+[subs="specialcharacters,macros"]
+----
+<corresponding spec> ::=
+     CORRESPONDING [ BY <<left-paren, <left paren> >> <<corresponding-column-list, <corresponding column list> >> <<right-paren, <right paren> >> ]
+----
+
+
+[[corresponding-column-list]]
+[subs="specialcharacters,macros"]
+----
+<corresponding column list> ::= <column name list>
+----
+
+
+=== 7.11  <scalar subquery>, <row subquery>, and <table subquery>
+
+.Function
+
+
+Specify a scalar value, a row, or a table derived from a <query
+expression>.
+
+Format
+
+[[scalar-subquery]]
+[subs="specialcharacters,macros"]
+----
+<scalar subquery> ::= <subquery>
+----
+
+[[row-subquery]]
+[subs="specialcharacters,macros"]
+----
+<row subquery> ::= <subquery>
+----
+
+[[table-subquery]]
+[subs="specialcharacters,macros"]
+----
+<table subquery> ::= <subquery>
+----
+
+[[subquery]]
+[subs="specialcharacters,macros"]
+----
+<subquery> ::= <left paren> <query expression> <right paren>
+----
+
+
+== 8  Predicates
+
+
+
+=== 8.1  <predicate>
+
+.Function
+
+
+Specify a condition that can be evaluated to give a truth value of
+true, false, or unknown.
+
+Format
+
+[[predicate]]
+[subs="specialcharacters,macros"]
+----
+<predicate> ::=
+       <<comparison-predicate, <comparison predicate> >>
+     | <<between-predicate, <between predicate> >>
+     | <<in-predicate, <in predicate> >>
+     | <<like-predicate, <like predicate> >>
+     | <<null-predicate, <null predicate> >>
+     | <<quantified-comparison-predicate, <quantified comparison predicate> >>
+     | <<exists-predicate, <exists predicate> >>
+     | <<unique-predicate, <unique predicate> >>
+     | <<match-predicate, <match predicate> >>
+     | <<overlaps-predicate, <overlaps predicate> >>
+----
+
+
+=== 8.2  <comparison predicate>
+
+.Function
+
+
+Specify a comparison of two row values.
+
+Format
+
+[[comparison-predicate]]
+[subs="specialcharacters,macros"]
+----
+<comparison predicate> ::=
+     <<row-value-constructor, <row value constructor> >> <<comp-op, <comp op> >> <<row-value-constructor, <row value constructor> >>
+----
+
+[[comp-op]]
+[subs="specialcharacters,macros"]
+----
+<comp op> ::=
+       <<equals-operator, <equals operator> >>
+     | <<not-equals-operator, <not equals operator> >>
+     | <<less-than-operator, <less than operator> >>
+     | <<greater-than-operator, <greater than operator> >>
+     | <<less-than-or-equals-operator, <less than or equals operator> >>
+     | <<greater-than-or-equals-operator, <greater than or equals operator> >>
+----
+
+
+=== 8.3  <between predicate>
+
+.Function
+
+
+Specify a range comparison.
+
+Format
+
+[[between-predicate]]
+[subs="specialcharacters,macros"]
+----
+<between predicate> ::=
+     <<row-value-constructor, <row value constructor> >> [ NOT ] BETWEEN
+       <<row-value-constructor, <row value constructor> >> AND <<row-value-constructor, <row value constructor> >>
+----
+
+
+=== 8.4  <in predicate>
+
+.Function
+
+
+Specify a quantified comparison.
+
+Format
+
+[[in-predicate]]
+[subs="specialcharacters,macros"]
+----
+<in predicate> ::=
+     <<row-value-constructor, <row value constructor> >>
+       [ NOT ] IN <<in-predicate-value, <in predicate value> >>
+----
+
+[[in-predicate-value]]
+[subs="specialcharacters,macros"]
+----
+<in predicate value> ::=
+       <<table-subquery, <table subquery> >>
+     | <<left-paren, <left paren> >> <<in-value-list, <in value list> >> <<right-paren, <right paren> >>
+----
+
+[[in-value-list]]
+[subs="specialcharacters,macros"]
+----
+<in value list> ::=
+     <<value-expression, <value expression> >> { <<comma, <comma> >> <<value-expression, <value expression> >> }...
+----
+
+
+=== 8.5  <like predicate>
+
+.Function
+
+
+Specify a pattern-match comparison.
+
+Format
+
+[[like-predicate]]
+[subs="specialcharacters,macros"]
+----
+<like predicate> ::=
+     <<match-value, <match value> >> [ NOT ] LIKE <<pattern, <pattern> >>
+       [ ESCAPE <<escape-character, <escape character> >> ]
+----
+
+[[match-value]]
+[subs="specialcharacters,macros"]
+----
+<match value> ::= <character value expression>
+----
+
+[[pattern]]
+[subs="specialcharacters,macros"]
+----
+<pattern> ::= <character value expression>
+----
+
+[[escape-character]]
+[subs="specialcharacters,macros"]
+----
+<escape character> ::= <character value expression>
+----
+
+
+=== 8.6  <null predicate>
+
+.Function
+
+
+Specify a test for a null value.
+
+Format
+
+[[null-predicate]]
+[subs="specialcharacters,macros"]
+----
+<null predicate> ::= <row value constructor> IS [ NOT ] NULL
+----
+
+
+=== 8.7  <quantified comparison predicate>
+
+.Function
+
+
+Specify a quantified comparison.
+
+Format
+
+[[quantified-comparison-predicate]]
+[subs="specialcharacters,macros"]
+----
+<quantified comparison predicate> ::=
+     <<row-value-constructor, <row value constructor> >> <<comp-op, <comp op> >> <<quantifier, <quantifier> >> <<table-subquery, <table subquery> >>
+----
+
+
+[[quantifier]]
+[subs="specialcharacters,macros"]
+----
+<quantifier> ::= <all> | <some>
+----
+
+[[all]]
+[subs="specialcharacters,macros"]
+----
+<all> ::= ALL
+----
+
+[[some]]
+[subs="specialcharacters,macros"]
+----
+<some> ::= SOME | ANY
+----
+
+
+=== 8.8  <exists predicate>
+
+.Function
+
+
+Specify a test for a non-empty set.
+
+Format
+
+[[exists-predicate]]
+[subs="specialcharacters,macros"]
+----
+<exists predicate> ::= EXISTS <table subquery>
+----
+
+
+=== 8.9  <unique predicate>
+
+.Function
+
+
+Specify a test for the absence of duplicate rows.
+
+Format
+
+[[unique-predicate]]
+[subs="specialcharacters,macros"]
+----
+<unique predicate> ::= UNIQUE <table subquery>
+----
+
+
+=== 8.10  <match predicate>
+
+.Function
+
+
+Specify a test for matching rows.
+
+Format
+
+[[match-predicate]]
+[subs="specialcharacters,macros"]
+----
+<match predicate> ::=
+     <<row-value-constructor, <row value constructor> >> MATCH [ UNIQUE ] [ PARTIAL | FULL ] <<table-subquery, <table subquery> >>
+----
+
+
+=== 8.11  <overlaps predicate>
+
+.Function
+
+
+Specify a test for an overlap between two events.
+
+Format
+
+[[overlaps-predicate]]
+[subs="specialcharacters,macros"]
+----
+<overlaps predicate> ::=
+     <<row-value-constructor-1, <row value constructor 1> >> OVERLAPS <<row-value-constructor-2, <row value constructor 2> >>
+----
+
+[[row-value-constructor-1]]
+[subs="specialcharacters,macros"]
+----
+<row value constructor 1> ::= <row value constructor>
+----
+
+[[row-value-constructor-2]]
+[subs="specialcharacters,macros"]
+----
+<row value constructor 2> ::= <row value constructor>
+----
+
+
+=== 8.12  <search condition>
+
+.Function
+
+
+Specify a condition that has the truth value true, false, or
+unknown, depending on the result of applying boolean operators
+to specified conditions.
+
+Format
+
+[[search-condition]]
+[subs="specialcharacters,macros"]
+----
+<search condition> ::=
+       <<boolean-term, <boolean term> >>
+     | <<search-condition, <search condition> >> OR <<boolean-term, <boolean term> >>
+----
+
+[[boolean-term]]
+[subs="specialcharacters,macros"]
+----
+<boolean term> ::=
+       <<boolean-factor, <boolean factor> >>
+     | <<boolean-term, <boolean term> >> AND <<boolean-factor, <boolean factor> >>
+----
+
+[[boolean-factor]]
+[subs="specialcharacters,macros"]
+----
+<boolean factor> ::=
+     [ NOT ] <<boolean-test, <boolean test> >>
+----
+
+[[boolean-test]]
+[subs="specialcharacters,macros"]
+----
+<boolean test> ::=
+     <<boolean-primary, <boolean primary> >> [ IS [ NOT ] <<truth-value, <truth value> >> ]
+----
+
+[[truth-value]]
+[subs="specialcharacters,macros"]
+----
+<truth value> ::=
+       TRUE
+     | FALSE
+     | UNKNOWN
+----
+
+[[boolean-primary]]
+[subs="specialcharacters,macros"]
+----
+<boolean primary> ::=
+       <<predicate, <predicate> >>
+     | <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
+----
+
+
+== 10  Additional common elements
+
+
+
+=== 10.1  <interval qualifier>
+
+.Function
+
+
+Specify the precision of an interval data type.
+
+Format
+
+[[interval-qualifier]]
+[subs="specialcharacters,macros"]
+----
+<interval qualifier> ::=
+       <<start-field, <start field> >> TO <<end-field, <end field> >>
+     | <<single-datetime-field, <single datetime field> >>
+----
+
+[[start-field]]
+[subs="specialcharacters,macros"]
+----
+<start field> ::=
+     <<non-second-datetime-field, <non-second datetime field> >>
+         [ <<left-paren, <left paren> >> <<interval-leading-field-precision, <interval leading field precision> >> <<right-paren, <right paren> >> ]
+----
+
+
+[[end-field]]
+[subs="specialcharacters,macros"]
+----
+<end field> ::=
+       <<non-second-datetime-field, <non-second datetime field> >>
+     | SECOND [ <<left-paren, <left paren> >> <<interval-fractional-seconds-precision, <interval fractional seconds precision> >> <<right-paren, <right paren> >> ]
+----
+
+
+[[single-datetime-field]]
+[subs="specialcharacters,macros"]
+----
+<single datetime field> ::=
+       <<non-second-datetime-field, <non-second datetime field> >>
+           [ <<left-paren, <left paren> >> <<interval-leading-field-precision, <interval leading field precision> >> <<right-paren, <right paren> >> ]
+
+     | SECOND [ <<left-paren, <left paren> >> <<interval-leading-field-precision, <interval leading field precision> >>
+           [ <<comma, <comma> >> <<interval-fractional-seconds-precision, <interval fractional seconds precision> >> ] <<right-paren, <right paren> >> ]
+----
+
+
+[[datetime-field]]
+[subs="specialcharacters,macros"]
+----
+<datetime field> ::=
+       <<non-second-datetime-field, <non-second datetime field> >>
+     | SECOND
+----
+
+[[non-second-datetime-field]]
+[subs="specialcharacters,macros"]
+----
+<non-second datetime field> ::= YEAR | MONTH | DAY | HOUR | MINUTE
+----
+
+[[interval-fractional-seconds-precision]]
+[subs="specialcharacters,macros"]
+----
+<interval fractional seconds precision> ::= <unsigned integer>
+----
+
+[[interval-leading-field-precision]]
+[subs="specialcharacters,macros"]
+----
+<interval leading field precision> ::= <unsigned integer>
+----
+
+=== 10.2  <language clause>
+
+.Function
+
+
+Specify a standard programming language.
+
+Format
+
+[[language-clause]]
+[subs="specialcharacters,macros"]
+----
+<language clause> ::=
+     LANGUAGE <<language-name, <language name> >>
+----
+
+[[language-name]]
+[subs="specialcharacters,macros"]
+----
+<language name> ::=
+     ADA | C | COBOL | FORTRAN | MUMPS | PASCAL | PLI
+----
+
+
+=== 10.3  <privileges>
+
+.Function
+
+
+Specify privileges.
+
+Format
+
+[[privileges]]
+[subs="specialcharacters,macros"]
+----
+<privileges> ::=
+       ALL PRIVILEGES
+     | <<action-list, <action list> >>
+----
+
+[[action-list]]
+[subs="specialcharacters,macros"]
+----
+<action list> ::= <action> [ { <comma> <action> }... ]
+----
+
+
+[[action]]
+[subs="specialcharacters,macros"]
+----
+<action> ::=
+       SELECT
+     | DELETE
+     | INSERT [ <<left-paren, <left paren> >> <<privilege-column-list, <privilege column list> >> <<right-paren, <right paren> >> ]
+
+     | UPDATE [ <<left-paren, <left paren> >> <<privilege-column-list, <privilege column list> >> <<right-paren, <right paren> >> ]
+
+     | REFERENCES [ <<left-paren, <left paren> >> <<privilege-column-list, <privilege column list> >> <<right-paren, <right paren> >> ]
+
+     | USAGE
+----
+
+[[privilege-column-list]]
+[subs="specialcharacters,macros"]
+----
+<privilege column list> ::= <column name list>
+----
+
+[[grantee]]
+[subs="specialcharacters,macros"]
+----
+<grantee> ::=
+       PUBLIC
+     | <<authorization-identifier, <authorization identifier> >>
+----
+
+
+=== 10.4  <character set specification>
+
+.Function
+
+
+Identify a character set.
+
+Format
+
+[[character-set-specification]]
+[subs="specialcharacters,macros"]
+----
+<character set specification> ::=
+       <<standard-character-repertoire-name, <standard character repertoire name> >>
+     | <<implementation-defined-character-repertoire-name, <implementation-defined character repertoire name> >>
+     | <<user-defined-character-repertoire-name, <user-defined character repertoire name> >>
+     | <<standard-universal-character-form-of-use-name, <standard universal character form-of-use name> >>
+     | <implementation-defined universal character form-of-
+     use name>
+----
+
+[[standard-character-repertoire-name]]
+[subs="specialcharacters,macros"]
+----
+<standard character repertoire name> ::= <character set name>
+----
+
+[[implementation-defined-character-repertoire-name]]
+[subs="specialcharacters,macros"]
+----
+<implementation-defined character repertoire name> ::= <character set name>
+----
+
+
+[[user-defined-character-repertoire-name]]
+[subs="specialcharacters,macros"]
+----
+<user-defined character repertoire name> ::= <character set name>
+----
+
+[[standard-universal-character-form-of-use-name]]
+[subs="specialcharacters,macros"]
+----
+<standard universal character form-of-use name> ::=
+     <<character-set-name, <character set name> >>
+----
+
+[[implementation-defined-universal-character-form-of-use-name]]
+[subs="specialcharacters,macros"]
+----
+<implementation-defined universal character form-of-use name> ::=
+     <<character-set-name, <character set name> >>
+----
+
+
+=== 10.5  <collate clause>
+
+.Function
+
+
+Specify a collating sequence.
+
+Format
+
+[[collate-clause]]
+[subs="specialcharacters,macros"]
+----
+<collate clause> ::= COLLATE <collation name>
+----
+
+
+=== 10.6  <constraint name definition> and <constraint attributes>
+
+.Function
+
+
+Specify the name of a constraint and its attributes.
+
+Format
+
+[[constraint-name-definition]]
+[subs="specialcharacters,macros"]
+----
+<constraint name definition> ::= CONSTRAINT <constraint name>
+----
+
+[[constraint-attributes]]
+[subs="specialcharacters,macros"]
+----
+<constraint attributes> ::=
+       <<constraint-check-time, <constraint check time> >> [ [ NOT ] DEFERRABLE ]
+     | [ NOT ] DEFERRABLE [ <<constraint-check-time, <constraint check time> >> ]
+----
+
+[[constraint-check-time]]
+[subs="specialcharacters,macros"]
+----
+<constraint check time> ::=   INITIALLY DEFERRED
+     | INITIALLY IMMEDIATE
+----
+
+
+== 11  Schema definition and manipulation
+
+
+
+=== 11.1  <schema definition>
+
+.Function
+
+
+Define a schema.
+
+Format
+
+[[schema-definition]]
+[subs="specialcharacters,macros"]
+----
+<schema definition> ::=
+     CREATE SCHEMA <<schema-name-clause, <schema name clause> >>
+       [ <<schema-character-set-specification, <schema character set specification> >> ]
+       [ <<schema-element, <schema element> >>... ]
+----
+
+
+
+[[schema-name-clause]]
+[subs="specialcharacters,macros"]
+----
+<schema name clause> ::=
+       <<schema-name, <schema name> >>
+     | AUTHORIZATION <<schema-authorization-identifier, <schema authorization identifier> >>
+     | <<schema-name, <schema name> >> AUTHORIZATION <<schema-authorization-identifier, <schema authorization identifier> >>
+----
+
+
+[[schema-authorization-identifier]]
+[subs="specialcharacters,macros"]
+----
+<schema authorization identifier> ::=
+     <<authorization-identifier, <authorization identifier> >>
+----
+
+[[schema-character-set-specification]]
+[subs="specialcharacters,macros"]
+----
+<schema character set specification> ::=
+     DEFAULT CHARACTER SET <<character-set-specification, <character set specification> >>
+----
+
+[[schema-element]]
+[subs="specialcharacters,macros"]
+----
+<schema element> ::=
+       <<domain-definition, <domain definition> >>
+     | <<table-definition, <table definition> >>
+     | <<view-definition, <view definition> >>
+     | <<grant-statement, <grant statement> >>
+     | <<assertion-definition, <assertion definition> >>
+     | <<character-set-definition, <character set definition> >>
+     | <<collation-definition, <collation definition> >>
+     | <<translation-definition, <translation definition> >>
+----
+
+
+=== 11.2  <drop schema statement>
+
+.Function
+
+
+Destroy a schema.
+
+Format
+
+[[drop-schema-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop schema statement> ::=
+     DROP SCHEMA <<schema-name, <schema name> >> <<drop-behavior, <drop behavior> >>
+----
+
+[[drop-behavior]]
+[subs="specialcharacters,macros"]
+----
+<drop behavior> ::= CASCADE | RESTRICT
+----
+
+
+=== 11.3  <table definition>
+
+.Function
+
+
+Define a persistent base table, a created local temporary table, or
+a global temporary table.
+
+Format
+
+[[table-definition]]
+[subs="specialcharacters,macros"]
+----
+<table definition> ::=
+     CREATE [ { GLOBAL | LOCAL } TEMPORARY ] TABLE <<table-name, <table name> >>
+       <<table-element-list, <table element list> >>
+       [ ON COMMIT { DELETE | PRESERVE } ROWS ]
+----
+
+[[table-element-list]]
+[subs="specialcharacters,macros"]
+----
+<table element list> ::=
+       <<left-paren, <left paren> >> <<table-element, <table element> >> [ { <<comma, <comma> >> <<table-element, <table element> >> }... ] <<right-paren, <right paren> >>
+----
+
+
+[[table-element]]
+[subs="specialcharacters,macros"]
+----
+<table element> ::=
+       <<column-definition, <column definition> >>
+     | <<table-constraint-definition, <table constraint definition> >>
+----
+
+
+=== 11.4  <column definition>
+
+.Function
+
+
+Define a column of a table.
+
+Format
+
+[[column-definition]]
+[subs="specialcharacters,macros"]
+----
+<column definition> ::=
+     <<column-name, <column name> >> { <<data-type, <data type> >> | <<domain-name, <domain name> >> }
+     [ <<default-clause, <default clause> >> ]
+     [ <<column-constraint-definition, <column constraint definition> >>... ]
+     [ <<collate-clause, <collate clause> >> ]
+----
+
+[[column-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<column constraint definition> ::=
+     [ <<constraint-name-definition, <constraint name definition> >> ]
+     <<column-constraint, <column constraint> >>
+       [ <<constraint-attributes, <constraint attributes> >> ]
+----
+
+[[column-constraint]]
+[subs="specialcharacters,macros"]
+----
+<column constraint> ::=
+       NOT NULL
+     | <<unique-specification, <unique specification> >>
+     | <<references-specification, <references specification> >>
+     | <<check-constraint-definition, <check constraint definition> >>
+----
+
+
+=== 11.5  <default clause>
+
+.Function
+
+
+Specify the default for a column or domain.
+
+Format
+
+[[default-clause]]
+[subs="specialcharacters,macros"]
+----
+<default clause> ::=
+       DEFAULT <<default-option, <default option> >>
+----
+
+[[default-option]]
+[subs="specialcharacters,macros"]
+----
+<default option> ::=
+       <<literal, <literal> >>
+     | <<datetime-value-function, <datetime value function> >>
+     | USER
+     | CURRENT_USER
+     | SESSION_USER
+     | SYSTEM_USER
+     | NULL
+----
+
+
+=== 11.6  <table constraint definition>
+
+.Function
+
+
+Specify an integrity constraint.
+
+Format
+
+[[table-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<table constraint definition> ::=
+     [ <<constraint-name-definition, <constraint name definition> >> ]
+     <<table-constraint, <table constraint> >> [ <<constraint-attributes, <constraint attributes> >> ]
+----
+
+[[table-constraint]]
+[subs="specialcharacters,macros"]
+----
+<table constraint> ::=
+       <<unique-constraint-definition, <unique constraint definition> >>
+     | <<referential-constraint-definition, <referential constraint definition> >>
+     | <<check-constraint-definition, <check constraint definition> >>
+----
+
+
+=== 11.7  <unique constraint definition>
+
+.Function
+
+
+Specify a uniqueness constraint for a table.
+
+Format
+
+[[unique-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<unique constraint definition> ::=
+     <<unique-specification, <unique specification> >>
+       <<left-paren, <left paren> >> <<unique-column-list, <unique column list> >> <<right-paren, <right paren> >>
+----
+
+[[unique-specification]]
+[subs="specialcharacters,macros"]
+----
+<unique specification> ::=
+     UNIQUE | PRIMARY KEY
+----
+
+[[unique-column-list]]
+[subs="specialcharacters,macros"]
+----
+<unique column list> ::= <column name list>
+----
+
+
+=== 11.8  <referential constraint definition>
+
+.Function
+
+
+Specify a referential constraint.
+
+Format
+
+[[referential-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<referential constraint definition> ::=
+     FOREIGN KEY <<left-paren, <left paren> >> <<referencing-columns, <referencing columns> >> <<right-paren, <right paren> >>
+       <<references-specification, <references specification> >>
+----
+
+[[references-specification]]
+[subs="specialcharacters,macros"]
+----
+<references specification> ::=
+     REFERENCES <<referenced-table-and-columns, <referenced table and columns> >>
+       [ MATCH <<match-type, <match type> >> ]
+       [ <<referential-triggered-action, <referential triggered action> >> ]
+----
+
+[[match-type]]
+[subs="specialcharacters,macros"]
+----
+<match type> ::=
+       FULL
+     | PARTIAL
+----
+
+[[referencing-columns]]
+[subs="specialcharacters,macros"]
+----
+<referencing columns> ::=
+     <<reference-column-list, <reference column list> >>
+----
+
+[[referenced-table-and-columns]]
+[subs="specialcharacters,macros"]
+----
+<referenced table and columns> ::=
+     <<table-name, <table name> >> [ <<left-paren, <left paren> >> <<reference-column-list, <reference column list> >> <<right-paren, <right paren> >> ]
+----
+
+
+[[reference-column-list]]
+[subs="specialcharacters,macros"]
+----
+<reference column list> ::= <column name list>
+----
+
+[[referential-triggered-action]]
+[subs="specialcharacters,macros"]
+----
+<referential triggered action> ::=
+       <<update-rule, <update rule> >> [ <<delete-rule, <delete rule> >> ]
+     | <<delete-rule, <delete rule> >> [ <<update-rule, <update rule> >> ]
+----
+
+[[update-rule]]
+[subs="specialcharacters,macros"]
+----
+<update rule> ::= ON UPDATE <referential action>
+----
+
+[[delete-rule]]
+[subs="specialcharacters,macros"]
+----
+<delete rule> ::= ON DELETE <referential action>
+----
+
+[[referential-action]]
+[subs="specialcharacters,macros"]
+----
+<referential action> ::=
+       CASCADE
+     | SET NULL
+     | SET DEFAULT
+     | NO ACTION
+----
+
+
+=== 11.9  <check constraint definition>
+
+.Function
+
+
+Specify a condition for the SQL-data.
+
+Format
+
+[[check-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<check constraint definition> ::=
+     CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
+----
+
+
+=== 11.10  <alter table statement>
+
+.Function
+
+
+Change the definition of a table.
+
+Format
+
+[[alter-table-statement]]
+[subs="specialcharacters,macros"]
+----
+<alter table statement> ::=
+     ALTER TABLE <<table-name, <table name> >> <<alter-table-action, <alter table action> >>
+----
+
+[[alter-table-action]]
+[subs="specialcharacters,macros"]
+----
+<alter table action> ::=
+       <<add-column-definition, <add column definition> >>
+     | <<alter-column-definition, <alter column definition> >>
+     | <<drop-column-definition, <drop column definition> >>
+     | <<add-table-constraint-definition, <add table constraint definition> >>
+     | <<drop-table-constraint-definition, <drop table constraint definition> >>
+----
+
+
+=== 11.11  <add column definition>
+
+.Function
+
+
+Add a column to a table.
+
+Format
+
+[[add-column-definition]]
+[subs="specialcharacters,macros"]
+----
+<add column definition> ::=
+     ADD [ COLUMN ] <<column-definition, <column definition> >>
+----
+
+
+=== 11.12  <alter column definition>
+
+.Function
+
+
+Change a column and its definition.
+
+Format
+
+[[alter-column-definition]]
+[subs="specialcharacters,macros"]
+----
+<alter column definition> ::=
+     ALTER [ COLUMN ] <<column-name, <column name> >> <<alter-column-action, <alter column action> >>
+----
+
+[[alter-column-action]]
+[subs="specialcharacters,macros"]
+----
+<alter column action> ::=
+       <<set-column-default-clause, <set column default clause> >>
+     | <<drop-column-default-clause, <drop column default clause> >>
+----
+
+
+=== 11.13  <set column default clause>
+
+.Function
+
+
+Set the default clause for a column.
+
+Format
+
+[[set-column-default-clause]]
+[subs="specialcharacters,macros"]
+----
+<set column default clause> ::=
+     SET <<default-clause, <default clause> >>
+----
+
+
+=== 11.14  <drop column default clause>
+
+.Function
+
+
+Drop the default clause from a column.
+
+Format
+
+[[drop-column-default-clause]]
+[subs="specialcharacters,macros"]
+----
+<drop column default clause> ::=
+     DROP DEFAULT
+----
+
+
+=== 11.15  <drop column definition>
+
+.Function
+
+
+Destroy a column.
+
+Format
+
+[[drop-column-definition]]
+[subs="specialcharacters,macros"]
+----
+<drop column definition> ::=
+     DROP [ COLUMN ] <<column-name, <column name> >> <<drop-behavior, <drop behavior> >>
+----
+
+
+=== 11.16  <add table constraint definition>
+
+.Function
+
+
+Add a constraint to a table.
+
+Format
+
+[[add-table-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<add table constraint definition> ::=
+     ADD <<table-constraint-definition, <table constraint definition> >>
+----
+
+
+=== 11.17  <drop table constraint definition>
+
+.Function
+
+
+Destroy a constraint on a table.
+
+Format
+
+[[drop-table-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<drop table constraint definition> ::=
+     DROP CONSTRAINT <<constraint-name, <constraint name> >> <<drop-behavior, <drop behavior> >>
+----
+
+
+=== 11.18  <drop table statement>
+
+.Function
+
+
+Destroy a table.
+
+Format
+
+[[drop-table-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop table statement> ::=
+     DROP TABLE <<table-name, <table name> >> <<drop-behavior, <drop behavior> >>
+----
+
+
+=== 11.19  <view definition>
+
+.Function
+
+
+Define a viewed table.
+
+Format
+
+[[view-definition]]
+[subs="specialcharacters,macros"]
+----
+<view definition> ::=
+     CREATE VIEW <<table-name, <table name> >> [ <<left-paren, <left paren> >> <<view-column-list, <view column list> >>
+     <<right-paren, <right paren> >> ]
+       AS <<query-expression, <query expression> >>
+       [ WITH [ <<levels-clause, <levels clause> >> ] CHECK OPTION ]
+----
+
+[[levels-clause]]
+[subs="specialcharacters,macros"]
+----
+<levels clause> ::=
+     CASCADED | LOCAL
+----
+
+[[view-column-list]]
+[subs="specialcharacters,macros"]
+----
+<view column list> ::= <column name list>
+----
+
+
+=== 11.20  <drop view statement>
+
+.Function
+
+
+Destroy a view.
+
+Format
+
+[[drop-view-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop view statement> ::=
+     DROP VIEW <<table-name, <table name> >> <<drop-behavior, <drop behavior> >>
+----
+
+
+=== 11.21  <domain definition>
+
+.Function
+
+
+Define a domain.
+
+Format
+
+[[domain-definition]]
+[subs="specialcharacters,macros"]
+----
+<domain definition> ::=
+     CREATE DOMAIN <<domain-name, <domain name> >> [ AS ] <<data-type, <data type> >>
+       [ <<default-clause, <default clause> >> ]
+       [ <<domain-constraint, <domain constraint> >>... ]
+       [ <<collate-clause, <collate clause> >> ]
+----
+
+[[domain-constraint]]
+[subs="specialcharacters,macros"]
+----
+<domain constraint> ::=
+     [ <<constraint-name-definition, <constraint name definition> >> ]
+     <<check-constraint-definition, <check constraint definition> >> [ <<constraint-attributes, <constraint attributes> >> ]
+----
+
+
+=== 11.22  <alter domain statement>
+
+.Function
+
+
+Change a domain and its definition.
+
+Format
+
+[[alter-domain-statement]]
+[subs="specialcharacters,macros"]
+----
+<alter domain statement> ::=
+     ALTER DOMAIN <<domain-name, <domain name> >> <<alter-domain-action, <alter domain action> >>
+----
+
+[[alter-domain-action]]
+[subs="specialcharacters,macros"]
+----
+<alter domain action> ::=
+       <<set-domain-default-clause, <set domain default clause> >>
+     | <<drop-domain-default-clause, <drop domain default clause> >>
+     | <<add-domain-constraint-definition, <add domain constraint definition> >>
+     | <<drop-domain-constraint-definition, <drop domain constraint definition> >>
+----
+
+
+=== 11.23  <set domain default clause>
+
+.Function
+
+
+Set the default value in a domain.
+
+Format
+
+[[set-domain-default-clause]]
+[subs="specialcharacters,macros"]
+----
+<set domain default clause> ::= SET <default clause>
+----
+
+
+=== 11.24  <drop domain default clause>
+
+.Function
+
+
+Remove the default clause of a domain.
+
+Format
+
+[[drop-domain-default-clause]]
+[subs="specialcharacters,macros"]
+----
+<drop domain default clause> ::= DROP DEFAULT
+----
+
+
+=== 11.25  <add domain constraint definition>
+
+.Function
+
+
+Add a constraint to a domain.
+
+Format
+
+[[add-domain-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<add domain constraint definition> ::=
+     ADD <<domain-constraint, <domain constraint> >>
+----
+
+
+=== 11.26  <drop domain constraint definition>
+
+.Function
+
+
+Destroy a constraint on a domain.
+
+Format
+
+[[drop-domain-constraint-definition]]
+[subs="specialcharacters,macros"]
+----
+<drop domain constraint definition> ::=
+     DROP CONSTRAINT <<constraint-name, <constraint name> >>
+----
+
+
+=== 11.27  <drop domain statement>
+
+.Function
+
+
+Destroy a domain.
+
+Format
+
+[[drop-domain-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop domain statement> ::=
+     DROP DOMAIN <<domain-name, <domain name> >> <<drop-behavior, <drop behavior> >>
+----
+
+
+=== 11.28  <character set definition>
+
+.Function
+
+
+Define a character set.
+
+Format
+
+[[character-set-definition]]
+[subs="specialcharacters,macros"]
+----
+<character set definition> ::=
+     CREATE CHARACTER SET <<character-set-name, <character set name> >> [ AS ]
+       <<character-set-source, <character set source> >>
+       [ <<collate-clause, <collate clause> >> | <<limited-collation-definition, <limited collation definition> >> ]
+----
+
+[[character-set-source]]
+[subs="specialcharacters,macros"]
+----
+<character set source> ::=
+       GET <<existing-character-set-name, <existing character set name> >>
+----
+
+[[existing-character-set-name]]
+[subs="specialcharacters,macros"]
+----
+<existing character set name> ::=
+       <<standard-character-repertoire-name, <standard character repertoire name> >>
+     | <<implementation-defined-character-repertoire-name, <implementation-defined character repertoire name> >>
+     | <<schema-character-set-name, <schema character set name> >>
+----
+
+[[schema-character-set-name]]
+[subs="specialcharacters,macros"]
+----
+<schema character set name> ::= <character set name>
+----
+
+[[limited-collation-definition]]
+[subs="specialcharacters,macros"]
+----
+<limited collation definition> ::=
+     COLLATION FROM <<collation-source, <collation source> >>
+----
+
+
+=== 11.29  <drop character set statement>
+
+.Function
+
+
+Destroy a character set.
+
+Format
+
+[[drop-character-set-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop character set statement> ::=
+     DROP CHARACTER SET <<character-set-name, <character set name> >>
+----
+
+
+=== 11.30  <collation definition>
+
+.Function
+
+
+Define a collating sequence.
+
+Format
+
+[[collation-definition]]
+[subs="specialcharacters,macros"]
+----
+<collation definition> ::=
+     CREATE COLLATION <<collation-name, <collation name> >> FOR <<character-set-specification, <character set specification> >>
+----
+
+       FROM <collation source>
+         [ <pad attribute> ]
+
+[[pad-attribute]]
+[subs="specialcharacters,macros"]
+----
+<pad attribute> ::=
+       NO PAD
+     | PAD SPACE
+----
+
+[[collation-source]]
+[subs="specialcharacters,macros"]
+----
+<collation source> ::=
+       <<collating-sequence-definition, <collating sequence definition> >>
+     | <<translation-collation, <translation collation> >>
+----
+
+[[collating-sequence-definition]]
+[subs="specialcharacters,macros"]
+----
+<collating sequence definition> ::=
+       <<external-collation, <external collation> >>
+     | <<schema-collation-name, <schema collation name> >>
+     | DESC <<left-paren, <left paren> >> <<collation-name, <collation name> >> <<right-paren, <right paren> >>
+     | DEFAULT
+----
+
+[[translation-collation]]
+[subs="specialcharacters,macros"]
+----
+<translation collation> ::=
+     TRANSLATION <<translation-name, <translation name> >>
+         [ THEN COLLATION <<collation-name, <collation name> >> ]
+----
+
+[[external-collation]]
+[subs="specialcharacters,macros"]
+----
+<external collation> ::=
+     EXTERNAL <<left-paren, <left paren> >> <<quote, <quote> >> <<external-collation-name, <external collation name> >> <<quote, <quote> >> <<right-paren, <right paren> >>
+----
+
+
+[[schema-collation-name]]
+[subs="specialcharacters,macros"]
+----
+<schema collation name> ::= <collation name>
+----
+
+[[external-collation-name]]
+[subs="specialcharacters,macros"]
+----
+<external collation name> ::=
+       <<standard-collation-name, <standard collation name> >>
+     | <<implementation-defined-collation-name, <implementation-defined collation name> >>
+----
+
+[[standard-collation-name]]
+[subs="specialcharacters,macros"]
+----
+<standard collation name> ::= <collation name>
+----
+
+[[implementation-defined-collation-name]]
+[subs="specialcharacters,macros"]
+----
+<implementation-defined collation name> ::= <collation name>
+----
+
+
+=== 11.31  <drop collation statement>
+
+.Function
+
+
+Destroy a collating sequence.
+
+Format
+
+[[drop-collation-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop collation statement> ::=
+     DROP COLLATION <<collation-name, <collation name> >>
+----
+
+
+=== 11.32  <translation definition>
+
+.Function
+
+
+Define a character translation.
+
+Format
+
+[[translation-definition]]
+[subs="specialcharacters,macros"]
+----
+<translation definition> ::=
+     CREATE TRANSLATION <<translation-name, <translation name> >>
+       FOR <<source-character-set-specification, <source character set specification> >>
+         TO <<target-character-set-specification, <target character set specification> >>
+       FROM <<translation-source, <translation source> >>
+----
+
+[[source-character-set-specification]]
+[subs="specialcharacters,macros"]
+----
+<source character set specification> ::= <character set specification>
+----
+
+
+[[target-character-set-specification]]
+[subs="specialcharacters,macros"]
+----
+<target character set specification> ::= <character set specification>
+----
+
+
+[[translation-source]]
+[subs="specialcharacters,macros"]
+----
+<translation source> ::=
+       <<translation-specification, <translation specification> >>
+----
+
+[[translation-specification]]
+[subs="specialcharacters,macros"]
+----
+<translation specification> ::=
+       <<external-translation, <external translation> >>
+     | IDENTITY
+     | <<schema-translation-name, <schema translation name> >>
+----
+
+[[external-translation]]
+[subs="specialcharacters,macros"]
+----
+<external translation> ::=
+     EXTERNAL <<left-paren, <left paren> >> <<quote, <quote> >> <<external-translation-name, <external translation name> >> <<quote, <quote> >> <<right-paren, <right paren> >>
+----
+
+
+[[external-translation-name]]
+[subs="specialcharacters,macros"]
+----
+<external translation name> ::=
+       <<standard-translation-name, <standard translation name> >>
+     | <<implementation-defined-translation-name, <implementation-defined translation name> >>
+----
+
+[[standard-translation-name]]
+[subs="specialcharacters,macros"]
+----
+<standard translation name> ::= <translation name>
+----
+
+[[implementation-defined-translation-name]]
+[subs="specialcharacters,macros"]
+----
+<implementation-defined translation name> ::= <translation name>
+----
+
+[[schema-translation-name]]
+[subs="specialcharacters,macros"]
+----
+<schema translation name> ::= <translation name>
+----
+
+
+=== 11.33  <drop translation statement>
+
+.Function
+
+
+Destroy a character translation.
+
+Format
+
+[[drop-translation-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop translation statement> ::=
+     DROP TRANSLATION <<translation-name, <translation name> >>
+----
+
+
+=== 11.34  <assertion definition>
+
+.Function
+
+
+Specify an integrity constraint by means of an assertion and spec-
+ify the initial default time for checking the assertion.
+
+Format
+
+[[assertion-definition]]
+[subs="specialcharacters,macros"]
+----
+<assertion definition> ::=
+     CREATE ASSERTION <<constraint-name, <constraint name> >> <<assertion-check, <assertion check> >>
+     [ <<constraint-attributes, <constraint attributes> >> ]
+----
+
+[[assertion-check]]
+[subs="specialcharacters,macros"]
+----
+<assertion check> ::=
+     CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
+----
+
+
+=== 11.35  <drop assertion statement>
+
+.Function
+
+
+Destroy an assertion.
+
+Format
+
+[[drop-assertion-statement]]
+[subs="specialcharacters,macros"]
+----
+<drop assertion statement> ::=
+     DROP ASSERTION <<constraint-name, <constraint name> >>
+----
+
+
+=== 11.36  <grant statement>
+
+.Function
+
+
+Define privileges.
+
+Format
+
+[[grant-statement]]
+[subs="specialcharacters,macros"]
+----
+<grant statement> ::=
+     GRANT <<privileges, <privileges> >> ON <<object-name, <object name> >>
+       TO <<grantee, <grantee> >> [ { <<comma, <comma> >> <<grantee, <grantee> >> }... ]
+         [ WITH GRANT OPTION ]
+----
+
+[[object-name]]
+[subs="specialcharacters,macros"]
+----
+<object name> ::=
+       [ TABLE ] <<table-name, <table name> >>
+     | DOMAIN <<domain-name, <domain name> >>
+     | COLLATION <<collation-name, <collation name> >>
+     | CHARACTER SET <<character-set-name, <character set name> >>
+     | TRANSLATION <<translation-name, <translation name> >>
+----
+
+
+=== 11.37  <revoke statement>
+
+.Function
+
+
+Destroy privileges.
+
+Format
+
+[[revoke-statement]]
+[subs="specialcharacters,macros"]
+----
+<revoke statement> ::=
+     REVOKE [ GRANT OPTION FOR ] <<privileges, <privileges> >>
+         ON <<object-name, <object name> >>
+       FROM <<grantee, <grantee> >> [ { <<comma, <comma> >> <<grantee, <grantee> >> }... ] <<drop-behavior, <drop behavior> >>
+----
+
+
+== 12  Module
+
+
+
+=== 12.1  <module>
+
+.Function
+
+
+Define a module.
+
+Format
+
+[[module]]
+[subs="specialcharacters,macros"]
+----
+<module> ::=
+     <<module-name-clause, <module name clause> >>
+     <<language-clause, <language clause> >>
+     <<module-authorization-clause, <module authorization clause> >>
+     [ <<temporary-table-declaration, <temporary table declaration> >>... ]
+     <<module-contents, <module contents> >>...
+----
+
+[[module-authorization-clause]]
+[subs="specialcharacters,macros"]
+----
+<module authorization clause> ::=
+       SCHEMA <<schema-name, <schema name> >>
+     | AUTHORIZATION <<module-authorization-identifier, <module authorization identifier> >>
+     | SCHEMA <<schema-name, <schema name> >> AUTHORIZATION <<module-authorization-identifier, <module authorization identifier> >>
+----
+
+
+[[module-authorization-identifier]]
+[subs="specialcharacters,macros"]
+----
+<module authorization identifier> ::=
+     <<authorization-identifier, <authorization identifier> >>
+----
+
+[[module-contents]]
+[subs="specialcharacters,macros"]
+----
+<module contents> ::=
+       <<declare-cursor, <declare cursor> >>
+     | <<dynamic-declare-cursor, <dynamic declare cursor> >>
+     | <<procedure, <procedure> >>
+----
+
+
+=== 12.2  <module name clause>
+
+.Function
+
+
+Name a <module>.
+
+Format
+
+[[module-name-clause]]
+[subs="specialcharacters,macros"]
+----
+<module name clause> ::=
+     MODULE [ <<module-name, <module name> >> ]
+       [ <<module-character-set-specification, <module character set specification> >> ]
+----
+
+[[module-character-set-specification]]
+[subs="specialcharacters,macros"]
+----
+<module character set specification> ::=
+     NAMES ARE <<character-set-specification, <character set specification> >>
+----
+
+
+=== 12.3  <procedure>
+
+.Function
+
+
+Define a procedure.
+
+Format
+
+[[procedure]]
+[subs="specialcharacters,macros"]
+----
+<procedure> ::=
+     PROCEDURE <<procedure-name, <procedure name> >> <<parameter-declaration-list, <parameter declaration list> >> <<semicolon, <semicolon> >>
+----
+
+       <SQL procedure statement> <semicolon>
+
+[[parameter-declaration-list]]
+[subs="specialcharacters,macros"]
+----
+<parameter declaration list> ::=
+       <<left-paren, <left paren> >> <<parameter-declaration, <parameter declaration> >>
+           [ { <<comma, <comma> >> <<parameter-declaration, <parameter declaration> >> }... ] <<right-paren, <right paren> >>
+
+     | <<parameter-declaration, <parameter declaration> >>...
+----
+
+[[parameter-declaration]]
+[subs="specialcharacters,macros"]
+----
+<parameter declaration> ::=
+       <<parameter-name, <parameter name> >> <<data-type, <data type> >>
+     | <<status-parameter, <status parameter> >>
+----
+
+[[status-parameter]]
+[subs="specialcharacters,macros"]
+----
+<status parameter> ::=
+     SQLCODE | SQLSTATE
+----
+
+
+=== 12.5  <SQL procedure statement>
+
+.Function
+
+
+Define all of the SQL-statements that are <SQL procedure state-
+ment>s.
+
+Format
+
+[[SQL-procedure-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL procedure statement> ::=
+       <<SQL-schema-statement, <SQL schema statement> >>
+     | <<SQL-data-statement, <SQL data statement> >>
+     | <<SQL-transaction-statement, <SQL transaction statement> >>
+     | <<SQL-connection-statement, <SQL connection statement> >>
+     | <<SQL-session-statement, <SQL session statement> >>
+     | <<SQL-dynamic-statement, <SQL dynamic statement> >>
+     | <<SQL-diagnostics-statement, <SQL diagnostics statement> >>
+----
+
+[[SQL-schema-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL schema statement> ::=
+       <<SQL-schema-definition-statement, <SQL schema definition statement> >>
+     | <<SQL-schema-manipulation-statement, <SQL schema manipulation statement> >>
+----
+
+[[SQL-schema-definition-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL schema definition statement> ::=
+       <<schema-definition, <schema definition> >>
+     | <<table-definition, <table definition> >>
+     | <<view-definition, <view definition> >>
+     | <<grant-statement, <grant statement> >>
+     | <<domain-definition, <domain definition> >>
+     | <<character-set-definition, <character set definition> >>
+     | <<collation-definition, <collation definition> >>
+     | <<translation-definition, <translation definition> >>
+     | <<assertion-definition, <assertion definition> >>
+----
+
+[[SQL-schema-manipulation-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL schema manipulation statement> ::=
+       <<drop-schema-statement, <drop schema statement> >>
+     | <<alter-table-statement, <alter table statement> >>
+     | <<drop-table-statement, <drop table statement> >>
+     | <<drop-view-statement, <drop view statement> >>
+     | <<revoke-statement, <revoke statement> >>
+     | <<alter-domain-statement, <alter domain statement> >>
+     | <<drop-domain-statement, <drop domain statement> >>
+     | <<drop-character-set-statement, <drop character set statement> >>
+     | <<drop-collation-statement, <drop collation statement> >>
+     | <<drop-translation-statement, <drop translation statement> >>
+     | <<drop-assertion-statement, <drop assertion statement> >>
+----
+
+[[SQL-data-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL data statement> ::=
+       <<open-statement, <open statement> >>
+     | <<fetch-statement, <fetch statement> >>
+     | <<close-statement, <close statement> >>
+     | <<select-statement:-single-row, <select statement: single row> >>
+     | <<SQL-data-change-statement, <SQL data change statement> >>
+----
+
+[[SQL-data-change-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL data change statement> ::=
+       <<delete-statement:-positioned, <delete statement: positioned> >>
+     | <<delete-statement:-searched, <delete statement: searched> >>
+     | <<insert-statement, <insert statement> >>
+     | <<update-statement:-positioned, <update statement: positioned> >>
+     | <<update-statement:-searched, <update statement: searched> >>
+----
+
+[[SQL-transaction-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL transaction statement> ::=
+       <<set-transaction-statement, <set transaction statement> >>
+     | <<set-constraints-mode-statement, <set constraints mode statement> >>
+     | <<commit-statement, <commit statement> >>
+     | <<rollback-statement, <rollback statement> >>
+----
+
+[[SQL-connection-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL connection statement> ::=
+       <<connect-statement, <connect statement> >>
+     | <<set-connection-statement, <set connection statement> >>
+     | <<disconnect-statement, <disconnect statement> >>
+----
+
+[[SQL-session-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL session statement> ::=
+       <<set-catalog-statement, <set catalog statement> >>
+     | <<set-schema-statement, <set schema statement> >>
+     | <<set-names-statement, <set names statement> >>
+     | <<set-session-authorization-identifier-statement, <set session authorization identifier statement> >>
+     | <<set-local-time-zone-statement, <set local time zone statement> >>
+----
+
+[[SQL-dynamic-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL dynamic statement> ::=
+       <<system-descriptor-statement, <system descriptor statement> >>
+     | <<prepare-statement, <prepare statement> >>
+     | <<deallocate-prepared-statement, <deallocate prepared statement> >>
+     | <<describe-statement, <describe statement> >>
+     | <<execute-statement, <execute statement> >>
+     | <<execute-immediate-statement, <execute immediate statement> >>
+     | <<SQL-dynamic-data-statement, <SQL dynamic data statement> >>
+----
+
+[[SQL-dynamic-data-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL dynamic data statement> ::=
+       <<allocate-cursor-statement, <allocate cursor statement> >>
+     | <<dynamic-open-statement, <dynamic open statement> >>
+     | <<dynamic-fetch-statement, <dynamic fetch statement> >>
+     | <<dynamic-close-statement, <dynamic close statement> >>
+     | <<dynamic-delete-statement:-positioned, <dynamic delete statement: positioned> >>
+     | <<dynamic-update-statement:-positioned, <dynamic update statement: positioned> >>
+----
+
+[[system-descriptor-statement]]
+[subs="specialcharacters,macros"]
+----
+<system descriptor statement> ::=
+       <<allocate-descriptor-statement, <allocate descriptor statement> >>
+     | <<deallocate-descriptor-statement, <deallocate descriptor statement> >>
+     | <<set-descriptor-statement, <set descriptor statement> >>
+     | <<get-descriptor-statement, <get descriptor statement> >>
+----
+
+[[SQL-diagnostics-statement]]
+[subs="specialcharacters,macros"]
+----
+<SQL diagnostics statement> ::=
+     <<get-diagnostics-statement, <get diagnostics statement> >>
+----
+
+== 13  Data manipulation
+
+
+
+=== 13.1  <declare cursor>
+
+.Function
+
+
+Define a cursor.
+
+Format
+
+[[declare-cursor]]
+[subs="specialcharacters,macros"]
+----
+<declare cursor> ::=
+     DECLARE <<cursor-name, <cursor name> >> [ INSENSITIVE ] [ SCROLL ] CURSOR
+       FOR <<cursor-specification, <cursor specification> >>
+----
+
+[[cursor-specification]]
+[subs="specialcharacters,macros"]
+----
+<cursor specification> ::=
+     <<query-expression, <query expression> >> [ <<order-by-clause, <order by clause> >> ]
+       [ <<updatability-clause, <updatability clause> >> ]
+----
+
+[[updatability-clause]]
+[subs="specialcharacters,macros"]
+----
+<updatability clause> ::=
+     FOR { READ ONLY | UPDATE [ OF <<column-name-list, <column name list> >> ] }
+----
+
+[[order-by-clause]]
+[subs="specialcharacters,macros"]
+----
+<order by clause> ::=
+     ORDER BY <<sort-specification-list, <sort specification list> >>
+----
+
+[[sort-specification-list]]
+[subs="specialcharacters,macros"]
+----
+<sort specification list> ::=
+     <<sort-specification, <sort specification> >> [ { <<comma, <comma> >> <<sort-specification, <sort specification> >> }... ]
+----
+
+[[sort-specification]]
+[subs="specialcharacters,macros"]
+----
+<sort specification> ::=
+     <<sort-key, <sort key> >> [ <<collate-clause-, <collate clause > >> ] [ <<ordering-specification, <ordering specification> >> ]
+----
+
+
+[[sort-key]]
+[subs="specialcharacters,macros"]
+----
+<sort key> ::=
+       <<column-name, <column name> >>
+     | <<unsigned-integer, <unsigned integer> >>
+----
+
+[[ordering-specification]]
+[subs="specialcharacters,macros"]
+----
+<ordering specification> ::= ASC | DESC
+----
+
+
+=== 13.2  <open statement>
+
+.Function
+
+
+Open a cursor.
+
+Format
+
+[[open-statement]]
+[subs="specialcharacters,macros"]
+----
+<open statement> ::=
+     OPEN <<cursor-name, <cursor name> >>
+----
+
+
+=== 13.3  <fetch statement>
+
+.Function
+
+
+Position a cursor on a specified row of a table and retrieve values
+from that row.
+
+Format
+
+[[fetch-statement]]
+[subs="specialcharacters,macros"]
+----
+<fetch statement> ::=
+     FETCH [ [ <<fetch-orientation, <fetch orientation> >> ] FROM ]
+       <<cursor-name, <cursor name> >> INTO <<fetch-target-list, <fetch target list> >>
+----
+
+[[fetch-orientation]]
+[subs="specialcharacters,macros"]
+----
+<fetch orientation> ::=
+       NEXT
+     | PRIOR
+     | FIRST
+     | LAST
+     | { ABSOLUTE | RELATIVE } <<simple-value-specification, <simple value specification> >>
+----
+
+[[fetch-target-list]]
+[subs="specialcharacters,macros"]
+----
+<fetch target list> ::=
+     <<target-specification, <target specification> >> [ { <<comma, <comma> >> <<target-specification, <target specification> >> }... ]
+----
+
+
+=== 13.4  <close statement>
+
+.Function
+
+
+Close a cursor.
+
+Format
+
+[[close-statement]]
+[subs="specialcharacters,macros"]
+----
+<close statement> ::=
+     CLOSE <<cursor-name, <cursor name> >>
+----
+
+
+=== 13.5  <select statement: single row>
+
+.Function
+
+
+Retrieve values from a specified row of a table.
+
+Format
+
+[[select-statement:-single-row]]
+[subs="specialcharacters,macros"]
+----
+<select statement: single row> ::=
+     SELECT [ <<set-quantifier, <set quantifier> >> ] <<select-list, <select list> >>
+       INTO <<select-target-list, <select target list> >>
+         <<table-expression, <table expression> >>
+----
+
+[[select-target-list]]
+[subs="specialcharacters,macros"]
+----
+<select target list> ::=
+     <<target-specification, <target specification> >> [ { <<comma, <comma> >> <<target-specification, <target specification> >> }... ]
+----
+
+
+=== 13.6  <delete statement: positioned>
+
+.Function
+
+
+Delete a row of a table.
+
+Format
+
+[[delete-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<delete statement: positioned> ::=
+     DELETE FROM <<table-name, <table name> >>
+       WHERE CURRENT OF <<cursor-name, <cursor name> >>
+----
+
+
+=== 13.7  <delete statement: searched>
+
+.Function
+
+
+Delete rows of a table.
+
+Format
+
+[[delete-statement:-searched]]
+[subs="specialcharacters,macros"]
+----
+<delete statement: searched> ::=
+     DELETE FROM <<table-name, <table name> >>
+       [ WHERE <<search-condition, <search condition> >> ]
+----
+
+
+=== 13.8  <insert statement>
+
+.Function
+
+
+Create new rows in a table.
+
+Format
+
+[[insert-statement]]
+[subs="specialcharacters,macros"]
+----
+<insert statement> ::=
+     INSERT INTO <<table-name, <table name> >>
+       <<insert-columns-and-source, <insert columns and source> >>
+----
+
+[[insert-columns-and-source]]
+[subs="specialcharacters,macros"]
+----
+<insert columns and source> ::=
+       [ <<left-paren, <left paren> >> <<insert-column-list, <insert column list> >> <<right-paren, <right paren> >> ]
+     <<query-expression, <query expression> >>
+     | DEFAULT VALUES
+----
+
+[[insert-column-list]]
+[subs="specialcharacters,macros"]
+----
+<insert column list> ::= <column name list>
+----
+
+
+=== 13.9  <update statement: positioned>
+
+.Function
+
+
+Update a row of a table.
+
+Format
+
+[[update-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<update statement: positioned> ::=
+     UPDATE <<table-name, <table name> >>
+       SET <<set-clause-list, <set clause list> >>
+         WHERE CURRENT OF <<cursor-name, <cursor name> >>
+----
+
+[[set-clause-list]]
+[subs="specialcharacters,macros"]
+----
+<set clause list> ::=
+     <<set-clause, <set clause> >> [ { <<comma, <comma> >> <<set-clause, <set clause> >> }... ]
+----
+
+[[set-clause]]
+[subs="specialcharacters,macros"]
+----
+<set clause> ::=
+     <<object-column, <object column> >> <<equals-operator, <equals operator> >> <<update-source, <update source> >>
+----
+
+[[update-source]]
+[subs="specialcharacters,macros"]
+----
+<update source> ::=
+       <<value-expression, <value expression> >>
+     | <<null-specification, <null specification> >>
+     | DEFAULT
+----
+
+[[object-column]]
+[subs="specialcharacters,macros"]
+----
+<object column> ::= <column name>
+----
+
+
+=== 13.10  <update statement: searched>
+
+.Function
+
+
+Update rows of a table.
+
+Format
+
+[[update-statement:-searched]]
+[subs="specialcharacters,macros"]
+----
+<update statement: searched> ::=
+     UPDATE <<table-name, <table name> >>
+       SET <<set-clause-list, <set clause list> >>
+       [ WHERE <<search-condition, <search condition> >> ]
+----
+
+
+=== 13.11  <temporary table declaration>
+
+.Function
+
+
+Declare a declared local temporary table that will be effectively
+materialized the first time that any <procedure> in the <module>
+that contains the <temporary table declaration> is executed and
+whose scope is all the <procedure>s of that <module> executed
+within the same SQL-session.
+
+Format
+
+[[temporary-table-declaration]]
+[subs="specialcharacters,macros"]
+----
+<temporary table declaration> ::=
+     DECLARE LOCAL TEMPORARY TABLE <<qualified-local-table-name, <qualified local table name> >>
+       <<table-element-list, <table element list> >>
+       [ ON COMMIT { PRESERVE | DELETE } ROWS ]
+----
+
+
+== 14  Transaction management
+
+
+
+=== 14.1  <set transaction statement>
+
+.Function
+
+
+Set the attributes of the next SQL-transaction for the SQL-agent.
+
+Format
+
+[[set-transaction-statement]]
+[subs="specialcharacters,macros"]
+----
+<set transaction statement> ::=
+     SET TRANSACTION <<transaction-mode, <transaction mode> >> [ { <<comma, <comma> >> <<transaction-mode, <transaction mode> >> }... ]
+----
+
+
+[[transaction-mode]]
+[subs="specialcharacters,macros"]
+----
+<transaction mode> ::=
+       <<isolation-level, <isolation level> >>
+     | <<transaction-access-mode, <transaction access mode> >>
+     | <<diagnostics-size, <diagnostics size> >>
+----
+
+[[transaction-access-mode]]
+[subs="specialcharacters,macros"]
+----
+<transaction access mode> ::=
+       READ ONLY
+     | READ WRITE
+----
+
+[[isolation-level]]
+[subs="specialcharacters,macros"]
+----
+<isolation level> ::=
+     ISOLATION LEVEL <<level-of-isolation, <level of isolation> >>
+----
+
+[[level-of-isolation]]
+[subs="specialcharacters,macros"]
+----
+<level of isolation> ::=
+       READ UNCOMMITTED
+     | READ COMMITTED
+     | REPEATABLE READ
+     | SERIALIZABLE
+----
+
+[[diagnostics-size]]
+[subs="specialcharacters,macros"]
+----
+<diagnostics size> ::=
+     DIAGNOSTICS SIZE <<number-of-conditions, <number of conditions> >>
+----
+
+[[number-of-conditions]]
+[subs="specialcharacters,macros"]
+----
+<number of conditions> ::= <simple value specification>
+----
+
+
+
+=== 14.2  <set constraints mode statement>
+
+.Function
+
+
+If an SQL-transaction is currently active, then set the constraint
+mode for that SQL-transaction in the current SQL-session. If no
+SQL-transaction is currently active, then set the constraint mode
+for the next SQL-transaction in the current SQL-session for the
+SQL-agent.
+
+Format
+
+[[set-constraints-mode-statement]]
+[subs="specialcharacters,macros"]
+----
+<set constraints mode statement> ::=
+     SET CONSTRAINTS <<constraint-name-list, <constraint name list> >> { DEFERRED | IMMEDIATE }
+----
+
+
+[[constraint-name-list]]
+[subs="specialcharacters,macros"]
+----
+<constraint name list> ::=
+       ALL
+     | <<constraint-name, <constraint name> >> [ { <<comma, <comma> >> <<constraint-name, <constraint name> >> }... ]
+----
+
+
+=== 14.3  <commit statement>
+
+.Function
+
+
+Terminate the current SQL-transaction with commit.
+
+Format
+
+[[commit-statement]]
+[subs="specialcharacters,macros"]
+----
+<commit statement> ::=
+     COMMIT [ WORK ]
+----
+
+
+=== 14.4  <rollback statement>
+
+.Function
+
+
+Terminate the current SQL-transaction with rollback.
+
+Format
+
+[[rollback-statement]]
+[subs="specialcharacters,macros"]
+----
+<rollback statement> ::=
+     ROLLBACK [ WORK ]
+----
+
+
+== 15  Connection management
+
+
+
+=== 15.1  <connect statement>
+
+.Function
+
+
+Establish an SQL-connection.
+
+Format
+
+[[connect-statement]]
+[subs="specialcharacters,macros"]
+----
+<connect statement> ::=
+     CONNECT TO <<connection-target, <connection target> >>
+----
+
+[[connection-target]]
+[subs="specialcharacters,macros"]
+----
+<connection target> ::=
+       <<SQL-server-name, <SQL-server name> >>
+         [ AS <<connection-name, <connection name> >> ]
+         [ USER <<user-name, <user name> >> ]
+     | DEFAULT
+----
+
+
+=== 15.2  <set connection statement>
+
+.Function
+
+
+Select an SQL-connection from the available SQL-connections.
+
+Format
+
+[[set-connection-statement]]
+[subs="specialcharacters,macros"]
+----
+<set connection statement> ::=
+     SET CONNECTION <<connection-object, <connection object> >>
+----
+
+[[connection-object]]
+[subs="specialcharacters,macros"]
+----
+<connection object> ::=
+       DEFAULT
+     | <<connection-name, <connection name> >>
+----
+
+=== 15.3  <disconnect statement>
+
+.Function
+
+
+Terminate an SQL-connection.
+
+Format
+
+[[disconnect-statement]]
+[subs="specialcharacters,macros"]
+----
+<disconnect statement> ::=
+     DISCONNECT <<disconnect-object, <disconnect object> >>
+----
+
+[[disconnect-object]]
+[subs="specialcharacters,macros"]
+----
+<disconnect object> ::=
+       <<connection-object, <connection object> >>
+     | ALL
+     | CURRENT
+----
+
+
+== 16  Session management
+
+
+
+=== 16.1  <set catalog statement>
+
+.Function
+
+
+Set the default catalog name for unqualified <schema name>s in
+[[preparable-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable statement>s that are prepared in the current SQL-
+session by an <execute immediate statement> or a <prepare state-
+ment> and in <direct SQL statement>s that are invoked directly.
+----
+
+Format
+
+
+[[set-catalog-statement]]
+[subs="specialcharacters,macros"]
+----
+<set catalog statement> ::=
+     SET CATALOG <<value-specification, <value specification> >>
+----
+
+
+=== 16.2  <set schema statement>
+
+.Function
+
+
+Set the default schema name for unqualified <qualified name>s in
+[[preparable-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable statement>s that are prepared in the current SQL-
+session by an <execute immediate statement> or a <prepare state-
+ment> and in <direct SQL statement>s that are invoked directly.
+----
+
+Format
+
+
+[[set-schema-statement]]
+[subs="specialcharacters,macros"]
+----
+<set schema statement> ::=
+     SET SCHEMA <<value-specification, <value specification> >>
+----
+
+
+=== 16.3  <set names statement>
+
+.Function
+
+
+Set the default character set name for <identifier>s and <character
+string literal>s in <preparable statement>s that are prepared in
+the current SQL-session by an <execute immediate statement> or a
+[[prepare-statement]]
+[subs="specialcharacters,macros"]
+----
+<prepare statement> and in <direct SQL statement>s that are invoked
+directly.
+----
+
+Format
+
+[[set-names-statement]]
+[subs="specialcharacters,macros"]
+----
+<set names statement> ::=
+     SET NAMES <<value-specification, <value specification> >>
+----
+
+
+=== 16.4  <set session authorization identifier statement>
+
+.Function
+
+
+Set the <authorization identifier> of the current SQL-session.
+
+Format
+
+[[set-session-authorization-identifier-statement]]
+[subs="specialcharacters,macros"]
+----
+<set session authorization identifier statement> ::=
+     SET SESSION AUTHORIZATION <<value-specification, <value specification> >>
+----
+
+
+=== 16.5  <set local time zone statement>
+
+.Function
+
+
+Set the default local time zone displacement for the current SQL-
+session.
+
+Format
+
+[[set-local-time-zone-statement]]
+[subs="specialcharacters,macros"]
+----
+<set local time zone statement> ::=
+     SET TIME ZONE <<set-time-zone-value, <set time zone value> >>
+----
+
+[[set-time-zone-value]]
+[subs="specialcharacters,macros"]
+----
+<set time zone value> ::=
+       <<interval-value-expression, <interval value expression> >>
+     | LOCAL
+----
+
+
+=== 17.2  <allocate descriptor statement>
+
+.Function
+
+
+Allocate an SQL descriptor area.
+
+Format
+
+[[allocate-descriptor-statement]]
+[subs="specialcharacters,macros"]
+----
+<allocate descriptor statement> ::=
+     ALLOCATE DESCRIPTOR <<descriptor-name, <descriptor name> >> [ WITH MAX <<occurrences, <occurrences> >> ]
+----
+
+
+[[occurrences]]
+[subs="specialcharacters,macros"]
+----
+<occurrences> ::= <simple value specification>
+----
+
+
+=== 17.3  <deallocate descriptor statement>
+
+.Function
+
+
+Deallocate an SQL descriptor area.
+
+Format
+
+[[deallocate-descriptor-statement]]
+[subs="specialcharacters,macros"]
+----
+<deallocate descriptor statement> ::=
+     DEALLOCATE DESCRIPTOR <<descriptor-name, <descriptor name> >>
+----
+
+
+=== 17.4  <get descriptor statement>
+
+.Function
+
+
+Get information from an SQL descriptor area.
+
+Format
+
+[[get-descriptor-statement]]
+[subs="specialcharacters,macros"]
+----
+<get descriptor statement> ::=
+     GET DESCRIPTOR <<descriptor-name, <descriptor name> >> <<get-descriptor-information, <get descriptor information> >>
+----
+
+
+[[get-descriptor-information]]
+[subs="specialcharacters,macros"]
+----
+<get descriptor information> ::=
+       <<get-count, <get count> >>
+     | VALUE <<item-number, <item number> >>
+         <<get-item-information, <get item information> >> [ { <<comma, <comma> >> <<get-item-information, <get item information> >> }... ]
+----
+
+
+[[get-count]]
+[subs="specialcharacters,macros"]
+----
+<get count> ::=
+     <<simple-target-specification-1, <simple target specification 1> >> <<equals-operator, <equals operator> >> COUNT
+----
+
+[[get-item-information]]
+[subs="specialcharacters,macros"]
+----
+<get item information> ::=
+     <<simple-target-specification-2, <simple target specification 2> >> <<equals-operator, <equals operator> >> <<descriptor-item-name, <descriptor item name> >>>
+----
+
+
+[[item-number]]
+[subs="specialcharacters,macros"]
+----
+<item number> ::= <simple value specification>
+----
+
+[[simple-target-specification-1]]
+[subs="specialcharacters,macros"]
+----
+<simple target specification 1> ::= <simple target specification>
+----
+
+[[simple-target-specification-2]]
+[subs="specialcharacters,macros"]
+----
+<simple target specification 2> ::= <simple target specification>
+----
+
+[[descriptor-item-name]]
+[subs="specialcharacters,macros"]
+----
+<descriptor item name> ::=
+       TYPE
+     | LENGTH
+     | OCTET_LENGTH
+     | RETURNED_LENGTH
+     | RETURNED_OCTET_LENGTH
+     | PRECISION
+     | SCALE
+     | DATETIME_INTERVAL_CODE
+     | DATETIME_INTERVAL_PRECISION
+     | NULLABLE
+     | INDICATOR
+     | DATA
+     | NAME
+     | UNNAMED
+     | COLLATION_CATALOG
+     | COLLATION_SCHEMA
+     | COLLATION_NAME
+     | CHARACTER_SET_CATALOG
+     | CHARACTER_SET_SCHEMA
+     | CHARACTER_SET_NAME
+----
+
+
+=== 17.5  <set descriptor statement>
+
+.Function
+
+
+Set information in an SQL descriptor area.
+
+Format
+
+[[set-descriptor-statement]]
+[subs="specialcharacters,macros"]
+----
+<set descriptor statement> ::=
+     SET DESCRIPTOR <<descriptor-name, <descriptor name> >> <<set-descriptor-information, <set descriptor information> >>
+----
+
+
+[[set-descriptor-information]]
+[subs="specialcharacters,macros"]
+----
+<set descriptor information> ::=
+       <<set-count, <set count> >>
+     | VALUE <<item-number, <item number> >>
+         <<set-item-information, <set item information> >> [ { <<comma, <comma> >> <<set-item-information, <set item information> >> }... ]
+----
+
+
+[[set-count]]
+[subs="specialcharacters,macros"]
+----
+<set count> ::=
+     COUNT <<equals-operator, <equals operator> >> <<simple-value-specification-1, <simple value specification 1> >>
+----
+
+[[set-item-information]]
+[subs="specialcharacters,macros"]
+----
+<set item information> ::=
+     <<descriptor-item-name, <descriptor item name> >> <<equals-operator, <equals operator> >> <<simple-value-specification-2, <simple value specification 2> >>
+----
+
+
+[[simple-value-specification-1]]
+[subs="specialcharacters,macros"]
+----
+<simple value specification 1> ::= <simple value specification>
+----
+
+[[simple-value-specification-2]]
+[subs="specialcharacters,macros"]
+----
+<simple value specification 2> ::= <simple value specification>
+----
+
+[[item-number]]
+[subs="specialcharacters,macros"]
+----
+<item number> ::= <simple value specification>
+----
+
+
+=== 17.6  <prepare statement>
+
+.Function
+
+
+Prepare a statement for execution.
+
+Format
+
+[[prepare-statement]]
+[subs="specialcharacters,macros"]
+----
+<prepare statement> ::=
+     PREPARE <<SQL-statement-name, <SQL statement name> >> FROM <<SQL-statement-variable, <SQL statement variable> >>
+----
+
+[[SQL-statement-variable]]
+[subs="specialcharacters,macros"]
+----
+<SQL statement variable> ::= <simple value specification>
+----
+
+[[preparable-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable statement> ::=
+       <<preparable-SQL-data-statement, <preparable SQL data statement> >>
+     | <<preparable-SQL-schema-statement, <preparable SQL schema statement> >>
+     | <<preparable-SQL-transaction-statement, <preparable SQL transaction statement> >>
+     | <<preparable-SQL-session-statement, <preparable SQL session statement> >>
+     | <<preparable-implementation-defined-statement, <preparable implementation-defined statement> >>
+----
+
+[[preparable-SQL-data-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable SQL data statement> ::=
+       <<delete-statement:-searched, <delete statement: searched> >>
+     | <<dynamic-single-row-select-statement, <dynamic single row select statement> >>
+     | <<insert-statement, <insert statement> >>
+     | <<dynamic-select-statement, <dynamic select statement> >>
+     | <<update-statement:-searched, <update statement: searched> >>
+     | <<preparable-dynamic-delete-statement:-positioned, <preparable dynamic delete statement: positioned> >>
+     | <<preparable-dynamic-update-statement:-positioned, <preparable dynamic update statement: positioned> >>
+----
+
+[[preparable-SQL-schema-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable SQL schema statement> ::=
+       <<SQL-schema-statement, <SQL schema statement> >>
+----
+
+[[preparable-SQL-transaction-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable SQL transaction statement> ::=
+       <<SQL-transaction-statement, <SQL transaction statement> >>
+----
+
+[[preparable-SQL-session-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable SQL session statement> ::=
+       <<SQL-session-statement, <SQL session statement> >>
+----
+
+[[dynamic-select-statement]]
+[subs="specialcharacters,macros"]
+----
+<dynamic select statement> ::= <cursor specification>
+----
+
+[[dynamic-single-row-select-statement]]
+[subs="specialcharacters,macros"]
+----
+<dynamic single row select statement> ::= <query specification>
+----
+
+[[preparable-implementation-defined-statement]]
+[subs="specialcharacters,macros"]
+----
+<preparable implementation-defined statement> ::= !! See the Syntax
+Rules.
+----
+
+
+=== 17.7  <deallocate prepared statement>
+
+.Function
+
+
+Deallocate SQL-statements that have been prepared with a <prepare
+statement>.
+
+Format
+
+[[deallocate-prepared-statement]]
+[subs="specialcharacters,macros"]
+----
+<deallocate prepared statement> ::=
+     DEALLOCATE PREPARE <<SQL-statement-name, <SQL statement name> >>
+----
+
+
+=== 17.8  <describe statement>
+
+.Function
+
+
+Obtain information about the <select list> columns or <dynamic
+parameter specification>s contained in a prepared statement.
+
+Format
+
+[[describe-statement]]
+[subs="specialcharacters,macros"]
+----
+<describe statement> ::=
+       <<describe-input-statement, <describe input statement> >>
+     | <<describe-output-statement, <describe output statement> >>
+----
+
+[[describe-input-statement]]
+[subs="specialcharacters,macros"]
+----
+<describe input statement> ::=
+     DESCRIBE INPUT <<SQL-statement-name, <SQL statement name> >> <<using-descriptor, <using descriptor> >>
+----
+
+[[describe-output-statement]]
+[subs="specialcharacters,macros"]
+----
+<describe output statement> ::=
+     DESCRIBE [ OUTPUT ] <<SQL-statement-name, <SQL statement name> >> <<using-descriptor, <using descriptor> >>
+----
+
+
+=== 17.9  <using clause>
+
+.Function
+
+
+Describe the input/output variables for an <SQL dynamic statement>.
+
+Format
+
+
+[[using-clause]]
+[subs="specialcharacters,macros"]
+----
+<using clause> ::=
+       <<using-arguments, <using arguments> >>
+     | <<using-descriptor, <using descriptor> >>
+----
+
+[[using-arguments]]
+[subs="specialcharacters,macros"]
+----
+<using arguments> ::=
+     { USING | INTO } <<argument, <argument> >> [ { <<comma, <comma> >> <<argument, <argument> >> }... ]
+----
+
+[[argument]]
+[subs="specialcharacters,macros"]
+----
+<argument> ::= <target specification>
+----
+
+[[using-descriptor]]
+[subs="specialcharacters,macros"]
+----
+<using descriptor> ::=
+     { USING | INTO } SQL DESCRIPTOR <<descriptor-name, <descriptor name> >>
+----
+
+
+=== 17.10  <execute statement>
+
+.Function
+
+
+Associate input parameters and output targets with a prepared
+statement and execute the statement.
+
+Format
+
+[[execute-statement]]
+[subs="specialcharacters,macros"]
+----
+<execute statement> ::=
+     EXECUTE <<SQL-statement-name, <SQL statement name> >>
+       [ <<result-using-clause, <result using clause> >> ]
+       [ <<parameter-using-clause, <parameter using clause> >> ]
+----
+
+[[result-using-clause]]
+[subs="specialcharacters,macros"]
+----
+<result using clause> ::= <using clause>
+----
+
+[[parameter-using-clause]]
+[subs="specialcharacters,macros"]
+----
+<parameter using clause> ::= <using clause>
+----
+
+
+=== 17.11  <execute immediate statement>
+
+.Function
+
+
+Dynamically prepare and execute a preparable statement.
+
+Format
+
+[[execute-immediate-statement]]
+[subs="specialcharacters,macros"]
+----
+<execute immediate statement> ::=
+     EXECUTE IMMEDIATE <<SQL-statement-variable, <SQL statement variable> >>
+----
+
+
+=== 17.12  <dynamic declare cursor>
+
+.Function
+
+
+Declare a cursor to be associated with a <statement name>, which
+may in turn be associated with a <cursor specification>.
+
+Format
+
+[[dynamic-declare-cursor]]
+[subs="specialcharacters,macros"]
+----
+<dynamic declare cursor> ::=
+     DECLARE <<cursor-name, <cursor name> >> [ INSENSITIVE ] [ SCROLL ] CURSOR
+     FOR <<statement-name, <statement name> >>
+----
+
+
+=== 17.13  <allocate cursor statement>
+
+.Function
+
+
+Define a cursor based on a <prepare statement> for a <cursor speci-
+fication>.
+
+Format
+
+[[allocate-cursor-statement]]
+[subs="specialcharacters,macros"]
+----
+<allocate cursor statement> ::=
+     ALLOCATE <<extended-cursor-name, <extended cursor name> >> [ INSENSITIVE ] [ SCROLL ] CURSOR
+       FOR <<extended-statement-name, <extended statement name> >>
+----
+
+
+=== 17.14  <dynamic open statement>
+
+.Function
+
+
+Associate input parameters with a <cursor specification> and open
+the cursor.
+
+Format
+
+[[dynamic-open-statement]]
+[subs="specialcharacters,macros"]
+----
+<dynamic open statement> ::=
+     OPEN <<dynamic-cursor-name, <dynamic cursor name> >> [ <<using-clause, <using clause> >> ]
+----
+
+=== 17.15  <dynamic fetch statement>
+
+.Function
+
+
+Fetch a row for a cursor declared with a <dynamic declare cursor>.
+
+Format
+
+[[dynamic-fetch-statement]]
+[subs="specialcharacters,macros"]
+----
+<dynamic fetch statement> ::=
+     FETCH [ [ <<fetch-orientation, <fetch orientation> >> ] FROM ] <<dynamic-cursor-name, <dynamic cursor name> >>
+     <<using-clause, <using clause> >>
+----
+
+=== 17.16  <dynamic close statement>
+
+.Function
+
+
+Close a cursor.
+
+Format
+
+[[dynamic-close-statement]]
+[subs="specialcharacters,macros"]
+----
+<dynamic close statement> ::=
+     CLOSE <<dynamic-cursor-name, <dynamic cursor name> >>
+----
+
+
+=== 17.17  <dynamic delete statement: positioned>
+
+.Function
+
+
+Delete a row of a table.
+
+Format
+
+[[dynamic-delete-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<dynamic delete statement: positioned> ::=
+     DELETE FROM <<table-name, <table name> >>
+       WHERE CURRENT OF <<dynamic-cursor-name, <dynamic cursor name> >>
+----
+
+
+=== 17.18  <dynamic update statement: positioned>
+
+.Function
+
+
+Update a row of a table.
+
+Format
+
+[[dynamic-update-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<dynamic update statement: positioned> ::=
+     UPDATE <<table-name, <table name> >>
+       SET <<set-clause, <set clause> >> [ { <<comma, <comma> >> <<set-clause, <set clause> >> }... ]
+         WHERE CURRENT OF <<dynamic-cursor-name, <dynamic cursor name> >>
+----
+
+
+=== 17.19  <preparable dynamic delete statement: positioned>
+
+.Function
+
+
+Delete a row of a table through a dynamic cursor.
+
+Format
+
+[[preparable-dynamic-delete-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<preparable dynamic delete statement: positioned> ::=
+     DELETE [ FROM <<table-name, <table name> >> ]
+       WHERE CURRENT OF <<cursor-name, <cursor name> >>
+----
+
+
+=== 17.20  <preparable dynamic update statement: positioned>
+
+.Function
+
+
+Update a row of a table through a dynamic cursor.
+
+Format
+
+[[preparable-dynamic-update-statement:-positioned]]
+[subs="specialcharacters,macros"]
+----
+<preparable dynamic update statement: positioned> ::=
+     UPDATE [ <<table-name, <table name> >> ]
+       SET <<set-clause-list, <set clause list> >>
+       WHERE CURRENT OF <<cursor-name, <cursor name> >>
+----
+
+
+== 18  Diagnostics management
+
+
+
+=== 18.1  <get diagnostics statement>
+
+.Function
+
+
+Get exception or completion condition information from the diagnos-
+tics area.
+
+Format
+
+[[get-diagnostics-statement]]
+[subs="specialcharacters,macros"]
+----
+<get diagnostics statement> ::=
+     GET DIAGNOSTICS <<sql-diagnostics-information, <sql diagnostics information> >>
+----
+
+[[sql-diagnostics-information]]
+[subs="specialcharacters,macros"]
+----
+<sql diagnostics information> ::=
+       <<statement-information, <statement information> >>
+     | <<condition-information, <condition information> >>
+----
+
+[[statement-information]]
+[subs="specialcharacters,macros"]
+----
+<statement information> ::=
+     <<statement-information-item, <statement information item> >> [ { <<comma, <comma> >> <<statement-information-item, <statement information item> >> }... ]
+----
+
+
+[[statement-information-item]]
+[subs="specialcharacters,macros"]
+----
+<statement information item> ::=
+     <<simple-target-specification, <simple target specification> >> <<equals-operator, <equals operator> >> <<statement-information-item-name, <statement information item name> >>
+----
+
+
+[[statement-information-item-name]]
+[subs="specialcharacters,macros"]
+----
+<statement information item name> ::=
+       NUMBER
+     | MORE
+     | COMMAND_FUNCTION
+     | DYNAMIC_FUNCTION
+     | ROW_COUNT
+----
+
+[[condition-information]]
+[subs="specialcharacters,macros"]
+----
+<condition information> ::=
+     EXCEPTION <<condition-number, <condition number> >>
+       <<condition-information-item, <condition information item> >> [ { <<comma, <comma> >> <<condition-information-item, <condition information item> >> }... ]
+----
+
+
+[[condition-information-item]]
+[subs="specialcharacters,macros"]
+----
+<condition information item> ::=
+     <<simple-target-specification, <simple target specification> >> <<equals-operator, <equals operator> >> <<condition-information-item-name, <condition information item name> >>
+----
+
+
+[[condition-information-item-name]]
+[subs="specialcharacters,macros"]
+----
+<condition information item name> ::=
+       CONDITION_NUMBER
+     | RETURNED_SQLSTATE
+     | CLASS_ORIGIN
+     | SUBCLASS_ORIGIN
+     | SERVER_NAME
+     | CONNECTION_NAME
+     | CONSTRAINT_CATALOG
+     | CONSTRAINT_SCHEMA
+     | CONSTRAINT_NAME
+     | CATALOG_NAME
+     | SCHEMA_NAME
+     | TABLE_NAME
+     | COLUMN_NAME
+     | CURSOR_NAME
+     | MESSAGE_TEXT
+     | MESSAGE_LENGTH
+     | MESSAGE_OCTET_LENGTH
+----
+
+[[condition-number]]
+[subs="specialcharacters,macros"]
+----
+<condition number> ::= <simple value specification>
+----
+
+
+== 19  Embedded SQL
+
+
+
+=== 19.1  <embedded SQL host program>
+
+.Function
+
+
+Specify an <embedded SQL host program>.
+
+Format
+
+[[embedded-SQL-host-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL host program> ::=
+       <<embedded-SQL-Ada-program, <embedded SQL Ada program> >>
+     | <<embedded-SQL-C-program, <embedded SQL C program> >>
+     | <<embedded-SQL-COBOL-program, <embedded SQL COBOL program> >>
+     | <<embedded-SQL-Fortran-program, <embedded SQL Fortran program> >>
+     | <<embedded-SQL-MUMPS-program, <embedded SQL MUMPS program> >>
+     | <<embedded-SQL-Pascal-program, <embedded SQL Pascal program> >>
+     | <<embedded-SQL-PL/I-program, <embedded SQL PL/I program> >>
+----
+
+[[embedded-SQL-statement]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL statement> ::=
+     <<SQL-prefix, <SQL prefix> >>
+       <<statement-or-declaration, <statement or declaration> >>
+     [ <<SQL-terminator, <SQL terminator> >> ]
+----
+
+[[statement-or-declaration]]
+[subs="specialcharacters,macros"]
+----
+<statement or declaration> ::=
+       <<declare-cursor, <declare cursor> >>
+     | <<dynamic-declare-cursor, <dynamic declare cursor> >>
+     | <<temporary-table-declaration, <temporary table declaration> >>
+     | <<embedded-exception-declaration, <embedded exception declaration> >>
+     | <<SQL-procedure-statement, <SQL procedure statement> >>
+----
+
+[[SQL-prefix]]
+[subs="specialcharacters,macros"]
+----
+<SQL prefix> ::=
+       EXEC SQL
+     | <<ampersand, <ampersand> >>SQL<<left-paren, <left paren> >>
+----
+
+[[SQL-terminator]]
+[subs="specialcharacters,macros"]
+----
+<SQL terminator> ::=
+       END-EXEC
+     | <<semicolon, <semicolon> >>
+     | <<right-paren, <right paren> >>
+----
+
+[[embedded-SQL-declare-section]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL declare section> ::=
+       <<embedded-SQL-begin-declare, <embedded SQL begin declare> >>
+         [ <<embedded-character-set-declaration, <embedded character set declaration> >> ]
+         [ <<host-variable-definition, <host variable definition> >>... ]
+       <<embedded-SQL-end-declare, <embedded SQL end declare> >>
+     | <<embedded-SQL-MUMPS-declare, <embedded SQL MUMPS declare> >>
+----
+
+[[embedded-character-set-declaration]]
+[subs="specialcharacters,macros"]
+----
+<embedded character set declaration> ::=
+     SQL NAMES ARE <<character-set-specification, <character set specification> >>
+----
+
+[[embedded-SQL-begin-declare]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL begin declare> ::=
+     <<SQL-prefix, <SQL prefix> >> BEGIN DECLARE SECTION [ <<SQL-terminator, <SQL terminator> >> ]
+----
+
+[[embedded-SQL-end-declare]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL end declare> ::=
+     <<SQL-prefix, <SQL prefix> >> END DECLARE SECTION [ <<SQL-terminator, <SQL terminator> >> ]
+----
+
+[[embedded-SQL-MUMPS-declare]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL MUMPS declare> ::=
+     <<SQL-prefix, <SQL prefix> >>
+       BEGIN DECLARE SECTION
+         [ <<embedded-character-set-declaration, <embedded character set declaration> >> ]
+         [ <<host-variable-definition, <host variable definition> >>... ]
+       END DECLARE SECTION
+     <<SQL-terminator, <SQL terminator> >>
+----
+
+[[host-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<host variable definition> ::=
+       <<Ada-variable-definition, <Ada variable definition> >>
+     | <<C-variable-definition, <C variable definition> >>
+     | <<COBOL-variable-definition, <COBOL variable definition> >>
+     | <<Fortran-variable-definition, <Fortran variable definition> >>
+     | <<MUMPS-variable-definition, <MUMPS variable definition> >>
+     | <<Pascal-variable-definition, <Pascal variable definition> >>
+     | <<PL/I-variable-definition, <PL/I variable definition> >>
+----
+
+[[embedded-variable-name]]
+[subs="specialcharacters,macros"]
+----
+<embedded variable name> ::=
+     <<colon, <colon> >><<host-identifier, <host identifier> >>
+----
+
+[[host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<host identifier> ::=
+       <<Ada-host-identifier, <Ada host identifier> >>
+     | <<C-host-identifier, <C host identifier> >>
+     | <<COBOL-host-identifier, <COBOL host identifier> >>
+     | <<Fortran-host-identifier, <Fortran host identifier> >>
+     | <<MUMPS-host-identifier, <MUMPS host identifier> >>
+     | <<Pascal-host-identifier, <Pascal host identifier> >>
+     | <<PL/I-host-identifier, <PL/I host identifier> >>
+----
+
+
+=== 19.2  <embedded exception declaration>
+
+.Function
+
+
+Specify the action to be taken when an SQL-statement causes a spe-
+cific class of condition to be raised.
+
+Format
+
+[[embedded-exception-declaration]]
+[subs="specialcharacters,macros"]
+----
+<embedded exception declaration> ::=
+     WHENEVER <<condition, <condition> >> <<condition-action, <condition action> >>
+----
+
+[[condition]]
+[subs="specialcharacters,macros"]
+----
+<condition> ::=
+     SQLERROR | NOT FOUND
+----
+
+[[condition-action]]
+[subs="specialcharacters,macros"]
+----
+<condition action> ::=
+     CONTINUE | <<go-to, <go to> >>
+----
+
+[[go-to]]
+[subs="specialcharacters,macros"]
+----
+<go to> ::=
+     { GOTO | GO TO } <<goto-target, <goto target> >>
+----
+
+[[goto-target]]
+[subs="specialcharacters,macros"]
+----
+<goto target> ::=
+       <<host-label-identifier, <host label identifier> >>
+     | <<unsigned-integer, <unsigned integer> >>
+     | <<host-PL/I-label-variable, <host PL/I label variable> >>
+----
+
+[[host-label-identifier]]
+[subs="specialcharacters,macros"]
+----
+<host label identifier> ::= !!See the Syntax Rules.
+----
+
+[[host-PL/I-label-variable]]
+[subs="specialcharacters,macros"]
+----
+<host PL/I label variable> ::= !!See the Syntax Rules.
+----
+
+=== 19.3  <embedded SQL Ada program>
+
+.Function
+
+
+Specify an <embedded SQL Ada program>.
+
+Format
+
+[[embedded-SQL-Ada-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL Ada program> ::= !! See the Syntax Rules.
+----
+
+[[Ada-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<Ada variable definition> ::=
+     <<Ada-host-identifier, <Ada host identifier> >> [ { <<comma, <comma> >> <<Ada-host-identifier, <Ada host identifier> >> }... ] :
+----
+
+     <Ada type specification> [ <Ada initial value> ]
+
+[[Ada-initial-value]]
+[subs="specialcharacters,macros"]
+----
+<Ada initial value> ::=
+     <<Ada-assignment-operator, <Ada assignment operator> >> <<character-representation, <character representation> >>...
+----
+
+[[Ada-assignment-operator]]
+[subs="specialcharacters,macros"]
+----
+<Ada assignment operator> ::= <colon><equals operator>
+----
+
+[[Ada-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<Ada host identifier> ::= !! See the Syntax Rules.
+----
+
+[[Ada-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<Ada type specification> ::=
+       <<Ada-qualified-type-specification, <Ada qualified type specification> >>
+     | <<Ada-unqualified-type-specification, <Ada unqualified type specification> >>
+----
+
+[[Ada-qualified-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<Ada qualified type specification> ::=
+       SQL_STANDARD.CHAR [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+----
+
+           <left paren> 1 <double period> <length> <right paren>
+     | SQL_STANDARD.BIT <left paren> 1 <double period> <length> <right paren>
+
+     | SQL_STANDARD.SMALLINT
+     | SQL_STANDARD.INT
+     | SQL_STANDARD.REAL
+     | SQL_STANDARD.DOUBLE_PRECISION
+     | SQL_STANDARD.SQLCODE_TYPE
+     | SQL_STANDARD.SQLSTATE_TYPE
+     | SQL_STANDARD.INDICATOR_TYPE
+
+[[Ada-unqualified-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<Ada unqualified type specification> ::=
+       CHAR <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-paren, <right paren> >>
+     | BIT <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-paren, <right paren> >>
+     | SMALLINT
+     | INT
+     | REAL
+     | DOUBLE_PRECISION
+     | SQLCODE_TYPE
+     | SQLSTATE_TYPE
+     | INDICATOR_TYPE
+----
+
+=== 19.4  <embedded SQL C program>
+
+.Function
+
+
+Specify an <embedded SQL C program>.
+
+Format
+
+[[embedded-SQL-C-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL C program> ::= !! See the Syntax Rules.
+----
+
+[[C-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<C variable definition> ::=
+       [ <<C-storage-class, <C storage class> >> ]
+       [ <<C-class-modifier, <C class modifier> >> ]
+       <<C-variable-specification, <C variable specification> >>
+     <<semicolon, <semicolon> >>
+----
+
+[[C-variable-specification]]
+[subs="specialcharacters,macros"]
+----
+<C variable specification> ::=
+       <<C-numeric-variable, <C numeric variable> >>
+     | <<C-character-variable, <C character variable> >>
+     | <<C-derived-variable, <C derived variable> >>
+----
+
+[[C-storage-class]]
+[subs="specialcharacters,macros"]
+----
+<C storage class> ::=
+       auto
+     | extern
+     | static
+----
+
+[[C-class-modifier]]
+[subs="specialcharacters,macros"]
+----
+<C class modifier> ::= const | volatile
+----
+
+[[C-numeric-variable]]
+[subs="specialcharacters,macros"]
+----
+<C numeric variable> ::=
+     { long | short | float | double }
+       <<C-host-identifier, <C host identifier> >> [ <<C-initial-value, <C initial value> >> ]
+             [ { <<comma, <comma> >> <<C-host-identifier, <C host identifier> >> [ <<C-initial-value, <C initial value> >> ] }... ]
+----
+
+
+[[C-character-variable]]
+[subs="specialcharacters,macros"]
+----
+<C character variable> ::=
+     char [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+       <<C-host-identifier, <C host identifier> >> <<C-array-specification, <C array specification> >> [ <<C-initial-value, <C initial value> >> ]
+----
+
+         [ { <comma> <C host identifier> <C array specification>
+                  [ <C initial value> ] }... ]
+
+[[C-array-specification]]
+[subs="specialcharacters,macros"]
+----
+<C array specification> ::=
+     <<left-bracket, <left bracket> >> <<length, <length> >> <<right-bracket, <right bracket> >>
+----
+
+[[C-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<C host identifier> ::= !! See the Syntax Rules.
+----
+
+[[C-derived-variable]]
+[subs="specialcharacters,macros"]
+----
+<C derived variable> ::=
+       <<C-VARCHAR-variable, <C VARCHAR variable> >>
+     | <<C-bit-variable, <C bit variable> >>
+----
+
+[[C-VARCHAR-variable]]
+[subs="specialcharacters,macros"]
+----
+<C VARCHAR variable> ::=
+     VARCHAR [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+         <<C-host-identifier, <C host identifier> >> <<C-array-specification, <C array specification> >> [ <<C-initial-value, <C initial value> >> ]
+----
+
+           [ { <comma> <C host identifier> <C array specification>
+
+                       [ <C initial value> ] }... ]
+
+[[C-bit-variable]]
+[subs="specialcharacters,macros"]
+----
+<C bit variable> ::=
+     BIT <<C-host-identifier, <C host identifier> >> <<C-array-specification, <C array specification> >> [ <<C-initial-value, <C initial value> >> ]
+----
+
+       [ { <comma> <C host identifier> <C array specification>
+                    [ <C initial value> ] }... ]
+
+[[C-initial-value]]
+[subs="specialcharacters,macros"]
+----
+<C initial value> ::=
+     <<equals-operator, <equals operator> >> <<character-representation, <character representation> >>...
+----
+
+=== 19.5  <embedded SQL COBOL program>
+
+.Function
+
+
+Specify an <embedded SQL COBOL program>.
+
+Format
+
+[[embedded-SQL-COBOL-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL COBOL program> ::= !! See the Syntax Rules.
+----
+
+[[COBOL-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<COBOL variable definition> ::=
+     {01|77} <<COBOL-host-identifier, <COBOL host identifier> >> <<COBOL-type-specification, <COBOL type specification> >>
+       [ <<character-representation, <character representation> >>... ] <<period, <period> >>
+----
+
+[[COBOL-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<COBOL host identifier> ::= !! See the Syntax Rules.
+----
+
+[[COBOL-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<COBOL type specification> ::=
+       <<COBOL-character-type, <COBOL character type> >>
+     | <<COBOL-bit-type, <COBOL bit type> >>
+     | <<COBOL-numeric-type, <COBOL numeric type> >>
+     | <<COBOL-integer-type, <COBOL integer type> >>
+----
+
+[[COBOL-character-type]]
+[subs="specialcharacters,macros"]
+----
+<COBOL character type> ::=
+     [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+     { PIC | PICTURE } [ IS ] { X [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ] }...
+----
+
+
+[[COBOL-bit-type]]
+[subs="specialcharacters,macros"]
+----
+<COBOL bit type> ::=
+     { PIC | PICTURE } [ IS ] { B [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ] }...
+----
+
+
+[[COBOL-numeric-type]]
+[subs="specialcharacters,macros"]
+----
+<COBOL numeric type> ::=
+     { PIC | PICTURE } [ IS ]
+       S <<COBOL-nines-specification, <COBOL nines specification> >>
+     [ USAGE [ IS ] ] DISPLAY SIGN LEADING SEPARATE
+----
+
+[[COBOL-nines-specification]]
+[subs="specialcharacters,macros"]
+----
+<COBOL nines specification> ::=
+       <<COBOL-nines, <COBOL nines> >> [ V [ <<COBOL-nines, <COBOL nines> >> ] ]
+     | V <<COBOL-nines, <COBOL nines> >>
+----
+
+[[COBOL-integer-type]]
+[subs="specialcharacters,macros"]
+----
+<COBOL integer type> ::=
+       <<COBOL-computational-integer, <COBOL computational integer> >>
+     | <<COBOL-binary-integer, <COBOL binary integer> >>
+----
+
+[[COBOL-computational-integer]]
+[subs="specialcharacters,macros"]
+----
+<COBOL computational integer> ::=
+     { PIC | PICTURE } [ IS ] S<<COBOL-nines, <COBOL nines> >>
+       [ USAGE [ IS ] ] { COMP | COMPUTATIONAL }
+----
+
+[[COBOL-binary-integer]]
+[subs="specialcharacters,macros"]
+----
+<COBOL binary integer> ::=
+     { PIC | PICTURE } [ IS ] S<<COBOL-nines, <COBOL nines> >>
+       [ USAGE [ IS ] ] BINARY
+----
+
+[[COBOL-nines]]
+[subs="specialcharacters,macros"]
+----
+<COBOL nines> ::= { 9 [ <left paren> <length> <right paren> ] }...
+----
+
+=== 19.6  <embedded SQL Fortran program>
+
+.Function
+
+
+Specify an <embedded SQL Fortran program>.
+
+Format
+
+[[embedded-SQL-Fortran-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL Fortran program> ::= !! See the Syntax Rules.
+----
+
+[[Fortran-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<Fortran variable definition> ::=
+     <<Fortran-type-specification, <Fortran type specification> >>
+     <<Fortran-host-identifier, <Fortran host identifier> >> [ { <<comma, <comma> >> <<Fortran-host-identifier, <Fortran host identifier> >> }... ]
+----
+
+
+[[Fortran-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<Fortran host identifier> ::= !! See the Syntax Rules.
+----
+
+[[Fortran-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<Fortran type specification> ::=
+       CHARACTER [ <<asterisk, <asterisk> >> <<length, <length> >> ]
+           [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+     | BIT [ <<asterisk, <asterisk> >> <<length, <length> >> ]
+     | INTEGER
+     | REAL
+     | DOUBLE PRECISION
+----
+
+=== 19.7  <embedded SQL MUMPS program>
+
+.Function
+
+
+Specify an <embedded SQL MUMPS program>.
+
+Format
+
+[[embedded-SQL-MUMPS-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL MUMPS program> ::= !! See the Syntax Rules.
+----
+
+[[MUMPS-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS variable definition> ::=
+     { <<MUMPS-numeric-variable, <MUMPS numeric variable> >> | <<MUMPS-character-variable, <MUMPS character variable> >> }
+     <<semicolon, <semicolon> >>
+----
+
+[[MUMPS-character-variable]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS character variable> ::=
+     VARCHAR <<MUMPS-host-identifier, <MUMPS host identifier> >> <<MUMPS-length-specification, <MUMPS length specification> >>
+       [ { <<comma, <comma> >> <<MUMPS-host-identifier, <MUMPS host identifier> >> <<MUMPS-length-specification, <MUMPS length specification> >> }... ]
+----
+
+
+[[MUMPS-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS host identifier> ::= !! See the Syntax Rules.
+----
+
+[[MUMPS-length-specification]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS length specification> ::=
+     <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+----
+
+[[MUMPS-numeric-variable]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS numeric variable> ::=
+     <<MUMPS-type-specification, <MUMPS type specification> >>
+       <<MUMPS-host-identifier, <MUMPS host identifier> >> [ { <<comma, <comma> >> <<MUMPS-host-identifier, <MUMPS host identifier> >> }... ]
+----
+
+
+[[MUMPS-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS type specification> ::=
+       INT
+     | DEC [ <<left-paren, <left paren> >> <<precision, <precision> >> [ <<comma, <comma> >> <<scale, <scale> >> ] <<right-paren, <right paren> >> ]
+
+     | REAL
+----
+
+=== 19.8  <embedded SQL Pascal program>
+
+.Function
+
+
+Specify an <embedded SQL Pascal program>.
+
+Format
+
+[[embedded-SQL-Pascal-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL Pascal program> ::= !! See the Syntax Rules.
+----
+
+[[Pascal-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<Pascal variable definition> ::=
+     <<Pascal-host-identifier, <Pascal host identifier> >> [ { <<comma, <comma> >> <<Pascal-host-identifier, <Pascal host identifier> >> }... ] <<colon, <colon> >>
+----
+
+       <Pascal type specification> <semicolon>
+
+[[Pascal-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<Pascal host identifier> ::= !! See the Syntax Rules.
+----
+
+[[Pascal-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<Pascal type specification> ::=
+       PACKED ARRAY <<left-bracket, <left bracket> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-bracket, <right bracket> >>
+----
+
+         OF CHAR
+           [ CHARACTER SET [ IS ] <character set specification> ]
+     | PACKED ARRAY <left bracket> 1 <double period> <length> <right bracket>
+
+         OF BIT
+     | INTEGER
+     | REAL
+     | CHAR [ CHARACTER SET [ IS ] <character set specification> ]
+
+     | BIT
+
+=== 19.9  <embedded SQL PL/I program>
+
+.Function
+
+
+Specify an <embedded SQL PL/I program>.
+
+Format
+
+[[embedded-SQL-PL/I-program]]
+[subs="specialcharacters,macros"]
+----
+<embedded SQL PL/I program> ::= !! See the Syntax Rules.
+----
+
+[[PL/I-variable-definition]]
+[subs="specialcharacters,macros"]
+----
+<PL/I variable definition> ::=
+     {DCL | DECLARE}
+        {   <<PL/I-host-identifier, <PL/I host identifier> >>
+          | <<left-paren, <left paren> >> <<PL/I-host-identifier, <PL/I host identifier> >>
+                 [ { <<comma, <comma> >> <<PL/I-host-identifier, <PL/I host identifier> >> }... ] <<right-paren, <right paren> >> }
+----
+
+     <PL/I type specification>
+     [ <character representation>... ] <semicolon>
+
+[[PL/I-host-identifier]]
+[subs="specialcharacters,macros"]
+----
+<PL/I host identifier> ::= !! See the Syntax Rules.
+----
+
+[[PL/I-type-specification]]
+[subs="specialcharacters,macros"]
+----
+<PL/I type specification> ::=
+       { CHAR | CHARACTER } [ VARYING ] <<left-paren, <left paren> >><<length, <length> >><<right-paren, <right paren> >>
+----
+
+           [ CHARACTER SET [ IS ] <character set specification> ]
+     | BIT [ VARYING ] <left paren><length><right paren>
+     | <PL/I type fixed decimal> <left paren> <precision>
+           [ <comma> <scale> ] <right paren>
+     | <PL/I type fixed binary> [ <left paren> <precision> <right paren> ]
+
+     | <PL/I type float binary> <left paren> <precision> <right paren>
+
+
+[[PL/I-type-fixed-decimal]]
+[subs="specialcharacters,macros"]
+----
+<PL/I type fixed decimal> ::=
+       { DEC | DECIMAL } FIXED
+     | FIXED { DEC | DECIMAL }
+----
+
+[[PL/I-type-fixed-binary]]
+[subs="specialcharacters,macros"]
+----
+<PL/I type fixed binary> ::=
+       { BIN | BINARY } FIXED
+     | FIXED { BIN | BINARY }
+----
+
+[[PL/I-type-float-binary]]
+[subs="specialcharacters,macros"]
+----
+<PL/I type float binary> ::=
+       { BIN | BINARY } FLOAT
+     | FLOAT { BIN | BINARY }
+----
+
+
+== 20  Direct invocation of SQL
+
+
+
+=== 20.1  <direct SQL statement>
+
+.Function
+
+
+Specify direct execution of SQL.
+
+Format
+
+[[direct-SQL-statement]]
+[subs="specialcharacters,macros"]
+----
+<direct SQL statement> ::=
+     <<directly-executable-statement, <directly executable statement> >> <<semicolon, <semicolon> >>
+----
+
+[[directly-executable-statement]]
+[subs="specialcharacters,macros"]
+----
+<directly executable statement> ::=
+       <<direct-SQL-data-statement, <direct SQL data statement> >>
+     | <<SQL-schema-statement, <SQL schema statement> >>
+     | <<SQL-transaction-statement, <SQL transaction statement> >>
+     | <<SQL-connection-statement, <SQL connection statement> >>
+     | <<SQL-session-statement, <SQL session statement> >>
+     | <<direct-implementation-defined-statement, <direct implementation-defined statement> >>
+----
+
+[[direct-SQL-data-statement]]
+[subs="specialcharacters,macros"]
+----
+<direct SQL data statement> ::=
+       <<delete-statement:-searched, <delete statement: searched> >>
+     | <<direct-select-statement:-multiple-rows, <direct select statement: multiple rows> >>
+     | <<insert-statement, <insert statement> >>
+     | <<update-statement:-searched, <update statement: searched> >>
+     | <<temporary-table-declaration, <temporary table declaration> >>
+----
+
+[[direct-implementation-defined-statement]]
+[subs="specialcharacters,macros"]
+----
+<direct implementation-defined statement> ::= !!See the Syntax
+Rules
+----
+
+=== 20.2  <direct select statement: multiple rows>
+
+.Function
+
+
+Specify a statement to retrieve multiple rows from a specified
+table.
+
+Format
+
+[[direct-select-statement:-multiple-rows]]
+[subs="specialcharacters,macros"]
+----
+<direct select statement: multiple rows> ::=
+     <<query-expression, <query expression> >> [ <<order-by-clause, <order by clause> >> ]
+----
+

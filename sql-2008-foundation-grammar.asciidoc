@@ -2,8 +2,8 @@
 
 = Document
 
-== 5 Lexical elements
 
+== 5 Lexical elements
 
 === 5.1     <SQL terminal character>
 
@@ -63,11 +63,11 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQL special character> ::=
-      <<space, <space> >>
-  |   <<double-quote, <double quote> >>
-  |   <<percent, <percent> >>
-  |   <<ampersand, <ampersand> >>
-  |   <<quote, <quote> >>
+    <<space, <space> >>
+  | <<double-quote, <double quote> >>
+  | <<percent, <percent> >>
+  | <<ampersand, <ampersand> >>
+  | <<quote, <quote> >>
   |   <<left-paren, <left paren> >>
   |   <<right-paren, <right paren> >>
   |   <<asterisk, <asterisk> >>
@@ -95,7 +95,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <space> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[double-quote]]
@@ -179,7 +179,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <solidus> ::=
-  /
+ /
 ----
 
 [[reverse-solidus]]
@@ -310,6 +310,7 @@ Format
   }
 ----
 
+
 === 5.2     <token> and <separator>
 
 .Function
@@ -367,14 +368,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <identifier start> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[identifier-extend]]
 [subs="specialcharacters,macros"]
 ----
 <identifier extend> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[large-object-length-token]]
@@ -421,7 +422,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Unicode delimited identifier> ::=
-  U <<ampersand, <ampersand> >> <<double-quote, <double quote> >> <<Unicode-delimiter-body, <Unicode delimiter body> >> <<double-quote, <double quote> >>
+  U<<ampersand, <ampersand> >><<double-quote, <double quote> >> <<Unicode-delimiter-body, <Unicode delimiter body> >> <<double-quote, <double quote> >>
       <<Unicode-escape-specifier, <Unicode escape specifier> >>
 ----
 
@@ -429,7 +430,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Unicode escape specifier> ::=
-  [ UESCAPE <<quote, <quote> >> <<Unicode-escape-character, <Unicode escape character> >> <<quote, <quote> >> ]
+  [ UESCAPE <<quote, <quote> >><<Unicode-escape-character, <Unicode escape character> >><<quote, <quote> >> ]
 ----
 
 [[Unicode-delimiter-body]]
@@ -460,43 +461,43 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Unicode 4 digit escape value> ::=
-  <<Unicode-escape-character, <Unicode escape character> >> <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >>
+  <<Unicode-escape-character, <Unicode escape character> >><<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >>
 ----
 
 [[Unicode-6-digit-escape-value]]
 [subs="specialcharacters,macros"]
 ----
 <Unicode 6 digit escape value> ::=
-  <<Unicode-escape-character, <Unicode escape character> >> <<plus-sign, <plus sign> >>
-      <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >> <<hexit, <hexit> >>
+  <<Unicode-escape-character, <Unicode escape character> >><<plus-sign, <plus sign> >>
+      <<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >><<hexit, <hexit> >>
 ----
 
 [[Unicode-character-escape-value]]
 [subs="specialcharacters,macros"]
 ----
 <Unicode character escape value> ::=
-  <<Unicode-escape-character, <Unicode escape character> >> <<Unicode-escape-character, <Unicode escape character> >>
+  <<Unicode-escape-character, <Unicode escape character> >><<Unicode-escape-character, <Unicode escape character> >>
 ----
 
 [[Unicode-escape-character]]
 [subs="specialcharacters,macros"]
 ----
 <Unicode escape character> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[nondoublequote-character]]
 [subs="specialcharacters,macros"]
 ----
 <nondoublequote character> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[doublequote-symbol]]
 [subs="specialcharacters,macros"]
 ----
 <doublequote symbol> ::=
-  ""!! two consecutive double quote characters
+  "" !! two consecutive double quote characters
 ----
 
 [[delimiter-token]]
@@ -519,7 +520,6 @@ Format
   |   <<right-bracket-trigraph, <right bracket trigraph> >>
   |   <<double-colon, <double colon> >>
   |   <<double-period, <double period> >>
-  |   <<named-argument-assignment-token, <named argument assignment token> >>
 ----
 
 [[not-equals-operator]]
@@ -571,13 +571,6 @@ Format
   ..
 ----
 
-[[named-argument-assignment-token]]
-[subs="specialcharacters,macros"]
-----
-<named argument assignment token> ::=
-  =>
-----
-
 [[separator]]
 [subs="specialcharacters,macros"]
 ----
@@ -589,7 +582,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <white space> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[comment]]
@@ -611,7 +604,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <simple comment introducer> ::=
-  <<minus-sign, <minus sign> >> <<minus-sign, <minus sign> >>
+  <<minus-sign, <minus sign> >><<minus-sign, <minus sign> >>
 ----
 
 [[bracketed-comment]]
@@ -641,7 +634,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <bracketed comment contents> ::=
-  [ { <<comment-character, <comment character> >> | <<separator, <separator> >> }... ]!! See the Syntax Rules.
+  !! See the Syntax Rules
+      [ { <<comment-character, <comment character> >> | <<separator, <separator> >> }... ]
 ----
 
 [[comment-character]]
@@ -656,7 +650,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <newline> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[key-word]]
@@ -681,13 +675,13 @@ Format
   |   CLASS_ORIGIN | COBOL | COLLATION | COLLATION_CATALOG | COLLATION_NAME | COLLATION_SCHEMA
   |   COLUMN_NAME | COMMAND_FUNCTION | COMMAND_FUNCTION_CODE | COMMITTED
   |   CONDITION_NUMBER | CONNECTION | CONNECTION_NAME | CONSTRAINT_CATALOG | CONSTRAINT_NAME
-  |   CONSTRAINT_SCHEMA | CONSTRAINTS | CONSTRUCTOR | CONTINUE | CURSOR_NAME
+  |   CONSTRAINT_SCHEMA | CONSTRAINTS | CONSTRUCTOR | CONTAINS | CONTINUE | CURSOR_NAME
 
   | DATA | DATETIME_INTERVAL_CODE | DATETIME_INTERVAL_PRECISION | DEFAULTS | DEFERRABLE
   | DEFERRED | DEFINED | DEFINER | DEGREE | DEPTH | DERIVED | DESC | DESCRIPTOR
   | DIAGNOSTICS | DISPATCH | DOMAIN | DYNAMIC_FUNCTION | DYNAMIC_FUNCTION_CODE
 
-  | ENFORCED | EXCLUDE | EXCLUDING | EXPRESSION
+  | EQUALS | EXCLUDE | EXCLUDING
 
   | FINAL | FIRST | FLAG | FOLLOWING | FORTRAN | FOUND
 
@@ -695,8 +689,8 @@ Format
 
   | HIERARCHY
 
-  | IGNORE | IMMEDIATE | IMMEDIATELY | IMPLEMENTATION | INCLUDING | INCREMENT | INITIALLY
-  | INPUT | INSTANCE | INSTANTIABLE | INSTEAD | INVOKER | ISOLATION
+  | IMMEDIATE | IMPLEMENTATION | INCLUDING | INCREMENT | INITIALLY | INPUT | INSTANCE
+  | INSTANTIABLE | INVOKER | ISOLATION
 
   | K | KEY | KEY_MEMBER | KEY_TYPE
 
@@ -716,13 +710,15 @@ Format
   |   PARTIAL | PASCAL | PATH | PLACING | PLI | PRECEDING | PRESERVE | PRIOR
   |   PRIVILEGES | PUBLIC
 
-  | READ | RELATIVE | REPEATABLE | RESPECT | RESTART | RESTRICT | RETURNED_CARDINALITY
+  | READ | RELATIVE | REPEATABLE | RESTART | RESTRICT | RETURNED_CARDINALITY
   | RETURNED_LENGTH | RETURNED_OCTET_LENGTH | RETURNED_SQLSTATE | ROLE
   | ROUTINE | ROUTINE_CATALOG | ROUTINE_NAME | ROUTINE_SCHEMA | ROW_COUNT
-  |   SCALE | SCHEMA | SCHEMA_NAME | SCOPE_CATALOG | SCOPE_NAME | SCOPE_SCHEMA
-  |   SECTION | SECURITY | SELF | SEQUENCE | SERIALIZABLE | SERVER_NAME | SESSION
-  |   SETS | SIMPLE | SIZE | SOURCE | SPACE | SPECIFIC_NAME | STATE | STATEMENT
-  |   STRUCTURE | STYLE | SUBCLASS_ORIGIN
+
+  | SCALE | SCHEMA | SCHEMA_NAME | SCOPE_CATALOG | SCOPE_NAME | SCOPE_SCHEMA
+
+  | SECTION | SECURITY | SELF | SEQUENCE | SERIALIZABLE | SERVER_NAME | SESSION
+  | SETS | SIMPLE | SIZE | SOURCE | SPACE | SPECIFIC_NAME | STATE | STATEMENT
+  | STRUCTURE | STYLE | SUBCLASS_ORIGIN
 
   | T | TABLE_NAME | TEMPORARY | TIES | TOP_LEVEL_COUNT | TRANSACTION
   | TRANSACTION_ACTIVE | TRANSACTIONS_COMMITTED | TRANSACTIONS_ROLLED_BACK
@@ -742,34 +738,31 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <reserved word> ::=
-    ABS | ALL | ALLOCATE | ALTER | AND | ANY | ARE | ARRAY | ARRAY_AGG
-  | ARRAY_MAX_CARDINALITY | AS | ASENSITIVE | ASYMMETRIC | AT | ATOMIC | AUTHORIZATION
-  | AVG
+    ABS | ALL | ALLOCATE | ALTER | AND | ANY | ARE | ARRAY | AS | ASENSITIVE
+  | ASYMMETRIC | AT | ATOMIC | AUTHORIZATION | AVG
 
-  | BEGIN | BEGIN_FRAME | BEGIN_PARTITION | BETWEEN | BIGINT | BINARY
-  | BLOB | BOOLEAN | BOTH | BY
+  | BEGIN | BETWEEN | BIGINT | BINARY | BLOB | BOOLEAN | BOTH | BY
 
   |   CALL | CALLED | CARDINALITY | CASCADED | CASE | CAST | CEIL | CEILING
   |   CHAR | CHAR_LENGTH | CHARACTER | CHARACTER_LENGTH | CHECK | CLOB | CLOSE
   |   COALESCE | COLLATE | COLLECT | COLUMN | COMMIT | CONDITION | CONNECT
-  |   CONSTRAINT | CONTAINS | CONVERT | CORR | CORRESPONDING | COUNT | COVAR_POP
-  |   COVAR_SAMP | CREATE | CROSS | CUBE | CUME_DIST | CURRENT | CURRENT_CATALOG
-  |   CURRENT_DATE | CURRENT_DEFAULT_TRANSFORM_GROUP | CURRENT_PATH | CURRENT_ROLE
-  |   CURRENT_ROW | CURRENT_SCHEMA | CURRENT_TIME | CURRENT_TIMESTAMP
-  |   CURRENT_TRANSFORM_GROUP_FOR_TYPE | CURRENT_USER | CURSOR | CYCLE
+  |   CONSTRAINT | CONVERT | CORR | CORRESPONDING | COUNT | COVAR_POP | COVAR_SAMP
+  |   CREATE | CROSS | CUBE | CUME_DIST | CURRENT | CURRENT_CATALOG | CURRENT_DATE
+  |   CURRENT_DEFAULT_TRANSFORM_GROUP | CURRENT_PATH | CURRENT_ROLE | CURRENT_SCHEMA
+  |   CURRENT_TIME | CURRENT_TIMESTAMP | CURRENT_TRANSFORM_GROUP_FOR_TYPE
+  |   CURRENT_USER | CURSOR | CYCLE
 
   | DATE | DAY | DEALLOCATE | DEC | DECIMAL | DECLARE | DEFAULT | DELETE
   | DENSE_RANK | DEREF | DESCRIBE | DETERMINISTIC | DISCONNECT | DISTINCT
   | DOUBLE | DROP | DYNAMIC
 
-  | EACH | ELEMENT | ELSE | END | END_FRAME | END_PARTITION | END-EXEC
-  | EQUALS | ESCAPE | EVERY | EXCEPT | EXEC | EXECUTE | EXISTS | EXP
-  | EXTERNAL | EXTRACT
+  | EACH | ELEMENT | ELSE | END | END-EXEC | ESCAPE | EVERY | EXCEPT | EXEC
+  | EXECUTE | EXISTS | EXP | EXTERNAL | EXTRACT
 
-  | FALSE | FETCH | FILTER | FIRST_VALUE | FLOAT | FLOOR | FOR | FOREIGN
-  | FRAME_ROW | FREE | FROM | FULL | FUNCTION | FUSION
+  | FALSE | FETCH | FILTER | FLOAT | FLOOR | FOR | FOREIGN | FREE | FROM
+  | FULL | FUNCTION | FUSION
 
-  | GET | GLOBAL | GRANT | GROUP | GROUPING | GROUPS
+  | GET | GLOBAL | GRANT | GROUP | GROUPING
 
   | HAVING | HOLD | HOUR
 
@@ -778,41 +771,40 @@ Format
 
   | JOIN
 
-  | LAG | LANGUAGE | LARGE | LAST_VALUE | LATERAL | LEAD | LEADING | LEFT
-  | LIKE | LIKE_REGEX | LN | LOCAL | LOCALTIME | LOCALTIMESTAMP | LOWER
+  | LANGUAGE | LARGE | LATERAL | LEADING | LEFT | LIKE | LIKE_REGEX
+  | LN | LOCAL | LOCALTIME | LOCALTIMESTAMP | LOWER
 
   | MATCH | MAX | MEMBER | MERGE | METHOD | MIN | MINUTE
   | MOD | MODIFIES | MODULE | MONTH | MULTISET
 
   | NATIONAL | NATURAL | NCHAR | NCLOB | NEW | NO | NONE | NORMALIZE | NOT
-  | NTH_VALUE | NTILE | NULL | NULLIF | NUMERIC
+  | NULL | NULLIF | NUMERIC
 
-  | OCTET_LENGTH | OCCURRENCES_REGEX | OF | OFFSET | OLD | ON | ONLY | OPEN
-  | OR | ORDER | OUT | OUTER | OVER | OVERLAPS | OVERLAY
+  | OCTET_LENGTH | OCCURRENCES_REGEX | OF | OLD | ON | ONLY | OPEN | OR
+  | ORDER | OUT | OUTER | OVER | OVERLAPS | OVERLAY
 
-  | PARAMETER | PARTITION | PERCENT | PERCENT_RANK | PERCENTILE_CONT
-  | PERCENTILE_DISC | PERIOD | PORTION | POSITION | POSITION_REGEX | POWER | PRECEDES
-  | PRECISION | PREPARE | PRIMARY | PROCEDURE
+  | PARAMETER | PARTITION | PERCENT_RANK | PERCENTILE_CONT | PERCENTILE_DISC
+  | POSITION | POSITION_REGEX | POWER | PRECISION | PREPARE | PRIMARY
+  | PROCEDURE
 
-  |   RANGE | RANK | READS | REAL | RECURSIVE | REF | REFERENCES | REFERENCING
-  |   REGR_AVGX | REGR_AVGY | REGR_COUNT | REGR_INTERCEPT | REGR_R2 | REGR_SLOPE
-  |   REGR_SXX | REGR_SXY | REGR_SYY | RELEASE | RESULT | RETURN | RETURNS
-  |   REVOKE | RIGHT | ROLLBACK | ROLLUP | ROW | ROW_NUMBER | ROWS
+  |    RANGE | RANK | READS | REAL | RECURSIVE | REF | REFERENCES | REFERENCING
+  |    REGR_AVGX | REGR_AVGY | REGR_COUNT | REGR_INTERCEPT | REGR_R2 | REGR_SLOPE
+  |    REGR_SXX | REGR_SXY | REGR_SYY | RELEASE | RESULT | RETURN | RETURNS
+  |    REVOKE | RIGHT | ROLLBACK | ROLLUP | ROW | ROW_NUMBER | ROWS
 
-  |   SAVEPOINT | SCOPE | SCROLL | SEARCH | SECOND | SELECT
-  |   SENSITIVE | SESSION_USER | SET | SIMILAR | SMALLINT | SOME | SPECIFIC
-  |   SPECIFICTYPE | SQL | SQLEXCEPTION | SQLSTATE | SQLWARNING | SQRT | START
-  |   STATIC | STDDEV_POP | STDDEV_SAMP | SUBMULTISET | SUBSTRING | SUBSTRING_REGEX
-  |   SUCCEEDS | SUM | SYMMETRIC | SYSTEM | SYSTEM_TIME | SYSTEM_USER
+  |    SAVEPOINT | SCOPE | SCROLL | SEARCH | SECOND | SELECT | SENSITIVE
+  |    SESSION_USER | SET | SIMILAR | SMALLINT | SOME | SPECIFIC | SPECIFICTYPE
+  |    SQL | SQLEXCEPTION | SQLSTATE | SQLWARNING | SQRT | START | STATIC
+  |    STDDEV_POP | STDDEV_SAMP | SUBMULTISET | SUBSTRING | SUBSTRING_REGEX | SUM
+  |    SYMMETRIC | SYSTEM | SYSTEM_USER
 
   | TABLE | TABLESAMPLE | THEN | TIME | TIMESTAMP | TIMEZONE_HOUR | TIMEZONE_MINUTE
   | TO | TRAILING | TRANSLATE | TRANSLATE_REGEX | TRANSLATION | TREAT
-  | TRIGGER | TRUNCATE | TRIM | TRIM_ARRAY | TRUE
+  | TRIGGER | TRIM | TRUE
 
-  | UESCAPE | UNION | UNIQUE | UNKNOWN | UNNEST | UPDATE | UPPER | USER | USING
+  | UESCAPE | UNION | UNIQUE | UNKNOWN | UNNEST | UPDATE                                     | UPPER | USER | USING
 
-  | VALUE | VALUES | VALUE_OF | VAR_POP | VAR_SAMP | VARBINARY
-  | VARCHAR | VARYING | VERSIONING
+  | VALUE | VALUES | VAR_POP | VAR_SAMP | VARBINARY | VARCHAR | VARYING
 
   | WHEN | WHENEVER | WHERE | WIDTH_BUCKET | WINDOW | WITH | WITHIN | WITHOUT
 
@@ -860,7 +852,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <character string literal> ::=
-  [ <<introducer, <introducer> >> <<character-set-specification, <character set specification> >> ]
+  [ <<introducer, <introducer> >><<character-set-specification, <character set specification> >> ]
       <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >>
       [ { <<separator, <separator> >> <<quote, <quote> >> [ <<character-representation, <character representation> >>... ] <<quote, <quote> >> }... ]
 ----
@@ -891,7 +883,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <quote symbol> ::=
-  <<quote, <quote> >> <<quote, <quote> >>
+  <<quote, <quote> >><<quote, <quote> >>
 ----
 
 [[national-character-string-literal]]
@@ -906,8 +898,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Unicode character string literal> ::=
-  [ <<introducer, <introducer> >> <<character-set-specification, <character set specification> >> ]
-      U <<ampersand, <ampersand> >> <<quote, <quote> >> [ <<Unicode-representation, <Unicode representation> >>... ] <<quote, <quote> >>
+  [ <<introducer, <introducer> >><<character-set-specification, <character set specification> >> ]
+      U<<ampersand, <ampersand> >><<quote, <quote> >> [ <<Unicode-representation, <Unicode representation> >>... ] <<quote, <quote> >>
       [ { <<separator, <separator> >> <<quote, <quote> >> [ <<Unicode-representation, <Unicode representation> >>... ] <<quote, <quote> >> }... ]
       <<Unicode-escape-specifier, <Unicode escape specifier> >>
 ----
@@ -1220,6 +1212,7 @@ Format
   | FALSE
   | UNKNOWN
 ----
+
 
 === 5.4    Names and identifiers
 
@@ -1599,21 +1592,6 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <descriptor name> ::=
-    <<non-extended-descriptor-name, <non-extended descriptor name> >>
-  | <<extended-descriptor-name, <extended descriptor name> >>
-----
-
-[[non-extended-descriptor-name]]
-[subs="specialcharacters,macros"]
-----
-<non-extended descriptor name> ::=
-  <<identifier, <identifier> >>
-----
-
-[[extended-descriptor-name]]
-[subs="specialcharacters,macros"]
-----
-<extended descriptor name> ::=
   [ <<scope-option, <scope option> >> ] <<simple-value-specification, <simple value specification> >>
 ----
 
@@ -1632,8 +1610,8 @@ Format
   <<identifier, <identifier> >>
 ----
 
-== 6 Scalar expressions
 
+== 6 Scalar expressions
 
 === 6.1     <data type>
 
@@ -1658,25 +1636,25 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <predefined type> ::=
-      <<character-string-type, <character string type> >> [ CHARACTER SET <<character-set-specification, <character set specification> >> ]
-          [ <<collate-clause, <collate clause> >> ]
-  |   <<national-character-string-type, <national character string type> >> [ <<collate-clause, <collate clause> >> ]
-  |   <<binary-string-type, <binary string type> >>
-  |   <<numeric-type, <numeric type> >>
-  |   <<boolean-type, <boolean type> >>
-  |   <<datetime-type, <datetime type> >>
-  |   <<interval-type, <interval type> >>
+    <<character-string-type, <character string type> >> [ CHARACTER SET <<character-set-specification, <character set specification> >> ]
+        [ <<collate-clause, <collate clause> >> ]
+  | <<national-character-string-type, <national character string type> >> [ <<collate-clause, <collate clause> >> ]
+  | <<binary-string-type, <binary string type> >>
+  | <<numeric-type, <numeric type> >>
+  | <<boolean-type, <boolean type> >>
+  | <<datetime-type, <datetime type> >>
+  | <<interval-type, <interval type> >>
 ----
 
 [[character-string-type]]
 [subs="specialcharacters,macros"]
 ----
 <character string type> ::=
-    CHARACTER [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ]
-  | CHAR [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ]
-  | CHARACTER VARYING <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
-  | CHAR VARYING <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
-  | VARCHAR <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+    CHARACTER [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+  | CHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+  | CHARACTER VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+  | CHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+  | VARCHAR <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
   | <<character-large-object-type, <character large object type> >>
 ----
 
@@ -1684,21 +1662,21 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <character large object type> ::=
-    CHARACTER LARGE OBJECT [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >> ]
-  | CHAR LARGE OBJECT [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >> ]
-  | CLOB [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >> ]
+    CHARACTER LARGE OBJECT [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
+  | CHAR LARGE OBJECT [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
+  | CLOB [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
 ----
 
 [[national-character-string-type]]
 [subs="specialcharacters,macros"]
 ----
 <national character string type> ::=
-    NATIONAL CHARACTER [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ]
-  | NATIONAL CHAR [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ]
-  | NCHAR [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ]
-  | NATIONAL CHARACTER VARYING <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
-  | NATIONAL CHAR VARYING <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
-  | NCHAR VARYING <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+    NATIONAL CHARACTER [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+  | NATIONAL CHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+  | NCHAR [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ]
+  | NATIONAL CHARACTER VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+  | NATIONAL CHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+  | NCHAR VARYING <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
   | <<national-character-large-object-type, <national character large object type> >>
 ----
 
@@ -1706,10 +1684,9 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <national character large object type> ::=
-    NATIONAL CHARACTER LARGE OBJECT [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <right
-    paren> ]
-  | NCHAR LARGE OBJECT [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >> ]
-  | NCLOB [ <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >> ]
+    NATIONAL CHARACTER LARGE OBJECT [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
+  | NCHAR LARGE OBJECT [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
+  | NCLOB [ <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >> ]
 ----
 
 [[binary-string-type]]
@@ -1764,29 +1741,15 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <length> ::=
-  <<unsigned-integer, <unsigned integer> >>
-----
-
-[[character-length]]
-[subs="specialcharacters,macros"]
-----
-<character length> ::=
-  <<length, <length> >> [ <<char-length-units, <char length units> >> ]
+  <<unsigned-integer, <unsigned integer> >> [ <<char-length-units, <char length units> >> ]
 ----
 
 [[large-object-length]]
 [subs="specialcharacters,macros"]
 ----
 <large object length> ::=
-    <<length, <length> >> [ <<multiplier, <multiplier> >> ]
-  | <<large-object-length-token, <large object length token> >>
-----
-
-[[character-large-object-length]]
-[subs="specialcharacters,macros"]
-----
-<character large object length> ::=
-  <<large-object-length, <large object length> >> [ <<char-length-units, <char length units> >> ]
+    <<unsigned-integer, <unsigned integer> >> [ <<multiplier, <multiplier> >> ] [ <<char-length-units, <char length units> >> ]
+  | <<large-object-length-token, <large object length token> >> [ <<char-length-units, <char length units> >> ]
 ----
 
 [[char-length-units]]
@@ -1936,7 +1899,8 @@ Format
   <<data-type, <data type> >> MULTISET
 ----
 
-=== 6.2        <field definition>
+
+=== 6.2       <field definition>
 
 .Function
 
@@ -1951,7 +1915,7 @@ Format
   <<field-name, <field name> >> <<data-type, <data type> >>
 ----
 
-=== 6.3         <value expression primary>
+=== 6.3     <value expression primary>
 
 .Function
 
@@ -1978,26 +1942,25 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <nonparenthesized value expression primary> ::=
-         <<unsigned-value-specification, <unsigned value specification> >>
-     |   <<column-reference, <column reference> >>
-     |   <<set-function-specification, <set function specification> >>
-     |   <<window-function, <window function> >>
-     |   <<nested-window-function, <nested window function> >>
-     |   <<scalar-subquery, <scalar subquery> >>
-     |   <<case-expression, <case expression> >>
-     |   <<cast-specification, <cast specification> >>
-     |   <<field-reference, <field reference> >>
-     |   <<subtype-treatment, <subtype treatment> >>
-     |   <<method-invocation, <method invocation> >>
-     |   <<static-method-invocation, <static method invocation> >>
-     |   <<new-specification, <new specification> >>
-     |   <<attribute-or-method-reference, <attribute or method reference> >>
-     |   <<reference-resolution, <reference resolution> >>
-     |   <<collection-value-constructor, <collection value constructor> >>
-     |   <<array-element-reference, <array element reference> >>
-     |   <<multiset-element-reference, <multiset element reference> >>
-     |   <<next-value-expression, <next value expression> >>
-     |   <<routine-invocation, <routine invocation> >>
+    <<unsigned-value-specification, <unsigned value specification> >>
+  | <<column-reference, <column reference> >>
+  | <<set-function-specification, <set function specification> >>
+  | <<window-function, <window function> >>
+  | <<scalar-subquery, <scalar subquery> >>
+  | <<case-expression, <case expression> >>
+  | <<cast-specification, <cast specification> >>
+  | <<field-reference, <field reference> >>
+  | <<subtype-treatment, <subtype treatment> >>
+  | <<method-invocation, <method invocation> >>
+  | <<static-method-invocation, <static method invocation> >>
+  | <<new-specification, <new specification> >>
+  | <<attribute-or-method-reference, <attribute or method reference> >>
+  | <<reference-resolution, <reference resolution> >>
+  | <<collection-value-constructor, <collection value constructor> >>
+  | <<array-element-reference, <array element reference> >>
+  | <<multiset-element-reference, <multiset element reference> >>
+  | <<next-value-expression, <next value expression> >>
+  | <<routine-invocation, <routine invocation> >>
 ----
 
 [[collection-value-constructor]]
@@ -2009,6 +1972,7 @@ Format
 ----
 
 === 6.4     <value specification> and <target specification>
+
 
 .Function
 
@@ -2036,22 +2000,22 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <general value specification> ::=
-      <<host-parameter-specification, <host parameter specification> >>
-  |   <<SQL-parameter-reference, <SQL parameter reference> >>
-  |   <<dynamic-parameter-specification, <dynamic parameter specification> >>
-  |   <<embedded-variable-specification, <embedded variable specification> >>
-  |   <<current-collation-specification, <current collation specification> >>
-  |   CURRENT_CATALOG
-  |   CURRENT_DEFAULT_TRANSFORM_GROUP
-  |   CURRENT_PATH
-  |   CURRENT_ROLE
-  |   CURRENT_SCHEMA
-  |   CURRENT_TRANSFORM_GROUP_FOR_TYPE <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >>
-  |   CURRENT_USER
-  |   SESSION_USER
-  |   SYSTEM_USER
-  |   USER
-  |   VALUE
+    <<host-parameter-specification, <host parameter specification> >>
+  | <<SQL-parameter-reference, <SQL parameter reference> >>
+  | <<dynamic-parameter-specification, <dynamic parameter specification> >>
+  | <<embedded-variable-specification, <embedded variable specification> >>
+  | <<current-collation-specification, <current collation specification> >>
+  | CURRENT_CATALOG
+  | CURRENT_DEFAULT_TRANSFORM_GROUP
+  | CURRENT_PATH
+  | CURRENT_ROLE
+  | CURRENT_SCHEMA
+  | CURRENT_TRANSFORM_GROUP_FOR_TYPE <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >>
+  | CURRENT_USER
+  | SESSION_USER
+  | SYSTEM_USER
+  | USER
+  | VALUE
 ----
 
 [[simple-value-specification]]
@@ -2068,19 +2032,19 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <target specification> ::=
-      <<host-parameter-specification, <host parameter specification> >>
-  |   <<SQL-parameter-reference, <SQL parameter reference> >>
-  |   <<column-reference, <column reference> >>
-  |   <<target-array-element-specification, <target array element specification> >>
-  |   <<dynamic-parameter-specification, <dynamic parameter specification> >>
-  |   <<embedded-variable-specification, <embedded variable specification> >>
+    <<host-parameter-specification, <host parameter specification> >>
+  | <<SQL-parameter-reference, <SQL parameter reference> >>
+  | <<column-reference, <column reference> >>
+  | <<target-array-element-specification, <target array element specification> >>
+  | <<dynamic-parameter-specification, <dynamic parameter specification> >>
+  | <<embedded-variable-specification, <embedded variable specification> >>
 ----
 
 [[simple-target-specification]]
 [subs="specialcharacters,macros"]
 ----
 <simple target specification> ::=
-    <<host-parameter-name, <host parameter name> >>
+    <<host-parameter-specification, <host parameter specification> >>
   | <<SQL-parameter-reference, <SQL parameter reference> >>
   | <<column-reference, <column reference> >>
   | <<embedded-variable-name, <embedded variable name> >>
@@ -2144,7 +2108,7 @@ Format
   COLLATION FOR <<left-paren, <left paren> >> <<string-value-expression, <string value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.5        <contextually typed value specification>
+=== 6.5       <contextually typed value specification>
 
 .Function
 
@@ -2190,7 +2154,8 @@ Format
   DEFAULT
 ----
 
-=== 6.6        <identifier chain>
+=== 6.6       <identifier chain>
+
 
 .Function
 
@@ -2212,7 +2177,7 @@ Format
   <<identifier-chain, <identifier chain> >>
 ----
 
-=== 6.7        <column reference>
+=== 6.7       <column reference>
 
 .Function
 
@@ -2243,7 +2208,7 @@ Format
   <<basic-identifier-chain, <basic identifier chain> >>
 ----
 
-=== 6.9        <set function specification>
+=== 6.9       <set function specification>
 
 .Function
 
@@ -2289,10 +2254,6 @@ Format
     <<rank-function-type, <rank function type> >> <<left-paren, <left paren> >> <<right-paren, <right paren> >>
   | ROW_NUMBER <<left-paren, <left paren> >> <<right-paren, <right paren> >>
   | <<aggregate-function, <aggregate function> >>
-  | <<ntile-function, <ntile function> >>
-  | <<lead-or-lag-function, <lead or lag function> >>
-  | <<first-or-last-value-function, <first or last value function> >>
-  | <<nth-value-function, <nth value function> >>
 ----
 
 [[rank-function-type]]
@@ -2303,104 +2264,6 @@ Format
   | DENSE_RANK
   | PERCENT_RANK
   | CUME_DIST
-----
-
-[[ntile-function]]
-[subs="specialcharacters,macros"]
-----
-<ntile function> ::=
-  NTILE <<left-paren, <left paren> >> <<number-of-tiles, <number of tiles> >> <<right-paren, <right paren> >>
-----
-
-[[number-of-tiles]]
-[subs="specialcharacters,macros"]
-----
-<number of tiles> ::=
-    <<simple-value-specification, <simple value specification> >>
-  | <<dynamic-parameter-specification, <dynamic parameter specification> >>
-----
-
-[[lead-or-lag-function]]
-[subs="specialcharacters,macros"]
-----
-<lead or lag function> ::=
-  <<lead-or-lag, <lead or lag> >> <<left-paren, <left paren> >> <<lead-or-lag-extent, <lead or lag extent> >>
-      [ <<comma, <comma> >> <<offset, <offset> >> [ <<comma, <comma> >> <<default-expression, <default expression> >> ] ] <<right-paren, <right paren> >>
-      [ <<null-treatment, <null treatment> >> ]
-----
-
-[[lead-or-lag]]
-[subs="specialcharacters,macros"]
-----
-<lead or lag> ::=
-  LEAD | LAG
-----
-
-[[lead-or-lag-extent]]
-[subs="specialcharacters,macros"]
-----
-<lead or lag extent> ::=
-  <<value-expression, <value expression> >>
-----
-
-[[offset]]
-[subs="specialcharacters,macros"]
-----
-<offset> ::=
-  <<exact-numeric-literal, <exact numeric literal> >>
-----
-
-[[default-expression]]
-[subs="specialcharacters,macros"]
-----
-<default expression> ::=
-  <<value-expression, <value expression> >>
-----
-
-[[null-treatment]]
-[subs="specialcharacters,macros"]
-----
-<null treatment> ::=
-  RESPECT NULLS | IGNORE NULLS
-----
-
-[[first-or-last-value-function]]
-[subs="specialcharacters,macros"]
-----
-<first or last value function> ::=
-  <<first-or-last-value, <first or last value> >> <<left-paren, <left paren> >> <<value-expression, <value expression> >> <<right-paren, <right paren> >> [ <<null-treatment, <null treatment> >>
-  ]
-----
-
-[[first-or-last-value]]
-[subs="specialcharacters,macros"]
-----
-<first or last value> ::=
-  FIRST_VALUE | LAST_VALUE
-----
-
-[[nth-value-function]]
-[subs="specialcharacters,macros"]
-----
-<nth value function> ::=
-  NTH_VALUE <<left-paren, <left paren> >> <<value-expression, <value expression> >> <<comma, <comma> >> <<nth-row, <nth row> >> <<right-paren, <right paren> >>
-      [ <<from-first-or-last, <from first or last> >> ] [ <<null-treatment, <null treatment> >> ]
-----
-
-[[nth-row]]
-[subs="specialcharacters,macros"]
-----
-<nth row> ::=
-    <<simple-value-specification, <simple value specification> >>
-  | <<dynamic-parameter-specification, <dynamic parameter specification> >>
-----
-
-[[from-first-or-last]]
-[subs="specialcharacters,macros"]
-----
-<from first or last> ::=
-    FROM FIRST
-  | FROM LAST
 ----
 
 [[window-name-or-specification]]
@@ -2418,81 +2281,7 @@ Format
   <<window-specification, <window specification> >>
 ----
 
-=== 6.11 <nested window function>
-
-.Function
-
-Specify a function nested in an aggregated argument of an <aggregate function> simply contained in a <window
-function>.
-
-
-Format
-[[nested-window-function]]
-[subs="specialcharacters,macros"]
-----
-<nested window function> ::=
-    <<nested-row-number-function, <nested row number function> >>
-  | <<value_of-expression-at-row, <value_of expression at row> >>
-----
-
-[[nested-row-number-function]]
-[subs="specialcharacters,macros"]
-----
-<nested row number function> ::=
-  ROW_NUMBER <<left-paren, <left paren> >> <<row-marker, <row marker> >> <<right-paren, <right paren> >>
-----
-
-[[value_of-expression-at-row]]
-[subs="specialcharacters,macros"]
-----
-<value_of expression at row> ::=
-  VALUE_OF <<left-paren, <left paren> >> <<value-expression, <value expression> >> AT <<row-marker-expression, <row marker expression> >>
-      [ <<comma, <comma> >> <<value_of-default-value, <value_of default value> >> ] <<right-paren, <right paren> >>
-----
-
-[[row-marker]]
-[subs="specialcharacters,macros"]
-----
-<row marker> ::=
-    BEGIN_PARTITION
-  | BEGIN_FRAME
-  | CURRENT_ROW
-  | FRAME_ROW
-  | END_FRAME
-  | END_PARTITION
-----
-
-[[row-marker-expression]]
-[subs="specialcharacters,macros"]
-----
-<row marker expression> ::=
-  <<row-marker, <row marker> >> [ <<row-marker-delta, <row marker delta> >> ]
-----
-
-[[row-marker-delta]]
-[subs="specialcharacters,macros"]
-----
-<row marker delta> ::=
-    <<plus-sign, <plus sign> >> <<row-marker-offset, <row marker offset> >>
-  | <<minus-sign, <minus sign> >> <<row-marker-offset, <row marker offset> >>
-----
-
-[[row-marker-offset]]
-[subs="specialcharacters,macros"]
-----
-<row marker offset> ::=
-    <<simple-value-specification, <simple value specification> >>
-  | <<dynamic-parameter-specification, <dynamic parameter specification> >>
-----
-
-[[value_of-default-value]]
-[subs="specialcharacters,macros"]
-----
-<value_of default value> ::=
-  <<value-expression, <value expression> >>
-----
-
-=== 6.12 <case expression>
+=== 6.11 <case expression>
 
 .Function
 
@@ -2579,15 +2368,15 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <when operand> ::=
-      <<row-value-predicand, <row value predicand> >>
-  |   <<comparison-predicate-part-2, <comparison predicate part 2> >>
-  |   <<between-predicate-part-2, <between predicate part 2> >>
-  |   <<in-predicate-part-2, <in predicate part 2> >>
-  |   <<character-like-predicate-part-2, <character like predicate part 2> >>
-  |   <<octet-like-predicate-part-2, <octet like predicate part 2> >>
-  |   <<similar-predicate-part-2, <similar predicate part 2> >>
-  |   <<regex-like-predicate-part-2, <regex like predicate part 2> >>
-  |   <<null-predicate-part-2, <null predicate part 2> >>
+    <<row-value-predicand, <row value predicand> >>
+  | <<comparison-predicate-part-2, <comparison predicate part 2> >>
+  | <<between-predicate-part-2, <between predicate part 2> >>
+  | <<in-predicate-part-2, <in predicate part 2> >>
+  | <<character-like-predicate-part-2, <character like predicate part 2> >>
+  | <<octet-like-predicate-part-2, <octet like predicate part 2> >>
+  | <<similar-predicate-part-2, <similar predicate part 2> >>
+  | <<regex-like-predicate-part-2, <regex like predicate part 2> >>
+  | <<null-predicate-part-2, <null predicate part 2> >>
   |   <<quantified-comparison-predicate-part-2, <quantified comparison predicate part 2> >>
   |   <<normalized-predicate-part-2, <normalized predicate part 2> >>
   |   <<match-predicate-part-2, <match predicate part 2> >>
@@ -2614,7 +2403,7 @@ Format
   <<value-expression, <value expression> >>
 ----
 
-=== 6.13 <cast specification>
+=== 6.12 <cast specification>
 
 .Function
 
@@ -2626,7 +2415,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <cast specification> ::=
-     CAST <<left-paren, <left paren> >> <<cast-operand, <cast operand> >> AS <<cast-target, <cast target> >> <<right-paren, <right paren> >>
+  CAST <<left-paren, <left paren> >> <<cast-operand, <cast operand> >> AS <<cast-target, <cast target> >> <<right-paren, <right paren> >>
 ----
 
 [[cast-operand]]
@@ -2645,7 +2434,7 @@ Format
   | <<data-type, <data type> >>
 ----
 
-=== 6.14 <next value expression>
+=== 6.13 <next value expression>
 
 .Function
 
@@ -2660,12 +2449,7 @@ Format
   NEXT VALUE FOR <<sequence-generator-name, <sequence generator name> >>
 ----
 
-=== 6.15 <field reference>
-
-.Function
-
-Reference a field of a row value.
-
+=== 6.14 <field reference>
 
 Format
 [[field-reference]]
@@ -2675,7 +2459,7 @@ Format
   <<value-expression-primary, <value expression primary> >> <<period, <period> >> <<field-name, <field name> >>
 ----
 
-=== 6.16 <subtype treatment>
+=== 6.15 <subtype treatment>
 
 .Function
 
@@ -2705,7 +2489,7 @@ Format
   | <<reference-type, <reference type> >>
 ----
 
-=== 6.17 <method invocation>
+=== 6.16 <method invocation>
 
 .Function
 
@@ -2750,7 +2534,7 @@ Format
   <<routine-invocation, <routine invocation> >>
 ----
 
-=== 6.18 <static method invocation>
+=== 6.17 <static method invocation>
 
 .Function
 
@@ -2773,7 +2557,7 @@ Format
   <<routine-invocation, <routine invocation> >>
 ----
 
-=== 6.19 <new specification>
+=== 6.18 <new specification>
 
 .Function
 
@@ -2796,7 +2580,7 @@ Format
   | <<routine-invocation, <routine invocation> >>
 ----
 
-=== 6.20 <attribute or method reference>
+=== 6.19 <attribute or method reference>
 
 .Function
 
@@ -2820,7 +2604,7 @@ Format
   <<right-arrow, <right arrow> >>
 ----
 
-=== 6.21 <dereference operation>
+=== 6.20 <dereference operation>
 
 .Function
 
@@ -2835,7 +2619,7 @@ Format
   <<reference-value-expression, <reference value expression> >> <<dereference-operator, <dereference operator> >> <<attribute-name, <attribute name> >>
 ----
 
-=== 6.22 <method reference>
+=== 6.21 <method reference>
 
 .Function
 
@@ -2850,7 +2634,7 @@ Format
   <<value-expression-primary, <value expression primary> >> <<dereference-operator, <dereference operator> >> <<method-name, <method name> >> <<SQL-argument-list, <SQL argument list> >>
 ----
 
-=== 6.23 <reference resolution>
+=== 6.22 <reference resolution>
 
 .Function
 
@@ -2865,7 +2649,7 @@ Format
   DEREF <<left-paren, <left paren> >> <<reference-value-expression, <reference value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.24 <array element reference>
+=== 6.23 <array element reference>
 
 .Function
 
@@ -2881,7 +2665,7 @@ Format
       <<left-bracket-or-trigraph, <left bracket or trigraph> >> <<numeric-value-expression, <numeric value expression> >> <<right-bracket-or-trigraph, <right bracket or trigraph> >>
 ----
 
-=== 6.25 <multiset element reference>
+=== 6.24 <multiset element reference>
 
 .Function
 
@@ -2896,7 +2680,7 @@ Format
   ELEMENT <<left-paren, <left paren> >> <<multiset-value-expression, <multiset value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.26 <value expression>
+=== 6.25 <value expression>
 
 .Function
 
@@ -2917,13 +2701,13 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <common value expression> ::=
-         <<numeric-value-expression, <numeric value expression> >>
-     |   <<string-value-expression, <string value expression> >>
-     |   <<datetime-value-expression, <datetime value expression> >>
-     |   <<interval-value-expression, <interval value expression> >>
-     |   <<user-defined-type-value-expression, <user-defined type value expression> >>
-     |   <<reference-value-expression, <reference value expression> >>
-     |   <<collection-value-expression, <collection value expression> >>
+    <<numeric-value-expression, <numeric value expression> >>
+  | <<string-value-expression, <string value expression> >>
+  | <<datetime-value-expression, <datetime value expression> >>
+  | <<interval-value-expression, <interval value expression> >>
+  | <<user-defined-type-value-expression, <user-defined type value expression> >>
+  | <<reference-value-expression, <reference value expression> >>
+  | <<collection-value-expression, <collection value expression> >>
 ----
 
 [[user-defined-type-value-expression]]
@@ -2948,7 +2732,7 @@ Format
   | <<multiset-value-expression, <multiset value expression> >>
 ----
 
-=== 6.27 <numeric value expression>
+=== 6.26 <numeric value expression>
 
 .Function
 
@@ -2989,7 +2773,7 @@ Format
   | <<numeric-value-function, <numeric value function> >>
 ----
 
-=== 6.28 <numeric value function>
+=== 6.27 <numeric value function>
 
 .Function
 
@@ -3007,7 +2791,6 @@ Format
   | <<extract-expression, <extract expression> >>
   | <<length-expression, <length expression> >>
   | <<cardinality-expression, <cardinality expression> >>
-  | <<max-cardinality-expression, <max cardinality expression> >>
   | <<absolute-value-expression, <absolute value expression> >>
   | <<modulus-expression, <modulus expression> >>
   | <<natural-logarithm, <natural logarithm> >>
@@ -3187,13 +2970,6 @@ Format
   CARDINALITY <<left-paren, <left paren> >> <<collection-value-expression, <collection value expression> >> <<right-paren, <right paren> >>
 ----
 
-[[max-cardinality-expression]]
-[subs="specialcharacters,macros"]
-----
-<max cardinality expression> ::=
-  ARRAY_MAX_CARDINALITY <<left-paren, <left paren> >> <<array-value-expression, <array value expression> >> <<right-paren, <right paren> >>
-----
-
 [[absolute-value-expression]]
 [subs="specialcharacters,macros"]
 ----
@@ -3206,7 +2982,7 @@ Format
 ----
 <modulus expression> ::=
   MOD <<left-paren, <left paren> >> <<numeric-value-expression-dividend, <numeric value expression dividend> >> <<comma, <comma> >>
-      <<numeric-value-expression-divisor, <numeric value expression divisor> >> <<right-paren, <right paren> >>
+      <<numeric-value-expression-divisor, <numeric value expression divisor> >><<right-paren, <right paren> >>
 ----
 
 [[numeric-value-expression-dividend]]
@@ -3316,7 +3092,7 @@ Format
   <<numeric-value-expression, <numeric value expression> >>
 ----
 
-=== 6.29 <string value expression>
+=== 6.28 <string value expression>
 
 .Function
 
@@ -3392,7 +3168,7 @@ Format
   <<binary-value-expression, <binary value expression> >> <<concatenation-operator, <concatenation operator> >> <<binary-factor, <binary factor> >>
 ----
 
-=== 6.30 <string value function>
+=== 6.29 <string value function>
 
 .Function
 
@@ -3412,17 +3188,17 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <character value function> ::=
-      <<character-substring-function, <character substring function> >>
-  |   <<regular-expression-substring-function, <regular expression substring function> >>
-  |   <<regex-substring-function, <regex substring function> >>
-  |   <<fold, <fold> >>
-  |   <<transcoding, <transcoding> >>
-  |   <<character-transliteration, <character transliteration> >>
-  |   <<regex-transliteration, <regex transliteration> >>
-  |   <<trim-function, <trim function> >>
-  |   <<character-overlay-function, <character overlay function> >>
-  |   <<normalize-function, <normalize function> >>
-  |   <<specific-type-method, <specific type method> >>
+    <<character-substring-function, <character substring function> >>
+  | <<regular-expression-substring-function, <regular expression substring function> >>
+  | <<regex-substring-function, <regex substring function> >>
+  | <<fold, <fold> >>
+  | <<transcoding, <transcoding> >>
+  | <<character-transliteration, <character transliteration> >>
+  | <<regex-transliteration, <regex transliteration> >>
+  | <<trim-function, <trim function> >>
+  | <<character-overlay-function, <character overlay function> >>
+  | <<normalize-function, <normalize function> >>
+  | <<specific-type-method, <specific type method> >>
 ----
 
 [[character-substring-function]]
@@ -3452,7 +3228,7 @@ Format
       [ USING <<char-length-units, <char length units> >> ]
       [ OCCURRENCE <<regex-occurrence, <regex occurrence> >> ]
       [ GROUP <<regex-capture-group, <regex capture group> >> ]
-      <<right-paren, <right paren> >>
+      <<left-paren, <left paren> >>
 ----
 
 [[fold]]
@@ -3489,7 +3265,7 @@ Format
       [ FROM <<start-position, <start position> >> ]
       [ USING <<char-length-units, <char length units> >> ]
       [ OCCURRENCE <<regex-transliteration-occurrence, <regex transliteration occurrence> >> ]
-      <<right-paren, <right paren> >>
+      <<left-paren, <left paren> >>
 ----
 
 [[XQuery-replacement-string]]
@@ -3558,7 +3334,7 @@ Format
 ----
 <normalize function> ::=
   NORMALIZE <<left-paren, <left paren> >> <<character-value-expression, <character value expression> >>
-      [ <<comma, <comma> >> <<normal-form, <normal form> >> [ <<comma, <comma> >> <<normalize-function-result-length, <normalize function result length> >> ] ] <<right-paren, <right paren> >>
+      [ <<comma, <comma> >> <<normal-form, <normal form> >> [ <<normalize-function-result-length, <normalize function result length> >> ] ] <<right-paren, <right paren> >>
 ----
 
 [[normal-form]]
@@ -3575,8 +3351,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <normalize function result length> ::=
-    <<character-length, <character length> >>
-  | <<character-large-object-length, <character large object length> >>
+    <<length, <length> >>
+  | <<large-object-length, <large object length> >>
 ----
 
 [[specific-type-method]]
@@ -3591,9 +3367,9 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <binary value function> ::=
-       <<binary-substring-function, <binary substring function> >>
-     | <<binary-trim-function, <binary trim function> >>
-     | <<binary-overlay-function, <binary overlay function> >>
+    <<binary-substring-function, <binary substring function> >>
+  | <<binary-trim-function, <binary trim function> >>
+  | <<binary-overlay-function, <binary overlay function> >>
 ----
 
 [[binary-substring-function]]
@@ -3654,7 +3430,7 @@ Format
   <<numeric-value-expression, <numeric value expression> >>
 ----
 
-=== 6.31 <datetime value expression>
+=== 6.30 <datetime value expression>
 
 .Function
 
@@ -3709,7 +3485,7 @@ Format
   | TIME ZONE <<interval-primary, <interval primary> >>
 ----
 
-=== 6.32 <datetime value function>
+=== 6.31 <datetime value function>
 
 .Function
 
@@ -3763,7 +3539,7 @@ Format
   LOCALTIMESTAMP [ <<left-paren, <left paren> >> <<timestamp-precision, <timestamp precision> >> <<right-paren, <right paren> >> ]
 ----
 
-=== 6.33 <interval value expression>
+=== 6.32 <interval value expression>
 
 .Function
 
@@ -3828,7 +3604,7 @@ Format
   <<interval-term, <interval term> >>
 ----
 
-=== 6.34 <interval value function>
+=== 6.33 <interval value function>
 
 .Function
 
@@ -3850,7 +3626,7 @@ Format
   ABS <<left-paren, <left paren> >> <<interval-value-expression, <interval value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.35 <boolean value expression>
+=== 6.34 <boolean value expression>
 
 .Function
 
@@ -3920,7 +3696,7 @@ Format
   <<left-paren, <left paren> >> <<boolean-value-expression, <boolean value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.36 <array value expression>
+=== 6.35 <array value expression>
 
 .Function
 
@@ -3954,34 +3730,10 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <array primary> ::=
-    <<array-value-function, <array value function> >>
-  | <<value-expression-primary, <value expression primary> >>
+  <<value-expression-primary, <value expression primary> >>
 ----
 
-=== 6.37 <array value function>
-
-.Function
-
-Specify a function yielding a value of an array type.
-
-
-Format
-[[array-value-function]]
-[subs="specialcharacters,macros"]
-----
-<array value function> ::=
-  <<trim-array-function, <trim array function> >>
-----
-
-[[trim-array-function]]
-[subs="specialcharacters,macros"]
-----
-<trim array function> ::=
-  TRIM_ARRAY <<left-paren, <left paren> >> <<array-value-expression, <array value expression> >> <<comma, <comma> >> <<numeric-value-expression, <numeric value expression> >> <right
-  paren>
-----
-
-=== 6.38 <array value constructor>
+=== 6.36 <array value constructor>
 
 .Function
 
@@ -4022,10 +3774,10 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <array value constructor by query> ::=
-  ARRAY <<table-subquery, <table subquery> >>
+  ARRAY <<left-paren, <left paren> >> <<query-expression, <query expression> >> [ <<order-by-clause, <order by clause> >> ] <<right-paren, <right paren> >>
 ----
 
-=== 6.39 <multiset value expression>
+=== 6.37 <multiset value expression>
 
 .Function
 
@@ -4058,7 +3810,7 @@ Format
   | <<value-expression-primary, <value expression primary> >>
 ----
 
-=== 6.40 <multiset value function>
+=== 6.38 <multiset value function>
 
 .Function
 
@@ -4080,7 +3832,7 @@ Format
   SET <<left-paren, <left paren> >> <<multiset-value-expression, <multiset value expression> >> <<right-paren, <right paren> >>
 ----
 
-=== 6.41 <multiset value constructor>
+=== 6.39 <multiset value constructor>
 
 .Function
 
@@ -4122,18 +3874,18 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <multiset value constructor by query> ::=
-  MULTISET <<table-subquery, <table subquery> >>
+  MULTISET <<left-paren, <left paren> >> <<query-expression, <query expression> >> <<right-paren, <right paren> >>
 ----
 
 [[table-value-constructor-by-query]]
 [subs="specialcharacters,macros"]
 ----
 <table value constructor by query> ::=
-  TABLE <<table-subquery, <table subquery> >>
+  TABLE <<left-paren, <left paren> >> <<query-expression, <query expression> >> <<right-paren, <right paren> >>
 ----
 
-== 7 Query expressions
 
+== 7 Query expressions
 
 === 7.1     <row value constructor>
 
@@ -4317,7 +4069,7 @@ Format
       [ <<window-clause, <window clause> >> ]
 ----
 
-=== 7.5        <from clause>
+=== 7.5       <from clause>
 
 .Function
 
@@ -4340,6 +4092,7 @@ Format
 ----
 
 === 7.6     <table reference>
+
 
 .Function
 
@@ -4403,53 +4156,19 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <table primary> ::=
-      <<table-or-query-name, <table or query name> >> [ <<query-system-time-period-specification, <query system time period specification> >> ]
-          [ [ AS ] <<correlation-name, <correlation name> >>
-            [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ] ]
-  |   <<derived-table, <derived table> >> [ AS ] <<correlation-name, <correlation name> >>
-        [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
-  |   <<lateral-derived-table, <lateral derived table> >> [ AS ] <<correlation-name, <correlation name> >>
-        [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
-  |   <<collection-derived-table, <collection derived table> >> [ AS ] <<correlation-name, <correlation name> >>
-        [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
-  |   <<table-function-derived-table, <table function derived table> >> [ AS ] <<correlation-name, <correlation name> >>
-        [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
-  |   <<only-spec, <only spec> >> [ [ AS ] <<correlation-name, <correlation name> >>
+    <<table-or-query-name, <table or query name> >> [ [ AS ] <<correlation-name, <correlation name> >>
         [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ] ]
-  |   <<data-change-delta-table, <data change delta table> >> [ [ AS ] <<correlation-name, <correlation name> >>
-        [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ] ]
-  |   <<parenthesized-joined-table, <parenthesized joined table> >>
-----
-
-[[query-system-time-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<query system time period specification> ::=
-    FOR SYSTEM_TIME AS OF <<point-in-time-1, <point in time 1> >>
-  | FOR SYSTEM_TIME BETWEEN [ ASYMMETRIC | SYMMETRIC ]
-      <<point-in-time-1, <point in time 1> >> AND <<point-in-time-2, <point in time 2> >>
-  | FOR SYSTEM_TIME FROM <<point-in-time-1, <point in time 1> >> TO <<point-in-time-2, <point in time 2> >>
-----
-
-[[point-in-time-1]]
-[subs="specialcharacters,macros"]
-----
-<point in time 1> ::=
-  <<point-in-time, <point in time> >>
-----
-
-[[point-in-time-2]]
-[subs="specialcharacters,macros"]
-----
-<point in time 2> ::=
-  <<point-in-time, <point in time> >>
-----
-
-[[point-in-time]]
-[subs="specialcharacters,macros"]
-----
-<point in time> ::=
-  <<datetime-value-expression, <datetime value expression> >>
+  | <<derived-table, <derived table> >> [ AS ] <<correlation-name, <correlation name> >>
+      [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
+  | <<lateral-derived-table, <lateral derived table> >> [ AS ] <<correlation-name, <correlation name> >>
+      [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
+  | <<collection-derived-table, <collection derived table> >> [ AS ] <<correlation-name, <correlation name> >>
+      [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
+  | <<table-function-derived-table, <table function derived table> >> [ AS ] <<correlation-name, <correlation name> >>
+      [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ]
+  | <<only-spec, <only spec> >> [ [ AS ] <<correlation-name, <correlation name> >>
+      [ <<left-paren, <left paren> >> <<derived-column-list, <derived column list> >> <<right-paren, <right paren> >> ] ]
+  | <<parenthesized-joined-table, <parenthesized joined table> >>
 ----
 
 [[only-spec]]
@@ -4470,8 +4189,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <collection derived table> ::=
-  UNNEST <<left-paren, <left paren> >> <<collection-value-expression, <collection value expression> >>
-      [ { <<comma, <comma> >> <<collection-value-expression, <collection value expression> >> }... ] <<right-paren, <right paren> >>
+  UNNEST <<left-paren, <left paren> >> <<collection-value-expression, <collection value expression> >> <<right-paren, <right paren> >>
       [ WITH ORDINALITY ]
 ----
 
@@ -4510,32 +4228,6 @@ Format
 ----
 <column name list> ::=
   <<column-name, <column name> >> [ { <<comma, <comma> >> <<column-name, <column name> >> }... ]
-----
-
-[[data-change-delta-table]]
-[subs="specialcharacters,macros"]
-----
-<data change delta table> ::=
-  <<result-option, <result option> >> TABLE <<left-paren, <left paren> >> <<data-change-statement, <data change statement> >> <<right-paren, <right paren> >>
-----
-
-[[data-change-statement]]
-[subs="specialcharacters,macros"]
-----
-<data change statement> ::=
-    <<delete-statement:-searched, <delete statement: searched> >>
-  | <<insert-statement, <insert statement> >>
-  | <<merge-statement, <merge statement> >>
-  | <<update-statement:-searched, <update statement: searched> >>
-----
-
-[[result-option]]
-[subs="specialcharacters,macros"]
-----
-<result option> ::=
-    FINAL
-  | NEW
-  | OLD
 ----
 
 [[parenthesized-joined-table]]
@@ -4659,7 +4351,7 @@ Format
   <<column-name-list, <column name list> >>
 ----
 
-=== 7.8      <where clause>
+=== 7.8       <where clause>
 
 .Function
 
@@ -4901,7 +4593,6 @@ Format
 <window frame units> ::=
     ROWS
   | RANGE
-  | GROUPS
 ----
 
 [[window-frame-extent]]
@@ -5070,7 +4761,6 @@ Format
 ----
 <query expression> ::=
   [ <<with-clause, <with clause> >> ] <<query-expression-body, <query expression body> >>
-      [ <<order-by-clause, <order by clause> >> ] [ <<result-offset-clause, <result offset clause> >> ] [ <<fetch-first-clause, <fetch first clause> >> ]
 ----
 
 [[with-clause]]
@@ -5092,7 +4782,7 @@ Format
 ----
 <with list element> ::=
   <<query-name, <query name> >> [ <<left-paren, <left paren> >> <<with-column-list, <with column list> >> <<right-paren, <right paren> >> ]
-      AS <<table-subquery, <table subquery> >> [ <<search-or-cycle-clause, <search or cycle clause> >> ]
+      AS <<left-paren, <left paren> >> <<query-expression, <query expression> >> <<right-paren, <right paren> >> [ <<search-or-cycle-clause, <search or cycle clause> >> ]
 ----
 
 [[with-column-list]]
@@ -5127,9 +4817,7 @@ Format
 ----
 <query primary> ::=
     <<simple-table, <simple table> >>
-  | <<left-paren, <left paren> >> <<query-expression-body, <query expression body> >>
-      [ <<order-by-clause, <order by clause> >> ] [ <<result-offset-clause, <result offset clause> >> ] [ <<fetch-first-clause, <fetch first clause> >> ]
-      <<right-paren, <right paren> >>
+  | <<left-paren, <left paren> >> <<query-expression-body, <query expression body> >> <<right-paren, <right paren> >>
 ----
 
 [[simple-table]]
@@ -5160,56 +4848,6 @@ Format
 ----
 <corresponding column list> ::=
   <<column-name-list, <column name list> >>
-----
-
-[[order-by-clause]]
-[subs="specialcharacters,macros"]
-----
-<order by clause> ::=
-  ORDER BY <<sort-specification-list, <sort specification list> >>
-----
-
-[[result-offset-clause]]
-[subs="specialcharacters,macros"]
-----
-<result offset clause> ::=
-  OFFSET <<offset-row-count, <offset row count> >> { ROW | ROWS }
-----
-
-[[fetch-first-clause]]
-[subs="specialcharacters,macros"]
-----
-<fetch first clause> ::=
-  FETCH { FIRST | NEXT } [ <<fetch-first-quantity, <fetch first quantity> >> ] { ROW | ROWS } { ONLY | WITH TIES }
-----
-
-[[fetch-first-quantity]]
-[subs="specialcharacters,macros"]
-----
-<fetch first quantity> ::=
-    <<fetch-first-row-count, <fetch first row count> >>
-  | <<fetch-first-percentage, <fetch first percentage> >>
-----
-
-[[offset-row-count]]
-[subs="specialcharacters,macros"]
-----
-<offset row count> ::=
-  <<simple-value-specification, <simple value specification> >>
-----
-
-[[fetch-first-row-count]]
-[subs="specialcharacters,macros"]
-----
-<fetch first row count> ::=
-  <<simple-value-specification, <simple value specification> >>
-----
-
-[[fetch-first-percentage]]
-[subs="specialcharacters,macros"]
-----
-<fetch first percentage> ::=
-  <<simple-value-specification, <simple value specification> >> PERCENT
 ----
 
 === 7.14 <search or cycle clause>
@@ -5351,28 +4989,27 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <predicate> ::=
-      <<comparison-predicate, <comparison predicate> >>
-  |   <<between-predicate, <between predicate> >>
-  |   <<in-predicate, <in predicate> >>
-  |   <<like-predicate, <like predicate> >>
-  |   <<similar-predicate, <similar predicate> >>
-  |   <<regex-like-predicate, <regex like predicate> >>
-  |   <<null-predicate, <null predicate> >>
-  |   <<quantified-comparison-predicate, <quantified comparison predicate> >>
-  |   <<exists-predicate, <exists predicate> >>
-  |   <<unique-predicate, <unique predicate> >>
-  |   <<normalized-predicate, <normalized predicate> >>
-  |   <<match-predicate, <match predicate> >>
-  |   <<overlaps-predicate, <overlaps predicate> >>
-  |   <<distinct-predicate, <distinct predicate> >>
-  |   <<member-predicate, <member predicate> >>
-  |   <<submultiset-predicate, <submultiset predicate> >>
-  |   <<set-predicate, <set predicate> >>
-  |   <<type-predicate, <type predicate> >>
-  |   <<period-predicate, <period predicate> >>
+    <<comparison-predicate, <comparison predicate> >>
+  | <<between-predicate, <between predicate> >>
+  | <<in-predicate, <in predicate> >>
+  | <<like-predicate, <like predicate> >>
+  | <<similar-predicate, <similar predicate> >>
+  | <<regex-like-predicate, <regex like predicate> >>
+  | <<null-predicate, <null predicate> >>
+  | <<quantified-comparison-predicate, <quantified comparison predicate> >>
+  | <<exists-predicate, <exists predicate> >>
+  | <<unique-predicate, <unique predicate> >>
+  | <<normalized-predicate, <normalized predicate> >>
+  | <<match-predicate, <match predicate> >>
+  | <<overlaps-predicate, <overlaps predicate> >>
+  | <<distinct-predicate, <distinct predicate> >>
+  | <<member-predicate, <member predicate> >>
+  | <<submultiset-predicate, <submultiset predicate> >>
+  | <<set-predicate, <set predicate> >>
+  | <<type-predicate, <type predicate> >>
 ----
 
-=== 8.2        <comparison predicate>
+=== 8.2      <comparison predicate>
 
 .Function
 
@@ -5406,7 +5043,7 @@ Format
   | <<greater-than-or-equals-operator, <greater than or equals operator> >>
 ----
 
-=== 8.3      <between predicate>
+=== 8.3       <between predicate>
 
 .Function
 
@@ -5429,7 +5066,8 @@ Format
       <<row-value-predicand, <row value predicand> >> AND <<row-value-predicand, <row value predicand> >>
 ----
 
-=== 8.4      <in predicate>
+
+=== 8.4        <in predicate>
 
 .Function
 
@@ -5466,7 +5104,7 @@ Format
   <<row-value-expression, <row value expression> >> [ { <<comma, <comma> >> <<row-value-expression, <row value expression> >> }... ]
 ----
 
-=== 8.5        <like predicate>
+=== 8.5       <like predicate>
 
 .Function
 
@@ -5644,25 +5282,25 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <non-escaped character> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 [[escaped-character]]
 [subs="specialcharacters,macros"]
 ----
 <escaped character> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
-[[regular-character-set]]
+[[regular-character-----set]]
 [subs="specialcharacters,macros"]
 ----
-<regular character set> ::=
+<regular character     set> ::=
     <<underscore, <underscore> >>
-  | <<left-bracket, <left bracket> >>        <<character-enumeration, <character enumeration> >>... <<right-bracket, <right bracket> >>
-  | <<left-bracket, <left bracket> >>        <<circumflex, <circumflex> >> <<character-enumeration, <character enumeration> >>... <<right-bracket, <right bracket> >>
-  | <<left-bracket, <left bracket> >>        <<character-enumeration-include, <character enumeration include> >>...
-      <<circumflex, <circumflex> >>        <<character-enumeration-exclude, <character enumeration exclude> >>... <<right-bracket, <right bracket> >>
+  | <<left-bracket, <left bracket> >>     <<character-enumeration, <character enumeration> >>... <<right-bracket, <right bracket> >>
+  | <<left-bracket, <left bracket> >>     <<circumflex, <circumflex> >> <<character-enumeration, <character enumeration> >>... <<right-bracket, <right bracket> >>
+  | <<left-bracket, <left bracket> >>     <<character-enumeration-include, <character enumeration include> >>...
+      <<circumflex, <circumflex> >>     <<character-enumeration-exclude, <character enumeration exclude> >>... <<right-bracket, <right bracket> >>
 ----
 
 [[character-enumeration-include]]
@@ -5717,7 +5355,7 @@ Format
   [ NOT ] LIKE_REGEX <<XQuery-pattern, <XQuery pattern> >> [ FLAG <<XQuery-option-flag, <XQuery option flag> >> ]
 ----
 
-=== 8.8        <null predicate>
+=== 8.8       <null predicate>
 
 .Function
 
@@ -5739,7 +5377,7 @@ Format
   IS [ NOT ] NULL
 ----
 
-=== 8.9        <quantified comparison predicate>
+=== 8.9      <quantified comparison predicate>
 
 .Function
 
@@ -6055,177 +5693,7 @@ Format
   ONLY <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >>
 ----
 
-=== 8.20 <period predicate>
-
-.Function
-
-Specify a test to determine the relationship between periods.
-
-
-Format
-[[period-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period predicate> ::=
-    <<period-overlaps-predicate, <period overlaps predicate> >>
-  | <<period-equals-predicate, <period equals predicate> >>
-  | <<period-contains-predicate, <period contains predicate> >>
-  | <<period-precedes-predicate, <period precedes predicate> >>
-  | <<period-succeeds-predicate, <period succeeds predicate> >>
-  | <<period-immediately-precedes-predicate, <period immediately precedes predicate> >>
-  | <<period-immediately-succeeds-predicate, <period immediately succeeds predicate> >>
-----
-
-[[period-overlaps-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period overlaps predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-overlaps-predicate-part-2, <period overlaps predicate part 2> >>
-----
-
-[[period-overlaps-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period overlaps predicate part 2> ::=
-  OVERLAPS <<period-predicand-2, <period predicand 2> >>
-----
-
-[[period-predicand-1]]
-[subs="specialcharacters,macros"]
-----
-<period predicand 1> ::=
-  <<period-predicand, <period predicand> >>
-----
-
-[[period-predicand-2]]
-[subs="specialcharacters,macros"]
-----
-<period predicand 2> ::=
-  <<period-predicand, <period predicand> >>
-----
-
-[[period-predicand]]
-[subs="specialcharacters,macros"]
-----
-<period predicand> ::=
-    <<period-reference, <period reference> >>
-  | PERIOD <<left-paren, <left paren> >> <<period-start-value, <period start value> >> <<comma, <comma> >> <<period-end-value, <period end value> >> <<right-paren, <right paren> >>
-----
-
-[[period-reference]]
-[subs="specialcharacters,macros"]
-----
-<period reference> ::=
-  <<basic-identifier-chain, <basic identifier chain> >>
-----
-
-[[period-start-value]]
-[subs="specialcharacters,macros"]
-----
-<period start value> ::=
-  <<datetime-value-expression, <datetime value expression> >>
-----
-
-[[period-end-value]]
-[subs="specialcharacters,macros"]
-----
-<period end value> ::=
-  <<datetime-value-expression, <datetime value expression> >>
-----
-
-[[period-equals-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period equals predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-equals-predicate-part-2, <period equals predicate part 2> >>
-----
-
-[[period-equals-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period equals predicate part 2> ::=
-  EQUALS <<period-predicand-2, <period predicand 2> >>
-----
-
-[[period-contains-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period contains predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-contains-predicate-part-2, <period contains predicate part 2> >>
-----
-
-[[period-contains-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period contains predicate part 2> ::=
-  CONTAINS <<period-or-point-in-time-predicand, <period or point-in-time predicand> >>
-----
-
-[[period-or-point-in-time-predicand]]
-[subs="specialcharacters,macros"]
-----
-<period or point-in-time predicand> ::=
-    <<period-predicand, <period predicand> >>
-  | <<datetime-value-expression, <datetime value expression> >>
-----
-
-[[period-precedes-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period precedes predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-precedes-predicate-part-2, <period precedes predicate part 2> >>
-----
-
-[[period-precedes-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period precedes predicate part 2> ::=
-  PRECEDES <<period-predicand-2, <period predicand 2> >>
-----
-
-[[period-succeeds-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period succeeds predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-succeeds-predicate-part-2, <period succeeds predicate part 2> >>
-----
-
-[[period-succeeds-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period succeeds predicate part 2> ::=
-  SUCCEEDS <<period-predicand-2, <period predicand 2> >>
-----
-
-[[period-immediately-precedes-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period immediately precedes predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-immediately-precedes-predicate-part-2, <period immediately precedes predicate part 2> >>
-----
-
-[[period-immediately-precedes-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period immediately precedes predicate part 2> ::=
-  IMMEDIATELY PRECEDES <<period-predicand-2, <period predicand 2> >>
-----
-
-[[period-immediately-succeeds-predicate]]
-[subs="specialcharacters,macros"]
-----
-<period immediately succeeds predicate> ::=
-  <<period-predicand-1, <period predicand 1> >> <<period-immediately-succeeds-predicate-part-2, <period immediately succeeds predicate part 2> >>
-----
-
-[[period-immediately-succeeds-predicate-part-2]]
-[subs="specialcharacters,macros"]
-----
-<period immediately succeeds predicate part 2> ::=
-  IMMEDIATELY SUCCEEDS <<period-predicand-2, <period predicand 2> >>
-----
-
-=== 8.21 <search condition>
+=== 8.20 <search condition>
 
 .Function
 
@@ -6241,7 +5709,6 @@ Format
 ----
 
 == 10 Additional common elements
-
 
 === 10.1 <interval qualifier>
 
@@ -6320,10 +5787,9 @@ Format
 
 === 10.2 <language clause>
 
-
 .Function
 
-Specify a programming language.
+Specify a standard programming language.
 
 
 Format
@@ -6338,14 +5804,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <language name> ::=
-      ADA
-  |   C
-  |   COBOL
-  |   FORTRAN
-  |   M | MUMPS
-  |   PASCAL
-  |   PLI
-  |   SQL
+    ADA
+  | C
+  | COBOL
+  | FORTRAN
+  | M | MUMPS
+  | PASCAL
+  | PLI
+  | SQL
 ----
 
 === 10.3 <path specification>
@@ -6406,8 +5872,6 @@ Format
     <<value-expression, <value expression> >>
   | <<generalized-expression, <generalized expression> >>
   | <<target-specification, <target specification> >>
-  | <<contextually-typed-value-specification, <contextually typed value specification> >>
-  | <<named-argument-specification, <named argument specification> >>
 ----
 
 [[generalized-expression]]
@@ -6415,23 +5879,6 @@ Format
 ----
 <generalized expression> ::=
   <<value-expression, <value expression> >> AS <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >>
-----
-
-[[named-argument-specification]]
-[subs="specialcharacters,macros"]
-----
-<named argument specification> ::=
-  <<SQL-parameter-name, <SQL parameter name> >> <<named-argument-assignment-token, <named argument assignment token> >>
-      <<named-argument-SQL-argument, <named argument SQL argument> >>
-----
-
-[[named-argument-SQL-argument]]
-[subs="specialcharacters,macros"]
-----
-<named argument SQL argument> ::=
-    <<value-expression, <value expression> >>
-  | <<target-specification, <target specification> >>
-  | <<contextually-typed-value-specification, <contextually typed value specification> >>
 ----
 
 === 10.5 <character set specification>
@@ -6554,9 +6001,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <constraint characteristics> ::=
-    <<constraint-check-time, <constraint check time> >> [ [ NOT ] DEFERRABLE ] [ <<constraint-enforcement, <constraint enforcement> >> ]
-  | [ NOT ] DEFERRABLE [ <<constraint-check-time, <constraint check time> >> ] [ <<constraint-enforcement, <constraint enforcement> >> ]
-  | <<constraint-enforcement, <constraint enforcement> >>
+    <<constraint-check-time, <constraint check time> >> [ [ NOT ] DEFERRABLE ]
+  | [ NOT ] DEFERRABLE [ <<constraint-check-time, <constraint check time> >> ]
 ----
 
 [[constraint-check-time]]
@@ -6565,13 +6011,6 @@ Format
 <constraint check time> ::=
     INITIALLY DEFERRED
   | INITIALLY IMMEDIATE
-----
-
-[[constraint-enforcement]]
-[subs="specialcharacters,macros"]
-----
-<constraint enforcement> ::=
-  [ NOT ] ENFORCED
 ----
 
 === 10.9 <aggregate function>
@@ -6586,11 +6025,10 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <aggregate function> ::=
-      COUNT <<left-paren, <left paren> >> <<asterisk, <asterisk> >> <<right-paren, <right paren> >> [ <<filter-clause, <filter clause> >> ]
-  |   <<general-set-function, <general set function> >> [ <<filter-clause, <filter clause> >> ]
-  |   <<binary-set-function, <binary set function> >> [ <<filter-clause, <filter clause> >> ]
-  |   <<ordered-set-function, <ordered set function> >> [ <<filter-clause, <filter clause> >> ]
-  |   <<array-aggregate-function, <array aggregate function> >> [ <<filter-clause, <filter clause> >> ]
+    COUNT <<left-paren, <left paren> >> <<asterisk, <asterisk> >> <<right-paren, <right paren> >> [ <<filter-clause, <filter clause> >> ]
+  | <<general-set-function, <general set function> >> [ <<filter-clause, <filter clause> >> ]
+  | <<binary-set-function, <binary set function> >> [ <<filter-clause, <filter clause> >> ]
+  | <<ordered-set-function, <ordered set function> >> [ <<filter-clause, <filter clause> >> ]
 ----
 
 [[general-set-function]]
@@ -6658,7 +6096,7 @@ Format
 <binary set function type> ::=
     COVAR_POP
   | COVAR_SAMP
-  |   CORR
+  | CORR
   |   REGR_SLOPE
   |   REGR_INTERCEPT
   |   REGR_COUNT
@@ -6739,14 +6177,6 @@ Format
   | PERCENTILE_DISC
 ----
 
-[[array-aggregate-function]]
-[subs="specialcharacters,macros"]
-----
-<array aggregate function> ::=
-  ARRAY_AGG
-      <<left-paren, <left paren> >> <<value-expression, <value expression> >> [ ORDER BY <<sort-specification-list, <sort specification list> >> ] <<right-paren, <right paren> >>
-----
-
 === 10.10 <sort specification list>
 
 .Function
@@ -6793,7 +6223,6 @@ Format
 ----
 
 == 11 Schema definition and manipulation
-
 
 === 11.1 <schema definition>
 
@@ -6856,9 +6285,9 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <schema element> ::=
-      <<table-definition, <table definition> >>
-  |   <<view-definition, <view definition> >>
-  |   <<domain-definition, <domain definition> >>
+    <<table-definition, <table definition> >>
+  | <<view-definition, <view definition> >>
+  | <<domain-definition, <domain definition> >>
   |   <<character-set-definition, <character set definition> >>
   |   <<collation-definition, <collation definition> >>
   |   <<transliteration-definition, <transliteration definition> >>
@@ -6910,7 +6339,6 @@ Format
 ----
 <table definition> ::=
   CREATE [ <<table-scope, <table scope> >> ] TABLE <<table-name, <table name> >> <<table-contents-source, <table contents source> >>
-      [ WITH <<system-versioning-clause, <system versioning clause> >> ]
       [ ON COMMIT <<table-commit-action, <table commit action> >> ROWS ]
 ----
 
@@ -6938,13 +6366,6 @@ Format
   | LOCAL
 ----
 
-[[system-versioning-clause]]
-[subs="specialcharacters,macros"]
-----
-<system versioning clause> ::=
-  SYSTEM VERSIONING
-----
-
 [[table-commit-action]]
 [subs="specialcharacters,macros"]
 ----
@@ -6965,7 +6386,6 @@ Format
 ----
 <table element> ::=
     <<column-definition, <column definition> >>
-  | <<table-period-definition, <table period definition> >>
   | <<table-constraint-definition, <table constraint definition> >>
   | <<like-clause, <like clause> >>
 ----
@@ -7104,7 +6524,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <as subquery clause> ::=
-  [ <<left-paren, <left paren> >> <<column-name-list, <column name list> >> <<right-paren, <right paren> >> ] AS <<table-subquery, <table subquery> >>
+  [ <<left-paren, <left paren> >> <<column-name-list, <column name list> >> <<right-paren, <right paren> >> ] AS <<subquery, <subquery> >>
       <<with-or-without-data, <with or without data> >>
 ----
 
@@ -7114,57 +6534,6 @@ Format
 <with or without data> ::=
     WITH NO DATA
   | WITH DATA
-----
-
-[[table-period-definition]]
-[subs="specialcharacters,macros"]
-----
-<table period definition> ::=
-  <<system-or-application-time-period-specification, <system or application time period specification> >>
-      <<left-paren, <left paren> >> <<period-begin-column-name, <period begin column name> >> <<comma, <comma> >> <<period-end-column-name, <period end column name> >> <<right-paren, <right paren> >>
-----
-
-[[system-or-application-time-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<system or application time period specification> ::=
-    <<system-time-period-specification, <system time period specification> >>
-  | <<application-time-period-specification, <application time period specification> >>
-----
-
-[[system-time-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<system time period specification> ::=
-  PERIOD FOR SYSTEM_TIME
-----
-
-[[application-time-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<application time period specification> ::=
-  PERIOD FOR <<application-time-period-name, <application time period name> >>
-----
-
-[[application-time-period-name]]
-[subs="specialcharacters,macros"]
-----
-<application time period name> ::=
-  <<identifier, <identifier> >>
-----
-
-[[period-begin-column-name]]
-[subs="specialcharacters,macros"]
-----
-<period begin column name> ::=
-  <<column-name, <column name> >>
-----
-
-[[period-end-column-name]]
-[subs="specialcharacters,macros"]
-----
-<period end column name> ::=
-  <<column-name, <column name> >>
 ----
 
 === 11.4 <column definition>
@@ -7180,9 +6549,7 @@ Format
 ----
 <column definition> ::=
   <<column-name, <column name> >> [ <<data-type-or-domain-name, <data type or domain name> >> ]
-      [ <<default-clause, <default clause> >> | <<identity-column-specification, <identity column specification> >> | <<generation-clause, <generation clause> >>
-      | <<system-time-period-start-column-specification, <system time period start column specification> >>
-      | <<system-time-period-end-column-specification, <system time period end column specification> >> ]
+      [ <<default-clause, <default clause> >> | <<identity-column-specification, <identity column specification> >> | <<generation-clause, <generation clause> >> ]
       [ <<column-constraint-definition, <column constraint definition> >>... ]
       [ <<collate-clause, <collate clause> >> ]
 ----
@@ -7193,27 +6560,6 @@ Format
 <data type or domain name> ::=
     <<data-type, <data type> >>
   | <<domain-name, <domain name> >>
-----
-
-[[system-time-period-start-column-specification]]
-[subs="specialcharacters,macros"]
-----
-<system time period start column specification> ::=
-  <<timestamp-generation-rule, <timestamp generation rule> >> AS ROW START
-----
-
-[[system-time-period-end-column-specification]]
-[subs="specialcharacters,macros"]
-----
-<system time period end column specification> ::=
-  <<timestamp-generation-rule, <timestamp generation rule> >> AS ROW END
-----
-
-[[timestamp-generation-rule]]
-[subs="specialcharacters,macros"]
-----
-<timestamp generation rule> ::=
-  GENERATED ALWAYS
 ----
 
 [[column-constraint-definition]]
@@ -7331,8 +6677,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <unique constraint definition> ::=
-    <<unique-specification, <unique specification> >> <<left-paren, <left paren> >> <<unique-column-list, <unique column list> >> [ <<comma, <comma> >> <without overlap
-    specification> ] <<right-paren, <right paren> >>
+    <<unique-specification, <unique specification> >> <<left-paren, <left paren> >> <<unique-column-list, <unique column list> >> <<right-paren, <right paren> >>
   | UNIQUE ( VALUE )
 ----
 
@@ -7351,13 +6696,6 @@ Format
   <<column-name-list, <column name list> >>
 ----
 
-[[without-overlap-specification]]
-[subs="specialcharacters,macros"]
-----
-<without overlap specification> ::=
-  <<application-time-period-name, <application time period name> >> WITHOUT OVERLAPS
-----
-
 === 11.8 <referential constraint definition>
 
 .Function
@@ -7370,8 +6708,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <referential constraint definition> ::=
-  FOREIGN KEY <<left-paren, <left paren> >> <<referencing-column-list, <referencing column list> >>
-      [ <<comma, <comma> >> <<referencing-period-specification, <referencing period specification> >> ] <<right-paren, <right paren> >>
+  FOREIGN KEY <<left-paren, <left paren> >> <<referencing-columns, <referencing columns> >> <<right-paren, <right paren> >>
       <<references-specification, <references specification> >>
 ----
 
@@ -7392,40 +6729,25 @@ Format
   | SIMPLE
 ----
 
-[[referencing-column-list]]
+[[referencing-columns]]
 [subs="specialcharacters,macros"]
 ----
-<referencing column list> ::=
-  <<column-name-list, <column name list> >>
-----
-
-[[referencing-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<referencing period specification> ::=
-  PERIOD <<application-time-period-name, <application time period name> >>
+<referencing columns> ::=
+  <<reference-column-list, <reference column list> >>
 ----
 
 [[referenced-table-and-columns]]
 [subs="specialcharacters,macros"]
 ----
 <referenced table and columns> ::=
-  <<table-name, <table name> >> [ <<left-paren, <left paren> >> <<referenced-column-list, <referenced column list> >>
-      [ <<comma, <comma> >> <<referenced-period-specification, <referenced period specification> >> ] <<right-paren, <right paren> >> ]
+  <<table-name, <table name> >> [ <<left-paren, <left paren> >> <<reference-column-list, <reference column list> >> <<right-paren, <right paren> >> ]
 ----
 
-[[referenced-column-list]]
+[[reference-column-list]]
 [subs="specialcharacters,macros"]
 ----
-<referenced column list> ::=
+<reference column list> ::=
   <<column-name-list, <column name list> >>
-----
-
-[[referenced-period-specification]]
-[subs="specialcharacters,macros"]
-----
-<referenced period specification> ::=
-  PERIOD <<application-time-period-name, <application time period name> >>
 ----
 
 [[referential-triggered-action]]
@@ -7473,7 +6795,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <check constraint definition> ::=
-     CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
+  CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
 ----
 
 === 11.10 <alter table statement>
@@ -7499,12 +6821,7 @@ Format
   | <<alter-column-definition, <alter column definition> >>
   | <<drop-column-definition, <drop column definition> >>
   | <<add-table-constraint-definition, <add table constraint definition> >>
-  | <<alter-table-constraint-definition, <alter table constraint definition> >>
   | <<drop-table-constraint-definition, <drop table constraint definition> >>
-  | <<add-table-period-definition, <add table period definition> >>
-  | <<drop-table-period-definition, <drop table period definition> >>
-  | <<add-system-versioning-clause, <add system versioning clause> >>
-  | <<drop-system-versioning-clause, <drop system versioning clause> >>
 ----
 
 === 11.11 <add column definition>
@@ -7544,14 +6861,9 @@ Format
 <alter column action> ::=
     <<set-column-default-clause, <set column default clause> >>
   | <<drop-column-default-clause, <drop column default clause> >>
-  | <<set-column-not-null-clause, <set column not null clause> >>
-  | <<drop-column-not-null-clause, <drop column not null clause> >>
   | <<add-column-scope-clause, <add column scope clause> >>
   | <<drop-column-scope-clause, <drop column scope clause> >>
-  | <<alter-column-data-type-clause, <alter column data type clause> >>
   | <<alter-identity-column-specification, <alter identity column specification> >>
-  | <<drop-identity-property-clause, <drop identity property clause> >>
-  | <<drop-column-generation-expression-clause, <drop column generation expression clause> >>
 ----
 
 === 11.13 <set column default clause>
@@ -7584,37 +6896,7 @@ Format
   DROP DEFAULT
 ----
 
-=== 11.15 <set column not null clause>
-
-.Function
-
-Add a not null constraint to a column.
-
-
-Format
-[[set-column-not-null-clause]]
-[subs="specialcharacters,macros"]
-----
-<set column not null clause> ::=
-  SET NOT NULL
-----
-
-=== 11.16 <drop column not null clause>
-
-.Function
-
-Drop a not null constraint on a column.
-
-
-Format
-[[drop-column-not-null-clause]]
-[subs="specialcharacters,macros"]
-----
-<drop column not null clause> ::=
-  DROP NOT NULL
-----
-
-=== 11.17 <add column scope clause>
+=== 11.15 <add column scope clause>
 
 .Function
 
@@ -7629,7 +6911,7 @@ Format
   ADD <<scope-clause, <scope clause> >>
 ----
 
-=== 11.18 <drop column scope clause>
+=== 11.16 <drop column scope clause>
 
 .Function
 
@@ -7644,22 +6926,7 @@ Format
   DROP SCOPE <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.19 <alter column data type clause>
-
-.Function
-
-Change the declared type of a column.
-
-
-Format
-[[alter-column-data-type-clause]]
-[subs="specialcharacters,macros"]
-----
-<alter column data type clause> ::=
-  SET DATA TYPE <<data-type, <data type> >>
-----
-
-=== 11.20 <alter identity column specification>
+=== 11.17 <alter identity column specification>
 
 .Function
 
@@ -7671,15 +6938,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <alter identity column specification> ::=
-    <<set-identity-column-generation-clause, <set identity column generation clause> >> [ <<alter-identity-column-option, <alter identity column option> >>... ]
-  | <<alter-identity-column-option, <alter identity column option> >>...
-----
-
-[[set-identity-column-generation-clause]]
-[subs="specialcharacters,macros"]
-----
-<set identity column generation clause> ::=
-  SET GENERATED { ALWAYS | BY DEFAULT }
+  <<alter-identity-column-option, <alter identity column option> >>...
 ----
 
 [[alter-identity-column-option]]
@@ -7690,37 +6949,7 @@ Format
   | SET <<basic-sequence-generator-option, <basic sequence generator option> >>
 ----
 
-=== 11.21 <drop identity property clause>
-
-.Function
-
-Convert an identity column to a column that is not an identity column.
-
-
-Format
-[[drop-identity-property-clause]]
-[subs="specialcharacters,macros"]
-----
-<drop identity property clause> ::=
-  DROP IDENTITY
-----
-
-=== 11.22 <drop column generation expression clause>
-
-.Function
-
-Convert a generated column to a column that is not a generated column.
-
-
-Format
-[[drop-column-generation-expression-clause]]
-[subs="specialcharacters,macros"]
-----
-<drop column generation expression clause> ::=
-  DROP EXPRESSION
-----
-
-=== 11.23 <drop column definition>
+=== 11.18 <drop column definition>
 
 .Function
 
@@ -7735,7 +6964,7 @@ Format
   DROP [ COLUMN ] <<column-name, <column name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.24 <add table constraint definition>
+=== 11.19 <add table constraint definition>
 
 .Function
 
@@ -7750,22 +6979,8 @@ Format
   ADD <<table-constraint-definition, <table constraint definition> >>
 ----
 
-=== 11.25 <alter table constraint definition>
 
-.Function
-
-Change the definition of a table constraint.
-
-
-Format
-[[alter-table-constraint-definition]]
-[subs="specialcharacters,macros"]
-----
-<alter table constraint definition> ::=
-  ALTER CONSTRAINT <<constraint-name, <constraint name> >> <<constraint-enforcement, <constraint enforcement> >>
-----
-
-=== 11.26 <drop table constraint definition>
+=== 11.20 <drop table constraint definition>
 
 .Function
 
@@ -7780,88 +6995,7 @@ Format
   DROP CONSTRAINT <<constraint-name, <constraint name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.27 <add table period definition>
-
-.Function
-
-Add a system-time period or an application-time period to a persistent base table.
-
-
-Format
-[[add-table-period-definition]]
-[subs="specialcharacters,macros"]
-----
-<add table period definition> ::=
-  ADD <<table-period-definition, <table period definition> >> [ <<add-system-time-period-column-list, <add system time period column list> >> ]
-----
-
-[[add-system-time-period-column-list]]
-[subs="specialcharacters,macros"]
-----
-<add system time period column list> ::=
-  ADD [ COLUMN ] <<column-definition-1, <column definition 1> >> ADD [ COLUMN ] <<column-definition-2, <column definition 2> >>
-----
-
-[[column-definition-1]]
-[subs="specialcharacters,macros"]
-----
-<column definition 1> ::=
-  <<column-definition, <column definition> >>
-----
-
-[[column-definition-2]]
-[subs="specialcharacters,macros"]
-----
-<column definition 2> ::=
-  <<column-definition, <column definition> >>
-----
-
-=== 11.28 <drop table period definition>
-
-.Function
-
-Remove a system-time period or application-time period from a persistent base table.
-
-
-Format
-[[drop-table-period-definition]]
-[subs="specialcharacters,macros"]
-----
-<drop table period definition> ::=
-  DROP <<system-or-application-time-period-specification, <system or application time period specification> >> <<drop-behavior, <drop behavior> >>
-----
-
-=== 11.29 <add system versioning clause>
-
-.Function
-
-Alter a regular persistent base table to a system-versioned table.
-
-
-Format
-[[add-system-versioning-clause]]
-[subs="specialcharacters,macros"]
-----
-<add system versioning clause> ::=
-  ADD <<system-versioning-clause, <system versioning clause> >>
-----
-
-=== 11.30 <drop system versioning clause>
-
-.Function
-
-Change a system-versioned table into a regular persistent base table.
-
-
-Format
-[[drop-system-versioning-clause]]
-[subs="specialcharacters,macros"]
-----
-<drop system versioning clause> ::=
-  DROP SYSTEM VERSIONING <<drop-behavior, <drop behavior> >>
-----
-
-=== 11.31 <drop table statement>
+=== 11.21 <drop table statement>
 
 .Function
 
@@ -7876,7 +7010,7 @@ Format
   DROP TABLE <<table-name, <table name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.32 <view definition>
+=== 11.22 <view definition>
 
 .Function
 
@@ -7959,7 +7093,7 @@ Format
   <<column-name-list, <column name list> >>
 ----
 
-=== 11.33 <drop view statement>
+=== 11.23 <drop view statement>
 
 .Function
 
@@ -7974,7 +7108,7 @@ Format
   DROP VIEW <<table-name, <table name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.34 <domain definition>
+=== 11.24 <domain definition>
 
 .Function
 
@@ -8000,7 +7134,7 @@ Format
       <<constraint-characteristics, <constraint characteristics> >> ]
 ----
 
-=== 11.35 <alter domain statement>
+=== 11.25 <alter domain statement>
 
 .Function
 
@@ -8025,7 +7159,7 @@ Format
   | <<drop-domain-constraint-definition, <drop domain constraint definition> >>
 ----
 
-=== 11.36 <set domain default clause>
+=== 11.26 <set domain default clause>
 
 .Function
 
@@ -8040,7 +7174,7 @@ Format
   SET <<default-clause, <default clause> >>
 ----
 
-=== 11.37 <drop domain default clause>
+=== 11.27 <drop domain default clause>
 
 .Function
 
@@ -8055,7 +7189,7 @@ Format
   DROP DEFAULT
 ----
 
-=== 11.38 <add domain constraint definition>
+=== 11.28 <add domain constraint definition>
 
 .Function
 
@@ -8070,7 +7204,7 @@ Format
   ADD <<domain-constraint, <domain constraint> >>
 ----
 
-=== 11.39 <drop domain constraint definition>
+=== 11.29 <drop domain constraint definition>
 
 .Function
 
@@ -8085,7 +7219,7 @@ Format
   DROP CONSTRAINT <<constraint-name, <constraint name> >>
 ----
 
-=== 11.40 <drop domain statement>
+=== 11.30 <drop domain statement>
 
 .Function
 
@@ -8100,7 +7234,7 @@ Format
   DROP DOMAIN <<domain-name, <domain name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.41 <character set definition>
+=== 11.31 <character set definition>
 
 .Function
 
@@ -8123,7 +7257,7 @@ Format
   GET <<character-set-specification, <character set specification> >>
 ----
 
-=== 11.42 <drop character set statement>
+=== 11.32 <drop character set statement>
 
 .Function
 
@@ -8138,7 +7272,7 @@ Format
   DROP CHARACTER SET <<character-set-name, <character set name> >>
 ----
 
-=== 11.43 <collation definition>
+=== 11.33 <collation definition>
 
 .Function
 
@@ -8169,7 +7303,7 @@ Format
   | PAD SPACE
 ----
 
-=== 11.44 <drop collation statement>
+=== 11.34 <drop collation statement>
 
 .Function
 
@@ -8184,12 +7318,11 @@ Format
   DROP COLLATION <<collation-name, <collation name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.45 <transliteration definition>
+=== 11.35 <transliteration definition>
 
 .Function
 
 Define a character transliteration.
-
 
 Format
 [[transliteration-definition]]
@@ -8236,7 +7369,7 @@ Format
   <<specific-routine-designator, <specific routine designator> >>
 ----
 
-=== 11.46 <drop transliteration statement>
+=== 11.36 <drop transliteration statement>
 
 .Function
 
@@ -8251,7 +7384,7 @@ Format
   DROP TRANSLATION <<transliteration-name, <transliteration name> >>
 ----
 
-=== 11.47 <assertion definition>
+=== 11.37 <assertion definition>
 
 .Function
 
@@ -8263,12 +7396,12 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <assertion definition> ::=
-     CREATE ASSERTION <<constraint-name, <constraint name> >>
-         CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
-         [ <<constraint-characteristics, <constraint characteristics> >> ]
+  CREATE ASSERTION <<constraint-name, <constraint name> >>
+      CHECK <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
+      [ <<constraint-characteristics, <constraint characteristics> >> ]
 ----
 
-=== 11.48 <drop assertion statement>
+=== 11.38 <drop assertion statement>
 
 .Function
 
@@ -8283,7 +7416,7 @@ Format
   DROP ASSERTION <<constraint-name, <constraint name> >> [ <<drop-behavior, <drop behavior> >> ]
 ----
 
-=== 11.49 <trigger definition>
+=== 11.39 <trigger definition>
 
 .Function
 
@@ -8306,7 +7439,6 @@ Format
 <trigger action time> ::=
     BEFORE
   | AFTER
-  | INSTEAD OF
 ----
 
 [[trigger-event]]
@@ -8330,15 +7462,8 @@ Format
 ----
 <triggered action> ::=
   [ FOR EACH { ROW | STATEMENT } ]
-      [ <<triggered-when-clause, <triggered when clause> >> ]
+      [ WHEN <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >> ]
       <<triggered-SQL-statement, <triggered SQL statement> >>
-----
-
-[[triggered-when-clause]]
-[subs="specialcharacters,macros"]
-----
-<triggered when clause> ::=
-  WHEN <<left-paren, <left paren> >> <<search-condition, <search condition> >> <<right-paren, <right paren> >>
 ----
 
 [[triggered-SQL-statement]]
@@ -8401,7 +7526,7 @@ Format
   <<correlation-name, <correlation name> >>
 ----
 
-=== 11.50 <drop trigger statement>
+=== 11.40 <drop trigger statement>
 
 .Function
 
@@ -8416,7 +7541,7 @@ Format
   DROP TRIGGER <<trigger-name, <trigger name> >>
 ----
 
-=== 11.51 <user-defined type definition>
+=== 11.41 <user-defined type definition>
 
 .Function
 
@@ -8481,8 +7606,7 @@ Format
 ----
 <representation> ::=
     <<predefined-type, <predefined type> >>
-  | <<collection-type, <collection type> >>
-  | <<member-list, <member list> >>
+  |<<member-list, <member list> >>
 ----
 
 [[member-list]]
@@ -8654,7 +7778,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <specific method name> ::=
-  [ <<schema-name, <schema name> >> <<period, <period> >> ] <<qualified-identifier, <qualified identifier> >>
+  [ <<schema-name, <schema name> >> <<period, <period> >> ]<<qualified-identifier, <qualified identifier> >>
 ----
 
 [[method-characteristics]]
@@ -8668,14 +7792,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <method characteristic> ::=
-         <<language-clause, <language clause> >>
-     |   <<parameter-style-clause, <parameter style clause> >>
-     |   <<deterministic-characteristic, <deterministic characteristic> >>
-     |   <<SQL-data-access-indication, <SQL-data access indication> >>
-     |   <<null-call-clause, <null-call clause> >>
+    <<language-clause, <language clause> >>
+  | <<parameter-style-clause, <parameter style clause> >>
+  | <<deterministic-characteristic, <deterministic characteristic> >>
+  | <<SQL-data-access-indication, <SQL-data access indication> >>
+  | <<null-call-clause, <null-call clause> >>
 ----
 
-=== 11.52 <attribute definition>
+=== 11.42 <attribute definition>
 
 .Function
 
@@ -8687,9 +7811,9 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <attribute definition> ::=
-     <<attribute-name, <attribute name> >> <<data-type, <data type> >>
-         [ <<attribute-default, <attribute default> >> ]
-         [ <<collate-clause, <collate clause> >> ]
+  <<attribute-name, <attribute name> >> <<data-type, <data type> >>
+      [ <<attribute-default, <attribute default> >> ]
+      [ <<collate-clause, <collate clause> >> ]
 ----
 
 [[attribute-default]]
@@ -8699,7 +7823,7 @@ Format
   <<default-clause, <default clause> >>
 ----
 
-=== 11.53 <alter type statement>
+=== 11.43 <alter type statement>
 
 .Function
 
@@ -8725,7 +7849,7 @@ Format
   | <<drop-method-specification, <drop method specification> >>
 ----
 
-=== 11.54 <add attribute definition>
+=== 11.44 <add attribute definition>
 
 .Function
 
@@ -8740,7 +7864,7 @@ Format
   ADD ATTRIBUTE <<attribute-definition, <attribute definition> >>
 ----
 
-=== 11.55 <drop attribute definition>
+=== 11.45 <drop attribute definition>
 
 .Function
 
@@ -8755,7 +7879,7 @@ Format
   DROP ATTRIBUTE <<attribute-name, <attribute name> >> RESTRICT
 ----
 
-=== 11.56 <add original method specification>
+=== 11.46 <add original method specification>
 
 .Function
 
@@ -8770,7 +7894,7 @@ Format
   ADD <<original-method-specification, <original method specification> >>
 ----
 
-=== 11.57 <add overriding method specification>
+=== 11.47 <add overriding method specification>
 
 .Function
 
@@ -8785,7 +7909,7 @@ Format
   ADD <<overriding-method-specification, <overriding method specification> >>
 ----
 
-=== 11.58 <drop method specification>
+=== 11.48 <drop method specification>
 
 .Function
 
@@ -8808,11 +7932,7 @@ Format
       METHOD <<method-name, <method name> >> <<data-type-list, <data type list> >>
 ----
 
-=== 11.59 <drop data type statement>
-
-This Subclause is modified by Subclause 9.23, “<drop data type statement>”, in ISO/IEC 9075-4.
-This Subclause is modified by Subclause 9.7, “<drop data type statement>”, in ISO/IEC 9075-13.
-
+=== 11.49 <drop data type statement>
 
 .Function
 
@@ -8827,7 +7947,8 @@ Format
   DROP TYPE <<schema-resolved-user-defined-type-name, <schema-resolved user-defined type name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.60 <SQL-invoked routine>
+=== 11.50 <SQL-invoked routine>
+
 
 .Function
 
@@ -8892,18 +8013,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQL parameter declaration> ::=
-  [ <<parameter-mode, <parameter mode> >> ]
-      [ <<SQL-parameter-name, <SQL parameter name> >> ]
-      <<parameter-type, <parameter type> >> [ RESULT ]
-      [ DEFAULT <<parameter-default, <parameter default> >> ]
-----
-
-[[parameter-default]]
-[subs="specialcharacters,macros"]
-----
-<parameter default> ::=
-    <<value-expression, <value expression> >>
-  | <<contextually-typed-value-specification, <contextually typed value specification> >>
+  [ <<parameter-mode, <parameter mode> >> ] [ <<SQL-parameter-name, <SQL parameter name> >> ] <<parameter-type, <parameter type> >> [ RESULT ]
 ----
 
 [[parameter-mode]]
@@ -9176,7 +8286,7 @@ Format
   <<group-name, <group name> >> FOR TYPE <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >>
 ----
 
-=== 11.61 <alter routine statement>
+=== 11.51 <alter routine statement>
 
 .Function
 
@@ -9218,7 +8328,7 @@ Format
   RESTRICT
 ----
 
-=== 11.62 <drop routine statement>
+=== 11.52 <drop routine statement>
 
 .Function
 
@@ -9233,7 +8343,7 @@ Format
   DROP <<specific-routine-designator, <specific routine designator> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.63 <user-defined cast definition>
+=== 11.53 <user-defined cast definition>
 
 .Function
 
@@ -9271,7 +8381,7 @@ Format
   <<data-type, <data type> >>
 ----
 
-=== 11.64 <drop user-defined cast statement>
+=== 11.54 <drop user-defined cast statement>
 
 .Function
 
@@ -9287,7 +8397,7 @@ Format
       <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.65 <user-defined ordering definition>
+=== 11.55 <user-defined ordering definition>
 
 .Function
 
@@ -9368,7 +8478,7 @@ Format
   <<specific-routine-designator, <specific routine designator> >>
 ----
 
-=== 11.66 <drop user-defined ordering statement>
+=== 11.56 <drop user-defined ordering statement>
 
 .Function
 
@@ -9383,7 +8493,7 @@ Format
   DROP ORDERING FOR <<schema-resolved-user-defined-type-name, <schema-resolved user-defined type name> >> <<drop-behavior, <drop behavior> >>
 ----
 
-=== 11.67 <transform definition>
+=== 11.57 <transform definition>
 
 .Function
 
@@ -9456,7 +8566,7 @@ Format
   <<specific-routine-designator, <specific routine designator> >>
 ----
 
-=== 11.68 <alter transform statement>
+=== 11.58 <alter transform statement>
 
 .Function
 
@@ -9494,7 +8604,7 @@ Format
   | <<drop-transform-element-list, <drop transform element list> >>
 ----
 
-=== 11.69 <add transform element list>
+=== 11.59 <add transform element list>
 
 .Function
 
@@ -9509,7 +8619,7 @@ Format
   ADD <<left-paren, <left paren> >> <<transform-element-list, <transform element list> >> <<right-paren, <right paren> >>
 ----
 
-=== 11.70 <drop transform element list>
+=== 11.60 <drop transform element list>
 
 .Function
 
@@ -9533,7 +8643,7 @@ Format
   | FROM SQL
 ----
 
-=== 11.71 <drop transform statement>
+=== 11.61 <drop transform statement>
 
 .Function
 
@@ -9564,7 +8674,7 @@ Format
   <<group-name, <group name> >>
 ----
 
-=== 11.72 <sequence generator definition>
+=== 11.62 <sequence generator definition>
 
 .Function
 
@@ -9583,7 +8693,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <sequence generator options> ::=
-  <<sequence-generator-option, <sequence generator option> >>...
+  <<sequence-generator-option, <sequence generator option> >> ...
 ----
 
 [[sequence-generator-option]]
@@ -9598,7 +8708,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <common sequence generator options> ::=
-  <<common-sequence-generator-option, <common sequence generator option> >>...
+  <<common-sequence-generator-option, <common sequence generator option> >> ...
 ----
 
 [[common-sequence-generator-option]]
@@ -9692,7 +8802,7 @@ Format
   | NO CYCLE
 ----
 
-=== 11.73 <alter sequence generator statement>
+=== 11.63 <alter sequence generator statement>
 
 .Function
 
@@ -9726,7 +8836,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <alter sequence generator restart option> ::=
-  RESTART [ WITH <<sequence-generator-restart-value, <sequence generator restart value> >> ]
+  RESTART WITH <<sequence-generator-restart-value, <sequence generator restart value> >>
 ----
 
 [[sequence-generator-restart-value]]
@@ -9736,7 +8846,7 @@ Format
   <<signed-numeric-literal, <signed numeric literal> >>
 ----
 
-=== 11.74 <drop sequence generator statement>
+=== 11.64 <drop sequence generator statement>
 
 .Function
 
@@ -9752,7 +8862,6 @@ Format
 ----
 
 == 12 Access control
-
 
 === 12.1 <grant statement>
 
@@ -9807,14 +8916,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <object name> ::=
-      [ TABLE ] <<table-name, <table name> >>
-  |   DOMAIN <<domain-name, <domain name> >>
-  |   COLLATION <<collation-name, <collation name> >>
-  |   CHARACTER SET <<character-set-name, <character set name> >>
-  |   TRANSLATION <<transliteration-name, <transliteration name> >>
-  |   TYPE <<schema-resolved-user-defined-type-name, <schema-resolved user-defined type name> >>
-  |   SEQUENCE <<sequence-generator-name, <sequence generator name> >>
-  |   <<specific-routine-designator, <specific routine designator> >>
+    [ TABLE ] <<table-name, <table name> >>
+  |DOMAIN <<domain-name, <domain name> >>
+  | COLLATION <<collation-name, <collation name> >>
+  | CHARACTER SET <<character-set-name, <character set name> >>
+  | TRANSLATION <<transliteration-name, <transliteration name> >>
+  | TYPE <<schema-resolved-user-defined-type-name, <schema-resolved user-defined type name> >>
+  | SEQUENCE <<sequence-generator-name, <sequence generator name> >>
+  | <<specific-routine-designator, <specific routine designator> >>
 ----
 
 [[object-privileges]]
@@ -9980,7 +9089,6 @@ Format
 
 == 13 SQL-client modules
 
-
 === 13.1 <SQL-client module definition>
 
 .Function
@@ -10131,7 +9239,7 @@ Format
   SQLSTATE
 ----
 
-=== 13.4 <SQL procedure statement>
+=== 13.5 <SQL procedure statement>
 
 .Function
 
@@ -10153,7 +9261,7 @@ Format
     <<SQL-schema-statement, <SQL schema statement> >>
   | <<SQL-data-statement, <SQL data statement> >>
   | <<SQL-control-statement, <SQL control statement> >>
-  | <<SQL-transaction-statement, <SQL transaction statement> >>
+  |<<SQL-transaction-statement, <SQL transaction statement> >>
   | <<SQL-connection-statement, <SQL connection statement> >>
   | <<SQL-session-statement, <SQL session statement> >>
   | <<SQL-diagnostics-statement, <SQL diagnostics statement> >>
@@ -10172,34 +9280,34 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQL schema definition statement> ::=
-      <<schema-definition, <schema definition> >>
-  |   <<table-definition, <table definition> >>
-  |   <<view-definition, <view definition> >>
-  |   <<SQL-invoked-routine, <SQL-invoked routine> >>
-  |   <<grant-statement, <grant statement> >>
-  |   <<role-definition, <role definition> >>
-  |   <<domain-definition, <domain definition> >>
-  |   <<character-set-definition, <character set definition> >>
-  |   <<collation-definition, <collation definition> >>
-  |   <<transliteration-definition, <transliteration definition> >>
-  |   <<assertion-definition, <assertion definition> >>
-  |   <<trigger-definition, <trigger definition> >>
-  |   <<user-defined-type-definition, <user-defined type definition> >>
-  |   <<user-defined-cast-definition, <user-defined cast definition> >>
-  |   <<user-defined-ordering-definition, <user-defined ordering definition> >>
-  |   <<transform-definition, <transform definition> >>
-  |   <<sequence-generator-definition, <sequence generator definition> >>
+    <<schema-definition, <schema definition> >>
+  | <<table-definition, <table definition> >>
+  | <<view-definition, <view definition> >>
+  | <<SQL-invoked-routine, <SQL-invoked routine> >>
+  | <<grant-statement, <grant statement> >>
+  | <<role-definition, <role definition> >>
+  | <<domain-definition, <domain definition> >>
+  | <<character-set-definition, <character set definition> >>
+  | <<collation-definition, <collation definition> >>
+  | <<transliteration-definition, <transliteration definition> >>
+  | <<assertion-definition, <assertion definition> >>
+  | <<trigger-definition, <trigger definition> >>
+  | <<user-defined-type-definition, <user-defined type definition> >>
+  | <<user-defined-cast-definition, <user-defined cast definition> >>
+  | <<user-defined-ordering-definition, <user-defined ordering definition> >>
+  | <<transform-definition, <transform definition> >>
+  | <<sequence-generator-definition, <sequence generator definition> >>
 ----
 
 [[SQL-schema-manipulation-statement]]
 [subs="specialcharacters,macros"]
 ----
 <SQL schema manipulation statement> ::=
-      <<drop-schema-statement, <drop schema statement> >>
-  |   <<alter-table-statement, <alter table statement> >>
-  |   <<drop-table-statement, <drop table statement> >>
-  |   <<drop-view-statement, <drop view statement> >>
-  |   <<alter-routine-statement, <alter routine statement> >>
+    <<drop-schema-statement, <drop schema statement> >>
+  | <<alter-table-statement, <alter table statement> >>
+  | <<drop-table-statement, <drop table statement> >>
+  | <<drop-view-statement, <drop view statement> >>
+  | <<alter-routine-statement, <alter routine statement> >>
   |   <<drop-routine-statement, <drop routine statement> >>
   |   <<drop-user-defined-cast-statement, <drop user-defined cast statement> >>
   |   <<revoke-statement, <revoke statement> >>
@@ -10242,7 +9350,6 @@ Format
   | <<insert-statement, <insert statement> >>
   | <<update-statement:-positioned, <update statement: positioned> >>
   | <<update-statement:-searched, <update statement: searched> >>
-  | <<truncate-table-statement, <truncate table statement> >>
   | <<merge-statement, <merge statement> >>
 ----
 
@@ -10280,16 +9387,16 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQL session statement> ::=
-      <<set----session-user-identifier-statement, <set    session user identifier statement> >>
-  |   <<set----role-statement, <set    role statement> >>
-  |   <<set----local-time-zone-statement, <set    local time zone statement> >>
-  |   <<set----session-characteristics-statement, <set    session characteristics statement> >>
-  |   <<set----catalog-statement, <set    catalog statement> >>
-  |   <<set----schema-statement, <set    schema statement> >>
-  |   <<set----names-statement, <set    names statement> >>
-  |   <<set----path-statement, <set    path statement> >>
-  |   <<set----transform-group-statement, <set    transform group statement> >>
-  |   <<set----session-collation-statement, <set    session collation statement> >>
+    <<set-session-user-identifier-statement, <set session user identifier statement> >>
+  | <<set-role-statement, <set role statement> >>
+  | <<set-local-time-zone-statement, <set local time zone statement> >>
+  |   <<set---session-characteristics-statement, <set   session characteristics statement> >>
+  |   <<set---catalog-statement, <set   catalog statement> >>
+  |   <<set---schema-statement, <set   schema statement> >>
+  |   <<set---names-statement, <set   names statement> >>
+  |   <<set---path-statement, <set   path statement> >>
+  |   <<set---transform-group-statement, <set   transform group statement> >>
+  |   <<set---session-collation-statement, <set   session collation statement> >>
 ----
 
 [[SQL-diagnostics-statement]]
@@ -10316,8 +9423,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQL dynamic data statement> ::=
-    <<allocate-extended-dynamic-cursor-statement, <allocate extended dynamic cursor statement> >>
-  | <<allocate-received-cursor-statement, <allocate received cursor statement> >>
+    <<allocate-cursor-statement, <allocate cursor statement> >>
   | <<dynamic-open-statement, <dynamic open statement> >>
   | <<dynamic-fetch-statement, <dynamic fetch statement> >>
   | <<dynamic-close-statement, <dynamic close statement> >>
@@ -10336,7 +9442,6 @@ Format
 ----
 
 == 14 Data manipulation
-
 
 === 14.1 <declare cursor>
 
@@ -10416,7 +9521,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <cursor specification> ::=
-  <<query-expression, <query expression> >> [ <<updatability-clause, <updatability clause> >> ]
+  <<query-expression, <query expression> >> [ <<order-by-clause, <order by clause> >> ] [ <<updatability-clause, <updatability clause> >> ]
 ----
 
 [[updatability-clause]]
@@ -10424,6 +9529,13 @@ Format
 ----
 <updatability clause> ::=
   FOR { READ ONLY | UPDATE [ OF <<column-name-list, <column name list> >> ] }
+----
+
+[[order-by-clause]]
+[subs="specialcharacters,macros"]
+----
+<order by clause> ::=
+  ORDER BY <<sort-specification-list, <sort specification list> >>
 ----
 
 === 14.4 <open statement>
@@ -10454,7 +9566,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <fetch statement> ::=
-     FETCH [ [ <<fetch-orientation, <fetch orientation> >> ] FROM ] <<cursor-name, <cursor name> >> INTO <<fetch-target-list, <fetch target list> >>
+  FETCH [ [ <<fetch-orientation, <fetch orientation> >> ] FROM ] <<cursor-name, <cursor name> >> INTO <<fetch-target-list, <fetch target list> >>
 ----
 
 [[fetch-orientation]]
@@ -10472,7 +9584,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <fetch target list> ::=
-     <<target-specification, <target specification> >> [ { <<comma, <comma> >> <<target-specification, <target specification> >> }... ]
+  <<target-specification, <target specification> >> [ { <<comma, <comma> >> <<target-specification, <target specification> >> }... ]
 ----
 
 === 14.6 <close statement>
@@ -10526,8 +9638,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <delete statement: positioned> ::=
-     DELETE FROM <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
-         WHERE CURRENT OF <<cursor-name, <cursor name> >>
+  DELETE FROM <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
+      WHERE CURRENT OF <<cursor-name, <cursor name> >>
 ----
 
 [[target-table]]
@@ -10550,37 +9662,11 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <delete statement: searched> ::=
-  DELETE FROM <<target-table, <target table> >>
-      [ FOR PORTION OF <<application-time-period-name, <application time period name> >>
-        FROM <<point-in-time-1, <point in time 1> >> TO <<point-in-time-2, <point in time 2> >> ]
-      [ [ AS ] <<correlation-name, <correlation name> >> ]
+  DELETE FROM <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
       [ WHERE <<search-condition, <search condition> >> ]
 ----
 
-=== 14.10 <truncate table statement>
-
-.Function
-
-Delete all rows of a base table without causing any triggered action.
-
-
-Format
-[[truncate-table-statement]]
-[subs="specialcharacters,macros"]
-----
-<truncate table statement> ::=
-  TRUNCATE TABLE <<target-table, <target table> >> [ <<identity-column-restart-option, <identity column restart option> >> ]
-----
-
-[[identity-column-restart-option]]
-[subs="specialcharacters,macros"]
-----
-<identity column restart option> ::=
-    CONTINUE IDENTITY
-  | RESTART IDENTITY
-----
-
-=== 14.11 <insert statement>
+=== 14.10 <insert statement>
 
 .Function
 
@@ -10651,11 +9737,11 @@ Format
   <<column-name-list, <column name list> >>
 ----
 
-=== 14.12 <merge statement>
+=== 14.11 <merge statement>
 
 .Function
 
-Conditionally update and/or delete rows of a table and/or insert new rows into a table.
+Conditionally update rows of a table, or insert new rows into a table, or both.
 
 
 Format
@@ -10694,24 +9780,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <merge when matched clause> ::=
-  WHEN MATCHED [ AND <<search-condition, <search condition> >> ]
-      THEN <<merge-update-or-delete-specification, <merge update or delete specification> >>
-----
-
-[[merge-update-or-delete-specification]]
-[subs="specialcharacters,macros"]
-----
-<merge update or delete specification> ::=
-    <<merge-update-specification, <merge update specification> >>
-  | <<merge-delete-specification, <merge delete specification> >>
+  WHEN MATCHED THEN <<merge-update-specification, <merge update specification> >>
 ----
 
 [[merge-when-not-matched-clause]]
 [subs="specialcharacters,macros"]
 ----
 <merge when not matched clause> ::=
-  WHEN NOT MATCHED [ AND <<search-condition, <search condition> >> ]
-      THEN <<merge-insert-specification, <merge insert specification> >>
+  WHEN NOT MATCHED THEN <<merge-insert-specification, <merge insert specification> >>
 ----
 
 [[merge-update-specification]]
@@ -10719,13 +9795,6 @@ Format
 ----
 <merge update specification> ::=
   UPDATE SET <<set-clause-list, <set clause list> >>
-----
-
-[[merge-delete-specification]]
-[subs="specialcharacters,macros"]
-----
-<merge delete specification> ::=
-  DELETE
 ----
 
 [[merge-insert-specification]]
@@ -10754,7 +9823,7 @@ Format
   | <<contextually-typed-value-specification, <contextually typed value specification> >>
 ----
 
-=== 14.13 <update statement: positioned>
+=== 14.12 <update statement: positioned>
 
 .Function
 
@@ -10762,16 +9831,16 @@ Update a row of a table.
 
 
 Format
-[[updatestatement:-positioned]]
+[[update-statement:-positioned]]
 [subs="specialcharacters,macros"]
 ----
-<updatestatement: positioned> ::=
-     UPDATE <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
-         SET <<set-clause-list, <set clause list> >>
-         WHERE CURRENT OF <<cursor-name, <cursor name> >>
+<update statement: positioned> ::=
+  UPDATE <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
+      SET <<set-clause-list, <set clause list> >>
+      WHERE CURRENT OF <<cursor-name, <cursor name> >>
 ----
 
-=== 14.14 <update statement: searched>
+=== 14.13 <update statement: searched>
 
 .Function
 
@@ -10783,15 +9852,12 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <update statement: searched> ::=
-  UPDATE <<target-table, <target table> >>
-      [ FOR PORTION OF <<application-time-period-name, <application time period name> >>
-        FROM <<point-in-time-1, <point in time 1> >> TO <<point-in-time-2, <point in time 2> >> ]
-      [ [ AS ] <<correlation-name, <correlation name> >> ]
+  UPDATE <<target-table, <target table> >> [ [ AS ] <<correlation-name, <correlation name> >> ]
       SET <<set-clause-list, <set clause list> >>
       [ WHERE <<search-condition, <search condition> >> ]
 ----
 
-=== 14.15 <set clause list>
+=== 14.14 <set clause list>
 
 .Function
 
@@ -10882,7 +9948,7 @@ Format
   | <<contextually-typed-value-specification, <contextually typed value specification> >>
 ----
 
-=== 14.16 <temporary table declaration>
+=== 14.15 <temporary table declaration>
 
 .Function
 
@@ -10898,7 +9964,7 @@ Format
       [ ON COMMIT <<table-commit-action, <table commit action> >> ROWS ]
 ----
 
-=== 14.17 <free locator statement>
+=== 14.16 <free locator statement>
 
 .Function
 
@@ -10922,7 +9988,7 @@ Format
   | <<dynamic-parameter-specification, <dynamic parameter specification> >>
 ----
 
-=== 14.18 <hold locator statement>
+=== 14.17 <hold locator statement>
 
 .Function
 
@@ -10937,13 +10003,9 @@ Format
   HOLD LOCATOR <<locator-reference, <locator reference> >> [ { <<comma, <comma> >> <<locator-reference, <locator reference> >> }... ]
 ----
 
-
 == 16 Control statements
 
 === 16.1 <call statement>
-
-This Subclause is modified by Subclause 11.22, “<call statement>”, in ISO/IEC 9075-10.
-
 
 .Function
 
@@ -10962,7 +10024,7 @@ Format
 
 .Function
 
-Return a value from an SQL routine that is an SQL-invoked function.
+Return a value from an SQL function.
 
 
 Format
@@ -11004,7 +10066,7 @@ Format
 .Function
 
 Set the characteristics of the next SQL-transaction for the SQL-agent.
-    NOTE 522 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
+NOTE 423 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
 
 
 Format
@@ -11085,7 +10147,7 @@ Format
 If an SQL-transaction is currently active, then set the constraint mode for that SQL-transaction in the current
 SQL-session. If no SQL-transaction is currently active, then set the constraint mode for the next SQL-transaction
 in the current SQL-session for the SQL-agent.
-    NOTE 524 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
+NOTE 425 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
 
 
 Format
@@ -11154,9 +10216,8 @@ Format
 ----
 <commit statement> ::=
   COMMIT [ WORK ] [ AND [ NO ] CHAIN ]
+17.8 <rollback statement>
 ----
-
-=== 17.8 <rollback statement>
 
 .Function
 
@@ -11178,7 +10239,6 @@ Format
 <savepoint clause> ::=
   TO SAVEPOINT <<savepoint-specifier, <savepoint specifier> >>
 ----
-
 
 == 18 Connection management
 
@@ -11434,8 +10494,8 @@ Format
 
 Set the SQL-path used to determine the subject routine of <routine invocation>s with unqualified <routine
 name>s in <preparable statement>s that are prepared in the current SQL-session by an <execute immediate
-statement> or a <prepare statement> and in <direct SQL statement>s that are invoked directly. The SQL-path
-remains the current SQL-path of the SQL-session until another SQL-path is successfully set.
+statement> or a <prepare statement> and in <direct SQL statement>s, respectively, that are invoked directly.
+The SQL-path remains the current SQL-path of the SQL-session until another SQL-path is successfully set.
 
 
 Format
@@ -11477,6 +10537,93 @@ Format
   | TRANSFORM GROUP FOR TYPE <<path-resolved-user-defined-type-name, <path-resolved user-defined type name> >> <<value-specification, <value specification> >>
 ----
 
+=== 19.10 <set session collation statement>
+
+.Function
+
+Set the SQL-session collation of the SQL-session for one or more character sets. An SQL-session collation
+remains effective until another SQL-session collation for the same character set is successfully set.
+
+
+Format
+[[set-session-collation-statement]]
+[subs="specialcharacters,macros"]
+----
+<set session collation statement> ::=
+    SET COLLATION <<collation-specification, <collation specification> >> [ FOR <<character-set-specification-list, <character set specification list> >> ]
+  | SET NO COLLATION [ FOR <<character-set-specification-list, <character set specification list> >> ]
+----
+
+[[collation-specification]]
+[subs="specialcharacters,macros"]
+----
+<collation specification> ::=
+  <<value-specification, <value specification> >>
+----
+
+
+Syntax Rules
+== 1) The declared type of the <value specification> shall be a character string type.
+
+
+Access Rules
+    None.
+
+
+General Rules
+== 1) Let S be <value specification> and let V be the character string that is the value of
+
+    TRIM ( BOTH ' ' FROM S )
+
+    a) If V does not conform to the Format and Syntax Rules of a <collation name>, then an exception condition
+       is raised: invalid collation name.
+    b) Let CO be the collation identified by the <collation name> contained in V.
+        Case:
+        i)      If <character set specification list> is specified, then
+                Case:
+                1) If the collation specified by CO is not applicable to any character set identified by a <char-
+                   acter set specification>, then an exception condition is raised: invalid collation name.
+                2) Otherwise, for each character set specified, the SQL-session collation for that character set
+                   in the current SQL-session is set to CO.
+        ii)     Otherwise, the character sets for which the SQL-session collations are set to CO are implemen-
+                tation-defined.
+== 2) If SET NO COLLATION is specified, then
+
+
+== 954 Foundation (SQL/Foundation)
+                                                                                             CD 9075-2:200x(E)
+                                                                         19.10 <set session collation statement>
+
+   Case:
+   a) If <character set specification list> is specified, then, for each character set specified, the SQL-session
+      collation for that character set in the current SQL-session is set to none.
+   b) Otherwise, the SQL-session collation for every character set in the current SQL-session is set to none.
+
+
+Conformance Rules
+== 1) Without Feature F693, “SQL-session and client module collations”, conforming SQL language shall not
+   contain a <set session collation statement>.
+
+
+
+
+                                                                                      Session management 955
+CD 9075-2:200x(E)
+
+
+
+
+                                  (Blank page)
+
+
+
+
+== 956 Foundation (SQL/Foundation)
+                                                                                           CD 9075-2:200x(E)
+                                                                     20.1 Description of SQL descriptor areas
+
+
+
 
 == 20 Dynamic SQL
 
@@ -11501,7 +10648,6 @@ Format
 <occurrences> ::=
   <<simple-value-specification, <simple value specification> >>
 ----
-
 
 === 20.3 <deallocate descriptor statement>
 
@@ -11741,7 +10887,6 @@ Format
   | <<insert-statement, <insert statement> >>
   | <<dynamic-select-statement, <dynamic select statement> >>
   | <<update-statement:-searched, <update statement: searched> >>
-  | <<truncate-table-statement, <truncate table statement> >>
   | <<merge-statement, <merge statement> >>
   | <<preparable-dynamic-delete-statement:-positioned, <preparable dynamic delete statement: positioned> >>
   | <<preparable-dynamic-update-statement:-positioned, <preparable dynamic update statement: positioned> >>
@@ -11833,9 +10978,6 @@ Format
 
 === 20.9 <describe statement>
 
-This Subclause is modified by Subclause 17.4, “<describe statement>”, in ISO/IEC 9075-9.
-
-
 .Function
 
 Obtain information about the <select list> columns or <dynamic parameter specification>s contained in a prepared
@@ -11885,7 +11027,7 @@ Format
 ----
 <described object> ::=
     <<SQL-statement-name, <SQL statement name> >>
-  | CURSOR <<cursor-name, <cursor name> >> STRUCTURE
+  | CURSOR <<extended-cursor-name, <extended cursor name> >> STRUCTURE
 ----
 
 === 20.10 <input using clause>
@@ -11926,7 +11068,6 @@ Format
 ----
 
 === 20.11 <output using clause>
-
 
 .Function
 
@@ -12025,40 +11166,46 @@ Format
       FOR <<statement-name, <statement name> >>
 ----
 
-=== 20.15 <allocate extended dynamic cursor statement>
+=== 20.15 <allocate cursor statement>
 
 .Function
 
-Define a cursor based on a prepared statement for a <cursor specification>.
+Define a cursor based on a prepared statement for a <cursor specification> or assign a cursor to the result set
+sequence returned from an SQL-invoked procedure.
 
 
 Format
-[[allocate-extended-dynamic-cursor-statement]]
+[[allocate-cursor-statement]]
 [subs="specialcharacters,macros"]
 ----
-<allocate extended dynamic cursor statement> ::=
-  ALLOCATE <<extended-cursor-name, <extended cursor name> >>
-      <<cursor-properties, <cursor properties> >>
+<allocate cursor statement> ::=
+  ALLOCATE <<extended-cursor-name, <extended cursor name> >> <<cursor-intent, <cursor intent> >>
+----
+
+[[cursor-intent]]
+[subs="specialcharacters,macros"]
+----
+<cursor intent> ::=
+    <<statement-cursor, <statement cursor> >>
+  | <<result-set-cursor, <result set cursor> >>
+----
+
+[[statement-cursor]]
+[subs="specialcharacters,macros"]
+----
+<statement cursor> ::=
+  <<cursor-properties, <cursor properties> >>
       FOR <<extended-statement-name, <extended statement name> >>
 ----
 
-=== 20.16 <allocate received cursor statement>
-
-.Function
-
-Assign a cursor to the result set sequence returned from an SQL-invoked procedure.
-
-
-Format
-[[allocate-received-cursor-statement]]
+[[result-set-cursor]]
 [subs="specialcharacters,macros"]
 ----
-<allocate received cursor statement> ::=
-  ALLOCATE <<cursor-name, <cursor name> >>
-      [ CURSOR ] FOR PROCEDURE <<specific-routine-designator, <specific routine designator> >>
+<result set cursor> ::=
+  FOR PROCEDURE <<specific-routine-designator, <specific routine designator> >>
 ----
 
-=== 20.17 <dynamic open statement>
+=== 20.16 <dynamic open statement>
 
 .Function
 
@@ -12073,7 +11220,7 @@ Format
   OPEN <<dynamic-cursor-name, <dynamic cursor name> >> [ <<input-using-clause, <input using clause> >> ]
 ----
 
-=== 20.18 <dynamic fetch statement>
+=== 20.17 <dynamic fetch statement>
 
 .Function
 
@@ -12088,7 +11235,7 @@ Format
   FETCH [ [ <<fetch-orientation, <fetch orientation> >> ] FROM ] <<dynamic-cursor-name, <dynamic cursor name> >> <<output-using-clause, <output using clause> >>
 ----
 
-=== 20.19 <dynamic single row select statement>
+=== 20.18 <dynamic single row select statement>
 
 .Function
 
@@ -12103,7 +11250,7 @@ Format
   <<query-specification, <query specification> >>
 ----
 
-=== 20.20 <dynamic close statement>
+=== 20.19 <dynamic close statement>
 
 .Function
 
@@ -12118,7 +11265,7 @@ Format
   CLOSE <<dynamic-cursor-name, <dynamic cursor name> >>
 ----
 
-=== 20.21 <dynamic delete statement: positioned>
+=== 20.20 <dynamic delete statement: positioned>
 
 .Function
 
@@ -12133,8 +11280,7 @@ Format
   DELETE FROM <<target-table, <target table> >> WHERE CURRENT OF <<dynamic-cursor-name, <dynamic cursor name> >>
 ----
 
-
-=== 20.22 <dynamic update statement: positioned>
+=== 20.21 <dynamic update statement: positioned>
 
 .Function
 
@@ -12150,7 +11296,7 @@ Format
       WHERE CURRENT OF <<dynamic-cursor-name, <dynamic cursor name> >>
 ----
 
-=== 20.23 <preparable dynamic delete statement: positioned>
+=== 20.22 <preparable dynamic delete statement: positioned>
 
 .Function
 
@@ -12166,7 +11312,7 @@ Format
       WHERE CURRENT OF <<preparable-dynamic-cursor-name, <preparable dynamic cursor name> >>
 ----
 
-=== 20.24 <preparable dynamic cursor name>
+=== 20.23 <preparable dynamic cursor name>
 
 .Function
 
@@ -12182,7 +11328,7 @@ Format
   [ <<scope-option, <scope option> >> ] <<cursor-name, <cursor name> >>
 ----
 
-=== 20.25 <preparable dynamic update statement: positioned>
+=== 20.24 <preparable dynamic update statement: positioned>
 
 .Function
 
@@ -12198,8 +11344,8 @@ Format
       WHERE CURRENT OF <<preparable-dynamic-cursor-name, <preparable dynamic cursor name> >>
 ----
 
-== 21 Embedded SQL
 
+== 21 Embedded SQL
 
 === 21.1 <embedded SQL host program>
 
@@ -12209,17 +11355,17 @@ Specify an <embedded SQL host program>.
 
 
 Format
-[[embedded-SQL-host-program]]
+[[embedded-SQL---host-program]]
 [subs="specialcharacters,macros"]
 ----
-<embedded SQL host program> ::=
-      <<embedded-SQL-Ada-program, <embedded SQL Ada program> >>
-  |   <<embedded-SQL-C-program, <embedded SQL C program> >>
-  |   <<embedded-SQL-COBOL-program, <embedded SQL COBOL program> >>
-  |   <<embedded-SQL-Fortran-program, <embedded SQL Fortran program> >>
-  |   <<embedded-SQL-MUMPS-program, <embedded SQL MUMPS program> >>
-  |   <<embedded-SQL-Pascal-program, <embedded SQL Pascal program> >>
-  |   <<embedded-SQL-PL/I-program, <embedded SQL PL/I program> >>
+<embedded SQL   host program> ::=
+    <<embedded---SQL-Ada-program, <embedded   SQL Ada program> >>
+  | <<embedded---SQL-C-program, <embedded   SQL C program> >>
+  | <<embedded---SQL-COBOL-program, <embedded   SQL COBOL program> >>
+  | <<embedded---SQL-Fortran-program, <embedded   SQL Fortran program> >>
+  | <<embedded---SQL-MUMPS-program, <embedded   SQL MUMPS program> >>
+  | <<embedded---SQL-Pascal-program, <embedded   SQL Pascal program> >>
+  | <<embedded---SQL-PL/I-program, <embedded   SQL PL/I program> >>
 ----
 
 [[embedded-SQL-statement]]
@@ -12233,15 +11379,15 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <statement or declaration> ::=
-      <<declare-cursor, <declare cursor> >>
-  |   <<dynamic-declare-cursor, <dynamic declare cursor> >>
-  |   <<temporary-table-declaration, <temporary table declaration> >>
-  |   <<embedded-authorization-declaration, <embedded authorization declaration> >>
-  |   <<embedded-path-specification, <embedded path specification> >>
-  |   <<embedded-transform-group-specification, <embedded transform group specification> >>
-  |   <<embedded-collation-specification, <embedded collation specification> >>
-  |   <<embedded-exception-declaration, <embedded exception declaration> >>
-  |   <<SQL-procedure-statement, <SQL procedure statement> >>
+    <<declare-cursor, <declare cursor> >>
+  | <<dynamic-declare-cursor, <dynamic declare cursor> >>
+  | <<temporary-table-declaration, <temporary table declaration> >>
+  | <<embedded-authorization-declaration, <embedded authorization declaration> >>
+  | <<embedded-path-specification, <embedded path specification> >>
+  | <<embedded-transform-group-specification, <embedded transform group specification> >>
+  | <<embedded-collation-specification, <embedded collation specification> >>
+  | <<embedded-exception-declaration, <embedded exception declaration> >>
+  | <<SQL-procedure-statement, <SQL procedure statement> >>
 ----
 
 [[SQL-prefix]]
@@ -12249,140 +11395,9 @@ Format
 ----
 <SQL prefix> ::=
     EXEC SQL
-  | <<ampersand, <ampersand> >>SQL <<left-paren, <left paren> >>
+  | <<ampersand, <ampersand> >>SQL<<left-paren, <left paren> >>
 ----
 
-[[SQL-terminator]]
-[subs="specialcharacters,macros"]
-----
-<SQL terminator> ::=
-    END- EXEC
-  | <<semicolon, <semicolon> >>
-  | <<right-paren, <right paren> >>
-----
-
-[[embedded-authorization-declaration]]
-[subs="specialcharacters,macros"]
-----
-<embedded authorization declaration> ::=
-  DECLARE <<embedded-authorization-clause, <embedded authorization clause> >>
-----
-
-[[embedded-authorization-clause]]
-[subs="specialcharacters,macros"]
-----
-<embedded authorization clause> ::=
-    SCHEMA <<schema-name, <schema name> >>
-  | AUTHORIZATION <<embedded-authorization-identifier, <embedded authorization identifier> >>
-      [ FOR STATIC { ONLY | AND DYNAMIC } ]
-  | SCHEMA <<schema-name, <schema name> >> AUTHORIZATION <<embedded-authorization-identifier, <embedded authorization identifier> >>
-      [ FOR STATIC { ONLY | AND DYNAMIC } ]
-----
-
-[[embedded-authorization-identifier]]
-[subs="specialcharacters,macros"]
-----
-<embedded authorization identifier> ::=
-  <<module-authorization-identifier, <module authorization identifier> >>
-----
-
-[[embedded-path-specification]]
-[subs="specialcharacters,macros"]
-----
-<embedded path specification> ::=
-  <<path-specification, <path specification> >>
-----
-
-[[embedded-transform-group-specification]]
-[subs="specialcharacters,macros"]
-----
-<embedded transform group specification> ::=
-  <<transform-group-specification, <transform group specification> >>
-----
-
-[[embedded-collation-specification]]
-[subs="specialcharacters,macros"]
-----
-<embedded collation specification> ::=
-  <<module-collations, <module collations> >>
-----
-
-[[embedded-SQL-declare-section]]
-[subs="specialcharacters,macros"]
-----
-<embedded SQL declare section> ::=
-    <<embedded-SQL-begin-declare, <embedded SQL begin declare> >>
-        [ <<embedded-character-set-declaration, <embedded character set declaration> >> ]
-        [ <<host-variable-definition, <host variable definition> >>... ]
-        <<embedded-SQL-end-declare, <embedded SQL end declare> >>
-  | <<embedded-SQL-MUMPS-declare, <embedded SQL MUMPS declare> >>
-----
-
-[[embedded-character-set-declaration]]
-[subs="specialcharacters,macros"]
-----
-<embedded character set declaration> ::=
-  SQL NAMES ARE <<character-set-specification, <character set specification> >>
-----
-
-[[embedded-SQL-begin-declare]]
-[subs="specialcharacters,macros"]
-----
-<embedded SQL begin declare> ::=
-  <<SQL-prefix, <SQL prefix> >> BEGIN DECLARE SECTION [ <<SQL-terminator, <SQL terminator> >> ]
-----
-
-[[embedded-SQL-end-declare]]
-[subs="specialcharacters,macros"]
-----
-<embedded SQL end declare> ::=
-  <<SQL-prefix, <SQL prefix> >> END DECLARE SECTION [ <<SQL-terminator, <SQL terminator> >> ]
-----
-
-[[embedded-SQL-MUMPS-declare]]
-[subs="specialcharacters,macros"]
-----
-<embedded SQL MUMPS declare> ::=
-  <<SQL-prefix, <SQL prefix> >>
-      BEGIN DECLARE SECTION
-      [ <<embedded-character-set-declaration, <embedded character set declaration> >> ]
-      [ <<host-variable-definition, <host variable definition> >>... ]
-      END DECLARE SECTION
-      <<SQL-terminator, <SQL terminator> >>
-----
-
-[[host-variable-definition]]
-[subs="specialcharacters,macros"]
-----
-<host variable definition> ::=
-    <<Ada-variable-definition, <Ada variable definition> >>
-  | <<C-variable-definition, <C variable definition> >>
-  | <<COBOL-variable-definition, <COBOL variable definition> >>
-  | <<Fortran-variable-definition, <Fortran variable definition> >>
-  | <<MUMPS-variable-definition, <MUMPS variable definition> >>
-  | <<Pascal-variable-definition, <Pascal variable definition> >>
-  | <<PL/I-variable-definition, <PL/I variable definition> >>
-----
-
-[[embedded-variable-name]]
-[subs="specialcharacters,macros"]
-----
-<embedded variable name> ::=
-  <<colon, <colon> >> <<host-identifier, <host identifier> >>
-----
-
-[[host-identifier]]
-[subs="specialcharacters,macros"]
-----
-<host identifier> ::=
-    <<Ada-host-identifier, <Ada host identifier> >>
-  | <<C-host-identifier, <C host identifier> >>
-  | <<COBOL-host-identifier, <COBOL host identifier> >>
-     |   <<Fortran-host-identifier, <Fortran host identifier> >>
-     |   <<MUMPS-host-identifier, <MUMPS host identifier> >>
-     |   <<Pascal-host-identifier, <Pascal host identifier> >>
-     |   <<PL/I-host-identifier, <PL/I host identifier> >>
-----
 
 === 21.2 <embedded exception declaration>
 
@@ -12428,14 +11443,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <SQLSTATE class value> ::=
-  <<SQLSTATE-char, <SQLSTATE char> >> <<SQLSTATE-char, <SQLSTATE char> >>!! See the Syntax Rules.
+  <<SQLSTATE-char, <SQLSTATE char> >><<SQLSTATE-char, <SQLSTATE char> >> !! See the Syntax Rules.
 ----
 
 [[SQLSTATE-subclass-value]]
 [subs="specialcharacters,macros"]
 ----
 <SQLSTATE subclass value> ::=
-  <<SQLSTATE-char, <SQLSTATE char> >> <<SQLSTATE-char, <SQLSTATE char> >> <<SQLSTATE-char, <SQLSTATE char> >>!! See the Syntax Rules.
+  <<SQLSTATE-char, <SQLSTATE char> >><<SQLSTATE-char, <SQLSTATE char> >><<SQLSTATE-char, <SQLSTATE char> >> !! See the Syntax Rules.
 ----
 
 [[SQLSTATE-char]]
@@ -12518,7 +11533,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Ada assignment operator> ::=
-  <<colon, <colon> >> <<equals-operator, <equals operator> >>
+  <<colon, <colon> >><<equals-operator, <equals operator> >>
 ----
 
 [[Ada-host-identifier]]
@@ -12543,7 +11558,7 @@ Format
 <Ada qualified type specification> ::=
     Interfaces.SQL.CHAR
         [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
-        <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+        <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-paren, <right paren> >>
   | Interfaces.SQL.SMALLINT
   | Interfaces.SQL.INT
   | Interfaces.SQL.BIGINT
@@ -12558,7 +11573,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Ada unqualified type specification> ::=
-    CHAR <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+    CHAR <<left-paren, <left paren> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-paren, <right paren> >>
   | SMALLINT
   | INT
   | BIGINT
@@ -12573,24 +11588,24 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Ada derived type specification> ::=
-      <<Ada---CLOB-variable, <Ada   CLOB variable> >>
-  |   <<Ada---CLOB-locator-variable, <Ada   CLOB locator variable> >>
-  |   <<Ada---BINARY-variable, <Ada   BINARY variable> >>
-  |   <<Ada---VARBINARY-variable, <Ada   VARBINARY variable> >>
-  |   <<Ada---BLOB-variable, <Ada   BLOB variable> >>
-  |   <<Ada---BLOB-locator-variable, <Ada   BLOB locator variable> >>
-  |   <<Ada---user-defined-type-variable, <Ada   user-defined type variable> >>
-  |   <<Ada---user-defined-type-locator-variable, <Ada   user-defined type locator variable> >>
-  |   <<Ada---REF-variable, <Ada   REF variable> >>
-  |   <<Ada---array-locator-variable, <Ada   array locator variable> >>
-  |   <<Ada---multiset-locator-variable, <Ada   multiset locator variable> >>
+    <<Ada-CLOB-variable, <Ada CLOB variable> >>
+  | <<Ada-CLOB-locator-variable, <Ada CLOB locator variable> >>
+  | <<Ada-BINARY-variable, <Ada BINARY variable> >>
+  | <<Ada-VARBINARY-variable, <Ada VARBINARY variable> >>
+  | <<Ada-BLOB-variable, <Ada BLOB variable> >>
+  | <<Ada-BLOB-locator-variable, <Ada BLOB locator variable> >>
+  | <<Ada-user-defined-type-variable, <Ada user-defined type variable> >>
+  | <<Ada-user-defined-type-locator-variable, <Ada user-defined type locator variable> >>
+  | <<Ada-REF-variable, <Ada REF variable> >>
+  | <<Ada-array-locator-variable, <Ada array locator variable> >>
+  | <<Ada-multiset-locator-variable, <Ada multiset locator variable> >>
 ----
 
 [[Ada-CLOB-variable]]
 [subs="specialcharacters,macros"]
 ----
 <Ada CLOB variable> ::=
-  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
@@ -12745,7 +11760,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <C array specification> ::=
-  <<left-bracket, <left bracket> >> <<character-length, <character length> >> <<right-bracket, <right bracket> >>
+  <<left-bracket, <left bracket> >> <<length, <length> >> <<right-bracket, <right bracket> >>
 ----
 
 [[C-host-identifier]]
@@ -12810,7 +11825,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <C CLOB variable> ::=
-  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
       <<C-host-identifier, <C host identifier> >> [ <<C-initial-value, <C initial value> >> ] [ { <<comma, <comma> >> <<C-host-identifier, <C host identifier> >> [
       <<C-initial-value, <C initial value> >> ] }... ]
@@ -12820,7 +11835,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <C NCLOB variable> ::=
-  SQL TYPE IS NCLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS NCLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
       <<C-host-identifier, <C host identifier> >> [ <<C-initial-value, <C initial value> >> ] [ { <<comma, <comma> >> <<C-host-identifier, <C host identifier> >>
       [ <<C-initial-value, <C initial value> >> ] }... ]
@@ -12974,17 +11989,17 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <COBOL derived type specification> ::=
-      <<COBOL---CLOB-variable, <COBOL   CLOB variable> >>
-  |   <<COBOL---NCLOB-variable, <COBOL   NCLOB variable> >>
-  |   <<COBOL---BINARY-variable, <COBOL   BINARY variable> >>
-  |   <<COBOL---BLOB-variable, <COBOL   BLOB variable> >>
-  |   <<COBOL---user-defined-type-variable, <COBOL   user-defined type variable> >>
-  |   <<COBOL---CLOB-locator-variable, <COBOL   CLOB locator variable> >>
-  |   <<COBOL---BLOB-locator-variable, <COBOL   BLOB locator variable> >>
-  |   <<COBOL---array-locator-variable, <COBOL   array locator variable> >>
-  |   <<COBOL---multiset-locator-variable, <COBOL   multiset locator variable> >>
-  |   <<COBOL---user-defined-type-locator-variable, <COBOL   user-defined type locator variable> >>
-  |   <<COBOL---REF-variable, <COBOL   REF variable> >>
+    <<COBOL-CLOB-variable, <COBOL CLOB variable> >>
+  | <<COBOL-NCLOB-variable, <COBOL NCLOB variable> >>
+  | <<COBOL-BINARY-variable, <COBOL BINARY variable> >>
+  | <<COBOL-BLOB-variable, <COBOL BLOB variable> >>
+  | <<COBOL-user-defined-type-variable, <COBOL user-defined type variable> >>
+  | <<COBOL-CLOB-locator-variable, <COBOL CLOB locator variable> >>
+  | <<COBOL-BLOB-locator-variable, <COBOL BLOB locator variable> >>
+  | <<COBOL-array-locator-variable, <COBOL array locator variable> >>
+  | <<COBOL-multiset-locator-variable, <COBOL multiset locator variable> >>
+  | <<COBOL-user-defined-type-locator-variable, <COBOL user-defined type locator variable> >>
+  | <<COBOL-REF-variable, <COBOL REF variable> >>
 ----
 
 [[COBOL-character-type]]
@@ -12992,7 +12007,7 @@ Format
 ----
 <COBOL character type> ::=
   [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
-      { PIC | PICTURE } [ IS ] { X [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ] }...
+      { PIC | PICTURE } [ IS ] { X [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ] }...
 ----
 
 [[COBOL-national-character-type]]
@@ -13000,15 +12015,14 @@ Format
 ----
 <COBOL national character type> ::=
   [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
-      { PIC | PICTURE } [ IS ] { N [ <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >> ] }...
+      { PIC | PICTURE } [ IS ] { N [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ] }...
 ----
 
 [[COBOL-CLOB-variable]]
 [subs="specialcharacters,macros"]
 ----
 <COBOL CLOB variable> ::=
-  [ USAGE [ IS ] ] SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <right
-  paren>
+  [ USAGE [ IS ] ] SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
@@ -13016,9 +12030,8 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <COBOL NCLOB variable> ::=
-  [ USAGE [ IS ] ] SQL TYPE IS NCLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <right
-  paren>
-      [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+  [ USAGE [ IS ] ] SQL TYPE IS NCLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
+        [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
 [[COBOL-BINARY-variable]]
@@ -13105,7 +12118,14 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <COBOL integer type> ::=
-  { PIC | PICTURE } [ IS ] S <<COBOL-nines, <COBOL nines> >>
+  <<COBOL-binary-integer, <COBOL binary integer> >>
+----
+
+[[COBOL-binary-integer]]
+[subs="specialcharacters,macros"]
+----
+<COBOL binary integer> ::=
+  { PIC | PICTURE } [ IS ] S<<COBOL-nines, <COBOL nines> >>
       [ USAGE [ IS ] ] BINARY
 ----
 
@@ -13114,9 +12134,8 @@ Format
 ----
 <COBOL nines> ::=
   { 9 [ <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >> ] }...
+21.6 <embedded SQL Fortran program>
 ----
-
-=== 21.6 <embedded SQL Fortran program>
 
 .Function
 
@@ -13150,9 +12169,9 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Fortran type specification> ::=
-    CHARACTER [ <<asterisk, <asterisk> >> <<character-length, <character length> >> ] [ CHARACTER SET
+    CHARACTER [ <<asterisk, <asterisk> >> <<length, <length> >> ] [ CHARACTER SET
          [ IS ] <<character-set-specification, <character set specification> >> ]
-  | CHARACTER KIND = n [ <<asterisk, <asterisk> >> <<character-length, <character length> >> ]
+  | CHARACTER KIND = n [ <<asterisk, <asterisk> >> <<length, <length> >> ]
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
   | INTEGER
   | REAL
@@ -13165,24 +12184,24 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Fortran derived type specification> ::=
-      <<Fortran---CLOB-variable, <Fortran   CLOB variable> >>
-  |   <<Fortran---BINARY-variable, <Fortran   BINARY variable> >>
-  |   <<Fortran---VARBINARY-variable, <Fortran   VARBINARY variable> >>
-  |   <<Fortran---BLOB-variable, <Fortran   BLOB variable> >>
-  |   <<Fortran---user-defined-type-variable, <Fortran   user-defined type variable> >>
-  |   <<Fortran---CLOB-locator-variable, <Fortran   CLOB locator variable> >>
-  |   <<Fortran---BLOB-locator-variable, <Fortran   BLOB locator variable> >>
-  |   <<Fortran---user-defined-type-locator-variable, <Fortran   user-defined type locator variable> >>
-  |   <<Fortran---array-locator-variable, <Fortran   array locator variable> >>
-  |   <<Fortran---multiset-locator-variable, <Fortran   multiset locator variable> >>
-  |   <<Fortran---REF-variable, <Fortran   REF variable> >>
+    <<Fortran-CLOB-variable, <Fortran CLOB variable> >>
+  | <<Fortran-BINARY-variable, <Fortran BINARY variable> >>
+  | <<Fortran-VARBINARY-variable, <Fortran VARBINARY variable> >>
+  | <<Fortran-BLOB-variable, <Fortran BLOB variable> >>
+  | <<Fortran-user-defined-type-variable, <Fortran user-defined type variable> >>
+  | <<Fortran-CLOB-locator-variable, <Fortran CLOB locator variable> >>
+  | <<Fortran-BLOB-locator-variable, <Fortran BLOB locator variable> >>
+  | <<Fortran-user-defined-type-locator-variable, <Fortran user-defined type locator variable> >>
+  | <<Fortran-array-locator-variable, <Fortran array locator variable> >>
+  | <<Fortran-multiset-locator-variable, <Fortran multiset locator variable> >>
+  | <<Fortran-REF-variable, <Fortran REF variable> >>
 ----
 
 [[Fortran-CLOB-variable]]
 [subs="specialcharacters,macros"]
 ----
 <Fortran CLOB variable> ::=
-  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
@@ -13277,23 +12296,15 @@ Format
 <MUMPS variable definition> ::=
     <<MUMPS-numeric-variable, <MUMPS numeric variable> >> <<semicolon, <semicolon> >>
   | <<MUMPS-character-variable, <MUMPS character variable> >> <<semicolon, <semicolon> >>
-  | <<MUMPS-derived-type-specification, <MUMPS derived type specification> >> <<MUMPS-host-identifier, <MUMPS host identifier> >> <<semicolon, <semicolon> >>
+  | <<MUMPS-derived-type-specification, <MUMPS derived type specification> >> <<semicolon, <semicolon> >>
 ----
 
 [[MUMPS-character-variable]]
 [subs="specialcharacters,macros"]
 ----
 <MUMPS character variable> ::=
-  VARCHAR <<MUMPS-character-variable-specifier, <MUMPS character variable specifier> >>
-      [ { <<comma, <comma> >> <<MUMPS-character-variable-specifier, <MUMPS character variable specifier> >> }... ]
-----
-
-[[MUMPS-character-variable-specifier]]
-[subs="specialcharacters,macros"]
-----
-<MUMPS character variable specifier> ::=
-  <<MUMPS-host-identifier, <MUMPS host identifier> >> <<MUMPS-length-specification, <MUMPS length specification> >>
-      [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+  VARCHAR <<MUMPS-host-identifier, <MUMPS host identifier> >> <<MUMPS-length-specification, <MUMPS length specification> >>
+      [ { <<comma, <comma> >> <<MUMPS-host-identifier, <MUMPS host identifier> >> <<MUMPS-length-specification, <MUMPS length specification> >> }... ]
 ----
 
 [[MUMPS-host-identifier]]
@@ -13307,7 +12318,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <MUMPS length specification> ::=
-  <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+  <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
 ----
 
 [[MUMPS-numeric-variable]]
@@ -13331,13 +12342,38 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <MUMPS derived type specification> ::=
-      <<MUMPS-user-defined-type-variable, <MUMPS user-defined type variable> >>
-  |   <<MUMPS-CLOB-locator-variable, <MUMPS CLOB locator variable> >>
-  |   <<MUMPS-BLOB-locator-variable, <MUMPS BLOB locator variable> >>
-  |   <<MUMPS-user-defined-type-locator-variable, <MUMPS user-defined type locator variable> >>
-  |   <<MUMPS-array-locator-variable, <MUMPS array locator variable> >>
-  |   <<MUMPS-multiset-locator-variable, <MUMPS multiset locator variable> >>
-  |   <<MUMPS-REF-variable, <MUMPS REF variable> >>
+    <<MUMPS-CLOB-variable, <MUMPS CLOB variable> >>
+  | <<MUMPS-VARBINARY-variable, <MUMPS VARBINARY variable> >>
+  | <<MUMPS-BLOB-variable, <MUMPS BLOB variable> >>
+  | <<MUMPS-user-defined-type-variable, <MUMPS user-defined type variable> >>
+  | <<MUMPS-CLOB-locator-variable, <MUMPS CLOB locator variable> >>
+  | <<MUMPS-BLOB-locator-variable, <MUMPS BLOB locator variable> >>
+  | <<MUMPS-user-defined-type-locator-variable, <MUMPS user-defined type locator variable> >>
+  | <<MUMPS-array-locator-variable, <MUMPS array locator variable> >>
+  | <<MUMPS-multiset-locator-variable, <MUMPS multiset locator variable> >>
+  | <<MUMPS-REF-variable, <MUMPS REF variable> >>
+----
+
+[[MUMPS-CLOB-variable]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS CLOB variable> ::=
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
+      [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
+----
+
+[[MUMPS-VARBINARY-variable]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS VARBINARY variable> ::=
+  SQL TYPE IS VARBINARY <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
+----
+
+[[MUMPS-BLOB-variable]]
+[subs="specialcharacters,macros"]
+----
+<MUMPS BLOB variable> ::=
+  SQL TYPE IS BLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
 ----
 
 [[MUMPS-user-defined-type-variable]]
@@ -13423,7 +12459,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Pascal type specification> ::=
-    PACKED ARRAY <<left-bracket, <left bracket> >> 1 <<double-period, <double period> >> <<character-length, <character length> >> <<right-bracket, <right bracket> >>
+    PACKED ARRAY <<left-bracket, <left bracket> >> 1 <<double-period, <double period> >> <<length, <length> >> <<right-bracket, <right bracket> >>
         OF CHAR [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
   | INTEGER
   | REAL
@@ -13436,23 +12472,23 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <Pascal derived type specification> ::=
-      <<Pascal---CLOB-variable, <Pascal   CLOB variable> >>
-  |   <<Pascal---BINARY-variable, <Pascal   BINARY variable> >>
-  |   <<Pascal---BLOB-variable, <Pascal   BLOB variable> >>
-  |   <<Pascal---user-defined-type-variable, <Pascal   user-defined type variable> >>
-  |   <<Pascal---CLOB-locator-variable, <Pascal   CLOB locator variable> >>
-  |   <<Pascal---BLOB-locator-variable, <Pascal   BLOB locator variable> >>
-  |   <<Pascal---user-defined-type-locator-variable, <Pascal   user-defined type locator variable> >>
-  |   <<Pascal---array-locator-variable, <Pascal   array locator variable> >>
-  |   <<Pascal---multiset-locator-variable, <Pascal   multiset locator variable> >>
-  |   <<Pascal---REF-variable, <Pascal   REF variable> >>
+    <<Pascal-CLOB-variable, <Pascal CLOB variable> >>
+  | <<Pascal-BINARY-variable, <Pascal BINARY variable> >>
+  | <<Pascal-BLOB-variable, <Pascal BLOB variable> >>
+  | <<Pascal-user-defined-type-variable, <Pascal user-defined type variable> >>
+  | <<Pascal-CLOB-locator-variable, <Pascal CLOB locator variable> >>
+  | <<Pascal-BLOB-locator-variable, <Pascal BLOB locator variable> >>
+  | <<Pascal-user-defined-type-locator-variable, <Pascal user-defined type locator variable> >>
+  | <<Pascal-array-locator-variable, <Pascal array locator variable> >>
+  | <<Pascal-multiset-locator-variable, <Pascal multiset locator variable> >>
+  | <<Pascal-REF-variable, <Pascal REF variable> >>
 ----
 
 [[Pascal-CLOB-variable]]
 [subs="specialcharacters,macros"]
 ----
 <Pascal CLOB variable> ::=
-  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
@@ -13555,7 +12591,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <PL/I type specification> ::=
-    { CHAR | CHARACTER } [ VARYING ] <<left-paren, <left paren> >> <<character-length, <character length> >> <<right-paren, <right paren> >>
+    { CHAR | CHARACTER } [ VARYING ] <<left-paren, <left paren> >> <<length, <length> >> <<right-paren, <right paren> >>
         [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
   | <<PL/I-type-fixed-decimal, <PL/I type fixed decimal> >> <<left-paren, <left paren> >> <<precision, <precision> >> [ <<comma, <comma> >> <<scale, <scale> >> ] <<right-paren, <right paren> >>
   | <<PL/I-type-fixed-binary, <PL/I type fixed binary> >> [ <<left-paren, <left paren> >> <<precision, <precision> >> <<right-paren, <right paren> >> ]
@@ -13567,24 +12603,24 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <PL/I derived type specification> ::=
-      <<PL/I---CLOB-variable, <PL/I   CLOB variable> >>
-  |   <<PL/I---BINARY-variable, <PL/I   BINARY variable> >>
-  |   <<PL/I---VARBINARY-variable, <PL/I   VARBINARY variable> >>
-  |   <<PL/I---BLOB-variable, <PL/I   BLOB variable> >>
-  |   <<PL/I---user-defined-type-variable, <PL/I   user-defined type variable> >>
-  |   <<PL/I---CLOB-locator-variable, <PL/I   CLOB locator variable> >>
-  |   <<PL/I---BLOB-locator-variable, <PL/I   BLOB locator variable> >>
-  |   <<PL/I---user-defined-type-locator-variable, <PL/I   user-defined type locator variable> >>
-  |   <<PL/I---array-locator-variable, <PL/I   array locator variable> >>
-  |   <<PL/I---multiset-locator-variable, <PL/I   multiset locator variable> >>
-  |   <<PL/I---REF-variable, <PL/I   REF variable> >>
+    <<PL/I-CLOB-variable, <PL/I CLOB variable> >>
+  | <<PL/I-BINARY-variable, <PL/I BINARY variable> >>
+  | <<PL/I-VARBINARY-variable, <PL/I VARBINARY variable> >>
+  | <<PL/I-BLOB-variable, <PL/I BLOB variable> >>
+  | <<PL/I-user-defined-type-variable, <PL/I user-defined type variable> >>
+  | <<PL/I-CLOB-locator-variable, <PL/I CLOB locator variable> >>
+  | <<PL/I-BLOB-locator-variable, <PL/I BLOB locator variable> >>
+  | <<PL/I-user-defined-type-locator-variable, <PL/I user-defined type locator variable> >>
+  | <<PL/I-array-locator-variable, <PL/I array locator variable> >>
+  | <<PL/I-multiset-locator-variable, <PL/I multiset locator variable> >>
+  | <<PL/I-REF-variable, <PL/I REF variable> >>
 ----
 
 [[PL/I-CLOB-variable]]
 [subs="specialcharacters,macros"]
 ----
 <PL/I CLOB variable> ::=
-  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<character-large-object-length, <character large object length> >> <<right-paren, <right paren> >>
+  SQL TYPE IS CLOB <<left-paren, <left paren> >> <<large-object-length, <large object length> >> <<right-paren, <right paren> >>
       [ CHARACTER SET [ IS ] <<character-set-specification, <character set specification> >> ]
 ----
 
@@ -13682,7 +12718,6 @@ Format
   | FLOAT { BIN | BINARY }
 ----
 
-
 == 22 Direct invocation of SQL
 
 
@@ -13721,7 +12756,6 @@ Format
   | <<direct-select-statement:-multiple-rows, <direct select statement: multiple rows> >>
   | <<insert-statement, <insert statement> >>
   | <<update-statement:-searched, <update statement: searched> >>
-  | <<truncate-table-statement, <truncate table statement> >>
   | <<merge-statement, <merge statement> >>
   | <<temporary-table-declaration, <temporary table declaration> >>
 ----
@@ -13730,7 +12764,7 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <direct implementation-defined statement> ::=
-  !! See the Syntax Rules.
+  !! See the Syntax Rules
 ----
 
 === 22.2 <direct select statement: multiple rows>
@@ -13810,7 +12844,7 @@ Format
 ----
 <condition information> ::=
   CONDITION <<condition-number, <condition number> >> <<condition-information-item, <condition information item> >>
-      [ { <<comma, <comma> >> <<condition-information-item, <condition information item> >> }... ]
+       [ { <<comma, <comma> >> <<condition-information-item, <condition information item> >> }... ]
 ----
 
 [[condition-information-item]]
@@ -13824,33 +12858,33 @@ Format
 [subs="specialcharacters,macros"]
 ----
 <condition information item name> ::=
-      CATALOG_NAME
-  |   CLASS_ORIGIN
-  |   COLUMN_NAME
-  |   CONDITION_NUMBER
-  |   CONNECTION_NAME
-  |   CONSTRAINT_CATALOG
-  |   CONSTRAINT_NAME
-  |   CONSTRAINT_SCHEMA
-  |   CURSOR_NAME
-  |   MESSAGE_LENGTH
-  |   MESSAGE_OCTET_LENGTH
-  |   MESSAGE_TEXT
-  |   PARAMETER_MODE
-  |   PARAMETER_NAME
-  |   PARAMETER_ORDINAL_POSITION
-  |   RETURNED_SQLSTATE
-  |   ROUTINE_CATALOG
-  |   ROUTINE_NAME
-  |   ROUTINE_SCHEMA
-  |   SCHEMA_NAME
-  |   SERVER_NAME
-  |   SPECIFIC_NAME
-  |   SUBCLASS_ORIGIN
-  |   TABLE_NAME
-  |   TRIGGER_CATALOG
-  |   TRIGGER_NAME
-  |   TRIGGER_SCHEMA
+    CATALOG_NAME
+  | CLASS_ORIGIN
+  | COLUMN_NAME
+  | CONDITION_NUMBER
+  | CONNECTION_NAME
+  | CONSTRAINT_CATALOG
+  | CONSTRAINT_NAME
+  | CONSTRAINT_SCHEMA
+  | CURSOR_NAME
+  | MESSAGE_LENGTH
+  | MESSAGE_OCTET_LENGTH
+  | MESSAGE_TEXT
+  | PARAMETER_MODE
+  | PARAMETER_NAME
+  | PARAMETER_ORDINAL_POSITION
+  | RETURNED_SQLSTATE
+  | ROUTINE_CATALOG
+  | ROUTINE_NAME
+  | ROUTINE_SCHEMA
+  | SCHEMA_NAME
+  | SERVER_NAME
+  | SPECIFIC_NAME
+  | SUBCLASS_ORIGIN
+  | TABLE_NAME
+  | TRIGGER_CATALOG
+  | TRIGGER_NAME
+  | TRIGGER_SCHEMA
 ----
 
 [[all-information]]
