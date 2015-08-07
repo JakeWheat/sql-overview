@@ -1,7 +1,7 @@
 This project contains grammars for the ANSI SQL Standards (taken from
 the drafts).
 
-
+TODO
 Cover most of the SQL Standard:
 
 explain what the concepts are. Document the names for these in the SQL
@@ -118,3 +118,4 @@ xml
 postgres manual says that there are 179 mandatory features for 2011
 core conformance, postgres does 160, and no database product does all
 of these
+
