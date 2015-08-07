@@ -1,0 +1,5 @@
+/.cabal-sandbox/
+/GrammarToAsciidoc
+*.hi
+*.o
+/cabal.sandbox.config
