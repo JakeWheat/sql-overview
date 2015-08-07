@@ -1,0 +1,3928 @@
+5  Lexical elements
+
+
+
+5.1  <SQL terminal character>
+
+Function
+
+Define the terminal symbols of the SQL language and the elements of
+strings.
+
+Format
+
+<SQL terminal character> ::=
+       <SQL language character>
+     | <SQL embedded language character>
+
+<SQL embedded language character> ::=
+       <left bracket>
+     | <right bracket>
+
+<SQL language character> ::=
+       <simple Latin letter>
+     | <digit>
+     | <SQL special character>
+
+<simple Latin letter> ::=
+       <simple Latin upper case letter>
+     | <simple Latin lower case letter>
+
+<simple Latin upper case letter> ::=
+           A | B | C | D | E | F | G | H | I | J | K | L | M | N | O
+     | P | Q | R | S | T | U | V | W | X | Y | Z
+
+<simple Latin lower case letter> ::=
+           a | b | c | d | e | f | g | h | i | j | k | l | m | n | o
+     | p | q | r | s | t | u | v | w | x | y | z
+
+<digit> ::=
+     0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+<SQL special character> ::=
+       <space>
+     | <double quote>
+     | <percent>
+     | <ampersand>
+     | <quote>
+     | <left paren>
+     | <right paren>
+     | <asterisk>
+     | <plus sign>
+     | <comma>
+     | <minus sign>
+     | <period>
+     | <solidus>
+     | <colon>
+     | <semicolon>
+     | <less than operator>
+     | <equals operator>
+     | <greater than operator>
+     | <question mark>
+     | <underscore>
+     | <vertical bar>
+
+<space> ::= !! space character in character set in use
+
+<double quote> ::= "
+
+<percent> ::= %
+
+<ampersand> ::= &
+
+<quote> ::= '
+
+<left paren> ::= (
+
+<right paren> ::= )
+
+<asterisk> ::= *
+
+<plus sign> ::= +
+
+<comma> ::= ,
+
+<minus sign> ::= -
+
+<period> ::= .
+
+<solidus> ::= /
+
+<colon> ::= :
+
+<semicolon> ::= ;
+
+<less than operator> ::= <
+
+<equals operator> ::= =
+
+<greater than operator> ::= >
+
+<question mark> ::= ?
+
+<left bracket> ::= [
+
+<right bracket> ::= ]
+
+<underscore> ::= _
+
+<vertical bar> ::= |
+
+5.2  <token> and <separator>
+
+Function
+
+Specify lexical units (tokens and separators) that participate in
+SQL language.
+
+Format
+
+<token> ::=
+       <nondelimiter token>
+     | <delimiter token>
+
+<nondelimiter token> ::=
+       <regular identifier>
+     | <key word>
+     | <unsigned numeric literal>
+     | <national character string literal>
+     | <bit string literal>
+     | <hex string literal>
+
+<regular identifier> ::= <identifier body>
+
+<identifier body> ::=
+     <identifier start> [ { <underscore> | <identifier part> }... ]
+
+
+<identifier start> ::= !! See the Syntax Rules
+
+<identifier part> ::=
+       <identifier start>
+     | <digit>
+
+<delimited identifier> ::=
+     <double quote> <delimited identifier body> <double quote>
+
+<delimited identifier body> ::= <delimited identifier part>...
+
+<delimited identifier part> ::=
+       <nondoublequote character>
+     | <doublequote symbol>
+
+<nondoublequote character> ::= !! See the Syntax Rules
+
+<doublequote symbol> ::= <double quote><double quote>
+
+<delimiter token> ::=
+       <character string literal>
+     | <date string>
+     | <time string>
+     | <timestamp string>
+     | <interval string>
+     | <delimited identifier>
+     | <SQL special character>
+     | <not equals operator>
+     | <greater than or equals operator>
+     | <less than or equals operator>
+     | <concatenation operator>
+     | <double period>
+     | <left bracket>
+     | <right bracket>
+
+<not equals operator> ::= <>
+
+<greater than or equals operator> ::= >=
+
+<less than or equals operator> ::= <=
+
+<concatenation operator> ::= ||
+
+<double period> ::= ..
+
+<separator> ::= { <comment> | <space> | <newline> }...
+
+<comment> ::=
+     <comment introducer> [ <comment character>... ] <newline>
+
+<comment character> ::=
+       <nonquote character>
+     | <quote>
+
+<comment introducer> ::= <minus sign><minus sign>[<minus sign>...]
+
+<newline> ::= !! implementation-defined end-of-line indicator
+
+<key word> ::=
+       <reserved word>
+     | <non-reserved word>
+
+<non-reserved word> ::=
+       ADA
+     | C | CATALOG_NAME | CHARACTER_SET_CATALOG | CHARACTER_SET_
+     NAME
+     | CHARACTER_SET_SCHEMA | CLASS_ORIGIN | COBOL | COLLATION_
+     CATALOG
+     | COLLATION_NAME | COLLATION_SCHEMA | COLUMN_NAME | COMMAND_
+     FUNCTION | COMMITTED
+     | CONDITION_NUMBER | CONNECTION_NAME | CONSTRAINT_CATALOG | CONSTRAINT_
+     NAME
+     | CONSTRAINT_SCHEMA | CURSOR_NAME
+     | DATA | DATETIME_INTERVAL_CODE | DATETIME_INTERVAL_
+     PRECISION | DYNAMIC_FUNCTION
+     | FORTRAN
+     | LENGTH
+     | MESSAGE_LENGTH | MESSAGE_OCTET_LENGTH | MESSAGE_TEXT | MORE | MUMPS
+
+     | NAME | NULLABLE | NUMBER
+     | PASCAL | PLI
+     | REPEATABLE | RETURNED_LENGTH | RETURNED_OCTET_LENGTH | RETURNED_
+     SQLSTATE
+     | ROW_COUNT
+     | SCALE | SCHEMA_NAME | SERIALIZABLE | SERVER_NAME | SUBCLASS_
+     ORIGIN
+     | TABLE_NAME | TYPE
+     | UNCOMMITTED | UNNAMED
+
+<reserved word> ::=
+       ABSOLUTE | ACTION | ADD | ALL | ALLOCATE | ALTER | AND
+     | ANY | ARE | AS | ASC
+     | ASSERTION | AT | AUTHORIZATION | AVG
+     | BEGIN | BETWEEN | BIT | BIT_LENGTH | BOTH | BY
+     | CASCADE | CASCADED | CASE | CAST | CATALOG | CHAR | CHARACTER | CHAR_
+     LENGTH
+     | CHARACTER_LENGTH | CHECK | CLOSE | COALESCE | COLLATE | COLLATION
+
+     | COLUMN | COMMIT | CONNECT | CONNECTION | CONSTRAINT
+     | CONSTRAINTS | CONTINUE
+     | CONVERT | CORRESPONDING | COUNT | CREATE | CROSS | CURRENT
+     | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | CURRENT_
+     USER | CURSOR
+     | DATE | DAY | DEALLOCATE | DEC | DECIMAL | DECLARE | DEFAULT | DEFERRABLE
+
+     | DEFERRED | DELETE | DESC | DESCRIBE | DESCRIPTOR | DIAGNOSTICS
+
+     | DISCONNECT | DISTINCT | DOMAIN | DOUBLE | DROP
+     | ELSE | END | END-EXEC | ESCAPE | EXCEPT | EXCEPTION
+     | EXEC | EXECUTE | EXISTS
+     | EXTERNAL | EXTRACT
+     | FALSE | FETCH | FIRST | FLOAT | FOR | FOREIGN | FOUND | FROM | FULL
+
+     | GET | GLOBAL | GO | GOTO | GRANT | GROUP
+     | HAVING | HOUR
+     | IDENTITY | IMMEDIATE | IN | INDICATOR | INITIALLY | INNER | INPUT
+
+     | INSENSITIVE | INSERT | INT | INTEGER | INTERSECT | INTERVAL | INTO | IS
+
+     | ISOLATION
+     | JOIN
+     | KEY
+     | LANGUAGE | LAST | LEADING | LEFT | LEVEL | LIKE | LOCAL | LOWER
+
+     | MATCH | MAX | MIN | MINUTE | MODULE | MONTH
+     | NAMES | NATIONAL | NATURAL | NCHAR | NEXT | NO | NOT | NULL
+
+     | NULLIF | NUMERIC
+     | OCTET_LENGTH | OF | ON | ONLY | OPEN | OPTION | OR
+     | ORDER | OUTER
+     | OUTPUT | OVERLAPS
+
+     | PAD | PARTIAL | POSITION | PRECISION | PREPARE | PRESERVE | PRIMARY
+
+     | PRIOR | PRIVILEGES | PROCEDURE | PUBLIC
+     | READ | REAL | REFERENCES | RELATIVE | RESTRICT | REVOKE | RIGHT
+
+     | ROLLBACK | ROWS
+     | SCHEMA | SCROLL | SECOND | SECTION | SELECT | SESSION | SESSION_
+     USER | SET
+     | SIZE | SMALLINT | SOME | SPACE | SQL | SQLCODE | SQLERROR | SQLSTATE
+
+     | SUBSTRING | SUM | SYSTEM_USER
+     | TABLE | TEMPORARY | THEN | TIME | TIMESTAMP | TIMEZONE_
+     HOUR | TIMEZONE_MINUTE
+     | TO | TRAILING | TRANSACTION | TRANSLATE | TRANSLATION | TRIM | TRUE
+
+     | UNION | UNIQUE | UNKNOWN | UPDATE | UPPER | USAGE | USER | USING
+
+     | VALUE | VALUES | VARCHAR | VARYING | VIEW
+     | WHEN | WHENEVER | WHERE | WITH | WORK | WRITE
+     | YEAR
+     | ZONE
+
+5.3  <literal>
+
+Function
+
+Specify a non-null value.
+
+Format
+
+<literal> ::=
+       <signed numeric literal>
+     | <general literal>
+
+<unsigned literal> ::=
+       <unsigned numeric literal>
+     | <general literal>
+
+<general literal> ::=
+       <character string literal>
+     | <national character string literal>
+     | <bit string literal>
+     | <hex string literal>
+     | <datetime literal>
+     | <interval literal>
+
+<character string literal> ::=
+     [ <introducer><character set specification> ]
+     <quote> [ <character representation>... ] <quote>
+       [ { <separator>... <quote> [ <character representation>... ] <quote> }... ]
+
+
+<introducer> ::= <underscore>
+
+<character representation> ::=
+       <nonquote character>
+     | <quote symbol>
+
+<nonquote character> ::= !! See the Syntax Rules.
+
+<quote symbol> ::= <quote><quote>
+
+<national character string literal> ::=
+     N <quote> [ <character representation>... ] <quote>
+       [ { <separator>... <quote> [ <character representation>... ] <quote> }... ]
+
+
+<bit string literal> ::=
+     B <quote> [ <bit>... ] <quote>
+       [ { <separator>... <quote> [ <bit>... ] <quote> }... ]
+
+<hex string literal> ::=
+     X <quote> [ <hexit>... ] <quote>
+       [ { <separator>... <quote> [ <hexit>... ] <quote> }... ]
+
+<bit> ::= 0 | 1
+
+<hexit> ::= <digit> | A | B | C | D | E | F | a | b | c | d | e | f
+
+
+<signed numeric literal> ::=
+     [ <sign> ] <unsigned numeric literal>
+
+<unsigned numeric literal> ::=
+       <exact numeric literal>
+     | <approximate numeric literal>
+
+<exact numeric literal> ::=
+       <unsigned integer> [ <period> [ <unsigned integer> ] ]
+     | <period> <unsigned integer>
+
+<sign> ::= <plus sign> | <minus sign>
+
+<approximate numeric literal> ::= <mantissa> E <exponent>
+
+<mantissa> ::= <exact numeric literal>
+
+<exponent> ::= <signed integer>
+
+<signed integer> ::= [ <sign> ] <unsigned integer>
+
+<unsigned integer> ::= <digit>...
+
+<datetime literal> ::=
+       <date literal>
+     | <time literal>
+     | <timestamp literal>
+
+<date literal> ::=
+     DATE <date string>
+
+<time literal> ::=
+     TIME <time string>
+
+<timestamp literal> ::=
+     TIMESTAMP <timestamp string>
+
+<date string> ::=
+     <quote> <date value> <quote>
+
+<time string> ::=
+     <quote> <time value> [ <time zone interval> ] <quote>
+
+<timestamp string> ::=
+     <quote> <date value> <space> <time value> [ <time zone interval> ] <quote>
+
+
+<time zone interval> ::=
+     <sign> <hours value> <colon> <minutes value>
+
+<date value> ::=
+     <years value> <minus sign> <months value> <minus sign> <days value>
+
+
+<time value> ::=
+     <hours value> <colon> <minutes value> <colon> <seconds value>
+
+
+<interval literal> ::=
+     INTERVAL [ <sign> ] <interval string> <interval qualifier>
+
+<interval string> ::=
+     <quote> { <year-month literal> | <day-time literal> } <quote>
+
+
+<year-month literal> ::=
+       <years value>
+     | [ <years value> <minus sign> ] <months value>
+
+<day-time literal> ::=
+       <day-time interval>
+     | <time interval>
+
+<day-time interval> ::=
+     <days value>
+       [ <space> <hours value> [ <colon> <minutes value> [ <colon> <seconds value> ] ] ]
+
+
+<time interval> ::=
+       <hours value> [ <colon> <minutes value> [ <colon> <seconds value> ] ]
+
+     | <minutes value> [ <colon> <seconds value> ]
+     | <seconds value>
+
+<years value> ::= <datetime value>
+
+<months value> ::= <datetime value>
+
+<days value> ::= <datetime value>
+
+<hours value> ::= <datetime value>
+
+<minutes value> ::= <datetime value>
+
+<seconds value> ::=
+       <seconds integer value> [ <period> [ <seconds fraction> ] ]
+
+
+<seconds integer value> ::= <unsigned integer>
+
+<seconds fraction> ::= <unsigned integer>
+
+<datetime value> ::= <unsigned integer>
+
+5.4  Names and identifiers
+
+Function
+
+Specify names.
+
+Format
+
+<identifier> ::=
+     [ <introducer><character set specification> ] <actual identifier>
+
+
+<actual identifier> ::=
+       <regular identifier>
+     | <delimited identifier>
+
+<SQL language identifier> ::=
+     <SQL language identifier start>
+       [ { <underscore> | <SQL language identifier part> }... ]
+
+<SQL language identifier start> ::= <simple Latin letter>
+
+<SQL language identifier part> ::=
+       <simple Latin letter>
+     | <digit>
+
+<authorization identifier> ::= <identifier>
+
+<table name> ::=
+       <qualified name>
+     | <qualified local table name>
+
+<qualified local table name> ::=
+     MODULE <period> <local table name>
+
+<local table name> ::= <qualified identifier>
+
+<domain name> ::= <qualified name>
+
+<schema name> ::=
+     [ <catalog name> <period> ] <unqualified schema name>
+
+<unqualified schema name> ::= <identifier>
+
+<catalog name> ::= <identifier>
+
+<qualified name> ::=
+     [ <schema name> <period> ] <qualified identifier>
+
+<qualified identifier> ::= <identifier>
+
+<column name> ::= <identifier>
+
+<correlation name> ::= <identifier>
+
+<module name> ::= <identifier>
+
+<cursor name> ::= <identifier>
+
+<procedure name> ::= <identifier>
+
+<SQL statement name> ::=
+       <statement name>
+     | <extended statement name>
+
+<statement name> ::= <identifier>
+
+<extended statement name> ::=
+     [ <scope option> ] <simple value specification>
+
+<dynamic cursor name> ::=
+       <cursor name>
+     | <extended cursor name>
+
+<extended cursor name> ::=
+     [ <scope option> ] <simple value specification>
+
+<descriptor name> ::=
+     [ <scope option> ] <simple value specification>
+
+<scope option> ::=
+       GLOBAL
+     | LOCAL
+
+<parameter name> ::= <colon> <identifier>
+
+<constraint name> ::= <qualified name>
+
+<collation name> ::= <qualified name>
+
+<character set name> ::= [ <schema name> <period> ] <SQL language identifier>
+
+
+<translation name> ::= <qualified name>
+
+<form-of-use conversion name> ::= <qualified name>
+
+<connection name> ::= <simple value specification>
+
+<SQL-server name> ::= <simple value specification>
+
+<user name> ::= <simple value specification>
+
+
+6  Scalar expressions
+
+
+
+6.1  <data type>
+
+Function
+
+Specify a data type.
+
+Format
+
+<data type> ::=
+       <character string type> [ CHARACTER SET <character set specification> ]
+
+     | <national character string type>
+     | <bit string type>
+     | <numeric type>
+     | <datetime type>
+     | <interval type>
+
+<character string type> ::=
+       CHARACTER [ <left paren> <length> <right paren> ]
+     | CHAR [ <left paren> <length> <right paren> ]
+     | CHARACTER VARYING <left paren> <length> <right paren>
+     | CHAR VARYING <left paren> <length> <right paren>
+     | VARCHAR <left paren> <length> <right paren>
+
+<national character string type> ::=
+       NATIONAL CHARACTER [ <left paren> <length> <right paren> ]
+     | NATIONAL CHAR [ <left paren> <length> <right paren> ]
+     | NCHAR [ <left paren> <length> <right paren> ]
+     | NATIONAL CHARACTER VARYING <left paren> <length> <right paren>
+
+     | NATIONAL CHAR VARYING <left paren> <length> <right paren>
+     | NCHAR VARYING <left paren> <length> <right paren>
+
+<bit string type> ::=
+       BIT [ <left paren> <length> <right paren> ]
+     | BIT VARYING <left paren> <length> <right paren>
+
+<numeric type> ::=
+       <exact numeric type>
+     | <approximate numeric type>
+
+<exact numeric type> ::=
+       NUMERIC [ <left paren> <precision> [ <comma> <scale> ] <right paren> ]
+
+     | DECIMAL [ <left paren> <precision> [ <comma> <scale> ] <right paren> ]
+
+     | DEC [ <left paren> <precision> [ <comma> <scale> ] <right paren> ]
+
+     | INTEGER
+     | INT
+     | SMALLINT
+
+<approximate numeric type> ::=
+       FLOAT [ <left paren> <precision> <right paren> ]
+     | REAL
+     | DOUBLE PRECISION
+
+<length> ::= <unsigned integer>
+
+<precision> ::= <unsigned integer>
+
+<scale> ::= <unsigned integer>
+
+<datetime type> ::=
+       DATE
+     | TIME [ <left paren> <time precision> <right paren> ]
+     [ WITH TIME ZONE ]
+     | TIMESTAMP [ <left paren> <timestamp precision> <right paren> ]
+     [ WITH TIME ZONE ]
+
+<time precision> ::= <time fractional seconds precision>
+
+<timestamp precision> ::= <time fractional seconds precision>
+
+<time fractional seconds precision> ::= <unsigned integer>
+
+<interval type> ::= INTERVAL <interval qualifier>
+
+6.2  <value specification> and <target specification>
+
+Function
+
+Specify one or more values, parameters, or variables.
+
+Format
+
+<value specification> ::=
+       <literal>
+     | <general value specification>
+
+<unsigned value specification> ::=
+       <unsigned literal>
+     | <general value specification>
+
+<general value specification> ::=
+       <parameter specification>
+     | <dynamic parameter specification>
+     | <variable specification>
+     | USER
+     | CURRENT_USER
+     | SESSION_USER
+     | SYSTEM_USER
+     | VALUE
+
+<simple value specification> ::=
+       <parameter name>
+     | <embedded variable name>
+     | <literal>
+
+<target specification> ::=
+       <parameter specification>
+     | <variable specification>
+
+<simple target specification> ::=
+       <parameter name>
+     | <embedded variable name>
+
+<parameter specification> ::=
+     <parameter name> [ <indicator parameter> ]
+
+<indicator parameter> ::=
+     [ INDICATOR ] <parameter name>
+
+<dynamic parameter specification> ::= <question mark>
+
+<variable specification> ::=
+     <embedded variable name> [ <indicator variable> ]
+
+<indicator variable> ::=
+     [ INDICATOR ] <embedded variable name>
+
+6.3  <table reference>
+
+Function
+
+Reference a table.
+
+Format
+
+<table reference> ::=
+       <table name> [ [ AS ] <correlation name>
+           [ <left paren> <derived column list> <right paren> ] ]
+     | <derived table> [ AS ] <correlation name>
+           [ <left paren> <derived column list> <right paren> ]
+     | <joined table>
+
+<derived table> ::= <table subquery>
+
+<derived column list> ::= <column name list>
+
+<column name list> ::=
+     <column name> [ { <comma> <column name> }... ]
+
+6.4  <column reference>
+
+Function
+
+Reference a column.
+
+Format
+
+<column reference> ::= [ <qualifier> <period> ] <column name>
+
+<qualifier> ::=
+       <table name>
+     | <correlation name>
+
+6.5  <set function specification>
+
+Function
+
+Specify a value derived by the application of a function to an
+argument.
+
+Format
+
+<set function specification> ::=
+       COUNT <left paren> <asterisk> <right paren>
+     | <general set function>
+
+<general set function> ::=
+       <set function type>
+           <left paren> [ <set quantifier> ] <value expression> <right paren>
+
+
+<set function type> ::=
+     AVG | MAX | MIN | SUM | COUNT
+
+<set quantifier> ::= DISTINCT | ALL
+
+6.6  <numeric value function>
+
+Function
+
+Specify a function yielding a value of type numeric.
+
+Format
+
+<numeric value function> ::=
+       <position expression>
+     | <extract expression>
+     | <length expression>
+
+<position expression> ::=
+     POSITION <left paren> <character value expression>
+         IN <character value expression> <right paren>
+
+<length expression> ::=
+       <char length expression>
+     | <octet length expression>
+     | <bit length expression>
+
+<char length expression> ::=
+     { CHAR_LENGTH | CHARACTER_LENGTH }
+         <left paren> <string value expression> <right paren>
+
+<octet length expression> ::=
+     OCTET_LENGTH <left paren> <string value expression> <right paren>
+
+
+<bit length expression> ::=
+     BIT_LENGTH <left paren> <string value expression> <right paren>
+
+
+<extract expression> ::=
+     EXTRACT <left paren> <extract field>
+         FROM <extract source> <right paren>
+
+<extract field> ::=
+       <datetime field>
+     | <time zone field>
+
+<time zone field> ::=
+       TIMEZONE_HOUR
+     | TIMEZONE_MINUTE
+
+<extract source> ::=
+       <datetime value expression>
+     | <interval value expression>
+
+6.7  <string value function>
+
+Function
+
+Specify a function yielding a value of type character string or bit
+string.
+
+Format
+
+<string value function> ::=
+       <character value function>
+     | <bit value function>
+
+<character value function> ::=
+       <character substring function>
+     | <fold>
+     | <form-of-use conversion>
+     | <character translation>
+     | <trim function>
+
+<character substring function> ::=
+     SUBSTRING <left paren> <character value expression> FROM <start position>
+
+                 [ FOR <string length> ] <right paren>
+
+<fold> ::= { UPPER | LOWER } <left paren> <character value expression> <right paren>
+
+
+<form-of-use conversion> ::=
+     CONVERT <left paren> <character value expression>
+         USING <form-of-use conversion name> <right paren>
+
+<character translation> ::=
+     TRANSLATE <left paren> <character value expression>
+         USING <translation name> <right paren>
+
+<trim function> ::=
+     TRIM <left paren> <trim operands> <right paren>
+
+<trim operands> ::=
+     [ [ <trim specification> ] [ <trim character> ] FROM ] <trim source>
+
+
+<trim source> ::= <character value expression>
+
+<trim specification> ::=
+       LEADING
+     | TRAILING
+     | BOTH
+
+<trim character> ::= <character value expression>
+
+<bit value function> ::=
+     <bit substring function>
+
+<bit substring function> ::=
+     SUBSTRING <left paren> <bit value expression> FROM <start position>
+
+         [ FOR <string length> ] <right paren>
+
+<start position> ::= <numeric value expression>
+
+<string length> ::= <numeric value expression>
+
+6.8  <datetime value function>
+
+Function
+
+Specify a function yielding a value of type datetime.
+
+Format
+
+<datetime value function> ::=
+       <current date value function>
+     | <current time value function>
+     | <current timestamp value function>
+
+<current date value function> ::= CURRENT_DATE
+
+<current time value function> ::=
+       CURRENT_TIME [ <left paren> <time precision> <right paren> ]
+
+
+<current timestamp value function> ::=
+       CURRENT_TIMESTAMP [ <left paren> <timestamp precision> <right paren> ]
+
+6.9  <case expression>
+
+Function
+
+Specify a conditional value.
+
+Format
+
+<case expression> ::=
+       <case abbreviation>
+     | <case specification>
+
+<case abbreviation> ::=
+       NULLIF <left paren> <value expression> <comma>
+             <value expression> <right paren>
+     | COALESCE <left paren> <value expression>
+             { <comma> <value expression> }... <right paren>
+
+<case specification> ::=
+       <simple case>
+     | <searched case>
+
+<simple case> ::=
+     CASE <case operand>
+       <simple when clause>...
+       [ <else clause> ]
+     END
+
+<searched case> ::=
+     CASE
+       <searched when clause>...
+       [ <else clause> ]
+     END
+
+<simple when clause> ::= WHEN <when operand> THEN <result>
+
+<searched when clause> ::= WHEN <search condition> THEN <result>
+
+<else clause> ::= ELSE <result>
+
+<case operand> ::= <value expression>
+
+<when operand> ::= <value expression>
+
+<result> ::= <result expression> | NULL
+
+<result expression> ::= <value expression>
+
+6.10  <cast specification>
+
+Function
+
+Specify a data conversion.
+
+Format
+
+<cast specification> ::=
+     CAST <left paren> <cast operand> AS <cast target> <right paren>
+
+
+<cast operand> ::=
+       <value expression>
+     | NULL
+
+<cast target> ::=
+       <domain name>
+     | <data type>
+
+
+6.11  <value expression>
+
+Function
+
+Specify a value.
+
+Format
+
+<value expression> ::=
+       <numeric value expression>
+     | <string value expression>
+     | <datetime value expression>
+     | <interval value expression>
+
+<value expression primary> ::=
+       <unsigned value specification>
+     | <column reference>
+     | <set function specification>
+     | <scalar subquery>
+     | <case expression>
+     | <left paren> <value expression> <right paren>
+     | <cast specification>
+
+
+6.12  <numeric value expression>
+
+Function
+
+Specify a numeric value.
+
+Format
+
+<numeric value expression> ::=
+       <term>
+     | <numeric value expression> <plus sign> <term>
+     | <numeric value expression> <minus sign> <term>
+
+<term> ::=
+       <factor>
+     | <term> <asterisk> <factor>
+     | <term> <solidus> <factor>
+
+<factor> ::=
+     [ <sign> ] <numeric primary>
+
+<numeric primary> ::=
+       <value expression primary>
+     | <numeric value function>
+
+
+6.13  <string value expression>
+
+Function
+
+Specify a character string value or a bit string value.
+
+Format
+
+<string value expression> ::=
+       <character value expression>
+     | <bit value expression>
+
+<character value expression> ::=
+       <concatenation>
+     | <character factor>
+
+<concatenation> ::=
+     <character value expression> <concatenation operator>
+     <character factor>
+
+<character factor> ::=
+     <character primary> [ <collate clause> ]
+
+<character primary> ::=
+       <value expression primary>
+     | <string value function>
+
+<bit value expression> ::=
+       <bit concatenation>
+     | <bit factor>
+
+<bit concatenation> ::=
+     <bit value expression> <concatenation operator> <bit factor>
+
+<bit factor> ::= <bit primary>
+
+<bit primary> ::=
+       <value expression primary>
+     | <string value function>
+
+
+6.14  <datetime value expression>
+
+Function
+
+Specify a datetime value.
+
+Format
+
+<datetime value expression> ::=
+       <datetime term>
+     | <interval value expression> <plus sign> <datetime term>
+     | <datetime value expression> <plus sign> <interval term>
+     | <datetime value expression> <minus sign> <interval term>
+
+<datetime term> ::=
+       <datetime factor>
+
+<datetime factor> ::=
+       <datetime primary> [ <time zone> ]
+
+<datetime primary> ::=
+       <value expression primary>
+     | <datetime value function>
+
+<time zone> ::=
+     AT <time zone specifier>
+
+<time zone specifier> ::=
+       LOCAL
+     | TIME ZONE <interval value expression>
+
+
+6.15  <interval value expression>
+
+Function
+
+Specify an interval value.
+
+Format
+
+<interval value expression> ::=
+       <interval term>
+     | <interval value expression 1> <plus sign> <interval term 1>
+
+     | <interval value expression 1> <minus sign> <interval term 1>
+
+     | <left paren> <datetime value expression> <minus sign>
+           <datetime term> <right paren> <interval qualifier>
+
+<interval term> ::=
+       <interval factor>
+     | <interval term 2> <asterisk> <factor>
+     | <interval term 2> <solidus> <factor>
+     | <term> <asterisk> <interval factor>
+
+<interval factor> ::=
+     [ <sign> ] <interval primary>
+
+<interval primary> ::=
+       <value expression primary> [ <interval qualifier> ]
+
+<interval value expression 1> ::= <interval value expression>
+
+<interval term 1> ::= <interval term>
+
+<interval term 2> ::= <interval term>
+
+
+7  Query expressions
+
+
+
+7.1  <row value constructor>
+
+Function
+
+Specify an ordered set of values to be constructed into a row or
+partial row.
+
+Format
+
+<row value constructor> ::=
+       <row value constructor element>
+     | <left paren> <row value constructor list> <right paren>
+     | <row subquery>
+
+<row value constructor list> ::=
+     <row value constructor element>
+         [ { <comma> <row value constructor element> }... ]
+
+<row value constructor element> ::=
+       <value expression>
+     | <null specification>
+     | <default specification>
+
+<null specification> ::=
+     NULL
+
+<default specification> ::=
+     DEFAULT
+
+
+7.2  <table value constructor>
+
+Function
+
+Specify a set of <row value constructor>s to be constructed into a
+table.
+
+Format
+
+<table value constructor> ::=
+     VALUES <table value constructor list>
+
+<table value constructor list> ::=
+     <row value constructor> [ { <comma> <row value constructor> }... ]
+
+
+7.3  <table expression>
+
+Function
+
+Specify a table or a grouped table.
+
+Format
+
+<table expression> ::=
+     <from clause>
+     [ <where clause> ]
+     [ <group by clause> ]
+     [ <having clause> ]
+
+
+7.4  <from clause>
+
+Function
+
+Specify a table derived from one or more named tables.
+
+Format
+
+<from clause> ::= FROM <table reference> [ { <comma> <table reference> }... ]
+
+
+7.5  <joined table>
+
+Function
+
+Specify a table derived from a Cartesian product, inner or outer
+join, or union join.
+
+Format
+
+<joined table> ::=
+       <cross join>
+     | <qualified join>
+     | <left paren> <joined table> <right paren>
+
+<cross join> ::=
+     <table reference> CROSS JOIN <table reference>
+
+<qualified join> ::=
+     <table reference> [ NATURAL ] [ <join type> ] JOIN
+       <table reference> [ <join specification> ]
+
+<join specification> ::=
+       <join condition>
+     | <named columns join>
+
+<join condition> ::= ON <search condition>
+
+<named columns join> ::=
+     USING <left paren> <join column list> <right paren>
+
+<join type> ::=
+       INNER
+     | <outer join type> [ OUTER ]
+     | UNION
+
+<outer join type> ::=
+       LEFT
+     | RIGHT
+     | FULL
+
+<join column list> ::= <column name list>
+
+
+7.6  <where clause>
+
+Function
+
+Specify a table derived by the application of a <search condition>
+to the result of the preceding <from clause>.
+
+Format
+
+<where clause> ::= WHERE <search condition>
+
+
+7.7  <group by clause>
+
+Function
+
+Specify a grouped table derived by the application of the <group by
+clause> to the result of the previously specified clause.
+
+Format
+
+<group by clause> ::=
+     GROUP BY <grouping column reference list>
+
+<grouping column reference list> ::=
+     <grouping column reference> [ { <comma> <grouping column reference> }... ]
+
+
+<grouping column reference> ::=
+     <column reference> [ <collate clause> ]
+
+
+7.8  <having clause>
+
+Function
+
+Specify a grouped table derived by the elimination of groups from
+the result of the previously specified clause that do not meet the
+<search condition>.
+
+Format
+
+<having clause> ::= HAVING <search condition>
+
+
+7.9  <query specification>
+
+Function
+
+Specify a table derived from the result of a <table expression>.
+
+Format
+
+<query specification> ::=
+     SELECT [ <set quantifier> ] <select list> <table expression>
+
+<select list> ::=
+       <asterisk>
+     | <select sublist> [ { <comma> <select sublist> }... ]
+
+<select sublist> ::=
+       <derived column>
+     | <qualifier> <period> <asterisk>
+
+<derived column> ::= <value expression> [ <as clause> ]
+
+<as clause> ::= [ AS ] <column name>
+
+
+7.10  <query expression>
+
+Function
+
+Specify a table.
+
+Format
+
+<query expression> ::=
+       <non-join query expression>
+     | <joined table>
+
+<non-join query expression> ::=
+       <non-join query term>
+     | <query expression> UNION  [ ALL ] [ <corresponding spec> ] <query term>
+
+     | <query expression> EXCEPT [ ALL ] [ <corresponding spec> ] <query term>
+
+
+<query term> ::=
+       <non-join query term>
+     | <joined table>
+
+<non-join query term> ::=
+       <non-join query primary>
+     | <query term> INTERSECT [ ALL ] [ <corresponding spec> ] <query primary>
+
+
+<query primary> ::=
+       <non-join query primary>
+     | <joined table>
+
+<non-join query primary> ::=
+       <simple table>
+     | <left paren> <non-join query expression> <right paren>
+
+<simple table> ::=
+       <query specification>
+     | <table value constructor>
+     | <explicit table>
+
+<explicit table> ::= TABLE <table name>
+
+<corresponding spec> ::=
+     CORRESPONDING [ BY <left paren> <corresponding column list> <right paren> ]
+
+
+<corresponding column list> ::= <column name list>
+
+
+7.11  <scalar subquery>, <row subquery>, and <table subquery>
+
+Function
+
+Specify a scalar value, a row, or a table derived from a <query
+expression>.
+
+Format
+
+<scalar subquery> ::= <subquery>
+
+<row subquery> ::= <subquery>
+
+<table subquery> ::= <subquery>
+
+<subquery> ::= <left paren> <query expression> <right paren>
+
+
+8  Predicates
+
+
+
+8.1  <predicate>
+
+Function
+
+Specify a condition that can be evaluated to give a truth value of
+true, false, or unknown.
+
+Format
+
+<predicate> ::=
+       <comparison predicate>
+     | <between predicate>
+     | <in predicate>
+     | <like predicate>
+     | <null predicate>
+     | <quantified comparison predicate>
+     | <exists predicate>
+     | <unique predicate>
+     | <match predicate>
+     | <overlaps predicate>
+
+
+8.2  <comparison predicate>
+
+Function
+
+Specify a comparison of two row values.
+
+Format
+
+<comparison predicate> ::=
+     <row value constructor> <comp op> <row value constructor>
+
+<comp op> ::=
+       <equals operator>
+     | <not equals operator>
+     | <less than operator>
+     | <greater than operator>
+     | <less than or equals operator>
+     | <greater than or equals operator>
+
+
+8.3  <between predicate>
+
+Function
+
+Specify a range comparison.
+
+Format
+
+<between predicate> ::=
+     <row value constructor> [ NOT ] BETWEEN
+       <row value constructor> AND <row value constructor>
+
+
+8.4  <in predicate>
+
+Function
+
+Specify a quantified comparison.
+
+Format
+
+<in predicate> ::=
+     <row value constructor>
+       [ NOT ] IN <in predicate value>
+
+<in predicate value> ::=
+       <table subquery>
+     | <left paren> <in value list> <right paren>
+
+<in value list> ::=
+     <value expression> { <comma> <value expression> }...
+
+
+8.5  <like predicate>
+
+Function
+
+Specify a pattern-match comparison.
+
+Format
+
+<like predicate> ::=
+     <match value> [ NOT ] LIKE <pattern>
+       [ ESCAPE <escape character> ]
+
+<match value> ::= <character value expression>
+
+<pattern> ::= <character value expression>
+
+<escape character> ::= <character value expression>
+
+
+8.6  <null predicate>
+
+Function
+
+Specify a test for a null value.
+
+Format
+
+<null predicate> ::= <row value constructor> IS [ NOT ] NULL
+
+
+8.7  <quantified comparison predicate>
+
+Function
+
+Specify a quantified comparison.
+
+Format
+
+<quantified comparison predicate> ::=
+     <row value constructor> <comp op> <quantifier> <table subquery>
+
+
+<quantifier> ::= <all> | <some>
+
+<all> ::= ALL
+
+<some> ::= SOME | ANY
+
+
+8.8  <exists predicate>
+
+Function
+
+Specify a test for a non-empty set.
+
+Format
+
+<exists predicate> ::= EXISTS <table subquery>
+
+
+8.9  <unique predicate>
+
+Function
+
+Specify a test for the absence of duplicate rows.
+
+Format
+
+<unique predicate> ::= UNIQUE <table subquery>
+
+
+8.10  <match predicate>
+
+Function
+
+Specify a test for matching rows.
+
+Format
+
+<match predicate> ::=
+     <row value constructor> MATCH [ UNIQUE ] [ PARTIAL | FULL ] <table subquery>
+
+
+8.11  <overlaps predicate>
+
+Function
+
+Specify a test for an overlap between two events.
+
+Format
+
+<overlaps predicate> ::=
+     <row value constructor 1> OVERLAPS <row value constructor 2>
+
+<row value constructor 1> ::= <row value constructor>
+
+<row value constructor 2> ::= <row value constructor>
+
+
+8.12  <search condition>
+
+Function
+
+Specify a condition that has the truth value true, false, or
+unknown, depending on the result of applying boolean operators
+to specified conditions.
+
+Format
+
+<search condition> ::=
+       <boolean term>
+     | <search condition> OR <boolean term>
+
+<boolean term> ::=
+       <boolean factor>
+     | <boolean term> AND <boolean factor>
+
+<boolean factor> ::=
+     [ NOT ] <boolean test>
+
+<boolean test> ::=
+     <boolean primary> [ IS [ NOT ] <truth value> ]
+
+<truth value> ::=
+       TRUE
+     | FALSE
+     | UNKNOWN
+
+<boolean primary> ::=
+       <predicate>
+     | <left paren> <search condition> <right paren>
+
+
+10  Additional common elements
+
+
+
+10.1  <interval qualifier>
+
+Function
+
+Specify the precision of an interval data type.
+
+Format
+
+<interval qualifier> ::=
+       <start field> TO <end field>
+     | <single datetime field>
+
+<start field> ::=
+     <non-second datetime field>
+         [ <left paren> <interval leading field precision> <right paren> ]
+
+
+<end field> ::=
+       <non-second datetime field>
+     | SECOND [ <left paren> <interval fractional seconds precision> <right paren> ]
+
+
+<single datetime field> ::=
+       <non-second datetime field>
+           [ <left paren> <interval leading field precision> <right paren> ]
+
+     | SECOND [ <left paren> <interval leading field precision>
+           [ <comma> <interval fractional seconds precision> ] <right paren> ]
+
+
+<datetime field> ::=
+       <non-second datetime field>
+     | SECOND
+
+<non-second datetime field> ::= YEAR | MONTH | DAY | HOUR | MINUTE
+
+<interval fractional seconds precision> ::= <unsigned integer>
+
+<interval leading field precision> ::= <unsigned integer>
+
+10.2  <language clause>
+
+Function
+
+Specify a standard programming language.
+
+Format
+
+<language clause> ::=
+     LANGUAGE <language name>
+
+<language name> ::=
+     ADA | C | COBOL | FORTRAN | MUMPS | PASCAL | PLI
+
+
+10.3  <privileges>
+
+Function
+
+Specify privileges.
+
+Format
+
+<privileges> ::=
+       ALL PRIVILEGES
+     | <action list>
+
+<action list> ::= <action> [ { <comma> <action> }... ]
+
+
+<action> ::=
+       SELECT
+     | DELETE
+     | INSERT [ <left paren> <privilege column list> <right paren> ]
+
+     | UPDATE [ <left paren> <privilege column list> <right paren> ]
+
+     | REFERENCES [ <left paren> <privilege column list> <right paren> ]
+
+     | USAGE
+
+<privilege column list> ::= <column name list>
+
+<grantee> ::=
+       PUBLIC
+     | <authorization identifier>
+
+
+10.4  <character set specification>
+
+Function
+
+Identify a character set.
+
+Format
+
+<character set specification> ::=
+       <standard character repertoire name>
+     | <implementation-defined character repertoire name>
+     | <user-defined character repertoire name>
+     | <standard universal character form-of-use name>
+     | <implementation-defined universal character form-of-
+     use name>
+
+<standard character repertoire name> ::= <character set name>
+
+<implementation-defined character repertoire name> ::= <character set name>
+
+
+<user-defined character repertoire name> ::= <character set name>
+
+<standard universal character form-of-use name> ::=
+     <character set name>
+
+<implementation-defined universal character form-of-use name> ::=
+     <character set name>
+
+
+10.5  <collate clause>
+
+Function
+
+Specify a collating sequence.
+
+Format
+
+<collate clause> ::= COLLATE <collation name>
+
+
+10.6  <constraint name definition> and <constraint attributes>
+
+Function
+
+Specify the name of a constraint and its attributes.
+
+Format
+
+<constraint name definition> ::= CONSTRAINT <constraint name>
+
+<constraint attributes> ::=
+       <constraint check time> [ [ NOT ] DEFERRABLE ]
+     | [ NOT ] DEFERRABLE [ <constraint check time> ]
+
+<constraint check time> ::=   INITIALLY DEFERRED
+     | INITIALLY IMMEDIATE
+
+
+11  Schema definition and manipulation
+
+
+
+11.1  <schema definition>
+
+Function
+
+Define a schema.
+
+Format
+
+<schema definition> ::=
+     CREATE SCHEMA <schema name clause>
+       [ <schema character set specification> ]
+       [ <schema element>... ]
+
+
+
+<schema name clause> ::=
+       <schema name>
+     | AUTHORIZATION <schema authorization identifier>
+     | <schema name> AUTHORIZATION <schema authorization identifier>
+
+
+<schema authorization identifier> ::=
+     <authorization identifier>
+
+<schema character set specification> ::=
+     DEFAULT CHARACTER SET <character set specification>
+
+<schema element> ::=
+       <domain definition>
+     | <table definition>
+     | <view definition>
+     | <grant statement>
+     | <assertion definition>
+     | <character set definition>
+     | <collation definition>
+     | <translation definition>
+
+
+11.2  <drop schema statement>
+
+Function
+
+Destroy a schema.
+
+Format
+
+<drop schema statement> ::=
+     DROP SCHEMA <schema name> <drop behavior>
+
+<drop behavior> ::= CASCADE | RESTRICT
+
+
+11.3  <table definition>
+
+Function
+
+Define a persistent base table, a created local temporary table, or
+a global temporary table.
+
+Format
+
+<table definition> ::=
+     CREATE [ { GLOBAL | LOCAL } TEMPORARY ] TABLE <table name>
+       <table element list>
+       [ ON COMMIT { DELETE | PRESERVE } ROWS ]
+
+<table element list> ::=
+       <left paren> <table element> [ { <comma> <table element> }... ] <right paren>
+
+
+<table element> ::=
+       <column definition>
+     | <table constraint definition>
+
+
+11.4  <column definition>
+
+Function
+
+Define a column of a table.
+
+Format
+
+<column definition> ::=
+     <column name> { <data type> | <domain name> }
+     [ <default clause> ]
+     [ <column constraint definition>... ]
+     [ <collate clause> ]
+
+<column constraint definition> ::=
+     [ <constraint name definition> ]
+     <column constraint>
+       [ <constraint attributes> ]
+
+<column constraint> ::=
+       NOT NULL
+     | <unique specification>
+     | <references specification>
+     | <check constraint definition>
+
+
+11.5  <default clause>
+
+Function
+
+Specify the default for a column or domain.
+
+Format
+
+<default clause> ::=
+       DEFAULT <default option>
+
+<default option> ::=
+       <literal>
+     | <datetime value function>
+     | USER
+     | CURRENT_USER
+     | SESSION_USER
+     | SYSTEM_USER
+     | NULL
+
+
+11.6  <table constraint definition>
+
+Function
+
+Specify an integrity constraint.
+
+Format
+
+<table constraint definition> ::=
+     [ <constraint name definition> ]
+     <table constraint> [ <constraint attributes> ]
+
+<table constraint> ::=
+       <unique constraint definition>
+     | <referential constraint definition>
+     | <check constraint definition>
+
+
+11.7  <unique constraint definition>
+
+Function
+
+Specify a uniqueness constraint for a table.
+
+Format
+
+<unique constraint definition> ::=
+     <unique specification>
+       <left paren> <unique column list> <right paren>
+
+<unique specification> ::=
+     UNIQUE | PRIMARY KEY
+
+<unique column list> ::= <column name list>
+
+
+11.8  <referential constraint definition>
+
+Function
+
+Specify a referential constraint.
+
+Format
+
+<referential constraint definition> ::=
+     FOREIGN KEY <left paren> <referencing columns> <right paren>
+       <references specification>
+
+<references specification> ::=
+     REFERENCES <referenced table and columns>
+       [ MATCH <match type> ]
+       [ <referential triggered action> ]
+
+<match type> ::=
+       FULL
+     | PARTIAL
+
+<referencing columns> ::=
+     <reference column list>
+
+<referenced table and columns> ::=
+     <table name> [ <left paren> <reference column list> <right paren> ]
+
+
+<reference column list> ::= <column name list>
+
+<referential triggered action> ::=
+       <update rule> [ <delete rule> ]
+     | <delete rule> [ <update rule> ]
+
+<update rule> ::= ON UPDATE <referential action>
+
+<delete rule> ::= ON DELETE <referential action>
+
+<referential action> ::=
+       CASCADE
+     | SET NULL
+     | SET DEFAULT
+     | NO ACTION
+
+
+11.9  <check constraint definition>
+
+Function
+
+Specify a condition for the SQL-data.
+
+Format
+
+<check constraint definition> ::=
+     CHECK <left paren> <search condition> <right paren>
+
+
+11.10  <alter table statement>
+
+Function
+
+Change the definition of a table.
+
+Format
+
+<alter table statement> ::=
+     ALTER TABLE <table name> <alter table action>
+
+<alter table action> ::=
+       <add column definition>
+     | <alter column definition>
+     | <drop column definition>
+     | <add table constraint definition>
+     | <drop table constraint definition>
+
+
+11.11  <add column definition>
+
+Function
+
+Add a column to a table.
+
+Format
+
+<add column definition> ::=
+     ADD [ COLUMN ] <column definition>
+
+
+11.12  <alter column definition>
+
+Function
+
+Change a column and its definition.
+
+Format
+
+<alter column definition> ::=
+     ALTER [ COLUMN ] <column name> <alter column action>
+
+<alter column action> ::=
+       <set column default clause>
+     | <drop column default clause>
+
+
+11.13  <set column default clause>
+
+Function
+
+Set the default clause for a column.
+
+Format
+
+<set column default clause> ::=
+     SET <default clause>
+
+
+11.14  <drop column default clause>
+
+Function
+
+Drop the default clause from a column.
+
+Format
+
+<drop column default clause> ::=
+     DROP DEFAULT
+
+
+11.15  <drop column definition>
+
+Function
+
+Destroy a column.
+
+Format
+
+<drop column definition> ::=
+     DROP [ COLUMN ] <column name> <drop behavior>
+
+
+11.16  <add table constraint definition>
+
+Function
+
+Add a constraint to a table.
+
+Format
+
+<add table constraint definition> ::=
+     ADD <table constraint definition>
+
+
+11.17  <drop table constraint definition>
+
+Function
+
+Destroy a constraint on a table.
+
+Format
+
+<drop table constraint definition> ::=
+     DROP CONSTRAINT <constraint name> <drop behavior>
+
+
+11.18  <drop table statement>
+
+Function
+
+Destroy a table.
+
+Format
+
+<drop table statement> ::=
+     DROP TABLE <table name> <drop behavior>
+
+
+11.19  <view definition>
+
+Function
+
+Define a viewed table.
+
+Format
+
+<view definition> ::=
+     CREATE VIEW <table name> [ <left paren> <view column list>
+     <right paren> ]
+       AS <query expression>
+       [ WITH [ <levels clause> ] CHECK OPTION ]
+
+<levels clause> ::=
+     CASCADED | LOCAL
+
+<view column list> ::= <column name list>
+
+
+11.20  <drop view statement>
+
+Function
+
+Destroy a view.
+
+Format
+
+<drop view statement> ::=
+     DROP VIEW <table name> <drop behavior>
+
+
+11.21  <domain definition>
+
+Function
+
+Define a domain.
+
+Format
+
+<domain definition> ::=
+     CREATE DOMAIN <domain name> [ AS ] <data type>
+       [ <default clause> ]
+       [ <domain constraint>... ]
+       [ <collate clause> ]
+
+<domain constraint> ::=
+     [ <constraint name definition> ]
+     <check constraint definition> [ <constraint attributes> ]
+
+
+11.22  <alter domain statement>
+
+Function
+
+Change a domain and its definition.
+
+Format
+
+<alter domain statement> ::=
+     ALTER DOMAIN <domain name> <alter domain action>
+
+<alter domain action> ::=
+       <set domain default clause>
+     | <drop domain default clause>
+     | <add domain constraint definition>
+     | <drop domain constraint definition>
+
+
+11.23  <set domain default clause>
+
+Function
+
+Set the default value in a domain.
+
+Format
+
+<set domain default clause> ::= SET <default clause>
+
+
+11.24  <drop domain default clause>
+
+Function
+
+Remove the default clause of a domain.
+
+Format
+
+<drop domain default clause> ::= DROP DEFAULT
+
+
+11.25  <add domain constraint definition>
+
+Function
+
+Add a constraint to a domain.
+
+Format
+
+<add domain constraint definition> ::=
+     ADD <domain constraint>
+
+
+11.26  <drop domain constraint definition>
+
+Function
+
+Destroy a constraint on a domain.
+
+Format
+
+<drop domain constraint definition> ::=
+     DROP CONSTRAINT <constraint name>
+
+
+11.27  <drop domain statement>
+
+Function
+
+Destroy a domain.
+
+Format
+
+<drop domain statement> ::=
+     DROP DOMAIN <domain name> <drop behavior>
+
+
+11.28  <character set definition>
+
+Function
+
+Define a character set.
+
+Format
+
+<character set definition> ::=
+     CREATE CHARACTER SET <character set name> [ AS ]
+       <character set source>
+       [ <collate clause> | <limited collation definition> ]
+
+<character set source> ::=
+       GET <existing character set name>
+
+<existing character set name> ::=
+       <standard character repertoire name>
+     | <implementation-defined character repertoire name>
+     | <schema character set name>
+
+<schema character set name> ::= <character set name>
+
+<limited collation definition> ::=
+     COLLATION FROM <collation source>
+
+
+11.29  <drop character set statement>
+
+Function
+
+Destroy a character set.
+
+Format
+
+<drop character set statement> ::=
+     DROP CHARACTER SET <character set name>
+
+
+11.30  <collation definition>
+
+Function
+
+Define a collating sequence.
+
+Format
+
+<collation definition> ::=
+     CREATE COLLATION <collation name> FOR <character set specification>
+
+       FROM <collation source>
+         [ <pad attribute> ]
+
+<pad attribute> ::=
+       NO PAD
+     | PAD SPACE
+
+<collation source> ::=
+       <collating sequence definition>
+     | <translation collation>
+
+<collating sequence definition> ::=
+       <external collation>
+     | <schema collation name>
+     | DESC <left paren> <collation name> <right paren>
+     | DEFAULT
+
+<translation collation> ::=
+     TRANSLATION <translation name>
+         [ THEN COLLATION <collation name> ]
+
+<external collation> ::=
+     EXTERNAL <left paren> <quote> <external collation name> <quote> <right paren>
+
+
+<schema collation name> ::= <collation name>
+
+<external collation name> ::=
+       <standard collation name>
+     | <implementation-defined collation name>
+
+<standard collation name> ::= <collation name>
+
+<implementation-defined collation name> ::= <collation name>
+
+
+11.31  <drop collation statement>
+
+Function
+
+Destroy a collating sequence.
+
+Format
+
+<drop collation statement> ::=
+     DROP COLLATION <collation name>
+
+
+11.32  <translation definition>
+
+Function
+
+Define a character translation.
+
+Format
+
+<translation definition> ::=
+     CREATE TRANSLATION <translation name>
+       FOR <source character set specification>
+         TO <target character set specification>
+       FROM <translation source>
+
+<source character set specification> ::= <character set specification>
+
+
+<target character set specification> ::= <character set specification>
+
+
+<translation source> ::=
+       <translation specification>
+
+<translation specification> ::=
+       <external translation>
+     | IDENTITY
+     | <schema translation name>
+
+<external translation> ::=
+     EXTERNAL <left paren> <quote> <external translation name> <quote> <right paren>
+
+
+<external translation name> ::=
+       <standard translation name>
+     | <implementation-defined translation name>
+
+<standard translation name> ::= <translation name>
+
+<implementation-defined translation name> ::= <translation name>
+
+<schema translation name> ::= <translation name>
+
+
+11.33  <drop translation statement>
+
+Function
+
+Destroy a character translation.
+
+Format
+
+<drop translation statement> ::=
+     DROP TRANSLATION <translation name>
+
+
+11.34  <assertion definition>
+
+Function
+
+Specify an integrity constraint by means of an assertion and spec-
+ify the initial default time for checking the assertion.
+
+Format
+
+<assertion definition> ::=
+     CREATE ASSERTION <constraint name> <assertion check>
+     [ <constraint attributes> ]
+
+<assertion check> ::=
+     CHECK <left paren> <search condition> <right paren>
+
+
+11.35  <drop assertion statement>
+
+Function
+
+Destroy an assertion.
+
+Format
+
+<drop assertion statement> ::=
+     DROP ASSERTION <constraint name>
+
+
+11.36  <grant statement>
+
+Function
+
+Define privileges.
+
+Format
+
+<grant statement> ::=
+     GRANT <privileges> ON <object name>
+       TO <grantee> [ { <comma> <grantee> }... ]
+         [ WITH GRANT OPTION ]
+
+<object name> ::=
+       [ TABLE ] <table name>
+     | DOMAIN <domain name>
+     | COLLATION <collation name>
+     | CHARACTER SET <character set name>
+     | TRANSLATION <translation name>
+
+
+11.37  <revoke statement>
+
+Function
+
+Destroy privileges.
+
+Format
+
+<revoke statement> ::=
+     REVOKE [ GRANT OPTION FOR ] <privileges>
+         ON <object name>
+       FROM <grantee> [ { <comma> <grantee> }... ] <drop behavior>
+
+
+12  Module
+
+
+
+12.1  <module>
+
+Function
+
+Define a module.
+
+Format
+
+<module> ::=
+     <module name clause>
+     <language clause>
+     <module authorization clause>
+     [ <temporary table declaration>... ]
+     <module contents>...
+
+<module authorization clause> ::=
+       SCHEMA <schema name>
+     | AUTHORIZATION <module authorization identifier>
+     | SCHEMA <schema name> AUTHORIZATION <module authorization identifier>
+
+
+<module authorization identifier> ::=
+     <authorization identifier>
+
+<module contents> ::=
+       <declare cursor>
+     | <dynamic declare cursor>
+     | <procedure>
+
+
+12.2  <module name clause>
+
+Function
+
+Name a <module>.
+
+Format
+
+<module name clause> ::=
+     MODULE [ <module name> ]
+       [ <module character set specification> ]
+
+<module character set specification> ::=
+     NAMES ARE <character set specification>
+
+
+12.3  <procedure>
+
+Function
+
+Define a procedure.
+
+Format
+
+<procedure> ::=
+     PROCEDURE <procedure name> <parameter declaration list> <semicolon>
+
+       <SQL procedure statement> <semicolon>
+
+<parameter declaration list> ::=
+       <left paren> <parameter declaration>
+           [ { <comma> <parameter declaration> }... ] <right paren>
+
+     | <parameter declaration>...
+
+<parameter declaration> ::=
+       <parameter name> <data type>
+     | <status parameter>
+
+<status parameter> ::=
+     SQLCODE | SQLSTATE
+
+
+12.5  <SQL procedure statement>
+
+Function
+
+Define all of the SQL-statements that are <SQL procedure state-
+ment>s.
+
+Format
+
+<SQL procedure statement> ::=
+       <SQL schema statement>
+     | <SQL data statement>
+     | <SQL transaction statement>
+     | <SQL connection statement>
+     | <SQL session statement>
+     | <SQL dynamic statement>
+     | <SQL diagnostics statement>
+
+<SQL schema statement> ::=
+       <SQL schema definition statement>
+     | <SQL schema manipulation statement>
+
+<SQL schema definition statement> ::=
+       <schema definition>
+     | <table definition>
+     | <view definition>
+     | <grant statement>
+     | <domain definition>
+     | <character set definition>
+     | <collation definition>
+     | <translation definition>
+     | <assertion definition>
+
+<SQL schema manipulation statement> ::=
+       <drop schema statement>
+     | <alter table statement>
+     | <drop table statement>
+     | <drop view statement>
+     | <revoke statement>
+     | <alter domain statement>
+     | <drop domain statement>
+     | <drop character set statement>
+     | <drop collation statement>
+     | <drop translation statement>
+     | <drop assertion statement>
+
+<SQL data statement> ::=
+       <open statement>
+     | <fetch statement>
+     | <close statement>
+     | <select statement: single row>
+     | <SQL data change statement>
+
+<SQL data change statement> ::=
+       <delete statement: positioned>
+     | <delete statement: searched>
+     | <insert statement>
+     | <update statement: positioned>
+     | <update statement: searched>
+
+<SQL transaction statement> ::=
+       <set transaction statement>
+     | <set constraints mode statement>
+     | <commit statement>
+     | <rollback statement>
+
+<SQL connection statement> ::=
+       <connect statement>
+     | <set connection statement>
+     | <disconnect statement>
+
+<SQL session statement> ::=
+       <set catalog statement>
+     | <set schema statement>
+     | <set names statement>
+     | <set session authorization identifier statement>
+     | <set local time zone statement>
+
+<SQL dynamic statement> ::=
+       <system descriptor statement>
+     | <prepare statement>
+     | <deallocate prepared statement>
+     | <describe statement>
+     | <execute statement>
+     | <execute immediate statement>
+     | <SQL dynamic data statement>
+
+<SQL dynamic data statement> ::=
+       <allocate cursor statement>
+     | <dynamic open statement>
+     | <dynamic fetch statement>
+     | <dynamic close statement>
+     | <dynamic delete statement: positioned>
+     | <dynamic update statement: positioned>
+
+<system descriptor statement> ::=
+       <allocate descriptor statement>
+     | <deallocate descriptor statement>
+     | <set descriptor statement>
+     | <get descriptor statement>
+
+<SQL diagnostics statement> ::=
+     <get diagnostics statement>
+
+13  Data manipulation
+
+
+
+13.1  <declare cursor>
+
+Function
+
+Define a cursor.
+
+Format
+
+<declare cursor> ::=
+     DECLARE <cursor name> [ INSENSITIVE ] [ SCROLL ] CURSOR
+       FOR <cursor specification>
+
+<cursor specification> ::=
+     <query expression> [ <order by clause> ]
+       [ <updatability clause> ]
+
+<updatability clause> ::=
+     FOR { READ ONLY | UPDATE [ OF <column name list> ] }
+
+<order by clause> ::=
+     ORDER BY <sort specification list>
+
+<sort specification list> ::=
+     <sort specification> [ { <comma> <sort specification> }... ]
+
+<sort specification> ::=
+     <sort key> [ <collate clause > ] [ <ordering specification> ]
+
+
+<sort key> ::=
+       <column name>
+     | <unsigned integer>
+
+<ordering specification> ::= ASC | DESC
+
+
+13.2  <open statement>
+
+Function
+
+Open a cursor.
+
+Format
+
+<open statement> ::=
+     OPEN <cursor name>
+
+
+13.3  <fetch statement>
+
+Function
+
+Position a cursor on a specified row of a table and retrieve values
+from that row.
+
+Format
+
+<fetch statement> ::=
+     FETCH [ [ <fetch orientation> ] FROM ]
+       <cursor name> INTO <fetch target list>
+
+<fetch orientation> ::=
+       NEXT
+     | PRIOR
+     | FIRST
+     | LAST
+     | { ABSOLUTE | RELATIVE } <simple value specification>
+
+<fetch target list> ::=
+     <target specification> [ { <comma> <target specification> }... ]
+
+
+13.4  <close statement>
+
+Function
+
+Close a cursor.
+
+Format
+
+<close statement> ::=
+     CLOSE <cursor name>
+
+
+13.5  <select statement: single row>
+
+Function
+
+Retrieve values from a specified row of a table.
+
+Format
+
+<select statement: single row> ::=
+     SELECT [ <set quantifier> ] <select list>
+       INTO <select target list>
+         <table expression>
+
+<select target list> ::=
+     <target specification> [ { <comma> <target specification> }... ]
+
+
+13.6  <delete statement: positioned>
+
+Function
+
+Delete a row of a table.
+
+Format
+
+<delete statement: positioned> ::=
+     DELETE FROM <table name>
+       WHERE CURRENT OF <cursor name>
+
+
+13.7  <delete statement: searched>
+
+Function
+
+Delete rows of a table.
+
+Format
+
+<delete statement: searched> ::=
+     DELETE FROM <table name>
+       [ WHERE <search condition> ]
+
+
+13.8  <insert statement>
+
+Function
+
+Create new rows in a table.
+
+Format
+
+<insert statement> ::=
+     INSERT INTO <table name>
+       <insert columns and source>
+
+<insert columns and source> ::=
+       [ <left paren> <insert column list> <right paren> ]
+     <query expression>
+     | DEFAULT VALUES
+
+<insert column list> ::= <column name list>
+
+
+13.9  <update statement: positioned>
+
+Function
+
+Update a row of a table.
+
+Format
+
+<update statement: positioned> ::=
+     UPDATE <table name>
+       SET <set clause list>
+         WHERE CURRENT OF <cursor name>
+
+<set clause list> ::=
+     <set clause> [ { <comma> <set clause> }... ]
+
+<set clause> ::=
+     <object column> <equals operator> <update source>
+
+<update source> ::=
+       <value expression>
+     | <null specification>
+     | DEFAULT
+
+<object column> ::= <column name>
+
+
+13.10  <update statement: searched>
+
+Function
+
+Update rows of a table.
+
+Format
+
+<update statement: searched> ::=
+     UPDATE <table name>
+       SET <set clause list>
+       [ WHERE <search condition> ]
+
+
+13.11  <temporary table declaration>
+
+Function
+
+Declare a declared local temporary table that will be effectively
+materialized the first time that any <procedure> in the <module>
+that contains the <temporary table declaration> is executed and
+whose scope is all the <procedure>s of that <module> executed
+within the same SQL-session.
+
+Format
+
+<temporary table declaration> ::=
+     DECLARE LOCAL TEMPORARY TABLE <qualified local table name>
+       <table element list>
+       [ ON COMMIT { PRESERVE | DELETE } ROWS ]
+
+
+14  Transaction management
+
+
+
+14.1  <set transaction statement>
+
+Function
+
+Set the attributes of the next SQL-transaction for the SQL-agent.
+
+Format
+
+<set transaction statement> ::=
+     SET TRANSACTION <transaction mode> [ { <comma> <transaction mode> }... ]
+
+
+<transaction mode> ::=
+       <isolation level>
+     | <transaction access mode>
+     | <diagnostics size>
+
+<transaction access mode> ::=
+       READ ONLY
+     | READ WRITE
+
+<isolation level> ::=
+     ISOLATION LEVEL <level of isolation>
+
+<level of isolation> ::=
+       READ UNCOMMITTED
+     | READ COMMITTED
+     | REPEATABLE READ
+     | SERIALIZABLE
+
+<diagnostics size> ::=
+     DIAGNOSTICS SIZE <number of conditions>
+
+<number of conditions> ::= <simple value specification>
+
+
+
+14.2  <set constraints mode statement>
+
+Function
+
+If an SQL-transaction is currently active, then set the constraint
+mode for that SQL-transaction in the current SQL-session. If no
+SQL-transaction is currently active, then set the constraint mode
+for the next SQL-transaction in the current SQL-session for the
+SQL-agent.
+
+Format
+
+<set constraints mode statement> ::=
+     SET CONSTRAINTS <constraint name list> { DEFERRED | IMMEDIATE }
+
+
+<constraint name list> ::=
+       ALL
+     | <constraint name> [ { <comma> <constraint name> }... ]
+
+
+14.3  <commit statement>
+
+Function
+
+Terminate the current SQL-transaction with commit.
+
+Format
+
+<commit statement> ::=
+     COMMIT [ WORK ]
+
+
+14.4  <rollback statement>
+
+Function
+
+Terminate the current SQL-transaction with rollback.
+
+Format
+
+<rollback statement> ::=
+     ROLLBACK [ WORK ]
+
+
+15  Connection management
+
+
+
+15.1  <connect statement>
+
+Function
+
+Establish an SQL-connection.
+
+Format
+
+<connect statement> ::=
+     CONNECT TO <connection target>
+
+<connection target> ::=
+       <SQL-server name>
+         [ AS <connection name> ]
+         [ USER <user name> ]
+     | DEFAULT
+
+
+15.2  <set connection statement>
+
+Function
+
+Select an SQL-connection from the available SQL-connections.
+
+Format
+
+<set connection statement> ::=
+     SET CONNECTION <connection object>
+
+<connection object> ::=
+       DEFAULT
+     | <connection name>
+
+15.3  <disconnect statement>
+
+Function
+
+Terminate an SQL-connection.
+
+Format
+
+<disconnect statement> ::=
+     DISCONNECT <disconnect object>
+
+<disconnect object> ::=
+       <connection object>
+     | ALL
+     | CURRENT
+
+
+16  Session management
+
+
+
+16.1  <set catalog statement>
+
+Function
+
+Set the default catalog name for unqualified <schema name>s in
+<preparable statement>s that are prepared in the current SQL-
+session by an <execute immediate statement> or a <prepare state-
+ment> and in <direct SQL statement>s that are invoked directly.
+
+Format
+
+
+<set catalog statement> ::=
+     SET CATALOG <value specification>
+
+
+16.2  <set schema statement>
+
+Function
+
+Set the default schema name for unqualified <qualified name>s in
+<preparable statement>s that are prepared in the current SQL-
+session by an <execute immediate statement> or a <prepare state-
+ment> and in <direct SQL statement>s that are invoked directly.
+
+Format
+
+
+<set schema statement> ::=
+     SET SCHEMA <value specification>
+
+
+16.3  <set names statement>
+
+Function
+
+Set the default character set name for <identifier>s and <character
+string literal>s in <preparable statement>s that are prepared in
+the current SQL-session by an <execute immediate statement> or a
+<prepare statement> and in <direct SQL statement>s that are invoked
+directly.
+
+Format
+
+<set names statement> ::=
+     SET NAMES <value specification>
+
+
+16.4  <set session authorization identifier statement>
+
+Function
+
+Set the <authorization identifier> of the current SQL-session.
+
+Format
+
+<set session authorization identifier statement> ::=
+     SET SESSION AUTHORIZATION <value specification>
+
+
+16.5  <set local time zone statement>
+
+Function
+
+Set the default local time zone displacement for the current SQL-
+session.
+
+Format
+
+<set local time zone statement> ::=
+     SET TIME ZONE <set time zone value>
+
+<set time zone value> ::=
+       <interval value expression>
+     | LOCAL
+
+
+17.2  <allocate descriptor statement>
+
+Function
+
+Allocate an SQL descriptor area.
+
+Format
+
+<allocate descriptor statement> ::=
+     ALLOCATE DESCRIPTOR <descriptor name> [ WITH MAX <occurrences> ]
+
+
+<occurrences> ::= <simple value specification>
+
+
+17.3  <deallocate descriptor statement>
+
+Function
+
+Deallocate an SQL descriptor area.
+
+Format
+
+<deallocate descriptor statement> ::=
+     DEALLOCATE DESCRIPTOR <descriptor name>
+
+
+17.4  <get descriptor statement>
+
+Function
+
+Get information from an SQL descriptor area.
+
+Format
+
+<get descriptor statement> ::=
+     GET DESCRIPTOR <descriptor name> <get descriptor information>
+
+
+<get descriptor information> ::=
+       <get count>
+     | VALUE <item number>
+         <get item information> [ { <comma> <get item information> }... ]
+
+
+<get count> ::=
+     <simple target specification 1> <equals operator> COUNT
+
+<get item information> ::=
+     <simple target specification 2> <equals operator> <descriptor item name>>
+
+
+<item number> ::= <simple value specification>
+
+<simple target specification 1> ::= <simple target specification>
+
+<simple target specification 2> ::= <simple target specification>
+
+<descriptor item name> ::=
+       TYPE
+     | LENGTH
+     | OCTET_LENGTH
+     | RETURNED_LENGTH
+     | RETURNED_OCTET_LENGTH
+     | PRECISION
+     | SCALE
+     | DATETIME_INTERVAL_CODE
+     | DATETIME_INTERVAL_PRECISION
+     | NULLABLE
+     | INDICATOR
+     | DATA
+     | NAME
+     | UNNAMED
+     | COLLATION_CATALOG
+     | COLLATION_SCHEMA
+     | COLLATION_NAME
+     | CHARACTER_SET_CATALOG
+     | CHARACTER_SET_SCHEMA
+     | CHARACTER_SET_NAME
+
+
+17.5  <set descriptor statement>
+
+Function
+
+Set information in an SQL descriptor area.
+
+Format
+
+<set descriptor statement> ::=
+     SET DESCRIPTOR <descriptor name> <set descriptor information>
+
+
+<set descriptor information> ::=
+       <set count>
+     | VALUE <item number>
+         <set item information> [ { <comma> <set item information> }... ]
+
+
+<set count> ::=
+     COUNT <equals operator> <simple value specification 1>
+
+<set item information> ::=
+     <descriptor item name> <equals operator> <simple value specification 2>
+
+
+<simple value specification 1> ::= <simple value specification>
+
+<simple value specification 2> ::= <simple value specification>
+
+<item number> ::= <simple value specification>
+
+
+17.6  <prepare statement>
+
+Function
+
+Prepare a statement for execution.
+
+Format
+
+<prepare statement> ::=
+     PREPARE <SQL statement name> FROM <SQL statement variable>
+
+<SQL statement variable> ::= <simple value specification>
+
+<preparable statement> ::=
+       <preparable SQL data statement>
+     | <preparable SQL schema statement>
+     | <preparable SQL transaction statement>
+     | <preparable SQL session statement>
+     | <preparable implementation-defined statement>
+
+<preparable SQL data statement> ::=
+       <delete statement: searched>
+     | <dynamic single row select statement>
+     | <insert statement>
+     | <dynamic select statement>
+     | <update statement: searched>
+     | <preparable dynamic delete statement: positioned>
+     | <preparable dynamic update statement: positioned>
+
+<preparable SQL schema statement> ::=
+       <SQL schema statement>
+
+<preparable SQL transaction statement> ::=
+       <SQL transaction statement>
+
+<preparable SQL session statement> ::=
+       <SQL session statement>
+
+<dynamic select statement> ::= <cursor specification>
+
+<dynamic single row select statement> ::= <query specification>
+
+<preparable implementation-defined statement> ::= !! See the Syntax
+Rules.
+
+
+17.7  <deallocate prepared statement>
+
+Function
+
+Deallocate SQL-statements that have been prepared with a <prepare
+statement>.
+
+Format
+
+<deallocate prepared statement> ::=
+     DEALLOCATE PREPARE <SQL statement name>
+
+
+17.8  <describe statement>
+
+Function
+
+Obtain information about the <select list> columns or <dynamic
+parameter specification>s contained in a prepared statement.
+
+Format
+
+<describe statement> ::=
+       <describe input statement>
+     | <describe output statement>
+
+<describe input statement> ::=
+     DESCRIBE INPUT <SQL statement name> <using descriptor>
+
+<describe output statement> ::=
+     DESCRIBE [ OUTPUT ] <SQL statement name> <using descriptor>
+
+
+17.9  <using clause>
+
+Function
+
+Describe the input/output variables for an <SQL dynamic statement>.
+
+Format
+
+
+<using clause> ::=
+       <using arguments>
+     | <using descriptor>
+
+<using arguments> ::=
+     { USING | INTO } <argument> [ { <comma> <argument> }... ]
+
+<argument> ::= <target specification>
+
+<using descriptor> ::=
+     { USING | INTO } SQL DESCRIPTOR <descriptor name>
+
+
+17.10  <execute statement>
+
+Function
+
+Associate input parameters and output targets with a prepared
+statement and execute the statement.
+
+Format
+
+<execute statement> ::=
+     EXECUTE <SQL statement name>
+       [ <result using clause> ]
+       [ <parameter using clause> ]
+
+<result using clause> ::= <using clause>
+
+<parameter using clause> ::= <using clause>
+
+
+17.11  <execute immediate statement>
+
+Function
+
+Dynamically prepare and execute a preparable statement.
+
+Format
+
+<execute immediate statement> ::=
+     EXECUTE IMMEDIATE <SQL statement variable>
+
+
+17.12  <dynamic declare cursor>
+
+Function
+
+Declare a cursor to be associated with a <statement name>, which
+may in turn be associated with a <cursor specification>.
+
+Format
+
+<dynamic declare cursor> ::=
+     DECLARE <cursor name> [ INSENSITIVE ] [ SCROLL ] CURSOR
+     FOR <statement name>
+
+
+17.13  <allocate cursor statement>
+
+Function
+
+Define a cursor based on a <prepare statement> for a <cursor speci-
+fication>.
+
+Format
+
+<allocate cursor statement> ::=
+     ALLOCATE <extended cursor name> [ INSENSITIVE ] [ SCROLL ] CURSOR
+       FOR <extended statement name>
+
+
+17.14  <dynamic open statement>
+
+Function
+
+Associate input parameters with a <cursor specification> and open
+the cursor.
+
+Format
+
+<dynamic open statement> ::=
+     OPEN <dynamic cursor name> [ <using clause> ]
+
+17.15  <dynamic fetch statement>
+
+Function
+
+Fetch a row for a cursor declared with a <dynamic declare cursor>.
+
+Format
+
+<dynamic fetch statement> ::=
+     FETCH [ [ <fetch orientation> ] FROM ] <dynamic cursor name>
+     <using clause>
+
+17.16  <dynamic close statement>
+
+Function
+
+Close a cursor.
+
+Format
+
+<dynamic close statement> ::=
+     CLOSE <dynamic cursor name>
+
+
+17.17  <dynamic delete statement: positioned>
+
+Function
+
+Delete a row of a table.
+
+Format
+
+<dynamic delete statement: positioned> ::=
+     DELETE FROM <table name>
+       WHERE CURRENT OF <dynamic cursor name>
+
+
+17.18  <dynamic update statement: positioned>
+
+Function
+
+Update a row of a table.
+
+Format
+
+<dynamic update statement: positioned> ::=
+     UPDATE <table name>
+       SET <set clause> [ { <comma> <set clause> }... ]
+         WHERE CURRENT OF <dynamic cursor name>
+
+
+17.19  <preparable dynamic delete statement: positioned>
+
+Function
+
+Delete a row of a table through a dynamic cursor.
+
+Format
+
+<preparable dynamic delete statement: positioned> ::=
+     DELETE [ FROM <table name> ]
+       WHERE CURRENT OF <cursor name>
+
+
+17.20  <preparable dynamic update statement: positioned>
+
+Function
+
+Update a row of a table through a dynamic cursor.
+
+Format
+
+<preparable dynamic update statement: positioned> ::=
+     UPDATE [ <table name> ]
+       SET <set clause list>
+       WHERE CURRENT OF <cursor name>
+
+
+18  Diagnostics management
+
+
+
+18.1  <get diagnostics statement>
+
+Function
+
+Get exception or completion condition information from the diagnos-
+tics area.
+
+Format
+
+<get diagnostics statement> ::=
+     GET DIAGNOSTICS <sql diagnostics information>
+
+<sql diagnostics information> ::=
+       <statement information>
+     | <condition information>
+
+<statement information> ::=
+     <statement information item> [ { <comma> <statement information item> }... ]
+
+
+<statement information item> ::=
+     <simple target specification> <equals operator> <statement information item name>
+
+
+<statement information item name> ::=
+       NUMBER
+     | MORE
+     | COMMAND_FUNCTION
+     | DYNAMIC_FUNCTION
+     | ROW_COUNT
+
+<condition information> ::=
+     EXCEPTION <condition number>
+       <condition information item> [ { <comma> <condition information item> }... ]
+
+
+<condition information item> ::=
+     <simple target specification> <equals operator> <condition information item name>
+
+
+<condition information item name> ::=
+       CONDITION_NUMBER
+     | RETURNED_SQLSTATE
+     | CLASS_ORIGIN
+     | SUBCLASS_ORIGIN
+     | SERVER_NAME
+     | CONNECTION_NAME
+     | CONSTRAINT_CATALOG
+     | CONSTRAINT_SCHEMA
+     | CONSTRAINT_NAME
+     | CATALOG_NAME
+     | SCHEMA_NAME
+     | TABLE_NAME
+     | COLUMN_NAME
+     | CURSOR_NAME
+     | MESSAGE_TEXT
+     | MESSAGE_LENGTH
+     | MESSAGE_OCTET_LENGTH
+
+<condition number> ::= <simple value specification>
+
+
+19  Embedded SQL
+
+
+
+19.1  <embedded SQL host program>
+
+Function
+
+Specify an <embedded SQL host program>.
+
+Format
+
+<embedded SQL host program> ::=
+       <embedded SQL Ada program>
+     | <embedded SQL C program>
+     | <embedded SQL COBOL program>
+     | <embedded SQL Fortran program>
+     | <embedded SQL MUMPS program>
+     | <embedded SQL Pascal program>
+     | <embedded SQL PL/I program>
+
+<embedded SQL statement> ::=
+     <SQL prefix>
+       <statement or declaration>
+     [ <SQL terminator> ]
+
+<statement or declaration> ::=
+       <declare cursor>
+     | <dynamic declare cursor>
+     | <temporary table declaration>
+     | <embedded exception declaration>
+     | <SQL procedure statement>
+
+<SQL prefix> ::=
+       EXEC SQL
+     | <ampersand>SQL<left paren>
+
+<SQL terminator> ::=
+       END-EXEC
+     | <semicolon>
+     | <right paren>
+
+<embedded SQL declare section> ::=
+       <embedded SQL begin declare>
+         [ <embedded character set declaration> ]
+         [ <host variable definition>... ]
+       <embedded SQL end declare>
+     | <embedded SQL MUMPS declare>
+
+<embedded character set declaration> ::=
+     SQL NAMES ARE <character set specification>
+
+<embedded SQL begin declare> ::=
+     <SQL prefix> BEGIN DECLARE SECTION [ <SQL terminator> ]
+
+<embedded SQL end declare> ::=
+     <SQL prefix> END DECLARE SECTION [ <SQL terminator> ]
+
+<embedded SQL MUMPS declare> ::=
+     <SQL prefix>
+       BEGIN DECLARE SECTION
+         [ <embedded character set declaration> ]
+         [ <host variable definition>... ]
+       END DECLARE SECTION
+     <SQL terminator>
+
+<host variable definition> ::=
+       <Ada variable definition>
+     | <C variable definition>
+     | <COBOL variable definition>
+     | <Fortran variable definition>
+     | <MUMPS variable definition>
+     | <Pascal variable definition>
+     | <PL/I variable definition>
+
+<embedded variable name> ::=
+     <colon><host identifier>
+
+<host identifier> ::=
+       <Ada host identifier>
+     | <C host identifier>
+     | <COBOL host identifier>
+     | <Fortran host identifier>
+     | <MUMPS host identifier>
+     | <Pascal host identifier>
+     | <PL/I host identifier>
+
+
+19.2  <embedded exception declaration>
+
+Function
+
+Specify the action to be taken when an SQL-statement causes a spe-
+cific class of condition to be raised.
+
+Format
+
+<embedded exception declaration> ::=
+     WHENEVER <condition> <condition action>
+
+<condition> ::=
+     SQLERROR | NOT FOUND
+
+<condition action> ::=
+     CONTINUE | <go to>
+
+<go to> ::=
+     { GOTO | GO TO } <goto target>
+
+<goto target> ::=
+       <host label identifier>
+     | <unsigned integer>
+     | <host PL/I label variable>
+
+<host label identifier> ::= !!See the Syntax Rules.
+
+<host PL/I label variable> ::= !!See the Syntax Rules.
+
+19.3  <embedded SQL Ada program>
+
+Function
+
+Specify an <embedded SQL Ada program>.
+
+Format
+
+<embedded SQL Ada program> ::= !! See the Syntax Rules.
+
+<Ada variable definition> ::=
+     <Ada host identifier> [ { <comma> <Ada host identifier> }... ] :
+
+     <Ada type specification> [ <Ada initial value> ]
+
+<Ada initial value> ::=
+     <Ada assignment operator> <character representation>...
+
+<Ada assignment operator> ::= <colon><equals operator>
+
+<Ada host identifier> ::= !! See the Syntax Rules.
+
+<Ada type specification> ::=
+       <Ada qualified type specification>
+     | <Ada unqualified type specification>
+
+<Ada qualified type specification> ::=
+       SQL_STANDARD.CHAR [ CHARACTER SET [ IS ] <character set specification> ]
+
+           <left paren> 1 <double period> <length> <right paren>
+     | SQL_STANDARD.BIT <left paren> 1 <double period> <length> <right paren>
+
+     | SQL_STANDARD.SMALLINT
+     | SQL_STANDARD.INT
+     | SQL_STANDARD.REAL
+     | SQL_STANDARD.DOUBLE_PRECISION
+     | SQL_STANDARD.SQLCODE_TYPE
+     | SQL_STANDARD.SQLSTATE_TYPE
+     | SQL_STANDARD.INDICATOR_TYPE
+
+<Ada unqualified type specification> ::=
+       CHAR <left paren> 1 <double period> <length> <right paren>
+     | BIT <left paren> 1 <double period> <length> <right paren>
+     | SMALLINT
+     | INT
+     | REAL
+     | DOUBLE_PRECISION
+     | SQLCODE_TYPE
+     | SQLSTATE_TYPE
+     | INDICATOR_TYPE
+
+19.4  <embedded SQL C program>
+
+Function
+
+Specify an <embedded SQL C program>.
+
+Format
+
+<embedded SQL C program> ::= !! See the Syntax Rules.
+
+<C variable definition> ::=
+       [ <C storage class> ]
+       [ <C class modifier> ]
+       <C variable specification>
+     <semicolon>
+
+<C variable specification> ::=
+       <C numeric variable>
+     | <C character variable>
+     | <C derived variable>
+
+<C storage class> ::=
+       auto
+     | extern
+     | static
+
+<C class modifier> ::= const | volatile
+
+<C numeric variable> ::=
+     { long | short | float | double }
+       <C host identifier> [ <C initial value> ]
+             [ { <comma> <C host identifier> [ <C initial value> ] }... ]
+
+
+<C character variable> ::=
+     char [ CHARACTER SET [ IS ] <character set specification> ]
+       <C host identifier> <C array specification> [ <C initial value> ]
+
+         [ { <comma> <C host identifier> <C array specification>
+                  [ <C initial value> ] }... ]
+
+<C array specification> ::=
+     <left bracket> <length> <right bracket>
+
+<C host identifier> ::= !! See the Syntax Rules.
+
+<C derived variable> ::=
+       <C VARCHAR variable>
+     | <C bit variable>
+
+<C VARCHAR variable> ::=
+     VARCHAR [ CHARACTER SET [ IS ] <character set specification> ]
+         <C host identifier> <C array specification> [ <C initial value> ]
+
+           [ { <comma> <C host identifier> <C array specification>
+
+                       [ <C initial value> ] }... ]
+
+<C bit variable> ::=
+     BIT <C host identifier> <C array specification> [ <C initial value> ]
+
+       [ { <comma> <C host identifier> <C array specification>
+                    [ <C initial value> ] }... ]
+
+<C initial value> ::=
+     <equals operator> <character representation>...
+
+19.5  <embedded SQL COBOL program>
+
+Function
+
+Specify an <embedded SQL COBOL program>.
+
+Format
+
+<embedded SQL COBOL program> ::= !! See the Syntax Rules.
+
+<COBOL variable definition> ::=
+     {01|77} <COBOL host identifier> <COBOL type specification>
+       [ <character representation>... ] <period>
+
+<COBOL host identifier> ::= !! See the Syntax Rules.
+
+<COBOL type specification> ::=
+       <COBOL character type>
+     | <COBOL bit type>
+     | <COBOL numeric type>
+     | <COBOL integer type>
+
+<COBOL character type> ::=
+     [ CHARACTER SET [ IS ] <character set specification> ]
+     { PIC | PICTURE } [ IS ] { X [ <left paren> <length> <right paren> ] }...
+
+
+<COBOL bit type> ::=
+     { PIC | PICTURE } [ IS ] { B [ <left paren> <length> <right paren> ] }...
+
+
+<COBOL numeric type> ::=
+     { PIC | PICTURE } [ IS ]
+       S <COBOL nines specification>
+     [ USAGE [ IS ] ] DISPLAY SIGN LEADING SEPARATE
+
+<COBOL nines specification> ::=
+       <COBOL nines> [ V [ <COBOL nines> ] ]
+     | V <COBOL nines>
+
+<COBOL integer type> ::=
+       <COBOL computational integer>
+     | <COBOL binary integer>
+
+<COBOL computational integer> ::=
+     { PIC | PICTURE } [ IS ] S<COBOL nines>
+       [ USAGE [ IS ] ] { COMP | COMPUTATIONAL }
+
+<COBOL binary integer> ::=
+     { PIC | PICTURE } [ IS ] S<COBOL nines>
+       [ USAGE [ IS ] ] BINARY
+
+<COBOL nines> ::= { 9 [ <left paren> <length> <right paren> ] }...
+
+19.6  <embedded SQL Fortran program>
+
+Function
+
+Specify an <embedded SQL Fortran program>.
+
+Format
+
+<embedded SQL Fortran program> ::= !! See the Syntax Rules.
+
+<Fortran variable definition> ::=
+     <Fortran type specification>
+     <Fortran host identifier> [ { <comma> <Fortran host identifier> }... ]
+
+
+<Fortran host identifier> ::= !! See the Syntax Rules.
+
+<Fortran type specification> ::=
+       CHARACTER [ <asterisk> <length> ]
+           [ CHARACTER SET [ IS ] <character set specification> ]
+     | BIT [ <asterisk> <length> ]
+     | INTEGER
+     | REAL
+     | DOUBLE PRECISION
+
+19.7  <embedded SQL MUMPS program>
+
+Function
+
+Specify an <embedded SQL MUMPS program>.
+
+Format
+
+<embedded SQL MUMPS program> ::= !! See the Syntax Rules.
+
+<MUMPS variable definition> ::=
+     { <MUMPS numeric variable> | <MUMPS character variable> }
+     <semicolon>
+
+<MUMPS character variable> ::=
+     VARCHAR <MUMPS host identifier> <MUMPS length specification>
+       [ { <comma> <MUMPS host identifier> <MUMPS length specification> }... ]
+
+
+<MUMPS host identifier> ::= !! See the Syntax Rules.
+
+<MUMPS length specification> ::=
+     <left paren> <length> <right paren>
+
+<MUMPS numeric variable> ::=
+     <MUMPS type specification>
+       <MUMPS host identifier> [ { <comma> <MUMPS host identifier> }... ]
+
+
+<MUMPS type specification> ::=
+       INT
+     | DEC [ <left paren> <precision> [ <comma> <scale> ] <right paren> ]
+
+     | REAL
+
+19.8  <embedded SQL Pascal program>
+
+Function
+
+Specify an <embedded SQL Pascal program>.
+
+Format
+
+<embedded SQL Pascal program> ::= !! See the Syntax Rules.
+
+<Pascal variable definition> ::=
+     <Pascal host identifier> [ { <comma> <Pascal host identifier> }... ] <colon>
+
+       <Pascal type specification> <semicolon>
+
+<Pascal host identifier> ::= !! See the Syntax Rules.
+
+<Pascal type specification> ::=
+       PACKED ARRAY <left bracket> 1 <double period> <length> <right bracket>
+
+         OF CHAR
+           [ CHARACTER SET [ IS ] <character set specification> ]
+     | PACKED ARRAY <left bracket> 1 <double period> <length> <right bracket>
+
+         OF BIT
+     | INTEGER
+     | REAL
+     | CHAR [ CHARACTER SET [ IS ] <character set specification> ]
+
+     | BIT
+
+19.9  <embedded SQL PL/I program>
+
+Function
+
+Specify an <embedded SQL PL/I program>.
+
+Format
+
+<embedded SQL PL/I program> ::= !! See the Syntax Rules.
+
+<PL/I variable definition> ::=
+     {DCL | DECLARE}
+        {   <PL/I host identifier>
+          | <left paren> <PL/I host identifier>
+                 [ { <comma> <PL/I host identifier> }... ] <right paren> }
+
+     <PL/I type specification>
+     [ <character representation>... ] <semicolon>
+
+<PL/I host identifier> ::= !! See the Syntax Rules.
+
+<PL/I type specification> ::=
+       { CHAR | CHARACTER } [ VARYING ] <left paren><length><right paren>
+
+           [ CHARACTER SET [ IS ] <character set specification> ]
+     | BIT [ VARYING ] <left paren><length><right paren>
+     | <PL/I type fixed decimal> <left paren> <precision>
+           [ <comma> <scale> ] <right paren>
+     | <PL/I type fixed binary> [ <left paren> <precision> <right paren> ]
+
+     | <PL/I type float binary> <left paren> <precision> <right paren>
+
+
+<PL/I type fixed decimal> ::=
+       { DEC | DECIMAL } FIXED
+     | FIXED { DEC | DECIMAL }
+
+<PL/I type fixed binary> ::=
+       { BIN | BINARY } FIXED
+     | FIXED { BIN | BINARY }
+
+<PL/I type float binary> ::=
+       { BIN | BINARY } FLOAT
+     | FLOAT { BIN | BINARY }
+
+
+20  Direct invocation of SQL
+
+
+
+20.1  <direct SQL statement>
+
+Function
+
+Specify direct execution of SQL.
+
+Format
+
+<direct SQL statement> ::=
+     <directly executable statement> <semicolon>
+
+<directly executable statement> ::=
+       <direct SQL data statement>
+     | <SQL schema statement>
+     | <SQL transaction statement>
+     | <SQL connection statement>
+     | <SQL session statement>
+     | <direct implementation-defined statement>
+
+<direct SQL data statement> ::=
+       <delete statement: searched>
+     | <direct select statement: multiple rows>
+     | <insert statement>
+     | <update statement: searched>
+     | <temporary table declaration>
+
+<direct implementation-defined statement> ::= !!See the Syntax
+Rules
+
+20.2  <direct select statement: multiple rows>
+
+Function
+
+Specify a statement to retrieve multiple rows from a specified
+table.
+
+Format
+
+<direct select statement: multiple rows> ::=
+     <query expression> [ <order by clause> ]

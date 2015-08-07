@@ -1,0 +1,582 @@
+
+5 Lexical elements
+
+This Clause modifies Clause 5, “Lexical elements”, in ISO/IEC 9075-2.
+
+
+
+5.1      <token> and <separator>
+
+Function
+Specify lexical units (tokens and separators) that participate in SQL language.
+
+
+Format
+<non-reserved word> ::=
+    !! All alternatives from ISO/IEC 9075-2
+
+  | CONDITION_IDENTIFIER
+
+  | EXIT
+
+  | STACKED
+
+  | UNDO
+
+<reserved word> ::=
+    !! All alternatives from ISO/IEC 9075-2
+
+  | DO
+
+  | ELSEIF
+
+  | HANDLER
+
+  | IF | ITERATE
+
+  | LEAVE | LOOP
+
+  | REPEAT | RESIGNAL
+
+  | SIGNAL
+
+  | UNTIL
+
+  | WHILE
+
+5.2        Names and identifiers
+
+Function
+Specify names.
+
+
+Format
+<SQL-server module name> ::=
+  <schema qualified name>
+
+<SQL variable name> ::=
+  <identifier>
+
+<condition name> ::=
+  <identifier>
+
+6 Scalar expressions
+
+6.1      <value specification> and <target specification>
+
+Function
+Specify one or more values, host parameters, SQL parameters, dynamic parameters, host variables, or SQL
+variables.
+
+
+Format
+<general value specification> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL variable reference>
+
+<simple value specification> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL variable reference>
+
+<target specification> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL variable reference>
+
+<simple target specification> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL variable reference>
+
+<target array reference> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL variable reference>
+
+6.4      <SQL variable reference>
+
+Function
+Reference an SQL variable.
+
+
+Format
+<SQL variable reference> ::=
+  <basic identifier chain>
+
+8.2        <sqlstate value>
+
+Function
+Specify an SQLSTATE value.
+
+
+Format
+<sqlstate value> ::=
+  SQLSTATE [ VALUE ] <character string literal>
+
+9 Schema definition and manipulation
+
+9.1      <schema definition>
+
+Function
+Define a schema.
+
+
+Format
+<schema element> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL-server module definition>
+
+9.19 <trigger definition>
+
+Function
+Defined triggered SQL-statements.
+
+
+Format
+<triggered SQL statement> ::=
+  <SQL procedure statement>
+     NOTE 12 — The preceding production defining <triggered SQL statement> completely supersedes the definition in [ISO9075-2].
+
+9.21 <SQL-server module definition>
+
+Function
+Define an SQL-server module.
+
+
+Format
+<SQL-server module definition> ::=
+  CREATE MODULE <SQL-server module name>
+      [ <SQL-server module character set specification> ]
+      [ <SQL-server module schema clause> ]
+      [ <SQL-server module path specification> ]
+      [ <temporary table declaration>... ]
+      <SQL-server module contents>...
+      END MODULE
+
+<SQL-server module character set specification> ::=
+  NAMES ARE <character set specification>
+
+<SQL-server module schema clause> ::=
+  SCHEMA <default schema name>
+
+<default schema name> ::=
+  <schema name>
+
+<SQL-server module path specification> ::=
+  <path specification>
+
+<SQL-server module contents> ::=
+  <SQL-invoked routine> <semicolon>
+
+9.22 <drop module statement>
+
+Function
+Destroy an SQL-server module.
+
+
+Format
+<drop module statement> ::=
+  DROP MODULE <SQL-server module name> <drop behavior>
+
+9.24 <SQL-invoked routine>
+
+Function
+Define an SQL-invoked routine.
+
+
+Format
+<SQL-invoked routine> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <module routine>
+
+<module routine> ::=
+    <module procedure>
+  | <module function>
+
+<module procedure> ::=
+  [ DECLARE ] <SQL-invoked procedure>
+
+<module function> ::=
+  [ DECLARE ] <SQL-invoked function>
+
+10.2 <privileges>
+
+This Subclause modifies Subclause 12.3, “<privileges>”, in ISO/IEC 9075-2.
+
+
+Function
+Specify privileges.
+
+
+Format
+<object name> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | MODULE <SQL-server module name>
+
+11.2 <SQL procedure statement>
+
+Function
+Define all of the SQL-statements that are <SQL procedure statement>s.
+
+
+Format
+<SQL schema definition statement> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <SQL-server module definition>
+
+<SQL schema manipulation statement> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <drop module statement>
+
+<SQL control statement> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <assignment statement>
+  | <compound statement>
+  | <case statement>
+  | <if statement>
+  | <iterate statement>
+  | <leave statement>
+  | <loop statement>
+  | <while statement>
+  | <repeat statement>
+  | <for statement>
+
+<SQL diagnostics statement> ::=
+    !! All alternatives from ISO/IEC 9075-2
+  | <signal statement>
+  | <resignal statement>
+
+14.1 <compound statement>
+
+Function
+Specify a statement that groups other statements together.
+
+
+Format
+<compound statement> ::=
+  [ <beginning label> <colon> ] BEGIN [ [ NOT ] ATOMIC ]
+      [ <local declaration list> ] [ <local cursor declaration list> ]
+      [ <local handler declaration list> ]
+      [ <SQL statement list> ]
+      END [ <ending label> ]
+
+<beginning label> ::=
+  <statement label>
+
+<ending label> ::=
+  <statement label>
+
+<statement label> ::=
+  <identifier>
+
+<local declaration list> ::=
+  <terminated local declaration>...
+
+<terminated local declaration> ::=
+  <local declaration> <semicolon>
+
+<local declaration> ::=
+    <SQL variable declaration>
+  | <condition declaration>
+
+<local cursor declaration list> ::=
+  <terminated local cursor declaration>...
+
+<terminated local cursor declaration> ::=
+  <declare cursor> <semicolon>
+
+<local handler declaration list> ::=
+  <terminated local handler declaration>...
+
+<terminated local handler declaration> ::=
+  <handler declaration> <semicolon>
+
+<SQL statement list> ::=
+  <terminated SQL statement>...
+
+<terminated SQL statement> ::=
+  <SQL procedure statement> <semicolon>
+
+14.2 <handler declaration>
+
+Function
+Associate a handler with exception or completion conditions to be handled in a module or compound statement.
+
+
+Format
+<handler declaration> ::=
+  DECLARE <handler type> HANDLER FOR <condition value list> <handler action>
+
+<handler type> ::=
+    CONTINUE
+  | EXIT
+  | UNDO
+
+<handler action> ::=
+  <SQL procedure statement>
+
+<condition value list> ::=
+  <condition value> [ { <comma> <condition value> }... ]
+
+<condition value> ::=
+    <sqlstate value>
+  | <condition name>
+  | SQLEXCEPTION
+  | SQLWARNING
+  | NOT FOUND
+
+14.3 <condition declaration>
+
+Function
+Declare a condition name and an optional corresponding SQLSTATE value.
+
+
+Format
+<condition declaration> ::=
+  DECLARE <condition name> CONDITION [ FOR <sqlstate value> ]
+
+14.4 <SQL variable declaration>
+
+Function
+Declare one or more variables.
+
+
+Format
+<SQL variable declaration> ::=
+  DECLARE <SQL variable name list> <data type> [ <default clause> ]
+
+<SQL variable name list> ::=
+  <SQL variable name> [ { <comma> <SQL variable name> }... ]
+
+14.5 <assignment statement>
+
+Function
+Assign a value to an SQL variable, SQL parameter, host parameter, or host variable.
+
+
+Format
+<assignment statement> ::=
+    <singleton variable assignment>
+  | <multiple variable assignment>
+
+<multiple variable assignment> ::=
+  SET <assignment target list> <equals operator> <assigned row>
+
+<assignment target list> ::=
+  <left paren> <assignment target> [ { <comma> <assignment target> }... ] <right paren>
+
+<singleton variable assignment> ::=
+  SET <assignment target> <equals operator> <assignment source>
+
+<assignment target> ::=
+    <target specification>
+  | <modified field reference>
+  | <mutator reference>
+
+<assignment source> ::=
+    <value expression>
+  | <contextually typed source>
+
+<contextually typed source> ::=
+    <implicitly typed value specification>
+  | <contextually typed row value expression>
+
+<modified field reference> ::=
+  <modified field target> <period> <field name>
+
+<modified field target> ::=
+    <target specification>
+  | <left paren> <target specification> <right paren>
+  | <modified field reference>
+
+<mutator reference> ::=
+  <mutated target specification> <period> <method name>
+
+<mutated target specification> ::=
+    <target specification>
+  | <left paren> <target specification> <right paren>
+  | <mutator reference>
+
+14.6 <case statement>
+
+Function
+Provide conditional execution based on truth of <search condition>s or on equality of operands.
+
+
+Format
+<case statement> ::=
+    <simple case statement>
+  | <searched case statement>
+
+<simple case statement> ::=
+  CASE <case operand>
+      <simple case statement when clause>...
+      [ <case statement else clause> ]
+      END CASE
+
+<searched case statement> ::=
+  CASE <searched case statement when clause>...
+      [ <case statement else clause> ]
+      END CASE
+
+<simple case statement when clause> ::=
+  WHEN <when operand list>
+      THEN <SQL statement list>
+
+<searched case statement when clause> ::=
+  WHEN <search condition>
+      THEN <SQL statement list>
+
+<case statement else clause> ::=
+  ELSE <SQL statement list>
+
+14.7 <if statement>
+
+Function
+Provide conditional execution based on the truth value of a condition.
+
+
+Format
+<if statement> ::=
+  IF <search condition>
+      <if statement then clause>
+      [ <if statement elseif clause>... ]
+      [ <if statement else clause> ]
+      END IF
+
+<if statement then clause> ::=
+  THEN <SQL statement list>
+
+<if statement elseif clause> ::=
+  ELSEIF <search condition> THEN <SQL statement list>
+
+<if statement else clause> ::=
+  ELSE <SQL statement list>
+
+14.8 <iterate statement>
+
+Function
+Terminate the execution of an iteration of an iterated SQL-statement.
+
+
+Format
+<iterate statement> ::=
+  ITERATE <statement label>
+
+14.9 <leave statement>
+
+Function
+Continue execution by leaving a labeled statement.
+
+
+Format
+<leave statement> ::=
+  LEAVE <statement label>
+
+14.10 <loop statement>
+
+Function
+Repeat the execution of a statement.
+
+
+Format
+<loop statement> ::=
+  [ <beginning label> <colon> ]
+      LOOP
+      <SQL statement list>
+      END LOOP [ <ending label> ]
+
+14.11 <while statement>
+
+Function
+While a specified condition is True, repeat the execution of a statement.
+
+
+Format
+<while statement> ::=
+  [ <beginning label> <colon> ]
+      WHILE <search condition> DO
+      <SQL statement list>
+      END WHILE [ <ending label> ]
+
+14.12 <repeat statement>
+
+Function
+Repeat the execution of a statement.
+
+
+Format
+<repeat statement> ::=
+  [ <beginning label> <colon> ]
+      REPEAT
+      <SQL statement list>
+      UNTIL <search condition>
+      END REPEAT [ <ending label> ]
+
+14.13 <for statement>
+
+Function
+Execute a statement for each row of a table.
+
+
+Format
+<for statement> ::=
+  [ <beginning label> <colon> ]
+      FOR [ <for loop variable name> AS ]
+      [ <cursor name> [ <cursor sensitivity> ] CURSOR FOR ]
+      <cursor specification>
+      DO <SQL statement list>
+      END FOR [ <ending label> ]
+
+<for loop variable name> ::=
+  <identifier>
+
+17 Diagnostics management
+
+17.1 <get diagnostics statement>
+
+Function
+Get exception or completion condition information from the diagnostics area.
+
+
+Format
+<get diagnostics statement> ::=
+  GET [ <which area> ] DIAGNOSTICS <SQL diagnostics information>
+
+<which area> ::=
+    CURRENT
+  | STACKED
+
+<condition information item name> ::=
+    !! All alternatives from [ISO9075-2]
+  | CONDITION_IDENTIFIER
+
+17.2 <signal statement>
+
+Function
+Signal an exception condition.
+
+
+Format
+<signal statement> ::=
+  SIGNAL <signal value> [ <set signal information> ]
+
+<signal value> ::=
+    <condition name>
+  | <sqlstate value>
+
+<set signal information> ::=
+  SET <signal information item list>
+
+<signal information item list> ::=
+  <signal information item> [ { <comma> <signal information item> }... ]
+
+<signal information item> ::=
+  <condition information item name> <equals operator> <simple value specification>
+
+17.3 <resignal statement>
+
+Function
+Resignal an exception condition.
+
+
+Format
+<resignal statement> ::=
+  RESIGNAL [ <signal value> ] [ <set signal information> ]

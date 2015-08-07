@@ -1,0 +1,120 @@
+This project contains grammars for the ANSI SQL Standards (taken from
+the drafts).
+
+
+Cover most of the SQL Standard:
+
+explain what the concepts are. Document the names for these in the SQL
+standard, and what names products use.
+
+Focus mostly on grammar, but also on semantics. Explain and give
+examples of sql source, and cover the availability of these in sql
+products, mentioning the compatibility with the standard and other
+products, and the jargon used for each product.
+
+The reader should go away with:
+
+* an understanding of what is in the standard and what the names of
+  things really mean
+
+* an understanding of which bits of the standard are widely supported,
+  which bits are widely supported but with varying syntax or
+  behaviour, and which bits exist only in the minds of the sql
+  standards people and don't relate to reality
+
+* an understanding of why features exist and what purpose they are for
+
+* an understanding of which features are supported in a range of
+  common products
+
+* a good and in depth appreciation for sql's strengths and weaknesses
+
+Provisional product list ideas: db2, oracle, sql server, sap dbmss,
+postgresql, mysql.
+
+TODO: cross referenced grammar
+
+What kinds of features are in the standards:
+
+1 syntax which everyone supports
+2 syntax which many dbmss support
+3 features which many dbmss support with different syntax
+4 features which many dbmss support, possibly with different syntax,
+  with not very similar semantics
+5 features which no or very few dbmss support
+
+-------
+
+TOC ideas:
+databases, tables, queries, updates
+
+scalar types
+type constructors: row, array, multiset
+scalar expressions
+dml
+  queries
+
+    queries
+    select list
+    table ref, joins
+    aggregates, group by, grouping sets
+    window functions
+    where, having
+    limit, offset
+    order by
+    set operations
+    cte
+    array unnest and variations?
+    subqueries, csq, lateral
+
+  updates
+    delete
+    truncate
+    insert
+    merge
+    update
+  cursors
+  temporary tables ??
+ddl, schemas
+    tables, columns
+    defaults, identity, sequences
+    constraints, unique/pk, not null, referential, check
+    alter table
+    table periods, system versioning
+    other schema objects
+
+locators??
+transaction management
+session management
+catalog
+access control
+
+clients, servers, sessions, connections
+databases, 'catalog clusters', and schemas
+
+control statements
+connection management
+diagnostics
+
+dynamic sql
+embedded sql
+direct invocation
+
+procedural sql
+external data
+extensibility
+
+call level interface
+persistent stored modules
+management of external data
+object language bindings (java?)
+information and definition schema
+java
+xml
+
+
+--------------------------
+
+postgres manual says that there are 179 mandatory features for 2011
+core conformance, postgres does 160, and no database product does all
+of these
