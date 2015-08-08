@@ -7,6 +7,13 @@ adds anchors to the start of each grammar def
 adds anchor links in the grammar def bodies
 adds blocks around the grammar defs
 
+TODO:
+
+add backreferences from grammer def names to usage sites (in
+side bar?)
+
+get links working e.g. from psm to foundation doc
+
 > import Data.Char
 > --import System.Environment
 > --import Data.List

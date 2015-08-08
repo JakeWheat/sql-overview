@@ -100,6 +100,8 @@ Format
 <SQL variable reference> ::=
   <basic identifier chain>
 
+8 Persistent Stored Modules (SQL/PSM)
+
 8.2        <sqlstate value>
 
 Function
@@ -196,6 +198,8 @@ Format
 <module function> ::=
   [ DECLARE ] <SQL-invoked function>
 
+10 Access control
+
 10.2 <privileges>
 
 This Subclause modifies Subclause 12.3, “<privileges>”, in ISO/IEC 9075-2.
@@ -209,6 +213,8 @@ Format
 <object name> ::=
     !! All alternatives from ISO/IEC 9075-2
   | MODULE <SQL-server module name>
+
+11 SQL-client modules
 
 11.2 <SQL procedure statement>
 
@@ -242,6 +248,8 @@ Format
     !! All alternatives from ISO/IEC 9075-2
   | <signal statement>
   | <resignal statement>
+
+14 Control statements
 
 14.1 <compound statement>
 

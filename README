@@ -10,7 +10,7 @@ Cover most of the SQL Standard:
 
 explain what the concepts are. Document the names for these in the SQL
 standard, and what names products use.
-xs
+
 Focus mostly on grammar, but also on semantics. Explain and give
 examples of sql source, and cover the availability of these in sql
 products, mentioning the compatibility with the standard and other
