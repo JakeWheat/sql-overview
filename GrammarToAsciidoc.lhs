@@ -97,10 +97,11 @@ example:
 
 > addBlocks True (x:xs) = x:addBlocks True xs
 
-add a newline after function header so it renders nicely
+add a newline after function,format headers so they render nicely
 
-> addBlocks False (x:xs) | trim x == "Function" =
->     ".Function":"":addBlocks False xs
+> addBlocks False (x:xs) | trim x `elem` headers =
+>     ('.':x):"":addBlocks False xs
+>   where headers = ["Function","Format"]
 
 section titles
 

@@ -3,3 +3,4 @@
 *.hi
 *.o
 /cabal.sandbox.config
+/build/

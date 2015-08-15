@@ -1,5 +1,131 @@
 
-= SQL Grammars
+:toc: right
+:toclevels: 8
+
+= SQL overview
+
+== Overview
+
+WIP
+
+This is a project to review SQL: run through the standard and explain
+what each feature is, explain the jargon terms, explain why the
+feature exists, and explain the relationship with real sql products -
+standard feature, possibly with different syntax/ different semantics/
+different names/jargon; or one of those SQL Standard things which
+bears no relationship to reality.
+
+Maybe provide a little history and context also, with a little bit of
+relational theory.
+
+Glossary for SQL
+
+== SQL recommended reading
+
+SQL: The Complete Reference, 3rd Edition, James R. Groff, Paul
+N. Weinberg, Andrew J. Oppel
+
+This is a comprehensive book which covers up to the SQL:1999 standard.
+ +
+ +
+ +
+SQL in a Nutshell, Kevin Kline, Brand Hunt, Daniel Kline
+
+This is another good book which covers some of the SQL:2003 and
+SQL:2008 standards. This means it covers a few newer things like
+window functions which 'SQL: The Complete Reference' doesn't. It also
+compares some main SQL product dialects.
+ +
+ +
+ +
+SQL A Comparative Survey, Hugh Darwen +
+http://bookboon.com/en/sql-a-comparative-survey-ebook
+
+This is a book about SQL from a relational theory perspective.
+ +
+ +
+ +
+SQL and Relational Theory, 2nd Edition, Chris Date
+
+This also covers SQL from a partly theoretical perspective.
+ +
+ +
+ +
+A Guide to the SQL Standard, C. J. Date, Hugh Darwen
+
+This is a fantastic book for covering all the little details of the
+SQL standard in depth. It only covers up to SQL:92.
+ +
+ +
+ +
+There are several other good books by Chris Date, some with Hugh
+Darwen and others, for instance 'Introduction to Database Systems',
+'Temporal Data & the Relational Model, Databases', 'Types and the
+Relational Model'. Only the first one (Introduction to
+Database Systems) really relates to SQL.
+ +
+ +
+ +
+Database Systems: The Complete Book, Hector Garcia-Molina, Jeff Ullman, and Jennifer Widom.
+
+This book is very comprehensive and has some interesting sections.
+ +
+ +
+ +
+Some of the SQL draft standards are available to download for free
+(follow the links on the wikipedia page for SQL or try google). They
+are a little tricky to read and understand. You can find some stuff at
+these links. There is also the grammars from the draft standards
+below on this page.
+
+http://savage.net.au/SQL/index.html
+
+http://www.wiscorp.com/SQLStandards.html
+ +
+ +
+ +
+//TODO: add stuff about transactions, cbo, newsql?
+
+== SQL products' manuals
+
+IBM DB2 10.5 SQL Reference Volume 1
+
+http://public.dhe.ibm.com/ps/products/db2/info/vr105/pdf/en_US/DB2SQLRefVol1-db2s1e1050.pdf
+ +
+ +
+ +
+Oracle SQL Reference 12c release 1
+
+http://docs.oracle.com/cd/E16655_01/server.121/e17209.pdf
+ +
+ +
+ +
+Teradata:
+
+TODO
+ +
+ +
+ +
+Microsoft SQL Server 2012 TSQL reference online. I didn't find a PDF
+for this.
+
+http://technet.microsoft.com/en-us/library/bb510741.aspx
+ +
+ +
+ +
+PostgreSQL 9.4 manual:
+
+http://www.postgresql.org/docs/9.4/interactive/index.html
+
+No PDF for the Postgres manual either, but the web pages are very
+readable.
+ +
+ +
+ +
+TODO: MySQL, Redshift, Netezza, Vertica, Vectorwise,
+Infobright, MemSQL, FoundationDB, Dataphor, EnterpriseDB, Pivotal,
+Informix, Ingres, MariaDB, SQLite, Firebird, MonetDB, Nonstop SQL?,
+some small subset of the SAP SQL DBMSs (maxdb, anywhere, hana?).
 
 == SQL Grammars
 
