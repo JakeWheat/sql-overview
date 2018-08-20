@@ -5705,16 +5705,16 @@ Format
   | <disconnect statement>
 
 <SQL session statement> ::=
-      <set    session user identifier statement>
-  |   <set    role statement>
-  |   <set    local time zone statement>
-  |   <set    session characteristics statement>
-  |   <set    catalog statement>
-  |   <set    schema statement>
-  |   <set    names statement>
-  |   <set    path statement>
-  |   <set    transform group statement>
-  |   <set    session collation statement>
+      <set session user identifier statement>
+  |   <set role statement>
+  |   <set local time zone statement>
+  |   <set session characteristics statement>
+  |   <set catalog statement>
+  |   <set schema statement>
+  |   <set names statement>
+  |   <set path statement>
+  |   <set transform group statement>
+  |   <set session collation statement>
 
 <SQL diagnostics statement> ::=
   <get diagnostics statement>
@@ -5997,7 +5997,7 @@ Update a row of a table.
 
 
 Format
-<updatestatement: positioned> ::=
+<update statement: positioned> ::=
      UPDATE <target table> [ [ AS ] <correlation name> ]
          SET <set clause list>
          WHERE CURRENT OF <cursor name>
@@ -6432,6 +6432,21 @@ Format
 <transform group characteristic> ::=
     DEFAULT TRANSFORM GROUP <value specification>
   | TRANSFORM GROUP FOR TYPE <path-resolved user-defined type name> <value specification>
+
+
+19.10 <set session collation statement>
+
+Function
+Set the SQL-session collation of the SQL-session for one or more character sets. An SQL-session collation
+remains effective until another SQL-session collation for the same character set is successfully set.
+
+
+Format
+<set session collation statement> ::=
+    SET COLLATION <collation specification> [ FOR <character set specification list> ]
+  | SET NO COLLATION [ FOR <character set specification list> ]
+
+<collation specification> ::= <value specification>
 
 
 20 Dynamic SQL
