@@ -57,6 +57,8 @@ Format
   |   <vertical bar>
   |   <left brace>
   |   <right brace>
+  |   <dollar sign>
+  |   <apostrophe>
 
 <space> ::=
   !! See the Syntax Rules.
@@ -152,6 +154,12 @@ Format
 
 <right brace> ::=
   }
+
+<dollar sign> ::=
+  $
+
+<apostrophe> ::=
+  '
 
 5.2     <token> and <separator>
 
@@ -267,6 +275,8 @@ Format
   | <double colon>
   | <double period>
   | <named argument assignment token>
+  | <left brace minus>
+  | <right minus brace>
 
 <not equals operator> ::=
   <>
@@ -291,6 +301,12 @@ Format
 
 <named argument assignment token> ::=
   =>
+
+<left brace minus> ::=
+  {-
+
+<right minus brace> ::=
+  -}
 
 <separator> ::=
   { <comment> | <white space> }...
@@ -339,89 +355,109 @@ Format
 
   | BEFORE | BERNOULLI | BREADTH
 
-  | C | CASCADE | CATALOG | CATALOG_NAME | CHAIN | CHARACTER_SET_CATALOG
+  | C | CASCADE | CATALOG | CATALOG_NAME | CHAIN | CHAINING | CHARACTER_SET_CATALOG
   | CHARACTER_SET_NAME | CHARACTER_SET_SCHEMA | CHARACTERISTICS | CHARACTERS
   | CLASS_ORIGIN | COBOL | COLLATION | COLLATION_CATALOG | COLLATION_NAME | COLLATION_SCHEMA
-  | COLUMN_NAME | COMMAND_FUNCTION | COMMAND_FUNCTION_CODE | COMMITTED
-  | CONDITION_NUMBER | CONNECTION | CONNECTION_NAME | CONSTRAINT_CATALOG | CONSTRAINT_NAME
-  | CONSTRAINT_SCHEMA | CONSTRAINTS | CONSTRUCTOR | CONTINUE | CURSOR_NAME
+  | COLUMNS | COLUMN_NAME | COMMAND_FUNCTION | COMMAND_FUNCTION_CODE | COMMITTED
+  | CONDITIONAL | CONDITION_NUMBER | CONNECTION | CONNECTION_NAME | CONSTRAINT_CATALOG
+  | CONSTRAINT_NAME | CONSTRAINT_SCHEMA | CONSTRAINTS | CONSTRUCTOR
+  | CONTINUE | CURSOR_NAME
 
   | DATA | DATETIME_INTERVAL_CODE | DATETIME_INTERVAL_PRECISION | DEFAULTS | DEFERRABLE
-  | DEFERRED | DEFINED | DEFINER | DEGREE | DEPTH | DERIVED | DESC | DESCRIPTOR
+  | DEFERRED | DEFINED | DEFINER | DEGREE | DEPTH | DERIVED | DESC | DESCRIBE_CATALOG
+  | DESCRIBE_NAME | DESCRIBE_PROCEDURE_SPECIFIC_CATALOG
+  | DESCRIBE_PROCEDURE_SPECIFIC_NAME | DESCRIBE_PROCEDURE_SPECIFIC_SCHEMA
+  | DESCRIBE_SCHEMA | DESCRIPTOR
   | DIAGNOSTICS | DISPATCH | DOMAIN | DYNAMIC_FUNCTION | DYNAMIC_FUNCTION_CODE
 
-  | ENFORCED | EXCLUDE | EXCLUDING | EXPRESSION
+  | ENCODING | ENFORCED | ERROR | EXCLUDE | EXCLUDING | EXPRESSION
 
-  | FINAL | FIRST | FLAG | FOLLOWING | FORTRAN | FOUND
+  | FINAL | FINISH | FINISH_CATALOG | FINISH_NAME | FINISH_PROCEDURE_SPECIFIC_CATALOG
+  | FINISH_PROCEDURE_SPECIFIC_NAME | FINISH_PROCEDURE_SPECIFIC_SCHEMA
+  | FINISH_SCHEMA | FIRST | FLAG | FOLLOWING | FORMAT | FORTRAN | FOUND | FULFILL
+  | FULFILL_CATALOG | FULFILL_NAME | FULFILL_PROCEDURE_SPECIFIC_CATALOG
+  | FULFILL_PROCEDURE_SPECIFIC_NAME | FULFILL_PROCEDURE_SPECIFIC_SCHEMA | FULFILL_SCHEMA
 
   | G | GENERAL | GENERATED | GO | GOTO | GRANTED
 
-  | HIERARCHY
+  | HAS_PASS_THROUGH_COLUMNS | HAS_PASS_THRU_COLS | HIERARCHY
 
   | IGNORE | IMMEDIATE | IMMEDIATELY | IMPLEMENTATION | INCLUDING | INCREMENT | INITIALLY
-  | INPUT | INSTANCE | INSTANTIABLE | INSTEAD | INVOKER | ISOLATION
+  | INPUT | INSTANCE | INSTANTIABLE | INSTEAD | INVOKER | ISOLATION | IS_PRUNABLE
 
-  | K | KEY | KEY_MEMBER | KEY_TYPE
+  | JSON
+
+  | K | KEEP | KEY | KEYS | KEY_MEMBER | KEY_TYPE
 
   | LAST | LENGTH | LEVEL | LOCATOR
 
   | M | MAP | MATCHED | MAXVALUE | MESSAGE_LENGTH | MESSAGE_OCTET_LENGTH
   | MESSAGE_TEXT | MINVALUE | MORE | MUMPS
 
-  | NAME | NAMES | NESTING | NEXT | NFC | NFD | NFKC | NFKD
+  | NAME | NAMES | NESTED | NESTING | NEXT | NFC | NFD | NFKC | NFKD
   | NORMALIZED | NULLABLE | NULLS | NUMBER
 
   | OBJECT | OCTETS | OPTION | OPTIONS | ORDERING | ORDINALITY | OTHERS
-  | OUTPUT | OVERRIDING
+  | OUTPUT | OVERFLOW | OVERRIDING
 
   | P | PAD | PARAMETER_MODE | PARAMETER_NAME | PARAMETER_ORDINAL_POSITION
   | PARAMETER_SPECIFIC_CATALOG | PARAMETER_SPECIFIC_NAME | PARAMETER_SPECIFIC_SCHEMA
-  | PARTIAL | PASCAL | PATH | PLACING | PLI | PRECEDING | PRESERVE | PRIOR
-  | PRIVILEGES | PUBLIC
+  | PARTIAL | PASCAL | PASS | PASSING | PAST | PATH | PLACING | PLAN | PLI
+  | PRECEDING | PRESERVE | PRIOR | PRIVATE | PRIVATE_PARAMETERS | PRIVATE_PARAMS_S
+  | PRIVILEGES | PRUNE | PUBLIC
+
+  | QUOTES
 
   | READ | RELATIVE | REPEATABLE | RESPECT | RESTART | RESTRICT | RETURNED_CARDINALITY
-  | RETURNED_LENGTH | RETURNED_OCTET_LENGTH | RETURNED_SQLSTATE | ROLE
-  | ROUTINE | ROUTINE_CATALOG | ROUTINE_NAME | ROUTINE_SCHEMA | ROW_COUNT
-  | SCALE | SCHEMA | SCHEMA_NAME | SCOPE_CATALOG | SCOPE_NAME | SCOPE_SCHEMA
-  | SECTION | SECURITY | SELF | SEQUENCE | SERIALIZABLE | SERVER_NAME | SESSION
-  | SETS | SIMPLE | SIZE | SOURCE | SPACE | SPECIFIC_NAME | STATE | STATEMENT
-  | STRUCTURE | STYLE | SUBCLASS_ORIGIN
+  | RETURNED_LENGTH | RETURNED_OCTET_LENGTH | RETURNED_SQLSTATE | RETURNING
+  | RETURNS_ONLY_PASS_THROUGH | RET_ONLY_PASS_THRU | ROLE | ROUTINE
+  | ROUTINE_CATALOG | ROUTINE_NAME | ROUTINE_SCHEMA | ROW_COUNT
 
-  | T | TABLE_NAME | TEMPORARY | TIES | TOP_LEVEL_COUNT | TRANSACTION
-  | TRANSACTION_ACTIVE | TRANSACTIONS_COMMITTED | TRANSACTIONS_ROLLED_BACK
-  | TRANSFORM | TRANSFORMS | TRIGGER_CATALOG | TRIGGER_NAME | TRIGGER_SCHEMA | TYPE
+  | SCALAR | SCALE | SCHEMA | SCHEMA_NAME | SCOPE_CATALOG | SCOPE_NAME
+  | SCOPE_SCHEMA | SECTION | SECURITY | SELF | SEQUENCE | SERIALIZABLE | SERVER_NAME
+  | SESSION | SETS | SIMPLE | SIZE | SOURCE | SPACE | SPECIFIC_NAME | START_CATALOG
+  | START_NAME | START_PROCEDURE_SPECIFIC_CATALOG | START_PROCEDURE_SPECIFIC_NAME
+  | START_PROCEDURE_SPECIFIC_SCHEMA | START_SCHEMA | STATE | STATEMENT
+  | STRING | STRUCTURE | STYLE | SUBCLASS_ORIGIN
 
-  | UNBOUNDED | UNCOMMITTED | UNDER | UNNAMED | USAGE | USER_DEFINED_TYPE_CATALOG
-  | USER_DEFINED_TYPE_CODE | USER_DEFINED_TYPE_NAME | USER_DEFINED_TYPE_SCHEMA
+  | T | TABLE_NAME | TABLE_SEMANTICS | TEMPORARY | THROUGH | TIES | TOP_LEVEL_COUNT
+  | TRANSACTION | TRANSACTION_ACTIVE | TRANSACTIONS_COMMITTED
+  | TRANSACTIONS_ROLLED_BACK | TRANSFORM | TRANSFORMS | TRIGGER_CATALOG | TRIGGER_NAME
+  | TRIGGER_SCHEMA | TYPE
+
+  | UNBOUNDED | UNCOMMITTED | UNCONDITIONAL | UNDER | UNNAMED | USAGE
+  | USER_DEFINED_TYPE_CATALOG | USER_DEFINED_TYPE_CODE | USER_DEFINED_TYPE_NAME
+  | USER_DEFINED_TYPE_SCHEMA | UTF16 | UTF32 | UTF8
 
   | VIEW
 
-  | WORK | WRITE
+  | WORK | WRAPPER | WRITE
 
   | ZONE
 
 <reserved word> ::=
-    ABS | ALL | ALLOCATE | ALTER | AND | ANY | ARE | ARRAY | ARRAY_AGG
-  | ARRAY_MAX_CARDINALITY | AS | ASENSITIVE | ASYMMETRIC | AT | ATOMIC | AUTHORIZATION
-  | AVG
+    ABS | ACOS | ALL | ALLOCATE | ALTER | AND | ANY | ARE | ARRAY | ARRAY_AGG
+  | ARRAY_MAX_CARDINALITY | AS | ASENSITIVE | ASIN | ASYMMETRIC | AT | ATAN
+  | ATOMIC | AUTHORIZATION | AVG
 
   | BEGIN | BEGIN_FRAME | BEGIN_PARTITION | BETWEEN | BIGINT | BINARY
   | BLOB | BOOLEAN | BOTH | BY
 
   | CALL | CALLED | CARDINALITY | CASCADED | CASE | CAST | CEIL | CEILING
-  | CHAR | CHAR_LENGTH | CHARACTER | CHARACTER_LENGTH | CHECK | CLOB | CLOSE
-  | COALESCE | COLLATE | COLLECT | COLUMN | COMMIT | CONDITION | CONNECT
-  | CONSTRAINT | CONTAINS | CONVERT | CORR | CORRESPONDING | COUNT | COVAR_POP
-  | COVAR_SAMP | CREATE | CROSS | CUBE | CUME_DIST | CURRENT | CURRENT_CATALOG
-  | CURRENT_DATE | CURRENT_DEFAULT_TRANSFORM_GROUP | CURRENT_PATH | CURRENT_ROLE
-  | CURRENT_ROW | CURRENT_SCHEMA | CURRENT_TIME | CURRENT_TIMESTAMP
-  | CURRENT_TRANSFORM_GROUP_FOR_TYPE | CURRENT_USER | CURSOR | CYCLE
+  | CHAR | CHAR_LENGTH | CHARACTER | CHARACTER_LENGTH | CHECK | CLASSIFIER | CLOB
+  | CLOSE | COALESCE | COLLATE | COLLECT | COLUMN | COMMIT | CONDITION | CONNECT
+  | CONSTRAINT | CONTAINS | CONVERT | COPY | CORR | CORRESPONDING | COS | COSH
+  | COUNT | COVAR_POP | COVAR_SAMP | CREATE | CROSS | CUBE | CUME_DIST | CURRENT
+  | CURRENT_CATALOG | CURRENT_DATE | CURRENT_DEFAULT_TRANSFORM_GROUP
+  | CURRENT_PATH | CURRENT_ROLE | CURRENT_ROW | CURRENT_SCHEMA | CURRENT_TIME
+  | CURRENT_TIMESTAMP | CURRENT_PATH | CURRENT_ROLE | CURRENT_TRANSFORM_GROUP_FOR_TYPE
+  | CURRENT_USER | CURSOR | CYCLE
 
-  | DATE | DAY | DEALLOCATE | DEC | DECIMAL | DECLARE | DEFAULT | DELETE
-  | DENSE_RANK | DEREF | DESCRIBE | DETERMINISTIC | DISCONNECT | DISTINCT
+  | DATE | DAY | DEALLOCATE | DEC | DECIMAL | DECFLOAT | DECLARE | DEFAULT | DEFINE
+  | DELETE | DENSE_RANK | DEREF | DESCRIBE | DETERMINISTIC | DISCONNECT | DISTINCT
   | DOUBLE | DROP | DYNAMIC
 
-  | EACH | ELEMENT | ELSE | END | END_FRAME | END_PARTITION | END-EXEC
+  | EACH | ELEMENT | ELSE | EMPTY | END | END_FRAME | END_PARTITION | END-EXEC
   | EQUALS | ESCAPE | EVERY | EXCEPT | EXEC | EXECUTE | EXISTS | EXP
   | EXTERNAL | EXTRACT
 
@@ -432,43 +468,45 @@ Format
 
   | HAVING | HOLD | HOUR
 
-  | IDENTITY | IN | INDICATOR | INNER | INOUT | INSENSITIVE | INSERT
+  | IDENTITY | IN | INDICATOR | INITIAL | INNER | INOUT | INSENSITIVE | INSERT
   | INT | INTEGER | INTERSECT | INTERSECTION | INTERVAL | INTO | IS
 
-  | JOIN
+  | JOIN | JSON_ARRAY | JSON_ARRAYAGG | JSON_EXISTS | JSON_OBJECT
+  | JSON_OBJECTAGG | JSON_QUERY | JSON_TABLE | JSON_TABLE_PRIMITIVE | JSON_VALUE
 
-  | LAG | LANGUAGE | LARGE | LAST_VALUE | LATERAL | LEAD | LEADING | LEFT
-  | LIKE | LIKE_REGEX | LN | LOCAL | LOCALTIME | LOCALTIMESTAMP | LOWER
+  | LAG | LANGUAGE | LARGE | LAST_VALUE | LATERAL | LEAD | LEADING | LEFT | LIKE
+  | LIKE_REGEX | LISTAGG | LN | LOCAL | LOCALTIME | LOCALTIMESTAMP | LOG | LOG10 | LOWER
 
-  | MATCH | MAX | MEMBER | MERGE | METHOD | MIN | MINUTE
-  | MOD | MODIFIES | MODULE | MONTH | MULTISET
+  | MATCH | MATCH_NUMBER | MATCH_RECOGNIZE | MATCHES | MAX | MEMBER
+  | MERGE | METHOD | MIN | MINUTE | MOD | MODIFIES | MODULE | MONTH | MULTISET
 
   | NATIONAL | NATURAL | NCHAR | NCLOB | NEW | NO | NONE | NORMALIZE | NOT
   | NTH_VALUE | NTILE | NULL | NULLIF | NUMERIC
 
-  | OCTET_LENGTH | OCCURRENCES_REGEX | OF | OFFSET | OLD | ON | ONLY | OPEN
-  | OR | ORDER | OUT | OUTER | OVER | OVERLAPS | OVERLAY
+  | OCTET_LENGTH | OCCURRENCES_REGEX | OF | OFFSET | OLD | OMIT | ON | ONE
+  | ONLY | OPEN | OR | ORDER | OUT | OUTER | OVER | OVERLAPS | OVERLAY
 
-  | PARAMETER | PARTITION | PERCENT | PERCENT_RANK | PERCENTILE_CONT
-  | PERCENTILE_DISC | PERIOD | PORTION | POSITION | POSITION_REGEX | POWER | PRECEDES
-  | PRECISION | PREPARE | PRIMARY | PROCEDURE
+  | PARAMETER | PARTITION | PATTERN | PER | PERCENT | PERCENT_RANK
+  | PERCENTILE_CONT | PERCENTILE_DISC | PERIOD | PORTION | POSITION | POSITION_REGEX
+  | POWER | PRECEDES | PRECISION | PREPARE | PRIMARY | PROCEDURE | PTF
 
   | RANGE | RANK | READS | REAL | RECURSIVE | REF | REFERENCES | REFERENCING
   | REGR_AVGX | REGR_AVGY | REGR_COUNT | REGR_INTERCEPT | REGR_R2 | REGR_SLOPE
   | REGR_SXX | REGR_SXY | REGR_SYY | RELEASE | RESULT | RETURN | RETURNS
-  | REVOKE | RIGHT | ROLLBACK | ROLLUP | ROW | ROW_NUMBER | ROWS
+  | REVOKE | RIGHT | ROLLBACK | ROLLUP | ROW | ROW_NUMBER | ROWS | RUNNING
 
-  | SAVEPOINT | SCOPE | SCROLL | SEARCH | SECOND | SELECT
-  | SENSITIVE | SESSION_USER | SET | SIMILAR | SMALLINT | SOME | SPECIFIC
+  | SAVEPOINT | SCOPE | SCROLL | SEARCH | SECOND | SEEK | SELECT | SENSITIVE
+  | SESSION_USER | SET | SHOW | SIMILAR | SIN | SINH | SKIP | SMALLINT | SOME | SPECIFIC
   | SPECIFICTYPE | SQL | SQLEXCEPTION | SQLSTATE | SQLWARNING | SQRT | START
-  | STATIC | STDDEV_POP | STDDEV_SAMP | SUBMULTISET | SUBSTRING | SUBSTRING_REGEX
-  | SUCCEEDS | SUM | SYMMETRIC | SYSTEM | SYSTEM_TIME | SYSTEM_USER
+  | STATIC | STDDEV_POP | STDDEV_SAMP | SUBMULTISET | SUBSET | SUBSTRING
+  | SUBSTRING_REGEX | SUCCEEDS | SUM | SYMMETRIC | SYSTEM | SYSTEM_TIME
+  | SYSTEM_USER
 
-  | TABLE | TABLESAMPLE | THEN | TIME | TIMESTAMP | TIMEZONE_HOUR | TIMEZONE_MINUTE
-  | TO | TRAILING | TRANSLATE | TRANSLATE_REGEX | TRANSLATION | TREAT
-  | TRIGGER | TRUNCATE | TRIM | TRIM_ARRAY | TRUE
+  | TABLE | TABLESAMPLE | TAN | TANH | THEN | TIME | TIMESTAMP | TIMEZONE_HOUR
+  | TIMEZONE_MINUTE | TO | TRAILING | TRANSLATE | TRANSLATE_REGEX | TRANSLATION | TREAT
+  | TRIGGER | TRIM | TRIM_ARRAY | TRUE | TRUNCATE
 
-  | UESCAPE | UNION | UNIQUE | UNKNOWN | UNNEST | UPDATE | UPPER | USER | USING
+  | UESCAPE | UNION | UNIQUE | UNKNOWN | UNNEST | UPDATE    | UPPER | USER | USING
 
   | VALUE | VALUES | VALUE_OF | VAR_POP | VAR_SAMP | VARBINARY
   | VARCHAR | VARYING | VERSIONING
@@ -833,13 +871,24 @@ Format
   [ <scope option> ] <simple value specification>
 
 <dynamic cursor name> ::=
+    <conventional dynamic cursor name>
+  | <PTF cursor name>
+
+<conventional dynamic cursor name> ::=
     <cursor name>
   | <extended cursor name>
 
 <extended cursor name> ::=
   [ <scope option> ] <simple value specification>
 
+<PTF cursor name> ::=
+  PTF <simple value specification>
+
 <descriptor name> ::=
+    <conventional descriptor name>
+  | <PTF descriptor name>
+
+<conventional descriptor name> ::=
     <non-extended descriptor name>
   | <extended descriptor name>
 
@@ -853,7 +902,16 @@ Format
     GLOBAL
   | LOCAL
 
+<PTF descriptor name> ::=
+  PTF <simple value specification>
+
 <window name> ::=
+  <identifier>
+
+<row pattern variable name> ::=
+  <correlation name>
+
+<measure name> ::=
   <identifier>
 
 6 Scalar expressions
@@ -924,6 +982,7 @@ Format
 <numeric type> ::=
     <exact numeric type>
   | <approximate numeric type>
+  | <decimal floating-point type>
 
 <exact numeric type> ::=
     NUMERIC [ <left paren> <precision> [ <comma> <scale> ] <right paren> ]
@@ -939,6 +998,9 @@ Format
   | REAL
   | DOUBLE PRECISION
 
+<decimal floating-point type> ::=
+  DECFLOAT [ <left paren> <precision> <right paren> ]
+
 <length> ::=
   <unsigned integer>
 
@@ -946,7 +1008,7 @@ Format
   <length> [ <char length units> ]
 
 <large object length> ::=
-    <length> [ <multiplier> ]
+    <unsigned integer> [ <multiplier> ]
   | <large object length token>
 
 <character large object length> ::=
@@ -1064,6 +1126,8 @@ Format
      | <multiset element reference>
      | <next value expression>
      | <routine invocation>
+     | <row pattern navigation operation>
+     | <JSON value function>
 
 <collection value constructor> ::=
     <array value constructor>
@@ -1215,8 +1279,11 @@ Specify a value derived by the application of a function to an argument.
 
 Format
 <set function specification> ::=
-    <aggregate function>
+    [ <running or final> ] <aggregate function>
   | <grouping operation>
+
+<running or final> ::=
+  RUNNING | FINAL
 
 <grouping operation> ::=
   GROUPING <left paren> <column reference>
@@ -1240,6 +1307,7 @@ Format
   | <lead or lag function>
   | <first or last value function>
   | <nth value function>
+  | <window row pattern measure>
 
 <rank function type> ::=
     RANK
@@ -1299,6 +1367,9 @@ Format
 
 <in-line window specification> ::=
   <window specification>
+
+<window row pattern measure> ::=
+  <measure name>
 
 6.11 <nested window function>
 
@@ -1418,7 +1489,10 @@ Specify a data conversion.
 
 Format
 <cast specification> ::=
-     CAST <left paren> <cast operand> AS <cast target> <right paren>
+     CAST <left paren>
+         <cast operand> AS <cast target>
+         [ FORMAT <cast template> ]
+         <right paren>
 
 <cast operand> ::=
     <value expression>
@@ -1427,6 +1501,9 @@ Format
 <cast target> ::=
     <domain name>
   | <data type>
+
+<cast template> ::=
+  <character string literal>
 
 6.14 <next value expression>
 
@@ -1506,7 +1583,7 @@ Format
 6.19 <new specification>
 
 Function
-Invoke a method on a newly-constructed value of a structured type.
+Invoke a method on a structured type.
 
 
 Format
@@ -1555,7 +1632,7 @@ Format
 6.23 <reference resolution>
 
 Function
-Obtain the value referenced by a reference value.
+Obtain the value referenced by a REF value.
 
 
 Format
@@ -1583,7 +1660,75 @@ Format
 <multiset element reference> ::=
   ELEMENT <left paren> <multiset value expression> <right paren>
 
-6.26 <value expression>
+6.26 <row pattern navigation operation>
+
+Function
+Return the value of a value expression evaluated in a row determined by navigation within the row pattern
+partition using logical and physical offsets from a row mapped to a row pattern variable.
+
+
+Format
+<row pattern navigation operation> ::=
+    <row pattern navigation: logical>
+  | <row pattern navigation: physical>
+  | <row pattern navigation: compound>
+
+<row pattern navigation: logical> ::=
+  [ <running or final> ] <first or last>
+      <left paren> <value expression> [ <comma> <logical offset> ] <right paren>
+
+<row pattern navigation: physical> ::=
+  <prev or next>
+      <left paren> <value expression> [ <comma> <physical offset> ] <right paren>
+
+<row pattern navigation: compound> ::=
+  <prev or next> <left paren> [ <running or final> ] <first or last>
+      <left paren> <value expression> [ <comma> <logical offset> ] <right paren>
+      [ <comma> <physical offset> ] <right paren>
+
+<first or last> ::=
+  FIRST | LAST
+
+<prev or next> ::=
+  PREV | NEXT
+
+<logical offset> ::=
+    <simple value specification>
+  | <dynamic parameter specification>
+
+<physical offset> ::=
+    <simple value specification>
+  | <dynamic parameter specification>
+
+6.27 <JSON value function>
+
+Function
+Extract an SQL value of a predefined type from a JSON value.
+
+
+Format
+<JSON value function> ::=
+  JSON_VALUE <left paren>
+      <JSON API common syntax>
+      [ <JSON returning clause> ]
+      [ <JSON value empty behavior> ON EMPTY ]
+      [ <JSON value error behavior> ON ERROR ]
+  <right paren>
+
+<JSON returning clause> ::=
+  RETURNING <data type>
+
+<JSON value empty behavior> ::=
+    ERROR
+  | NULL
+  | DEFAULT <value expression>
+
+<JSON value error behavior> ::=
+    ERROR
+  | NULL
+  | DEFAULT <value expression>
+
+6.28 <value expression>
 
 Function
 Specify a value.
@@ -1614,7 +1759,7 @@ Format
     <array value expression>
   | <multiset value expression>
 
-6.27 <numeric value expression>
+6.29 <numeric value expression>
 
 Function
 Specify a numeric value.
@@ -1638,7 +1783,7 @@ Format
     <value expression primary>
   | <numeric value function>
 
-6.28 <numeric value function>
+6.30 <numeric value function>
 
 Function
 Specify a function yielding a value of type numeric.
@@ -1655,6 +1800,9 @@ Format
   | <max cardinality expression>
   | <absolute value expression>
   | <modulus expression>
+  | <trigonometric function>
+  | <general logarithm function>
+  | <common logarithm>
   | <natural logarithm>
   | <exponential function>
   | <power function>
@@ -1662,6 +1810,7 @@ Format
   | <floor function>
   | <ceiling function>
   | <width bucket function>
+  | <match number function>
 
 <position expression> ::=
     <character position expression>
@@ -1763,6 +1912,25 @@ Format
 <numeric value expression divisor> ::=
   <numeric value expression>
 
+<trigonometric function> ::=
+  <trigonometric function name> <left paren> <numeric value expression> <right paren>
+
+<trigonometric function name> ::=
+  SIN | COS | TAN | SINH | COSH | TANH | ASIN | ACOS | ATAN
+
+<general logarithm function> ::=
+  LOG <left paren> <general logarithm base> <comma>
+      <general logarithm argument> <right paren>
+
+<general logarithm base> ::=
+  <numeric value expression>
+
+<general logarithm argument> ::=
+  <numeric value expression>
+
+<common logarithm> ::=
+  LOG10 <left paren> <numeric value expression> <right paren>
+
 <natural logarithm> ::=
   LN <left paren> <numeric value expression> <right paren>
 
@@ -1804,7 +1972,10 @@ Format
 <width bucket count> ::=
   <numeric value expression>
 
-6.29 <string value expression>
+<match number function> ::=
+  MATCH_NUMBER <left paren> <right paren>
+
+6.31 <string value expression>
 
 Function
 Specify a character string value or a binary string value.
@@ -1843,7 +2014,7 @@ Format
 <binary concatenation> ::=
   <binary value expression> <concatenation operator> <binary factor>
 
-6.30 <string value function>
+6.32 <string value function>
 
 Function
 Specify a function yielding a value of type character string or binary string.
@@ -1853,6 +2024,8 @@ Format
 <string value function> ::=
     <character value function>
   | <binary value function>
+  | <JSON value constructor>
+  | <JSON query>
 
 <character value function> ::=
     <character substring function>
@@ -1866,6 +2039,7 @@ Format
   | <character overlay function>
   | <normalize function>
   | <specific type method>
+  | <classifier function>
 
 <character substring function> ::=
   SUBSTRING <left paren> <character value expression> FROM <start position>
@@ -1984,7 +2158,96 @@ Format
 <string length> ::=
   <numeric value expression>
 
-6.31 <datetime value expression>
+<classifier function> ::=
+  CLASSIFIER <left paren> [ <row pattern variable name> ] <right paren>
+
+6.33 <JSON value constructor>
+
+Function
+Generate a JSON text fragment.
+
+
+Format
+<JSON value constructor> ::=
+    <JSON object constructor>
+  | <JSON array constructor>
+
+<JSON object constructor> ::=
+  JSON_OBJECT <left paren>
+      [ <JSON name and value> [ { <comma> <JSON name and value> }... ]
+      [ <JSON constructor null clause> ]
+      [ <JSON key uniqueness constraint> ] ]
+      [ <JSON output clause> ]
+      <right paren>
+
+<JSON name and value> ::=
+    [ KEY ] <JSON name> VALUE <JSON value expression>
+  | <JSON name> <colon> <JSON value expression>
+
+<JSON name> ::=
+  <character value expression>
+
+<JSON constructor null clause> ::=
+    NULL ON NULL
+  | ABSENT ON NULL
+
+<JSON array constructor> ::=
+    <JSON array constructor by enumeration>
+  | <JSON array constructor by query>
+
+<JSON array constructor by enumeration> ::=
+  JSON_ARRAY <left paren>
+      [ <JSON value expression> [ { <comma> <JSON value expression> }... ]
+      [ <JSON constructor null clause> ] ]
+      [ <JSON output clause> ]
+      <right paren>
+
+<JSON array constructor by query> ::=
+  JSON_ARRAY <left paren>
+      <query expression>
+      [ <JSON input clause> ]
+      [ <JSON constructor null clause> ]
+      [ <JSON output clause> ]
+      <right paren>
+
+6.34 <JSON query>
+
+Function
+Extract a JSON text from a JSON text using an SQL/JSON path expression.
+
+
+Format
+<JSON query> ::=
+  JSON_QUERY <left paren>
+  <JSON API common syntax>
+      [ <JSON output clause> ]
+      [ <JSON query wrapper behavior> WRAPPER ]
+      [ <JSON query quotes behavior> QUOTES [ ON SCALAR STRING ] ]
+      [ <JSON query empty behavior> ON EMPTY ]
+      [ <JSON query error behavior> ON ERROR ]
+  <right paren>
+
+<JSON query wrapper behavior> ::=
+    WITHOUT [ ARRAY ]
+  | WITH [ CONDITIONAL | UNCONDITIONAL ] [ ARRAY ]
+
+<JSON query quotes behavior> ::=
+    KEEP
+  | OMIT
+
+<JSON query empty behavior> ::=
+    ERROR
+  | NULL
+  | EMPTY ARRAY
+  | EMPTY OBJECT
+
+<JSON query error behavior> ::=
+    ERROR
+  | NULL
+  | EMPTY ARRAY
+  | EMPTY OBJECT
+
+6.35 <datetime value expression>
 
 Function
 Specify a datetime value.
@@ -2014,7 +2277,7 @@ Format
     LOCAL
   | TIME ZONE <interval primary>
 
-6.32 <datetime value function>
+6.36 <datetime value function>
 
 Function
 Specify a function yielding a value of type datetime.
@@ -2043,7 +2306,7 @@ Format
 <current local timestamp value function> ::=
   LOCALTIMESTAMP [ <left paren> <timestamp precision> <right paren> ]
 
-6.33 <interval value expression>
+6.37 <interval value expression>
 
 Function
 Specify an interval value.
@@ -2079,7 +2342,7 @@ Format
 <interval term 2> ::=
   <interval term>
 
-6.34 <interval value function>
+6.38 <interval value function>
 
 Function
 Specify a function yielding a value of type interval.
@@ -2092,7 +2355,7 @@ Format
 <interval absolute value function> ::=
   ABS <left paren> <interval value expression> <right paren>
 
-6.35 <boolean value expression>
+6.39 <boolean value expression>
 
 Function
 Specify a boolean value.
@@ -2129,7 +2392,7 @@ Format
 <parenthesized boolean value expression> ::=
   <left paren> <boolean value expression> <right paren>
 
-6.36 <array value expression>
+6.40 <array value expression>
 
 Function
 Specify an array value.
@@ -2150,7 +2413,7 @@ Format
     <array value function>
   | <value expression primary>
 
-6.37 <array value function>
+6.41 <array value function>
 
 Function
 Specify a function yielding a value of an array type.
@@ -2164,7 +2427,7 @@ Format
   TRIM_ARRAY <left paren> <array value expression> <comma> <numeric value expression> <right
   paren>
 
-6.38 <array value constructor>
+6.42 <array value constructor>
 
 Function
 Specify construction of an array.
@@ -2187,7 +2450,7 @@ Format
 <array value constructor by query> ::=
   ARRAY <table subquery>
 
-6.39 <multiset value expression>
+6.43 <multiset value expression>
 
 Function
 Specify a multiset value.
@@ -2207,7 +2470,7 @@ Format
     <multiset value function>
   | <value expression primary>
 
-6.40 <multiset value function>
+6.44 <multiset value function>
 
 Function
 Specify a function yielding a value of a multiset type.
@@ -2220,7 +2483,7 @@ Format
 <multiset set function> ::=
   SET <left paren> <multiset value expression> <right paren>
 
-6.41 <multiset value constructor>
+6.45 <multiset value constructor>
 
 Function
 Specify construction of a multiset.
@@ -2401,23 +2664,24 @@ Format
   <numeric value expression>
 
 <table primary> ::=
-      <table or query name> [ <query system time period specification> ]
-          [ [ AS ] <correlation name>
-            [ <left paren> <derived column list> <right paren> ] ]
-  | <derived table> [ AS ] <correlation name>
-      [ <left paren> <derived column list> <right paren> ]
-  | <lateral derived table> [ AS ] <correlation name>
-      [ <left paren> <derived column list> <right paren> ]
-  | <collection derived table> [ AS ] <correlation name>
-        [ <left paren> <derived column list> <right paren> ]
-  | <table function derived table> [ AS ] <correlation name>
-      [ <left paren> <derived column list> <right paren> ]
-  | <only spec> [ [ AS ] <correlation name>
-      [ <left paren> <derived column list> <right paren> ] ]
-  | <data change delta table> [ [ AS ] <correlation name>
-      [ <left paren> <derived column list> <right paren> ] ]
+    <table or query name>
+        [ <query system time period specification> ]
+        [ <correlation or recognition> ]
+  | <derived table> <correlation or recognition>
+  | <lateral derived table> <correlation or recognition>
+  | <collection derived table> <correlation or recognition>
+  | <table function derived table> <correlation or recognition>
+  | <PTF derived table> [ <correlation or recognition> ]
+  | <only spec> [ <correlation or recognition> ]
+  | <data change delta table> [ <correlation or recognition> ]
+  | <JSON table> <correlation or recognition>
+  | <JSON table primitive> <correlation name>
   | <parenthesized joined table>
 
+<correlation or recognition> ::=
+    [ AS ] <correlation name>
+        [ <parenthesized derived column list> ]
+  | <row pattern recognition clause and name>
 <query system time period specification> ::=
     FOR SYSTEM_TIME AS OF <point in time 1>
   | FOR SYSTEM_TIME BETWEEN [ ASYMMETRIC | SYMMETRIC ]
@@ -2450,6 +2714,9 @@ Format
 <derived table> ::=
   <table subquery>
 
+<PTF derived table> ::=
+  TABLE <left paren> <routine invocation> <right paren>
+
 <table or query name> ::=
     <table name>
   | <transition table name>
@@ -2479,7 +2746,180 @@ Format
     <left paren> <parenthesized joined table> <right paren>
   | <left paren> <joined table> <right paren>
 
-7.7     <joined table>
+<row pattern recognition clause and name> ::=
+  [ [ AS ] <row pattern input name>
+      [ <row pattern input derived column list> ] ]
+      <row pattern recognition clause> [ [ AS ] <row pattern output name>
+      [ <row pattern output derived column list> ] ]
+
+<row pattern input name> ::=
+  <correlation name>
+
+<row pattern output name> ::=
+  <correlation name>
+
+<row pattern input derived column list> ::=
+  <parenthesized derived column list>
+
+<row pattern output derived column list> ::=
+  <parenthesized derived column list>
+
+<parenthesized derived column list> ::=
+  <left paren> <derived column list> <right paren>
+
+7.7        <row pattern recognition clause>
+
+Function
+Match row patterns.
+
+
+Format
+<row pattern recognition clause> ::=
+  MATCH_RECOGNIZE <left paren>
+      [ <row pattern partition by> ]
+      [ <row pattern order by> ]
+      [ <row pattern measures> ]
+      [ <row pattern rows per match> ]
+      <row pattern common syntax>
+      <right paren>
+
+<row pattern partition by> ::=
+  PARTITION BY <row pattern partition list>
+
+<row pattern partition list> ::=
+  <row pattern partition column> [ { <comma> <row pattern partition column> }... ]
+
+<row pattern partition column> ::=
+  <column reference> [ <collate clause> ]
+
+<row pattern order by> ::=
+  ORDER BY <sort specification list>
+
+<row pattern rows per match> ::=
+    ONE ROW PER MATCH
+  | ALL ROWS PER MATCH [ <row pattern empty match handling> ]
+
+<row pattern empty match handling> ::=
+    SHOW EMPTY MATCHES
+  | OMIT EMPTY MATCHES
+  | WITH UNMATCHED ROWS
+
+7.8        <row pattern measures>
+
+Function
+Specify the measure columns of a row pattern.
+
+
+Format
+<row pattern measures> ::=
+  MEASURES <row pattern measure list>
+
+<row pattern measure list> ::=
+  <row pattern measure definition> [ { <comma> <row pattern measure definition> }... ]
+
+<row pattern measure definition> ::=
+  <row pattern measure expression> AS <measure name>
+
+<row pattern measure expression> ::=
+  <value expression>
+
+7.9    <row pattern common syntax>
+
+Function
+Specify syntax that is common to row patterns in <table reference> and in <window clause>.
+
+
+Format
+<row pattern common syntax> ::=
+  [ AFTER MATCH <row pattern skip to> ]
+      [ <row pattern initial or seek> ]
+      PATTERN <left paren> <row pattern> <right paren>
+      [ <row pattern subset clause> ]
+      DEFINE <row pattern definition list>
+
+<row pattern skip to> ::=
+    SKIP TO NEXT ROW
+  | SKIP PAST LAST ROW
+  | SKIP TO FIRST <row pattern skip to variable name>
+  | SKIP TO LAST <row pattern skip to variable name>
+  | SKIP TO <row pattern skip to variable name>
+
+<row pattern skip to variable name> ::=
+  <row pattern variable name>
+
+<row pattern initial or seek> ::=
+    INITIAL
+  | SEEK
+
+<row pattern> ::=
+    <row pattern term>
+  | <row pattern alternation>
+
+<row pattern alternation> ::=
+  <row pattern> <vertical bar> <row pattern term>
+
+<row pattern term> ::=
+    <row pattern factor>
+  | <row pattern term> <row pattern factor>
+
+<row pattern factor> ::=
+  <row pattern primary> [ <row pattern quantifier> ]
+
+<row pattern quantifier> ::=
+    <asterisk> [ <question mark> ]
+  | <plus sign> [ <question mark> ]
+  | <question mark> [ <question mark> ]
+  | <left brace> [ <unsigned integer> ] <comma> [ <unsigned integer> ] <right brace>
+      [ <question mark> ]
+  | <left brace> <unsigned integer> <right brace>
+
+<row pattern primary> ::=
+    <row pattern primary variable name>
+  | <dollar sign>
+  | <circumflex>
+  | <left paren> [ <row pattern> ] <right paren>
+  | <left brace minus> <row pattern> <right minus brace>
+  | <row pattern permute>
+
+<row pattern primary variable name> ::=
+  <row pattern variable name>
+
+<row pattern permute> ::=
+  PERMUTE <left paren> <row pattern> [ { <comma> <row pattern> }... ] <right paren>
+
+<row pattern subset clause> ::=
+  SUBSET <row pattern subset list>
+
+<row pattern subset list> ::=
+  <row pattern subset item> [ { <comma> <row pattern subset item> }... ]
+
+<row pattern subset item> ::=
+  <row pattern subset item variable name> <equals operator>
+      <left paren> <row pattern subset rhs> <right paren>
+
+<row pattern subset item variable name> ::=
+  <row pattern variable name>
+
+<row pattern subset rhs> ::=
+  <row pattern subset rhs variable name>
+      [ { <comma> <row pattern subset rhs variable name> }... ]
+
+<row pattern subset rhs variable name> ::=
+  <row pattern variable name>
+
+<row pattern definition list> ::=
+  <row pattern definition> [ { <comma> <row pattern definition> }... ]
+
+<row pattern definition> ::=
+  <row pattern definition variable name> AS <row pattern definition search condition>
+
+<row pattern definition variable name> ::=
+  <row pattern variable name>
+
+<row pattern definition search condition> ::=
+  <search condition>
+
+7.10 <joined table>
 
 Function
 Specify a table derived from a Cartesian product, inner join, or outer join.
@@ -2525,7 +2965,10 @@ Format
   ON <search condition>
 
 <named columns join> ::=
-  USING <left paren> <join column list> <right paren>
+  USING <left paren> <join column list> <right paren> [ AS <join correlation name> ]
+
+<join correlation name> ::=
+  <correlation name>
 
 <join type> ::=
     INNER
@@ -2539,7 +2982,178 @@ Format
 <join column list> ::=
   <column name list>
 
-7.8      <where clause>
+7.11 <JSON table>
+
+Function
+Query a JSON text and present it as a relational table.
+
+
+Format
+<JSON table> ::=
+  JSON_TABLE <left paren>
+      <JSON API common syntax>
+      <JSON table columns clause>
+      [ <JSON table plan clause> ]
+      [ <JSON table error behavior> ON ERROR ]
+  <right paren>
+
+<JSON table columns clause> ::=
+  COLUMNS <left paren>
+      <JSON table column definition> [ { <comma> <JSON table column definition> }... ]
+  <right paren>
+
+<JSON table column definition> ::=
+    <JSON table ordinality column definition>
+  | <JSON table regular column definition>
+  | <JSON table formatted column definition>
+  | <JSON table nested columns>
+
+<JSON table ordinality column definition> ::=
+  <column name> FOR ORDINALITY
+
+<JSON table regular column definition> ::=
+  <column name> <data type>
+      [ PATH <JSON table column path specification> ]
+      [ <JSON table column empty behavior> ON EMPTY ]
+      [ <JSON table column error behavior> ON ERROR ]
+
+<JSON table column empty behavior> ::=
+    ERROR
+  | NULL
+  | DEFAULT <value expression>
+
+<JSON table column error behavior> ::=
+    ERROR
+  | NULL
+  | DEFAULT <value expression>
+
+<JSON table column path specification> ::=
+  <JSON path specification>
+
+<JSON table formatted column definition> ::=
+  <column name> <data type>
+      FORMAT <JSON representation>
+      [ PATH <JSON table column path specification> ]
+      [ <JSON table formatted column wrapper behavior> WRAPPER ]
+      [ <JSON table formatted column quotes behavior> QUOTES [ ON SCALAR STRING ] ]
+      [ <JSON table formatted column empty behavior> ON EMPTY ]
+      [ <JSON table formatted column error behavior> ON ERROR ]
+
+<JSON table formatted column wrapper behavior> ::=
+    WITHOUT [ ARRAY ]
+  | WITH [ CONDITIONAL | UNCONDITIONAL ] [ ARRAY ]
+
+<JSON table formatted column quotes behavior> ::=
+    KEEP
+  | OMIT
+
+<JSON table formatted column empty behavior> ::=
+    ERROR
+  | NULL
+  | EMPTY ARRAY
+  | EMPTY OBJECT
+
+<JSON table formatted column error behavior> ::=
+    ERROR
+  | NULL
+  | EMPTY ARRAY
+  | EMPTY OBJECT
+
+<JSON table nested columns> ::=
+  NESTED [ PATH ] <JSON table nested path specification>
+      [ AS <JSON table nested path name> ]
+  <JSON table columns clause>
+
+<JSON table nested path specification> ::=
+  <JSON path specification>
+
+<JSON table nested path name> ::=
+  <JSON table path name>
+
+<JSON table path name> ::=
+  <identifier>
+
+<JSON table plan clause> ::=
+    <JSON table specific plan>
+  | <JSON table default plan>
+
+<JSON table specific plan> ::=
+  PLAN <left paren> <JSON table plan> <right paren>
+
+<JSON table plan> ::=
+    <JSON table path name>
+  | <JSON table plan parent/child>
+  | <JSON table plan sibling>
+
+<JSON table plan parent/child> ::=
+    <JSON table plan outer>
+  | <JSON table plan inner>
+
+<JSON table plan outer> ::=
+  <JSON table path name> OUTER <JSON table plan primary>
+
+<JSON table plan inner> ::=
+  <JSON table path name> INNER <JSON table plan primary>
+
+<JSON table plan sibling> ::=
+    <JSON table plan union>
+  | <JSON table plan cross>
+
+<JSON table plan union> ::=
+  <JSON table plan primary> UNION <JSON table plan primary>
+      [ { UNION <JSON table plan primary> }... ]
+
+<JSON table plan cross> ::=
+  <JSON table plan primary> CROSS <JSON table plan primary>
+      [ { CROSS <JSON table plan primary> }... ]
+
+<JSON table plan primary> ::=
+    <JSON table path name>
+  | <left paren> <JSON table plan> <right paren>
+
+<JSON table default plan> ::=
+  PLAN DEFAULT <left paren>
+      <JSON table default plan choices> <right paren>
+
+<JSON table default plan choices> ::=
+    <JSON table default plan inner/outer>
+        [ <comma> <JSON table default plan union/cross> ]
+  | <JSON table default plan union/cross>
+      [ <comma> <JSON table default plan inner/outer> ]
+
+<JSON table default plan inner/outer> ::=
+  INNER | OUTER
+
+<JSON table default plan union/cross> ::=
+  UNION | CROSS
+
+<JSON table error behavior> ::=
+    ERROR
+  | EMPTY
+
+<JSON table primitive> ::=
+  JSON_TABLE_PRIMITIVE <left paren>
+      <JSON API common syntax>
+      <JSON table primitive columns clause>
+      <JSON table error behavior> ON ERROR
+  <right paren>
+
+<JSON table primitive columns clause> ::=
+  COLUMNS <left paren>
+      <JSON table primitive column definition>
+      [ { <comma> <JSON table primitive column definition> }... ]
+  <right paren>
+
+<JSON table primitive column definition> ::=
+    <JSON table ordinality column definition>
+  | <JSON table regular column definition>
+  | <JSON table formatted column definition>
+  | <JSON table primitive chaining column>
+
+<JSON table primitive chaining column> ::=
+  <column name> FOR CHAINING
+
+7.12 <where clause>
 
 Function
 Specify a table derived by the application of a <search condition> to the result of the preceding <from clause>.
@@ -2549,7 +3163,7 @@ Format
 <where clause> ::=
   WHERE <search condition>
 
-7.9     <group by clause>
+7.13 <group by clause>
 
 Function
 Specify a grouped table derived by the application of the <group by clause> to the result of the previously
@@ -2605,7 +3219,7 @@ Format
 <empty grouping set> ::=
   <left paren> <right paren>
 
-7.10 <having clause>
+7.14 <having clause>
 
 Function
 Specify a grouped table derived by the elimination of groups that do not satisfy a <search condition>.
@@ -2615,7 +3229,7 @@ Format
 <having clause> ::=
   HAVING <search condition>
 
-7.11 <window clause>
+7.15 <window clause>
 
 Function
 Specify one or more window definitions.
@@ -2660,8 +3274,10 @@ Format
   ORDER BY <sort specification list>
 
 <window frame clause> ::=
-  <window frame units> <window frame extent>
+  [ <row pattern measures> ]
+      <window frame units> <window frame extent>
       [ <window frame exclusion> ]
+      [ <row pattern common syntax> ]
 
 <window frame units> ::=
     ROWS
@@ -2703,7 +3319,7 @@ Format
   | EXCLUDE TIES
   | EXCLUDE NO OTHERS
 
-7.12 <query specification>
+7.16 <query specification>
 
 Function
 Specify a table derived from the result of a <table expression>.
@@ -2744,7 +3360,7 @@ Format
 <all fields column name list> ::=
   <column name list>
 
-7.13 <query expression>
+7.17 <query expression>
 
 Function
 Specify a table.
@@ -2755,7 +3371,7 @@ Format
   [ <with clause> ] <query expression body>
       [ <order by clause> ] [ <result offset clause> ] [ <fetch first clause> ]
 
-<with clause> ::=
+14 <with clause> ::=
   WITH [ RECURSIVE ] <with list>
 
 <with list> ::=
@@ -2822,7 +3438,7 @@ Format
 <fetch first percentage> ::=
   <simple value specification> PERCENT
 
-7.14 <search or cycle clause>
+7.18 <search or cycle clause>
 
 Function
 Specify the generation of ordering and cycle detection information in the result of recursive query expressions.
@@ -2866,7 +3482,7 @@ Format
 <non-cycle mark value> ::=
   <value expression>
 
-7.15 <subquery>
+7.19 <subquery>
 
 Function
 Specify a scalar value, a row, or a table derived from a <query expression>.
@@ -2914,6 +3530,8 @@ Format
   | <set predicate>
   | <type predicate>
   | <period predicate>
+  | <JSON predicate>
+  | <JSON exists predicate>
 
 8.2        <comparison predicate>
 
@@ -3379,6 +3997,405 @@ Format
 <search condition> ::=
   <boolean value expression>
 
+8.22 <JSON predicate>
+
+Function
+Test whether a string value is a JSON text.
+
+
+Format
+<JSON predicate> ::=
+  <string value expression> [ <JSON input clause> ]
+      IS [ NOT ] JSON
+      [ <JSON predicate type constraint> ]
+      [ <JSON key uniqueness constraint> ]
+
+<JSON predicate type constraint> ::=
+    VALUE
+  | ARRAY
+  | OBJECT
+  | SCALAR
+
+<JSON key uniqueness constraint> ::=
+    WITH UNIQUE [ KEYS ]
+  | WITHOUT UNIQUE [ KEYS ]
+
+8.23 <JSON exists predicate>
+
+Function
+Test whether a JSON path expression returns any SQL/JSON items.
+
+
+Format
+<JSON exists predicate> ::=
+  JSON_EXISTS <left paren>
+      <JSON API common syntax>
+      [ <JSON exists error behavior> ON ERROR ]
+  <right paren>
+
+<JSON exists error behavior> ::=
+  TRUE | FALSE | UNKNOWN | ERROR
+
+9 Additional common rules
+
+9.38 SQL/JSON path language: lexical elements
+
+Function
+Specify the lexical analysis of the SQL/JSON path language.
+
+
+Format
+<SQL/JSON special symbol> ::=
+    <asterisk>
+  | <at sign>
+  | <comma>
+  | <dollar sign>
+  | <double ampersand>
+  | <double equals>
+  | <double vertical bar>
+  | <exclamation mark>
+  | <greater than operator>
+  | <greater than or equals operator>
+  | <left bracket>
+  | <left paren>
+  | <less than operator>
+  | <less than or equals operator>
+  | <minus sign>
+  | <not equals operator>
+  | <percent>
+  | <period>
+  | <plus sign>
+  | <question mark>
+  | <right bracket>
+  | <right paren>
+  | <solidus>
+
+<at sign> ::=
+  @
+
+<double ampersand> ::=
+  &&
+
+<double equals> ::=
+  ==
+
+<double vertical bar> ::=
+  ||
+
+<exclamation mark> ::=
+  !
+
+<SQL/JSON key word> ::=
+    abs
+  | ceiling
+  | datetime
+  | double
+  | exists
+  | false
+  |   flag
+  |   floor
+  |   is
+  |   keyvalue
+  |   last
+  |   lax
+  |   like_regex
+  |   null
+  |   size
+  |   starts
+  |   strict
+  |   to
+  |   true
+  |   type
+  |   unknown
+  |   with
+
+<JSON path literal> ::=
+  !! See the Syntax Rules.
+
+<JSON path string literal> ::=
+  !! See the Syntax Rules.
+
+<JSON path numeric literal> ::=
+  !! See the Syntax Rules.
+
+<JSON path identifier> ::=
+  !! See the Syntax Rules.
+
+<JSON path context variable> ::=
+  !! See the Syntax Rules.
+
+<JSON path named variable> ::=
+  !! See the Syntax Rules.
+
+<JSON path key name> ::=
+  !! See the Syntax Rules.
+
+9.39 SQL/JSON path language: syntax and semantics
+
+Function
+Specify the syntax and semantics of SQL/JSON path language.
+
+
+Format
+<JSON path expression> ::=
+  <JSON path mode> <JSON path wff>
+
+<JSON path mode> ::=
+  strict | lax
+
+<JSON path primary> ::=
+    <JSON path literal>
+  | <JSON path variable>
+  | <left paren> <JSON path wff> <right paren>
+
+<JSON path variable> ::=
+    <JSON path context variable>
+  | <JSON path named variable>
+  | <at sign>
+  | <JSON last subscript>
+
+<JSON path context variable> ::=
+  <dollar sign>
+
+<JSON path named variable> ::=
+  <dollar sign> <JSON path identifier>
+
+<JSON last subscript> ::=
+  last
+
+<JSON accessor expression> ::=
+    <JSON path primary>
+  | <JSON accessor expression> <JSON accessor op>
+
+<JSON accessor op> ::=
+      <JSON    member accessor>
+  |   <JSON    wildcard member accessor>
+  |   <JSON    array accessor>
+  |   <JSON    wildcard array accessor>
+  |   <JSON    filter expression>
+  |   <JSON    item method>
+
+<JSON member accessor> ::=
+    <period> <JSON path key name>
+  | <period> <JSON path string literal>
+      NOTE 447 — Unlike [ECMAScript], SQL/JSON path language does not provide a member accessor using brackets that enclose
+      a character string.
+
+<JSON wildcard member accessor> ::=
+  <period> <asterisk>
+
+<JSON array accessor> ::=
+  <left bracket> <JSON subscript list> <right bracket>
+
+<JSON subscript list> ::=
+  <JSON subscript> [ { <comma> <JSON subscript> }... ]
+
+<JSON subscript> ::=
+    <JSON path wff 1>
+  | <JSON path wff 2> to <JSON path wff 3>
+
+<JSON path wff 1> ::=
+  <JSON path wff>
+
+<JSON path wff 2> ::=
+  <JSON path wff>
+
+<JSON path wff 3> ::=
+  <JSON path wff>
+
+<JSON wildcard array accessor> ::=
+  <left bracket> <asterisk> <right bracket>
+
+<JSON filter expression> ::=
+  <question mark> <left paren> <JSON path predicate> <right paren>
+      NOTE 448 — Unlike [ECMAScript], predicates are not expressions; instead they form a separate language that can only be invoked
+      within a <JSON filter expression>.
+
+<JSON item method> ::=
+  <period> <JSON method>
+
+<JSON method> ::=
+    type <left paren> <right paren>
+  | size <left paren> <right paren>
+  | double <left paren> <right paren>
+  | ceiling <left paren> <right paren>
+  | floor <left paren> <right paren>
+  | abs <left paren> <right paren>
+  | datetime <left paren> [ <JSON datetime template> ] <right paren>
+  | keyvalue <left paren> <right paren>
+
+<JSON datetime template> ::=
+  <JSON path string literal>
+<JSON unary expression> ::=
+    <JSON accessor expression>
+  | <plus sign> <JSON unary expression>
+  | <minus sign> <JSON unary expression>
+
+<JSON multiplicative expression> ::=
+    <JSON unary expression>
+  | <JSON multiplicative expression> <asterisk> <JSON unary expression>
+  | <JSON multiplicative expression> <solidus> <JSON unary expression>
+  | <JSON multiplicative expression> <percent> <JSON unary expression>
+
+<JSON additive expression> ::=
+    <JSON multiplicative expression>
+  | <JSON additive expression> <plus sign> <JSON multiplicative expression>
+  | <JSON additive expression> <minus sign> <JSON multiplicative expression>
+
+<JSON path wff> ::=
+  <JSON additive expression>
+   NOTE 449 — This concludes the main language for JSON path expressions. Next comes the language for predicates, used only
+   in <JSON filter expression>.
+
+<JSON predicate primary> ::=
+    <JSON delimited predicate>
+  | <JSON non-delimited predicate>
+
+<JSON delimited predicate> ::=
+    <JSON exists path predicate>
+  | <left paren> <JSON path predicate> <right paren>
+
+<JSON non-delimited predicate> ::=
+    <JSON comparison predicate>
+  | <JSON like_regex predicate>
+  | <JSON starts with predicate>
+  | <JSON unknown predicate>
+
+<JSON exists path predicate> ::=
+  exists <left paren> <JSON path wff> <right paren>
+
+<JSON comparison predicate> ::=
+  <JSON path wff> <JSON comp op> <JSON path wff>
+   NOTE 450 — Comparison operators are not left associative, unlike [ECMAScript].
+
+<JSON comp op> ::=
+    <double equals>
+  | <not equals operator>
+  | <less than operator>
+  | <greater than operator>
+  | <less than or equals operator>
+  | <greater than or equals operator>
+   NOTE 451 — Equality operators have the same precedence as inequality comparison operators, unlike [ECMAScript].
+
+<JSON like_regex predicate> ::=
+  <JSON path wff> like_regex <JSON like_regex pattern>
+      [ flag <JSON like_regex flags> ]
+
+<JSON like_regex pattern> ::=
+  <JSON path string literal>
+<JSON like_regex flags> ::=
+  <JSON path string literal>
+
+<JSON starts with predicate> ::=
+  <JSON starts with whole> starts with <JSON starts with initial>
+
+<JSON starts with whole> ::=
+  <JSON path wff>
+
+<JSON starts with initial> ::=
+    <JSON path string literal>
+  | <JSON path named variable>
+
+<JSON unknown predicate> ::=
+  <left paren> <JSON path predicate> <right paren> is unknown
+
+<JSON boolean negation> ::=
+    <JSON predicate primary>
+  | <exclamation mark> <JSON delimited predicate>
+
+<JSON boolean conjunction> ::=
+    <JSON boolean negation>
+  | <JSON boolean conjunction> <double ampersand> <JSON boolean negation>
+
+<JSON boolean disjunction> ::=
+    <JSON boolean conjunction>
+  | <JSON boolean disjunction> <double vertical bar> <JSON boolean conjunction>
+
+<JSON path predicate> ::=
+  <JSON boolean disjunction>
+
+9.44 Datetime templates
+
+Function
+Specify the templates to use to convert between datetime types and character string types.
+
+
+Format
+<datetime template> ::=
+  { <datetime template part> }...
+
+<datetime template part> ::=
+    <datetime template field>
+  | <datetime template delimiter>
+
+<datetime template field> ::=
+    <datetime template year>
+  | <datetime template rounded year>
+  | <datetime template month>
+  | <datetime template day of month>
+  | <datetime template day of year>
+  | <datetime template 12-hour>
+  | <datetime template 24-hour>
+  | <datetime template minute>
+  | <datetime template second of minute>
+  | <datetime template second of day>
+  | <datetime template fraction>
+  | <datetime template am/pm>
+  | <datetime template time zone hour>
+  | <datetime template time zone minute>
+
+<datetime template delimiter> ::=
+    <minus sign>
+  | <period>
+  | <solidus>
+  | <comma>
+  | <apostrophe>
+  | <semicolon>
+  | <colon>
+  | <space>
+
+<datetime template year> ::=
+  YYYY | YYY | YY | Y
+
+<datetime template rounded year> ::=
+  RRRR | RR
+<datetime template month> ::=
+  MM
+
+<datetime template day of month> ::=
+  DD
+
+<datetime template day of year> ::=
+  DDD
+
+<datetime template 12-hour> ::=
+  HH | HH12
+
+<datetime template 24-hour> ::=
+  HH24
+
+<datetime template minute> ::=
+  MI
+
+<datetime template second of minute> ::=
+  SS
+
+<datetime template second of day> ::=
+  SSSSS
+
+<datetime template fraction> ::=
+  FF1 | FF2 | FF3 | FF4 | FF5 | FF6 | FF7 | FF8 | FF9
+
+<datetime template am/pm> ::=
+  A.M. | P.M.
+
+<datetime template time zone hour> ::=
+  TZH
+
+<datetime template time zone minute> ::=
+  TZM
+
+
 10 Additional common elements
 
 
@@ -3472,7 +4489,9 @@ Format
   [ <schema name> <period> ] <qualified identifier>
 
 <SQL argument list> ::=
-  <left paren> [ <SQL argument> [ { <comma> <SQL argument> }... ] ] <right paren>
+  <left paren>
+      [ <SQL argument> [ { <comma> <SQL argument> }... ] [ <copartition clause> ] ]
+      <right paren>
 
 <SQL argument> ::=
     <value expression>
@@ -3480,6 +4499,8 @@ Format
   | <target specification>
   | <contextually typed value specification>
   | <named argument specification>
+  | <table argument>
+  | <descriptor argument>
 
 <generalized expression> ::=
   <value expression> AS <path-resolved user-defined type name>
@@ -3492,6 +4513,74 @@ Format
     <value expression>
   | <target specification>
   | <contextually typed value specification>
+  | <table argument>
+  | <descriptor argument>
+
+<table argument> ::=
+  <table argument proper>
+      [ [ AS ] <table argument correlation name>
+      [ <table argument parenthesized derived column list> ] ]
+      [ <table argument partitioning> ]
+      [ <table argument pruning> ]
+      [ <table argument ordering> ]
+
+<table argument correlation name> ::=
+  <correlation name>
+
+<table argument parenthesized derived column list> ::=
+  <parenthesized derived column list>
+
+<table argument proper> ::=
+    TABLE <left paren> <table or query name> <right paren>
+  | TABLE <table subquery>
+  | <table function invocation>
+
+<table function invocation> ::=
+  <routine invocation>
+
+<table argument partitioning> ::=
+  PARTITION BY <table argument partitioning list>
+
+<table argument partitioning list> ::=
+    <column reference>
+  | <left paren> [ <column reference> [ { <comma> <column reference> }... ] ] <right paren>
+
+<table argument pruning> ::=
+    PRUNE WHEN EMPTY
+  | KEEP WHEN EMPTY
+
+<table argument ordering> ::=
+  ORDER BY <table argument ordering list>
+
+<table argument ordering list> ::=
+    <table argument ordering column>
+  | <left paren>
+      <table argument ordering column>
+      [ { <comma> <table argument ordering column> }... ]
+      <right paren>
+
+<table argument ordering column> ::=
+  <column reference> [ <ordering specification> ] [ <null ordering> ]
+
+<copartition clause> ::=
+  COPARTITION <copartition list>
+
+<copartition list> ::=
+  <copartition specification> [ { <comma> <copartition specification> }... ]
+
+<copartition specification> ::=
+  <left paren> <range variable> <comma> <range variable>
+      [ { <comma> <range variable> }... ] <right paren>
+
+<range variable> ::=
+    <table name>
+  | <query name>
+  | <correlation name>
+
+<descriptor argument> ::=
+    <descriptor value constructor>
+  | CAST <left paren> NULL AS DESCRIPTOR <right paren>
+
 
 10.5 <character set specification>
 
@@ -3586,6 +4675,8 @@ Format
   | <binary set function> [ <filter clause> ]
   | <ordered set function> [ <filter clause> ]
   | <array aggregate function> [ <filter clause> ]
+  | <row pattern count function> [ <filter clause> ]
+  | <JSON aggregate function> [ <filter clause> ]
 
 <general set function> ::=
   <set function type> <left paren> [ <set quantifier> ]
@@ -3645,6 +4736,7 @@ Format
 <ordered set function> ::=
     <hypothetical set function>
   | <inverse distribution function>
+  | <listagg set function>
 
 <hypothetical set function> ::=
   <rank function type> <left paren>
@@ -3669,9 +4761,34 @@ Format
     PERCENTILE_CONT
   | PERCENTILE_DISC
 
+<listagg set function> ::=
+  LISTAGG <left paren> [ <set quantifier> ] <character value expression>
+      <comma> <listagg separator> [ <listagg overflow clause> ] <right paren>
+      <within group specification>
+
+<listagg separator> ::=
+  <character string literal>
+
+<listagg overflow clause> ::=
+  ON OVERFLOW <overflow behavior>
+
+<overflow behavior> ::=
+    ERROR
+  | TRUNCATE [ <listagg truncation filler> ] <listagg count indication>
+
+<listagg truncation filler> ::=
+  <character string literal>
+
+<listagg count indication> ::=
+    WITH COUNT>
+  | WITHOUT COUNT>
+
 <array aggregate function> ::=
   ARRAY_AGG
       <left paren> <value expression> [ ORDER BY <sort specification list> ] <right paren>
+
+<row pattern count function> ::=
+  COUNT <left paren> <row pattern variable name> <period> <asterisk> <right paren>
 
 10.10 <sort specification list>
 
@@ -3696,6 +4813,100 @@ Format
 <null ordering> ::=
     NULLS FIRST
   | NULLS LAST
+
+
+10.11 <JSON aggregate function>
+
+Function
+Construct a JSON object or a JSON array from an aggregation of SQL data.
+
+
+Format
+<JSON aggregate function> ::=
+    <JSON object aggregate constructor>
+  | <JSON array aggregate constructor>
+
+<JSON object aggregate constructor> ::=
+  JSON_OBJECTAGG <left paren>
+      <JSON name and value>
+      [ <JSON constructor null clause> ]
+      [ <JSON key uniqueness constraint> ]
+      [ <JSON output clause> ]
+      <right paren>
+
+<JSON array aggregate constructor> ::=
+  JSON_ARRAYAGG <left paren>
+      <JSON value expression>
+      [ <JSON array aggregate order by clause> ]
+      [ <JSON constructor null clause> ]
+      [ <JSON output clause> ]
+      <right paren>
+
+<JSON array aggregate order by clause> ::=
+  ORDER BY <sort specification list>
+
+
+10.12 <JSON value expression>
+
+Function
+Specify a value to be used as input by an SQL/JSON function.
+
+
+Format
+<JSON value expression> ::=
+  <value expression> [ <JSON input clause> ]
+
+<JSON input clause> ::=
+  FORMAT <JSON representation>
+
+
+10.13 <JSON output clause>
+
+Function
+Specify the data type, format, and encoding of the JSON text created by a JSON-returning function.
+
+
+Format
+<JSON output clause> ::=
+  RETURNING <data type> [ FORMAT <JSON representation> ]
+
+<JSON representation> ::=
+    JSON [ ENCODING { UTF8 | UTF16 | UTF32 } ]
+  | <implementation-defined JSON representation option>
+
+<implementation-defined JSON representation option> ::=
+  !! See the Syntax Rules.
+
+
+10.14 <JSON API common syntax>
+
+Subclause Signature
+“<JSON API common syntax>” [General Rules] (
+  Parameter: “JSON API COMMON SYNTAX”
+) Returns: “STATUS” and “SQL/JSON SEQUENCE”
+
+
+Function
+Define the inputs to JSON_VALUE, JSON_QUERY, JSON_TABLE, and JSON_EXISTS.
+
+
+Format
+<JSON API common syntax> ::=
+  <JSON context item> <comma> <JSON path specification> [ AS <JSON table path name> ]
+      [ <JSON passing clause> ]
+
+<JSON context item> ::=
+  <JSON value expression>
+
+<JSON path specification> ::=
+  <character string literal>
+
+<JSON passing clause> ::=
+  PASSING <JSON argument> [ { <comma> <JSON argument> }... ]
+
+<JSON argument> ::=
+  <JSON value expression> AS <identifier>
+
 
 11 Schema definition and manipulation
 
@@ -4439,6 +5650,7 @@ Format
 <drop domain default clause> ::=
   DROP DEFAULT
 
+
 11.38 <add domain constraint definition>
 
 Function
@@ -4910,7 +6122,7 @@ Format
   <left paren> [ <SQL parameter declaration>
       [ { <comma> <SQL parameter declaration> }... ] ] <right paren>
 
-<SQL parameter declaration> ::=
+14 <SQL parameter declaration> ::=
   [ <parameter mode> ]
       [ <SQL parameter name> ]
       <parameter type> [ RESULT ]
@@ -4919,6 +6131,7 @@ Format
 <parameter default> ::=
     <value expression>
   | <contextually typed value specification>
+  | <descriptor value constructor>
 
 <parameter mode> ::=
     IN
@@ -4926,7 +6139,27 @@ Format
   | INOUT
 
 <parameter type> ::=
-  <data type> [ <locator indication> ]
+   <data type> [ <locator indication> ]
+ | <generic table parameter type>
+ | <descriptor parameter type>
+
+<generic table parameter type> ::=
+  TABLE [ <pass through option> ] [ <generic table semantics> ]
+
+<pass through option> ::=
+    PASS THROUGH
+  | NO PASS THROUGH
+
+<generic table semantics> ::=
+    WITH ROW SEMANTICS
+  | WITH SET SEMANTICS [ <generic table pruning> ]
+
+<generic table pruning> ::=
+    PRUNE ON EMPTY
+  | KEEP ON EMPTY
+
+<descriptor parameter type> ::=
+  DESCRIPTOR
 
 <locator indication> ::=
   AS LOCATOR
@@ -4978,7 +6211,8 @@ Format
   | <returns table type>
 
 <returns table type> ::=
-  TABLE <table function column list>
+    TABLE [ <table function column list> ]
+  | ONLY PASS THROUGH
 
 <table function column list> ::=
   <left paren> <table function column list element>
@@ -4999,6 +6233,7 @@ Format
 <routine body> ::=
     <SQL routine spec>
   | <external body reference>
+  | <polymorphic table function body>
 
 <SQL routine spec> ::=
   [ <rights clause> ] <SQL routine body>
@@ -5015,6 +6250,32 @@ Format
       [ <parameter style clause> ]
       [ <transform group specification> ]
       [ <external security clause> ]
+
+<polymorphic table function body> ::=
+  [ <PTF private parameters> ]
+      [ DESCRIBE WITH <PTF describe component procedure> ]
+      [ START WITH <PTF start component procedure> ]
+      FULFILL WITH <PTF fulfill component procedure>
+      [ FINISH WITH <PTF finish component procedure> ]
+<PTF private parameters> ::=
+  PRIVATE [ DATA ] <private parameter declaration list>
+
+<private parameter declaration list> ::=
+  <left paren> [ <SQL parameter declaration>
+      [ { <comma> <SQL parameter declaration> }... ] ]
+      <right paren>
+
+<PTF describe component procedure> ::=
+  <specific routine designator>
+
+<PTF start component procedure> ::=
+  <specific routine designator>
+
+<PTF fulfill component procedure> ::=
+  <specific routine designator>
+
+<PTF finish component procedure> ::=
+  <specific routine designator>
 
 <external security clause> ::=
     EXTERNAL SECURITY DEFINER
@@ -5724,6 +6985,8 @@ Format
   | <execute statement>
   | <execute immediate statement>
   | <SQL dynamic data statement>
+  | <copy descriptor statement>
+  | <pipe row statement>
 
 <SQL dynamic data statement> ::=
     <allocate extended dynamic cursor statement>
@@ -6141,7 +7404,7 @@ Format
 
 Function
 Set the characteristics of the next SQL-transaction for the SQL-agent.
-    NOTE 522 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
+    NOTE 711 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
 
 
 Format
@@ -6188,7 +7451,7 @@ Function
 If an SQL-transaction is currently active, then set the constraint mode for that SQL-transaction in the current
 SQL-session. If no SQL-transaction is currently active, then set the constraint mode for the next SQL-transaction
 in the current SQL-session for the SQL-agent.
-    NOTE 524 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
+    NOTE 713 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
 
 
 Format
@@ -6428,6 +7691,20 @@ Format
     DEFAULT TRANSFORM GROUP <value specification>
   | TRANSFORM GROUP FOR TYPE <path-resolved user-defined type name> <value specification>
 
+19.10 <set session collation statement>
+
+Function
+Set the SQL-session collation of the SQL-session for one or more character sets. An SQL-session collation
+remains effective until another SQL-session collation for the same character set is successfully set.
+
+
+Format
+<set session collation statement> ::=
+    SET COLLATION <collation specification> [ FOR <character set specification list> ]
+  | SET NO COLLATION [ FOR <character set specification list> ]
+
+<collation specification> ::=
+  <value specification>
 
 20 Dynamic SQL
 
@@ -6439,7 +7716,7 @@ Allocate an SQL descriptor area.
 
 Format
 <allocate descriptor statement> ::=
-  ALLOCATE [ SQL ] DESCRIPTOR <descriptor name> [ WITH MAX <occurrences> ]
+  ALLOCATE [ SQL ] DESCRIPTOR <conventional descriptor name> [ WITH MAX <occurrences> ]
 
 <occurrences> ::=
   <simple value specification>
@@ -6453,7 +7730,7 @@ Deallocate an SQL descriptor area.
 
 Format
 <deallocate descriptor statement> ::=
-  DEALLOCATE [ SQL ] DESCRIPTOR <descriptor name>
+  DEALLOCATE [ SQL ] DESCRIPTOR <conventional descriptor name>
 
 20.4 <get descriptor statement>
 
@@ -6510,6 +7787,7 @@ Format
   | LEVEL
   | NAME
   | NULLABLE
+  | NULL_ORDERING
   | OCTET_LENGTH
   | PARAMETER_MODE
   | PARAMETER_ORDINAL_POSITION
@@ -6524,6 +7802,7 @@ Format
   | SCOPE_CATALOG
   | SCOPE_NAME
   | SCOPE_SCHEMA
+  | SORT_DIRECTION
   | TYPE
   | UNNAMED
   | USER_DEFINED_TYPE_CATALOG
@@ -6558,7 +7837,44 @@ Format
 <simple value specification 2> ::=
   <simple value specification>
 
-20.6 <prepare statement>
+20.6 <copy descriptor statement>
+
+Function
+Copy one SQL descriptor area, in whole or in part, to another SQL descriptor area.
+
+
+Format
+<copy descriptor statement> ::=
+    <copy whole descriptor statement>
+  | <copy item descriptor statement>
+
+<copy whole descriptor statement> ::=
+  COPY <source descriptor name> TO <target descriptor name>
+
+<copy item descriptor statement> ::=
+  COPY <source descriptor name> VALUE <item number 1>
+      <left paren> <copy descriptor options> <right paren>
+      TO <target descriptor name> VALUE <item number 2>
+
+<source descriptor name> ::=
+  <descriptor name>
+
+<target descriptor name> ::=
+  <PTF descriptor name>
+
+<item number 1> ::=
+  <simple value specification>
+
+<item number 2> ::=
+  <simple value specification>
+
+<copy descriptor options> ::=
+    NAME
+  | TYPE
+  | NAME <comma> TYPE
+  | DATA
+
+20.7 <prepare statement>
 
 Function
 Prepare a statement for execution.
@@ -6617,7 +7933,7 @@ Format
 <preparable implementation-defined statement> ::=
   !! See the Syntax Rules.
 
-20.7 <cursor attributes>
+20.8 <cursor attributes>
 
 Function
 Specify a list of cursor attributes.
@@ -6633,7 +7949,7 @@ Format
   | <cursor holdability>
   | <cursor returnability>
 
-20.8 <deallocate prepared statement>
+20.9 <deallocate prepared statement>
 
 Function
 Deallocate SQL-statements that have been prepared with a <prepare statement>.
@@ -6643,7 +7959,7 @@ Format
 <deallocate prepared statement> ::=
   DEALLOCATE PREPARE <SQL statement name>
 
-20.9 <describe statement>
+20.10 <describe statement>
 
 
 Function
@@ -6673,7 +7989,7 @@ Format
     <SQL statement name>
   | CURSOR <cursor name> STRUCTURE
 
-20.10 <input using clause>
+20.11 <input using clause>
 
 Function
 Supply input values for an <SQL dynamic statement>.
@@ -6693,7 +8009,7 @@ Format
 <using input descriptor> ::=
   <using descriptor>
 
-20.11 <output using clause>
+20.12 <output using clause>
 
 
 Function
@@ -6714,7 +8030,7 @@ Format
 <into descriptor> ::=
   INTO [ SQL ] DESCRIPTOR <descriptor name>
 
-20.12 <execute statement>
+20.13 <execute statement>
 
 Function
 Associate input SQL parameters and output targets with a prepared statement and execute the statement.
@@ -6730,7 +8046,7 @@ Format
 <parameter using clause> ::=
   <input using clause>
 
-20.13 <execute immediate statement>
+20.14 <execute immediate statement>
 
 Function
 Dynamically prepare and execute a preparable statement.
@@ -6740,7 +8056,7 @@ Format
 <execute immediate statement> ::=
   EXECUTE IMMEDIATE <SQL statement variable>
 
-20.14 <dynamic declare cursor>
+20.15 <dynamic declare cursor>
 
 Function
 Declare a declared dynamic cursor to be associated with a <statement name>, which may in turn be associated
@@ -6753,7 +8069,23 @@ Format
       <cursor properties>
       FOR <statement name>
 
-20.15 <allocate extended dynamic cursor statement>
+20.16 <descriptor value constructor>
+
+Function
+Construct a PTF descriptor.
+
+
+Format
+<descriptor value constructor> ::=
+  DESCRIPTOR <left paren> <descriptor column list> <right paren>
+
+<descriptor column list> ::=
+  <descriptor column specification> [ { <comma> <descriptor column specification> }... ]
+
+<descriptor column specification> ::=
+  <column name> [ <data type> ]
+
+20.17 <allocate extended dynamic cursor statement>
 
 Function
 Define a cursor based on a prepared statement for a <cursor specification>.
@@ -6765,7 +8097,7 @@ Format
       <cursor properties>
       FOR <extended statement name>
 
-20.16 <allocate received cursor statement>
+20.18 <allocate received cursor statement>
 
 Function
 Assign a cursor to the result set sequence returned from an SQL-invoked procedure.
@@ -6776,7 +8108,7 @@ Format
   ALLOCATE <cursor name>
       [ CURSOR ] FOR PROCEDURE <specific routine designator>
 
-20.17 <dynamic open statement>
+20.19 <dynamic open statement>
 
 Function
 Associate input dynamic parameters with a <cursor specification> and open the dynamic cursor.
@@ -6784,9 +8116,9 @@ Associate input dynamic parameters with a <cursor specification> and open the dy
 
 Format
 <dynamic open statement> ::=
-  OPEN <dynamic cursor name> [ <input using clause> ]
+  OPEN <conventional dynamic cursor name> [ <input using clause> ]
 
-20.18 <dynamic fetch statement>
+20.20 <dynamic fetch statement>
 
 Function
 Fetch a row for a dynamic cursor.
@@ -6796,7 +8128,7 @@ Format
 <dynamic fetch statement> ::=
   FETCH [ [ <fetch orientation> ] FROM ] <dynamic cursor name> <output using clause>
 
-20.19 <dynamic single row select statement>
+20.21 <dynamic single row select statement>
 
 Function
 Retrieve values from a dynamically-specified row of a table.
@@ -6806,7 +8138,7 @@ Format
 <dynamic single row select statement> ::=
   <query specification>
 
-20.20 <dynamic close statement>
+20.22 <dynamic close statement>
 
 Function
 Close a dynamic cursor.
@@ -6814,9 +8146,9 @@ Close a dynamic cursor.
 
 Format
 <dynamic close statement> ::=
-  CLOSE <dynamic cursor name>
+  CLOSE <conventional dynamic cursor name>
 
-20.21 <dynamic delete statement: positioned>
+20.23 <dynamic delete statement: positioned>
 
 Function
 Delete a row of a table.
@@ -6824,10 +8156,10 @@ Delete a row of a table.
 
 Format
 <dynamic delete statement: positioned> ::=
-  DELETE FROM <target table> WHERE CURRENT OF <dynamic cursor name>
+  DELETE FROM <target table> WHERE CURRENT OF <conventional dynamic cursor name>
 
 
-20.22 <dynamic update statement: positioned>
+20.24 <dynamic update statement: positioned>
 
 Function
 Update a row of a table.
@@ -6836,9 +8168,9 @@ Update a row of a table.
 Format
 <dynamic update statement: positioned> ::=
   UPDATE <target table> SET <set clause list>
-      WHERE CURRENT OF <dynamic cursor name>
+      WHERE CURRENT OF <conventional dynamic cursor name>
 
-20.23 <preparable dynamic delete statement: positioned>
+20.25 <preparable dynamic delete statement: positioned>
 
 Function
 Delete a row of a table through a dynamic cursor.
@@ -6849,7 +8181,7 @@ Format
   DELETE [ FROM <target table> ]
       WHERE CURRENT OF <preparable dynamic cursor name>
 
-20.24 <preparable dynamic cursor name>
+20.26 <preparable dynamic cursor name>
 
 Function
 Specify the cursor of a <preparable dynamic delete statement: positioned> or a <preparable dynamic update
@@ -6860,7 +8192,7 @@ Format
 <preparable dynamic cursor name> ::=
   [ <scope option> ] <cursor name>
 
-20.25 <preparable dynamic update statement: positioned>
+20.27 <preparable dynamic update statement: positioned>
 
 Function
 Update a row of a table through a dynamic cursor.
@@ -6870,6 +8202,16 @@ Format
 <preparable dynamic update statement: positioned> ::=
   UPDATE [ <target table> ] SET <set clause list>
       WHERE CURRENT OF <preparable dynamic cursor name>
+
+20.28 <pipe row statement>
+
+Function
+Output a row from a polymorphic table function.
+
+
+Format
+<pipe row statement> ::=
+  PIPE ROW <PTF descriptor name>
 
 21 Embedded SQL
 
@@ -6995,7 +8337,7 @@ Format
 
 <SQL condition> ::=
     <major category>
-  | SQLSTATE ( <SQLSTATE class value> [ , <SQLSTATE subclass value> ] )
+  | SQLSTATE ( <SQLSTATE class code> [ , <SQLSTATE subclass code> ] )
   | CONSTRAINT <constraint name>
 
 <major category> ::=
@@ -7003,10 +8345,10 @@ Format
   | SQLWARNING
   | NOT FOUND
 
-<SQLSTATE class value> ::=
+<SQLSTATE class code> ::=
   <SQLSTATE char> <SQLSTATE char>!! See the Syntax Rules.
 
-<SQLSTATE subclass value> ::=
+<SQLSTATE subclass code> ::=
   <SQLSTATE char> <SQLSTATE char> <SQLSTATE char>!! See the Syntax Rules.
 
 <SQLSTATE char> ::=
@@ -7204,14 +8546,12 @@ Format
       <C initial value> ] }... ]
 
 <C NCHAR variable> ::=
-  NCHAR [ CHARACTER SET [ IS ] <character set specification> ]
-      <C host identifier> <C array specification> [ <C initial value> ]
+  NCHAR <C host identifier> <C array specification> [ <C initial value> ]
       [ { <comma> <C host identifier> <C array specification>
       [ <C initial value> ] } ... ]
 
 <C NCHAR VARYING variable> ::=
-  NCHAR VARYING [ CHARACTER SET [ IS ] <character set specification> ]
-      <C host identifier> <C array specification> [ <C initial value> ]
+  NCHAR VARYING <C host identifier> <C array specification> [ <C initial value> ]
       [ { <comma> <C host identifier> <C array specification> [
       <C initial value> ] } ... ]
 
@@ -7223,7 +8563,6 @@ Format
 
 <C NCLOB variable> ::=
   SQL TYPE IS NCLOB <left paren> <character large object length> <right paren>
-      [ CHARACTER SET [ IS ] <character set specification> ]
       <C host identifier> [ <C initial value> ] [ { <comma> <C host identifier>
       [ <C initial value> ] }... ]
 
@@ -7328,8 +8667,7 @@ Format
       { PIC | PICTURE } [ IS ] { X [ <left paren> <character length> <right paren> ] }...
 
 <COBOL national character type> ::=
-  [ CHARACTER SET [ IS ] <character set specification> ]
-      { PIC | PICTURE } [ IS ] { N [ <left paren> <character length> <right paren> ] }...
+  { PIC | PICTURE } [ IS ] { N [ <left paren> <character length> <right paren> ] }...
 
 <COBOL CLOB variable> ::=
   [ USAGE [ IS ] ] SQL TYPE IS CLOB <left paren> <character large object length> <right
@@ -7339,7 +8677,6 @@ Format
 <COBOL NCLOB variable> ::=
   [ USAGE [ IS ] ] SQL TYPE IS NCLOB <left paren> <character large object length> <right
   paren>
-      [ CHARACTER SET [ IS ] <character set specification> ]
 
 <COBOL BINARY variable> ::=
   [ USAGE [ IS ] ] SQL TYPE IS BINARY <left paren> <length> <right paren>

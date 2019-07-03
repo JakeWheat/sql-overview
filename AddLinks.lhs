@@ -23,6 +23,7 @@ Little hack to add links to the navigation bars
 >   \<li><a href='sql-2008-foundation-grammar.html'>SQL:2008</li>\n\
 >   \<li><a href='sql-2011-foundation-grammar.html'>SQL:2011</li>\n\
 >   \<li><a href='sql-2011-psm-grammar.html'>SQL:2011 SQL/PSM</li>\n\
+>   \<li><a href='sql-2016-foundation-grammar.html'>SQL:2016</li>\n\
 >   \</ul>\n\
 >   \<br />\n\
 >   \<ul class=\"sectlevel1\">\n\

@@ -17,3 +17,4 @@ cat sql-2003-foundation-grammar.txt | $gta | asciidoctor - | runhaskell AddLinks
 cat sql-2008-foundation-grammar.txt | $gta | asciidoctor - | runhaskell AddLinks.lhs > build/sql-2008-foundation-grammar.html
 cat sql-2011-foundation-grammar.txt | $gta | asciidoctor - | runhaskell AddLinks.lhs > build/sql-2011-foundation-grammar.html
 cat sql-2011-psm-grammar.txt | $gta | asciidoctor - | runhaskell AddLinks.lhs > build/sql-2011-psm-grammar.html
+cat sql-2016-foundation-grammar.txt | $gta | asciidoctor - | runhaskell AddLinks.lhs > build/sql-2016-foundation-grammar.html
