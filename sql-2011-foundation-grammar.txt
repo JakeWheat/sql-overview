@@ -6429,6 +6429,21 @@ Format
   | TRANSFORM GROUP FOR TYPE <path-resolved user-defined type name> <value specification>
 
 
+19.10 <set session collation statement>
+
+Function
+Set the SQL-session collation of the SQL-session for one or more character sets. An SQL-session collation
+remains effective until another SQL-session collation for the same character set is successfully set.
+
+
+Format
+<set session collation statement> ::=
+    SET COLLATION <collation specification> [ FOR <character set specification list> ]
+  | SET NO COLLATION [ FOR <character set specification list> ]
+
+<collation specification> ::= <value specification>
+
+
 20 Dynamic SQL
 
 20.2 <allocate descriptor statement>
