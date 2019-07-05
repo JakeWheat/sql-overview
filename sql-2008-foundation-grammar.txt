@@ -5631,7 +5631,7 @@ Format
 
 Function
 Set the characteristics of the next SQL-transaction for the SQL-agent.
-NOTE 423 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
+NOTE 423 - This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
 
 
 Format
@@ -5678,7 +5678,7 @@ Function
 If an SQL-transaction is currently active, then set the constraint mode for that SQL-transaction in the current
 SQL-session. If no SQL-transaction is currently active, then set the constraint mode for the next SQL-transaction
 in the current SQL-session for the SQL-agent.
-NOTE 425 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
+NOTE 425 - This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
 
 
 Format
@@ -5971,7 +5971,7 @@ General Rules
 
 
 Conformance Rules
-1) Without Feature F693, “SQL-session and client module collations”, conforming SQL language shall not
+1) Without Feature F693, "SQL-session and client module collations", conforming SQL language shall not
    contain a <set session collation statement>.
 
 

@@ -1,7 +1,7 @@
 
 5 Lexical elements
 
-This Clause modifies Clause 5, “Lexical elements”, in ISO/IEC 9075-2.
+This Clause modifies Clause 5, "Lexical elements", in ISO/IEC 9075-2.
 
 
 
@@ -134,7 +134,7 @@ Defined triggered SQL-statements.
 Format
 <triggered SQL statement> ::=
   <SQL procedure statement>
-     NOTE 12 — The preceding production defining <triggered SQL statement> completely supersedes the definition in [ISO9075-2].
+     NOTE 12 - The preceding production defining <triggered SQL statement> completely supersedes the definition in [ISO9075-2].
 
 9.21 <SQL-server module definition>
 
@@ -202,7 +202,7 @@ Format
 
 10.2 <privileges>
 
-This Subclause modifies Subclause 12.3, “<privileges>”, in ISO/IEC 9075-2.
+This Subclause modifies Subclause 12.3, "<privileges>", in ISO/IEC 9075-2.
 
 
 Function

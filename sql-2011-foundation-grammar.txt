@@ -6141,7 +6141,7 @@ Format
 
 Function
 Set the characteristics of the next SQL-transaction for the SQL-agent.
-    NOTE 522 — This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
+    NOTE 522 - This statement has no effect on any SQL-transactions subsequent to the next SQL-transaction.
 
 
 Format
@@ -6188,7 +6188,7 @@ Function
 If an SQL-transaction is currently active, then set the constraint mode for that SQL-transaction in the current
 SQL-session. If no SQL-transaction is currently active, then set the constraint mode for the next SQL-transaction
 in the current SQL-session for the SQL-agent.
-    NOTE 524 — This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
+    NOTE 524 - This statement has no effect on any SQL-transactions subsequent to this SQL-transaction.
 
 
 Format
