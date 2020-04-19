@@ -4,3 +4,5 @@
 *.o
 /cabal.sandbox.config
 /build/
+/dist-newstyle/
+
