@@ -3371,7 +3371,7 @@ Format
   [ <with clause> ] <query expression body>
       [ <order by clause> ] [ <result offset clause> ] [ <fetch first clause> ]
 
-14 <with clause> ::=
+<with clause> ::=
   WITH [ RECURSIVE ] <with list>
 
 <with list> ::=
@@ -6122,7 +6122,7 @@ Format
   <left paren> [ <SQL parameter declaration>
       [ { <comma> <SQL parameter declaration> }... ] ] <right paren>
 
-14 <SQL parameter declaration> ::=
+<SQL parameter declaration> ::=
   [ <parameter mode> ]
       [ <SQL parameter name> ]
       <parameter type> [ RESULT ]
